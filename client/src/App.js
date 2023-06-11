@@ -48,21 +48,23 @@
 
 // }
 // export default App;
-
-import React from 'react';
-import Homepage from './pages/home';
-import Contact from './pages/contact';
-import NewBook from './pages/new';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
+import "./App.css";
+import React from "react";
+import Homepage from "./pages/home";
+import Contact from "./pages/contact";
+import NewBook from "./pages/new";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { FaFacebook } from "react-icons/fa";
 function App() {
   return (
     <div className="app">
-      <h1>Book Store</h1>
+      <header class="header">
       
-
-
-
+        <h1 class="title">
+          Book Store
+          <FaFacebook></FaFacebook>
+        </h1>
+      </header>
     </div>
   );
 }
