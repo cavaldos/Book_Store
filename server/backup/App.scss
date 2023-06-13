@@ -1,0 +1,137 @@
+/* root */
+:root {
+  --grey: #333;
+  --light-grey: #eee;
+  --white-background: #f2f3f5;
+  --text-dark: #373941;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--white-background);
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 100px 0;
+}
+.signup {
+  padding: 60px 75px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 15px 10px 0px rgba(206, 203, 203, 0.5);
+}
+.logo-google{
+  width:10px;
+  height: 10px;
+  margin: 10px;
+  padding: 0;
+}
+.signup-heading {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-dark);
+}
+.signup-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: 0;
+  background-color: #4c6ff4;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 5px 10px 0px rgba(76, 111, 224, 0.5);
+}
+
+.signup-btn:hover {
+  background-color: #435bea;
+}
+.signup-or {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+  margin: 10px auto;
+  padding: 0;
+  position: relative;
+}
+.signup-or span {
+  background-color: #fff;
+  padding: 0 10px;
+  position: relative;
+  z-index: 2;
+}
+.signup-or::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #999;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.signup-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  display: inline-block;
+  cursor: pointer;
+  
+}
+.signup-input {
+  width: 100%;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+.signup-submit {
+  width: 60%;
+  margin: 0 auto;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0px 0px 2px 2px rgba(130,201,30, 0.5);
+  border: 0;
+  background-color: rgb(130,201,30);
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-bottom:25px ;
+}
+
+.signup-submit:hover {
+  background-color: rgb(99, 163, 9);
+}
+.signup-already{
+  text-align: center;
+  font-size: 16px;
+
+  color: #999;
+  margin: 10px auto;
+
+  position: relative;
+}
