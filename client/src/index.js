@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
 // files import
 import App from './App';
-import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
 import Homepage from "./pages/home";
