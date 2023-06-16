@@ -1,10 +1,9 @@
 import React from "react";
 
-function UserPage() {
+function VisitorPage() {
   return (
-    <div className="user">
-        <h1 clasName="header">Welcome to the User Page!</h1>
-    </div>
+    <div className="vistor">Vistor Page</div>
+
     // <>
     //   <Header />
     //   <Sidebar />
@@ -13,4 +12,4 @@ function UserPage() {
     // </>
   );
 }
-export default UserPage;
+export default VisitorPage;

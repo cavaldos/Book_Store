@@ -6,9 +6,6 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-rou
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
-import Home from "./pages/Home";
-import Login from "./pages/Login";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

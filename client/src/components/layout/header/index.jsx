@@ -1,6 +1,4 @@
-import "./account.jsx";
-import "./index.jsx";
-import "./setting.jsx";
+
 import "./home.scss";
 import React from "react";
 
