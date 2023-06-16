@@ -1,5 +1,5 @@
 import Home from "../pages/Home";
-import Manager from "../pages/Manager";
+import Login from "../pages/Login";
 
 //public routes
 
@@ -9,10 +9,13 @@ const publicRoutes = [
     component: Home,
   },
   {
-    path: "/manager",
-    component: Manager,
+    path: "/login",
+    component: Login,
   },
+  
 ];
-const privateRoutes = [];
+const privateRoutes = [
+
+];
 
 export { publicRoutes, privateRoutes };

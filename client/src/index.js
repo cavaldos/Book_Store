@@ -8,13 +8,13 @@ import reportWebVitals from './reportWebVitals';
 
 
 import Home from "./pages/Home";
-import Manager from "./pages/Manager";
+import Login from "./pages/Login";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-);
+); 
 
 reportWebVitals();
 

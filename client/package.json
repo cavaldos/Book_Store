@@ -11,8 +11,10 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "css-reset-and-normalize": "^2.3.6",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
@@ -22,6 +24,18 @@
     "scss": "^0.2.4",
     "serve": "^14.2.0",
     "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.22.5",
+    "@types/node": "^20.3.1",
+    "css-loader": "^6.8.1",
+    "customize-cra": "^1.0.0",
+    "customize-cra-react-refresh": "^1.1.0",
+    "node-sass": "^7.0.3",
+    "react-app-rewired": "^2.2.1",
+    "sass": "^1.63.4",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,10 +60,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "node-sass": "^7.0.3",
-    "sass": "^1.63.3",
-    "sass-loader": "^13.3.2"
   }
 }
