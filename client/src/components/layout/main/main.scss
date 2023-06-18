@@ -1,0 +1,11 @@
+.main {
+  position:absolute;
+  top:11%;
+  width: 100%;
+  height: 100%;
+  background-color: #d3d3d3;
+  color: #fff;
+  width: calc(100% - var(--distance-left));
+  top:135px;
+  right: 0;
+}

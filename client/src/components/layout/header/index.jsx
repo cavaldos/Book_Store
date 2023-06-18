@@ -1,85 +1,85 @@
-import React, { useState } from "react";
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBtn,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBCollapse,
-} from "mdb-react-ui-kit";
+// import React from "react";
+// import { Link } from "react-router-dom";
 
-export default function App() {
-  const [showBasic, setShowBasic] = useState(false);
+import "./header.scss";
+// import Setting from "./setting";
+// import Search from "./search";
+// function Header() {
+//   return (
+//     <>
+//       <section class="flex">
+//       <Setting className ="setting" />
+//       <Search className ="search"/>
+//       </section>
+//     </>
+//   );
+// }
+// export default Header;
+// import React from "react";
 
+// function Header() {
+//   return (
+//     <header className="header">
+//       <section className="flex">
+//         <a href="home.html" className="logo">
+//           Educa.
+//         </a>
+//         <form action="search.html" method="post" className="search-form">
+//           <input
+//             type="text"
+//             name="search_box"
+//             required
+//             placeholder="search courses..."
+//             maxLength="100"
+//           />
+//           <button type="submit" className="fas fa-search"></button>
+//         </form>
+//         <div className="icons">
+//           <div id="menu-btn" className="fas fa-bars"></div>
+//           <div id="search-btn" className="fas fa-search"></div>
+//           <div id="user-btn" className="fas fa-user"></div>
+//           <div id="toggle-btn" className="fas fa-sun"></div>
+//         </div>
+//         <div className="profile">
+//           <img src="images/pic-1.jpg" className="image" alt="" />
+//           <h3 className="name">shaikh anas</h3>
+//           <p className="role">studen</p>
+//           <a href="profile.html" className="btn">
+//             view profile
+//           </a>
+//           <div className="flex-btn">
+//             <a href="login.html" className="option-btn">
+//               login
+//             </a>
+//             <a href="register.html" className="option-btn">
+//               register
+//             </a>
+//           </div>
+//         </div>
+//       </section>
+//     </header>
+//   );
+// }
+
+// export default Header;
+
+import React from "react";
+import User from "./user";
+import Search from "./search";
+import Menu from "./menu";
+function Header() {
   return (
-    <MDBNavbar expand="lg" light bgColor="light">
-      <MDBContainer fluid>
-        <MDBNavbarBrand href="#">Brand</MDBNavbarBrand>
-
-        <MDBNavbarToggler
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={() => setShowBasic(!showBasic)}
-        >
-          <MDBIcon icon="bars" fas />
-        </MDBNavbarToggler>
-
-        <MDBCollapse navbar show={showBasic}>
-          <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="#">
-                Home
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href="#">Link</MDBNavbarLink>
-            </MDBNavbarItem>
-
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag="a" className="nav-link" role="button">
-                  Dropdown
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
-                  <MDBDropdownItem link>Another action</MDBDropdownItem>
-                  <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-
-            <MDBNavbarItem>
-              <MDBNavbarLink
-                disabled
-                href="#"
-                tabIndex={-1}
-                aria-disabled="true"
-              >
-                Disabled
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-
-          <form className="d-flex input-group w-auto">
-            <input
-              type="search"
-              className="form-control"
-              placeholder="Type query"
-              aria-label="Search"
-            />
-            <MDBBtn color="primary">Search</MDBBtn>
-          </form>
-        </MDBCollapse>
-      </MDBContainer>
-    </MDBNavbar>
+    <>
+      <header className="header">
+        <h2 className="logo">Book Store</h2>
+        <nav className="navigation">
+          <Search />
+          <Menu />
+          <User />
+        </nav>
+      </header>
+    </>
   );
 }
+
+export default Header;

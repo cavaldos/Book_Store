@@ -1,0 +1,23 @@
+.login {
+  background-color: var(--white);
+  padding: 3rem;
+  position: relative;
+  top :0;
+  left: 0;;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  height: 440px;
+  text-align: center;
+  margin: auto;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+.login h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  color: var(--main-color);
+}

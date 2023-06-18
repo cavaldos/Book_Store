@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  background-color: var(--light-bg);
+}
+:root {
+  --main-color: #8e44ad;
+  --red: #e74c3c;
+  --orange: #f39c12;
+  --light-color: #888;
+  --light-bg: #eee;
+  --black: #2c3e50;
+  --white: #fff;
+  --backdround-icon: #eeeeee;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  // --distance-left: 18%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - var(--distance-left));
+  margin: 0;
+  padding: 1.5em;
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.logo {
+  font-size: 2em;
+  background-color: var(--white);
+  color: var(text-color);
+  user-select: none;
+  cursor: pointer;
+}
+.navigation {
+  display: flex;
+  background-color: var(--white);
+  padding: 10px;
+  margin: 0px;
+  left: 10px;
+  right: 10px;
+  width: 85%;
+  font-size: 20px;
+}
+.search-form {
+  display: inline-block;
+  background-color: var(--light-bg);
+  padding: 20px;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15%;
+  border: none;
+  border-radius: 6px;
+  box-sizing: border-box;
+  input {
+    box-sizing: border-box;
+    margin-right: 10%;
+    border: none;
+    &:focus {
+      outline: 2px solid var(--light-bg);
+    }
+  }
+  button {
+    box-sizing: border-box;
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 0em;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      color: var(--main-color);
+    }
+  }
+}
+
+#menu-btn {
+  font-size: 1.2em;
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10px;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  background-color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--black);
+    color: var(--white);
+  }
+}
+
+#user-btn {
+  font-size: 1.2em;
+  padding: 10px;
+  margin-right: 10px;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  background-color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--black);
+    color: var(--white);
+  }
+}
+
+#toggle-btn {
+  font-size: 1.2em;
+  padding: 10px;
+  margin-right: 10px;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  background-color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--black);
+    color: var(--white);
+  }
+}
