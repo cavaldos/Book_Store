@@ -76,80 +76,108 @@
 
 //------------------------------------------------------------------------------------------
 
-.login-container {
+.mainLogin {
+  text-align: center;
+  justify-content: center;
+  display: flex; 
+  padding-top: 90px;
+  padding-bottom: 90px;
+  
+  background-color: #e1e3eb;
+}
+.sub-mainLogin {
+ 
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #001f3f;
+  height: 580px;
+  width: 35%;
+  box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 60px; 
+  background-color: blue;
 }
-
-.login-form {
+.imgs {
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
+  }
+.container-image {
+  background-color: rgb(223, 221, 221); 
+  border-radius: 150px;
+  align-items: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 0px 20px #ccc;
+  height: 115px;
+  width: 115px;
+}
+.profile {
+  height: 100px;
+  width: 100px;
+  border-radius: 130px;
+} 
+
+#inputfield {
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #fff;
 }
 
-h2 {
-  margin: 0 0 15px 0;
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
+.Email {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top:10px;
+  margin-bottom:20px;
+  margin-left:20px;
+  
 }
 
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: black;
+input[type=text] {
+  padding-left: 50px;
 }
 
-input[type="email"],
-input[type="password"] {
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+input[type=password] {
+  padding-left: 50px;
 }
 
-.remember-me {
-  display: flex;
-  color: black;
-  align-items: center;
-  margin-bottom: 20px;
+.name{
+    padding-left: 70px;
+    font-size: 20px;
+}
+.second-input{
+    padding-top: 20px;
 }
 
-.remember-me input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.register-link {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.register-link a {
-  color: #0074d9;
-  text-decoration: none;
-}
-
-button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #0074d9;
-  color: #fff;
+.buttonlogin{
+  width: 380px;
+  height: 50px;
+  border-radius: 60px;
+  background-color: #4169e1;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+  font-size: 25px;
   border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+}
+.login-button{
+    padding-top: 25px;
 }
 
-button[type="submit"]:hover {
-  background-color: #005ea8;
+.link{
+    font-size: 25px;
+    font-weight: 400;
 }
+a{
+  color: blue;
+}
+
+h1{
+  color: black
+}
+
+//----------------------------------------------------------------------------

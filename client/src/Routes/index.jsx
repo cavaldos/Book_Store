@@ -5,6 +5,7 @@ import VisitorPage from "../pages/visitor";
 import AdminPage from "../pages/admin";
 import UserPage from "../pages/user";
 import AuthorPage from "../pages/author";
+import Signup from "../components/signup"
 //public routes
 
 const publicRoutes = [
@@ -15,6 +16,10 @@ const publicRoutes = [
   {
     path: "/login",
     component: Login,
+  },
+  {
+    path: "/signup",
+    component: Signup,
   },
 ];
 const privateRoutes = [
