@@ -1,11 +1,15 @@
 .main {
-  position:absolute;
-  top:11%;
+  position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #d3d3d3;
-  color: #fff;
+  background-color: var(--light-background);
+  color: black;
   width: calc(100% - var(--distance-left));
-  top:135px;
+  top: 80px;
   right: 0;
+  text-align: center;
+}
+
+.login-test{
+  background-color: aqua;
 }

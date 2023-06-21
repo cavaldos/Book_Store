@@ -1,28 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Marko+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,500&display=swap");
+
 @import "normalize.css";
 :root {
   --main-color: #8e44ad;
   --red: #e74c3c;
   --orange: #f39c12;
   --light-color: #888;
-  --light-bg: #eee;
+  --light-background: #eee;
   --black: #2c3e50;
   --white: #fff;
   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
-  --distance-left: 18%;
+  --distance-left: 17%;
   --background-wrraper: #f5f5f5;
+  --test-color: #c40000;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  background-color: var(--light-bg);
 }
 
-.wrapper {
-  position: absolute;
-  display: flex;
-  border-left: var(--border);
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: var(--background-wrraper);
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
+// .wrapper {
+//   position: absolute;
+//   display: flex;
+//   border-left: var(--border);
+//   top: 0px;
+//   left: 0px;
+//   right: 0px;
+//   bottom: 0px;
+//   background-color: var(--background-wrraper);
+//   justify-content: center;
+//   align-items: center;
+//   height: 100%;
+// }

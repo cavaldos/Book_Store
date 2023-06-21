@@ -1,20 +1,46 @@
 import React from "react";
-
+import {
+  WalletOutlined,
+  HomeOutlined,
+  ShoppingCartOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Breadcrumb, Layout, Menu, theme } from "antd";
+import useState from "react";
 import "./sidebar.scss";
-import Home from "./home";
-import ManagerAuthor from "./manager_author";
-import ManagerUser from "./manager_user";
-import Profile from "./profile";
+
 function Sidebar() {
   return (
     <>
       <div className="sidebar">
-        <Profile />
-        <Home />
-        <ManagerAuthor />
-        <ManagerUser />
+        <Menu
+          style={{
+            fontWeight: "bold",
+            fontSize: "20px",
+            padding: "10px 0px 0px 0px", // hover
+          }}
+          items={[
+            {
+              label: "Home",
+              key: "/",
+              icon: <HomeOutlined style={{ fontSize: "20px" }} />,
+            },
+            {
+              label: "Your cart",
+              key: "/your-cart",
+              icon: <ShoppingCartOutlined style={{ fontSize: "20px" }} />,
+            },
+            {
+              label: "Wallets",
+              key: "/wallets",
+              icon: <WalletOutlined style={{ fontSize: "20px" }} />,
+            },
+          ]}
+        />
       </div>
     </>
   );
 }
+
 export default Sidebar;

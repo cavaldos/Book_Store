@@ -1,16 +1,15 @@
 import React from "react";
+import Header from "../../components/layout/header";
+import Sidebar from "../../components/layout/sidebar";
+import Main from "../../components/layout/main";
 
 function UserPage() {
   return (
-    <div className="user">
-        <h1 clasName="header">Welcome to the User Page!</h1>
-    </div>
-    // <>
-    //   <Header />
-    //   <Sidebar />
-    //   <Main />
-    //   <Footer />
-    // </>
+    <>
+      <Header />
+      <Sidebar />
+      <Main />
+    </>
   );
 }
 export default UserPage;

@@ -7,11 +7,7 @@ import Login from "../../components/login";
 function VisitorPage() {
   return (
     <div>
-      <Login />
-      <Main></Main>
-      <Header />
-      <Sidebar />
-      {/* login inside main */}
+      
     </div>
   );
 }

@@ -10,7 +10,7 @@ import AuthorPage from "../pages/author";
 const publicRoutes = [
   {
     path: "/",
-    component: VisitorPage,
+    component: UserPage,
   },
   {
     path: "/login",
