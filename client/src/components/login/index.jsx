@@ -1,10 +1,12 @@
 import "./login.scss";
 import React, { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import profile from "../image/a.png"
 import Email from "../image/email.jpg"
 import pass from "../image/pass.png"
+import bgImg from '../image/img1.jpg';
 
 // function Login() {
 //   return (
@@ -162,40 +164,44 @@ function Login() {
 
 
   return (
-    <div className="mainLogin">
-        <div className="sub-mainLogin">
-           
-            <div>
-                <div className="imgs">
-                    <div className="container-image">
-                        <img src={profile} alt="profile" className="profile"/>
+    <div className="mainLogin">   
+        <div>
+            <div className="login">
+                <div className="col-1">
+                    <div className="imgs">
+                        <div className="container-image">
+                            <img src={profile} alt="profile" className="profile"/>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>Login</h1>
+                        <form action="POST">
+                            <div>
+                                <img src={Email} alt="Email" className="Email"/>
+                                <input id="inputfield" type="text" className="name" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" required />
+                            </div>
+                            <div className="second-input">
+                                <img src={pass} alt="pass" className="Email"/>
+                                <input id="inputfield" type="password" className="name" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} required/>
+                            </div>
+                            <div className="login-button">
+                                <input type="submit" className="buttonlogin" onClick={submit} />
+                            </div>
+                        </form>
+
+                        <br />
+                        <p>OR</p>
+                        
+
+                        <Link to="/signup">Signup Page</Link>
                     </div>
                 </div>
-                <div>
-                    <h1>Login</h1>
-                    <form action="POST">
-                        <div>
-                            <img src={Email} alt="Email" className="Email"/>
-                            <input id="inputfield" type="text" className="name" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" required />
-                        </div>
-                        <div className="second-input">
-                            <img src={pass} alt="pass" className="Email"/>
-                            <input id="inputfield" type="password" className="name" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} required/>
-                        </div>
-                        <div className="login-button">
-                            <input type="submit" className="buttonlogin" onClick={submit} />
-                        </div>
-                    </form>
-
-                    <br />
-                    <p>OR</p>
-                    
-
-                    <Link to="/signup">Signup Page</Link>
+                <div className="col-2">
+                    <img src={bgImg} alt="" />
                 </div>
             </div>
+            
         </div>
-
     </div>
   )
 }

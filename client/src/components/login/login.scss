@@ -180,4 +180,32 @@ h1{
   color: black
 }
 
+p{
+  color: black
+}
+
+.col-1{
+  margin: auto;
+  padding: 3em 0;
+}
+
+.col-2 img{
+  width: 480px;
+  height: 100%;
+  object-fit: cover;
+  align-self: flex-end;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.login{
+  max-width: 978px;
+  width: 100vw;
+  display:flex;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  /* box-shadow: 1px 3px 10px #e9ecef; */
+  background-color: white;
+}
+
 //----------------------------------------------------------------------------
