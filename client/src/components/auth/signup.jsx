@@ -1,4 +1,7 @@
 import * as React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -31,13 +34,15 @@ function Copyright(props) {
 
 
 export default function SignUp() {
+  const history=useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
   };
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -45,6 +50,42 @@ export default function SignUp() {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+
+  //--------------------------------------------------------------------------------
+  const [firstname,setFirstname]=useState('')
+  const [lastname,setLastname]=useState('')
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+
+    async function submit(e){
+        e.preventDefault();
+
+        try{
+
+            await axios.post("http://localhost:8000/signup",{
+              firstname,lastname,email,password
+            })
+            .then(res=>{
+                if(res.data=="exist"){
+                    alert("User already exists")
+                }
+                else if(res.data=="notexist"){
+                    history("/",{state:{id:email}})
+                }
+            })
+            .catch(e=>{
+                alert("wrong details")
+                console.log(e);
+            })
+
+        }
+        catch(e){
+            console.log(e);
+
+        }
+
+    }
   return (
     <div className="wrapper_login">
       {/* <ThemeProvider theme={defaultTheme}> */}
@@ -69,74 +110,81 @@ export default function SignUp() {
             onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
+            <form action="POST">
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                    onChange={(e) => { setFirstname(e.target.value) }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="Last Name"
+                    name="lastName"
+                    autoComplete="family-name"
+                    onChange={(e) => { setLastname(e.target.value) }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    onChange={(e) => { setEmail(e.target.value) }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    autoComplete="new-password"
+                    onChange={(e) => { setPassword(e.target.value) }}
+                    InputProps={{
+                      endAdornment: (
+                        <IconButton onClick={toggleShowPassword}>
+                          {showPassword ? (
+                            <VisibilityOffIcon />
+                          ) : (
+                            <VisibilityIcon />
+                          )}
+                        </IconButton>
+                      ),
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox value="allowExtraEmails" color="primary" />
+                    }
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  autoComplete="new-password"
-                  InputProps={{
-                    endAdornment: (
-                      <IconButton onClick={toggleShowPassword}>
-                        {showPassword ? (
-                          <VisibilityOffIcon />
-                        ) : (
-                          <VisibilityIcon />
-                        )}
-                      </IconButton>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
+            </form>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={submit}
             >
               Sign Up
             </Button>

@@ -1,4 +1,8 @@
 import * as React from "react";
+import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -41,11 +45,45 @@ function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
   };
+
+   //--------------------------------------------------------------------------------
+   const history=useNavigate();
+
+   const [email,setEmail]=useState('')
+   const [password,setPassword]=useState('')
+ 
+    async function submit(e){
+       e.preventDefault();
+ 
+       try{
+ 
+           await axios.post("http://localhost:8000/signin",{
+              email,password
+           })
+           .then(res=>{
+               if(res.data=="exist"){
+                 history("/home",{state:{id:email}})
+               }
+               else if(res.data=="notexist"){
+                 alert("User have not sign up or wrong password")
+               }
+           })
+           .catch(e=>{
+               alert("wrong details")
+               console.log(e);
+           })
+ 
+       }
+        catch(e){
+          console.log(e);
+        }
+    }
+ 
 
   return (
     <div className="wrapper_login">
@@ -81,6 +119,7 @@ function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => { setEmail(e.target.value) }}
               />
               <TextField
                 margin="normal"
@@ -91,6 +130,7 @@ function SignIn() {
                 type={showPassword ? "text" : "password"}
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => { setPassword(e.target.value) }}
                 InputProps={{
                   endAdornment: (
                     <IconButton onClick={toggleShowPassword}>
@@ -111,6 +151,7 @@ function SignIn() {
                 type="submit"
                 fullWidth
                 variant="contained"
+                onClick={submit}
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In

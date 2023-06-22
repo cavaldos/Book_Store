@@ -25,6 +25,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.0",
     "react-icons": "^4.9.0",
     "react-image": "^4.1.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",

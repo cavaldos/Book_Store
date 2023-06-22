@@ -1,11 +1,32 @@
-const { default: mongoose } = require("mongoose");
+const mongoose=require("mongoose")
+mongoose.connect("mongodb://localhost:27017/react-login-tut")
+.then(()=>{
+    console.log("mongodb connected");
+})
+.catch(()=>{
+    console.log('failed');
+})
 
-const dbConnect = () => {
-  try {
-    const conn = mongoose.connect("mongodb://127.0.0.1:27017/bookstore");
-    console.log("Database Connected Successfully");
-  } catch (error) {
-    console.log("Database error");
+
+const newSchema=new mongoose.Schema({
+  firstname:{
+    type: String,
+    required:true
+  },
+  lastname:{
+    type:String,
+    required:true
+  },
+  email:{
+    type:String,
+    required:true
+  },
+  password:{
+    type:String,
+    required:true
   }
-};
-module.exports = dbConnect;
+})
+
+const collection = mongoose.model("collection",newSchema)
+
+module.exports=collection
