@@ -31,37 +31,36 @@ const style = {
 function Sider() {
   return (
     <div className="sider">
-      <div className="block"></div>
-
+      <div className="block">LOGO</div>
 
       <Sidebar style={style.menu}>
         <Menu>
-          <MenuItem >
+          <MenuItem onClick={() => alert("home")}>
             <HomeOutlined style={style.icon} /> Home
           </MenuItem>
 
           <SubMenu icon=<UnorderedListOutlined /> label="Manager">
-            <MenuItem onClick={() => alert("hlleo")}>
+            <MenuItem onClick={() => alert("user")}>
               <UsergroupAddOutlined /> User
             </MenuItem>
-            <MenuItem onClick={() => alert("hlleo")}>
+            <MenuItem onClick={() => alert("author")}>
               <ReadOutlined /> Author
             </MenuItem>
           </SubMenu>
-          <MenuItem onClick={() => alert("hlleo")}>
+          <MenuItem onClick={() => alert("my cart")}>
             <ShoppingCartOutlined style={style.icon} />
             My Cart
           </MenuItem>
-          <MenuItem onClick={() => alert("hlleo")}>
+          <MenuItem onClick={() => alert("my wallet")}>
             <WalletOutlined style={style.icon} />
             My Wallet
           </MenuItem>
-          <MenuItem onClick={() => alert("hlleo")}>
+          <MenuItem onClick={() => alert("Revenue")}>
             <LineChartOutlined style={style.icon} />
             Revenue
           </MenuItem>
 
-          <MenuItem onClick={() => alert("hlleo")}>
+          <MenuItem onClick={() => alert("about")}>
             <InfoCircleOutlined style={style.icon} />
             About
           </MenuItem>
