@@ -165,43 +165,43 @@ function Login() {
 
   return (
     <div className="mainLogin">   
-        <div>
-            <div className="login">
-                <div className="col-1">
-                    <div className="imgs">
-                        <div className="container-image">
-                            <img src={profile} alt="profile" className="profile"/>
-                        </div>
-                    </div>
-                    <div>
-                        <h1>Login</h1>
-                        <form action="POST">
-                            <div>
-                                <img src={Email} alt="Email" className="Email"/>
-                                <input id="inputfield" type="text" className="name" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" required />
-                            </div>
-                            <div className="second-input">
-                                <img src={pass} alt="pass" className="Email"/>
-                                <input id="inputfield" type="password" className="name" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} required/>
-                            </div>
-                            <div className="login-button">
-                                <input type="submit" className="buttonlogin" onClick={submit} />
-                            </div>
-                        </form>
-
-                        <br />
-                        <p>OR</p>
-                        
-
-                        <Link to="/signup">Signup Page</Link>
+       
+        <div className="login">
+            <div className="col-1">
+                <div className="imgs">
+                    <div className="container-image">
+                        <img src={profile} alt="profile" className="profile"/>
                     </div>
                 </div>
-                <div className="col-2">
-                    <img src={bgImg} alt="" />
+                <div>
+                    <h1>Login</h1>
+                    <form action="POST">
+                        <div>
+                            <img src={Email} alt="Email" className="Email"/>
+                            <input id="inputfield" type="text" className="name" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" required />
+                        </div>
+                        <div className="second-input">
+                            <img src={pass} alt="pass" className="Email"/>
+                            <input id="inputfield" type="password" className="name" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} required/>
+                        </div>
+                        <div className="login-button">
+                            <input type="submit" className="buttonlogin" onClick={submit} />
+                        </div>
+                    </form>
+
+                    <br />
+                    <p>OR</p>
+                    
+
+                    <Link to="/signup">Signup Page</Link>
                 </div>
             </div>
-            
+            <div className="col-2">
+                <img src={bgImg} alt="" />
+            </div>
         </div>
+            
+        
     </div>
   )
 }

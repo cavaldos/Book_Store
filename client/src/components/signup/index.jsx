@@ -40,7 +40,7 @@ function Login() {
 
 
     return (
-        <div className="login">
+        <div className="signup">
 
             <h1>Signup</h1>
 
