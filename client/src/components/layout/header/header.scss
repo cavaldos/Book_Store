@@ -2,18 +2,18 @@
   position: fixed;
   display: flex;
   top: 0;
-  right: 0;
-  height: 5em;
-  width: 100%;
+  left : var(--distance-left);
+  height: 4em;
+  width: calc(100% - var(--distance-left));
   margin: 0;
   padding: 1.5em;
   background-color: var(--white);
   justify-content: space-between;
   align-items: center;
   z-index: 99;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
-  // box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 
 
 }

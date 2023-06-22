@@ -1,9 +1,18 @@
-.sidebar {
+.sider {
   position: fixed;
   background-color: var(--white);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-  top: 5em;
-  left: 0;
+  top: 0em;
+  left: 0px;
   width: var(--distance-left);
   height: 100vh;
+  box-sizing: border-box;
+  .block {
+    position: relative;
+    display: flex;
+    background-color: var(--white);
+    padding: 70px 10px 70px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
 }
+

@@ -1,13 +1,7 @@
 import React from "react";
 import { Image, Typography } from "antd";
 import "./header.scss";
-import Notify from "./notify";
-import User from "./user";
-import Search from "./search";
-import Menu from "./menu";
-import Search_icon from "./search";
 const Header = () => {
-  // const [user, setUser] = userState(null);
   return (
     <>
       <div className="header">
@@ -25,8 +19,7 @@ const Header = () => {
         >
           Book Store
         </Typography.Title>
-        <Search_icon style={{color :"red"}} />
-        <Notify />
+      
 
       </div>
     </>
@@ -34,3 +27,4 @@ const Header = () => {
 };
 
 export default Header;
+

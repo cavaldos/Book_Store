@@ -1,6 +1,5 @@
-import React from "react";
-
-import Login from "../components/login";
+import SignIn from "../components/auth/signin";
+import SignUp from "../components/auth/signup";
 import VisitorPage from "../pages/visitor";
 import AdminPage from "../pages/admin";
 import UserPage from "../pages/user";
@@ -10,13 +9,18 @@ import AuthorPage from "../pages/author";
 const publicRoutes = [
   {
     path: "/",
-    component: UserPage,
+    component: VisitorPage,
   },
   {
-    path: "/login",
-    component: Login,
+    path: "/signin",
+    component: SignIn,
+  },
+  {
+    path: "/signup",
+    component: SignUp,
   },
 ];
+
 const privateRoutes = [
   {
     path: "/",

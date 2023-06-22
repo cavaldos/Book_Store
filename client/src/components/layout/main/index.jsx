@@ -1,13 +1,11 @@
 import * as React from "react";
 
 import "./main.scss";
-import Login from "../../login";
 
-import Manager_user from "../sidebar/manager_user";
 
 function Main() {
   return <div className="main">
-    <Manager_user />
+ hello
   </div>;
 }
 export default Main;

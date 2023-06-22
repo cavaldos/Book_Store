@@ -5,11 +5,9 @@
   background-color: var(--light-background);
   color: black;
   width: calc(100% - var(--distance-left));
-  top: 80px;
+  top: 3.9em;
   right: 0;
   text-align: center;
+  padding-top: 30px;
 }
 
-.login-test{
-  background-color: aqua;
-}
