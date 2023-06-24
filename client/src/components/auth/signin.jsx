@@ -16,9 +16,12 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 import IconButton from "@mui/material/IconButton";
-import { CloseCircleOutlined, CloseCircleFilled } from "@ant-design/icons";
+import { CloseCircleFilled } from "@ant-design/icons"; //CloseCircleOutlined
+// import Alert from "@mui/material/Alert";
+// import AlertTitle from "@mui/material/AlertTitle";
+// import Stack from "@mui/material/Stack";
 import "./auth.scss";
 
 function Copyright(props) {
@@ -70,18 +73,20 @@ function SignIn() {
           if (res.data === "exist") {
             history("/home", { state: { id: email } });
           } else if (res.data === "notexist") {
-            alert("User have not sign up or wrong password");
+            // alert("User have not sign up or wrong password");
           }
         })
         .catch((e) => {
-          alert("wrong details");
+          // alert("wrong details");
+          alert("User have not sign up or wrong password");
+
           console.log(e);
         });
     } catch (e) {
       console.log(e);
     }
   }
- 
+
   return (
     <div className="wrapper_login">
       <Container component="main" maxWidth="xs">

@@ -7,6 +7,9 @@ import AuthorPage from "../pages/author";
 import ManagerAuthor from "../components/layout/main/managerAuthor";
 import ManagerUser from "../components/layout/main/managerUser";
 import Home from "../components/layout/main/home";
+import Cart from "../components/layout/main/cart";
+import Wallet from "../components/layout/main/wallet";
+import Revenue from "../components/layout/main/revenue";
 //public routes
 const publicRoutes = [
   {
@@ -28,6 +31,18 @@ const publicRoutes = [
   {
     path: "/manager-author",
     component: ManagerAuthor,
+  },
+  {
+    path: "/my-cart",
+    component: Cart,
+  },
+  {
+    path: "/my-wallet",
+    component: Wallet,
+  },
+  {
+    path: "/revenue",
+    component: Revenue,
   },
 ];
 
