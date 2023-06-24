@@ -1,7 +1,11 @@
 import React from "react";
 import { Image, Typography } from "antd";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import ToggleTheme from "../../button/toogle_theme";
 import "./header.scss";
 const Header = () => {
+  const navigator = useNavigate();
   return (
     <>
       <div className="header">
@@ -19,8 +23,8 @@ const Header = () => {
         >
           Book Store
         </Typography.Title>
-      
-
+        <Button variant="contained" onClick={()=>navigator("/signin")}>Login</Button>
+        <ToggleTheme />
       </div>
     </>
   );

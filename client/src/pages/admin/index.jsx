@@ -1,16 +1,15 @@
 import React from "react";
 import Header from "../../components/layout/header";
-import Footer from "../../components/layout/footer";
+// import Footer from "../../components/layout/footer";
 import Sidebar from "../../components/layout/sidebar";
 import Main from "../../components/layout/main";
 function AdminPage() {
   return (
     <>
-        <h1>Admin Page</h1>
-      {/* <Header />
+      <Header />
       <Sidebar />
       <Main />
-      <Footer /> */}
+      {/* <Footer /> */}
     </>
   );
 }

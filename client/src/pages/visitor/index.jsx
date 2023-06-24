@@ -9,7 +9,7 @@ function VisitorPage() {
       <Header />
       <Sidebar />
       <Main />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

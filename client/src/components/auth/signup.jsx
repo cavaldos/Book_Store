@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios from "axios";
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -16,6 +16,8 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
+import { CloseCircleOutlined, CloseCircleFilled } from "@ant-design/icons";
+
 function Copyright(props) {
   return (
     <Typography
@@ -90,6 +92,15 @@ export default function SignUp() {
     <div className="wrapper_login">
       {/* <ThemeProvider theme={defaultTheme}> */}
       <Container component="main" maxWidth="xs">
+        <CloseCircleFilled
+          style={{
+            fontWeight: "bold",
+            fontSize: "20px",
+            marginLeft: "95%",
+            marginTop: "4%",
+          }}
+          onClick={() => history("/")}
+        />
         <Box
           sx={{
             marginTop: 8,
@@ -121,7 +132,9 @@ export default function SignUp() {
                     id="firstName"
                     label="First Name"
                     autoFocus
-                    onChange={(e) => { setFirstname(e.target.value) }}
+                    onChange={(e) => {
+                      setFirstname(e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -132,7 +145,9 @@ export default function SignUp() {
                     label="Last Name"
                     name="lastName"
                     autoComplete="family-name"
-                    onChange={(e) => { setLastname(e.target.value) }}
+                    onChange={(e) => {
+                      setLastname(e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -143,7 +158,9 @@ export default function SignUp() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
-                    onChange={(e) => { setEmail(e.target.value) }}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -155,7 +172,9 @@ export default function SignUp() {
                     type={showPassword ? "text" : "password"}
                     id="password"
                     autoComplete="new-password"
-                    onChange={(e) => { setPassword(e.target.value) }}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                     InputProps={{
                       endAdornment: (
                         <IconButton onClick={toggleShowPassword}>
@@ -190,7 +209,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

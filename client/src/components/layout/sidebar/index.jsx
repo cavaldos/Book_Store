@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import "./sidebar.scss";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   icon: {
@@ -27,40 +28,44 @@ const style = {
   },
 };
 
-
 function Sider() {
+  const navigate = useNavigate();
+  const handleClick = (path) => {
+    navigate(path);
+  };
+
   return (
     <div className="sider">
       <div className="block">LOGO</div>
 
       <Sidebar style={style.menu}>
         <Menu>
-          <MenuItem onClick={() => alert("home")}>
+          <MenuItem onClick={() => handleClick("/")}>
             <HomeOutlined style={style.icon} /> Home
           </MenuItem>
 
           <SubMenu icon=<UnorderedListOutlined /> label="Manager">
-            <MenuItem onClick={() => alert("user")}>
+            <MenuItem onClick={() => handleClick("/manager-user")}>
               <UsergroupAddOutlined /> User
             </MenuItem>
-            <MenuItem onClick={() => alert("author")}>
+            <MenuItem onClick={() => handleClick("/manager-author")}>
               <ReadOutlined /> Author
             </MenuItem>
           </SubMenu>
-          <MenuItem onClick={() => alert("my cart")}>
+          <MenuItem onClick={() => handleClick("/my-cart")}>
             <ShoppingCartOutlined style={style.icon} />
             My Cart
           </MenuItem>
-          <MenuItem onClick={() => alert("my wallet")}>
+          <MenuItem onClick={() => handleClick("/my-wallet")}>
             <WalletOutlined style={style.icon} />
             My Wallet
           </MenuItem>
-          <MenuItem onClick={() => alert("Revenue")}>
+          <MenuItem onClick={() => handleClick("/revenue")}>
             <LineChartOutlined style={style.icon} />
             Revenue
           </MenuItem>
 
-          <MenuItem onClick={() => alert("about")}>
+          <MenuItem onClick={() => handleClick("/about")}>
             <InfoCircleOutlined style={style.icon} />
             About
           </MenuItem>

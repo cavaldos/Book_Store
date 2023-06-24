@@ -4,12 +4,14 @@ import VisitorPage from "../pages/visitor";
 import AdminPage from "../pages/admin";
 import UserPage from "../pages/user";
 import AuthorPage from "../pages/author";
+import ManagerAuthor from "../components/layout/main/managerAuthor";
+import ManagerUser from "../components/layout/main/managerUser";
+import Home from "../components/layout/main/home";
 //public routes
-
 const publicRoutes = [
   {
     path: "/",
-    component: VisitorPage,
+    component: Home,
   },
   {
     path: "/signin",
@@ -19,7 +21,24 @@ const publicRoutes = [
     path: "/signup",
     component: SignUp,
   },
+  {
+    path: "/manager-user",
+    component: ManagerUser,
+  },
+  {
+    path: "/manager-author",
+    component: ManagerAuthor,
+  },
 ];
+
+// const PublicRouter=()=>{
+//     return(
+//         <>
+//         <Route path="/signin" component={SignIn} />
+//         <Route path="/signup" component={SignUp} />
+//         </>
+//     )
+// }
 
 const privateRoutes = [
   {
