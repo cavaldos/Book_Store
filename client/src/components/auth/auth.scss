@@ -2,9 +2,20 @@
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(26, 25, 25, 0.3);
   background-color: var(--background-wrraper);
+}
+
+.wrapper{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right : 0px;
+  bottom: 0px;
+  // background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
 }

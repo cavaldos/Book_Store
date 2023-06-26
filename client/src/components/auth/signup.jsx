@@ -16,10 +16,11 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import { CloseCircleOutlined, CloseCircleFilled } from "@ant-design/icons";
+import {  CloseCircleFilled } from "@ant-design/icons"; //CloseCircleOutlined
 
 function Copyright(props) {
   return (
+    
     <Typography
       variant="body2"
       color="text.secondary"
@@ -40,7 +41,7 @@ export default function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    // const data = new FormData(event.currentTarget);
     // console.log({
     //   email: data.get("email"),
     //   password: data.get("password"),
@@ -69,10 +70,10 @@ export default function SignUp() {
               firstname,lastname,email,password
             })
             .then(res=>{
-                if(res.data=="exist"){
+                if(res.data==="exist"){
                     alert("User already exists")
                 }
-                else if(res.data=="notexist"){
+                else if(res.data==="notexist"){
                     history("/",{state:{id:email}})
                 }
             })
@@ -89,7 +90,9 @@ export default function SignUp() {
 
     }
   return (
-    <div className="wrapper_login">
+    <>
+    <div className="wrapper">
+       <div className="wrapper_login">
       {/* <ThemeProvider theme={defaultTheme}> */}
       <Container component="main" maxWidth="xs">
         <CloseCircleFilled
@@ -219,5 +222,7 @@ export default function SignUp() {
       </Container>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </div>
+    </div>
+    </>
   );
 }

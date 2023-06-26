@@ -1,7 +1,4 @@
 import React from "react";
-import Header from "../header";
-import Sider from "../sidebar";
-
 import { DataGrid } from "@mui/x-data-grid";
 
 const columns = [
@@ -40,8 +37,6 @@ const rows = [
 function ManagerUser() {
   return (
     <>
-      <Header />
-      <Sider />
       <div className="main">
         <div className="userManager">
           <div style={{ height: 400, width: "100%", padding:"10px" }}>

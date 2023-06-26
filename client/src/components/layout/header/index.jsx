@@ -8,6 +8,7 @@ const Header = () => {
   const navigator = useNavigate();
   return (
     <>
+
       <div className="header">
         <Image
           style={{ backgroundColor: "white" }}
@@ -26,6 +27,7 @@ const Header = () => {
         <Button variant="contained" onClick={()=>navigator("/signin")}>Login</Button>
         <ToggleTheme />
       </div>
+    
     </>
   );
 };
