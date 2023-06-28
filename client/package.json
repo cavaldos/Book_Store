@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chec/commerce.js": "^2.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -30,6 +31,7 @@
     "react-icons": "^4.9.0",
     "react-image": "^4.1.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "scss": "^0.2.4",
