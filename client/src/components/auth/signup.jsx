@@ -60,21 +60,27 @@ export default function SignUp() {
   const [lastname,setLastname]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+  const [phonenumber,setPhonenumber]=useState('')
 
     async function submit(e){
         e.preventDefault();
+        if (!firstname || !lastname || !email || !password || !phonenumber) {
+          alert("Please fill in all the information")
+          return;
+        }
 
         try{
 
             await axios.post("http://localhost:8000/signup",{
-              firstname,lastname,email,password
+              firstname,lastname,email,password,phonenumber
             })
             .then(res=>{
                 if(res.data==="exist"){
-                    alert("User already exists")
+                  alert("User already exists")
                 }
                 else if(res.data==="notexist"){
-                    history("/",{state:{id:email}})
+                  alert("sign up succesfully!")
+                  history("/",{state:{id:email}})
                 }
             })
             .catch(e=>{
@@ -91,7 +97,7 @@ export default function SignUp() {
     }
   return (
     <>
-    <div className="wrapper">
+   
        <div className="wrapper_login">
       {/* <ThemeProvider theme={defaultTheme}> */}
       <Container component="main" maxWidth="xs">
@@ -192,6 +198,19 @@ export default function SignUp() {
                   />
                 </Grid>
                 <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="phonenumber"
+                    label="Phone Number"
+                    name="phonenumber"
+                    autoComplete="phonenumber"
+                    onChange={(e) => {
+                      setPhonenumber(e.target.value);
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
                   <FormControlLabel
                     control={
                       <Checkbox value="allowExtraEmails" color="primary" />
@@ -222,7 +241,7 @@ export default function SignUp() {
       </Container>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </div>
-    </div>
+    
     </>
   );
 }

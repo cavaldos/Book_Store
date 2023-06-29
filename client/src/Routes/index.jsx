@@ -6,6 +6,7 @@ import Author from '../pages/Manager/Author';
 import User from '../pages/Manager/User';
 import Revenue from '../pages/Revenue';
 import Wallet from '../pages/Wallet';
+import ResetPassword from '../components/auth/resetpassword';
 // public routes
 const publicRoutes = [
     {
@@ -16,6 +17,11 @@ const publicRoutes = [
         path: '/manager-author',
         component: Author,
         
+    },
+    { 
+        path: '/reset-password',
+        component: ResetPassword,
+        layout: null,
     },
     {
         path: '/manager-user',

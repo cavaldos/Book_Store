@@ -62,7 +62,10 @@ function SignIn() {
 
   async function submit(e) {
     e.preventDefault();
-
+    if ( !email || !password) {
+      alert("Please fill in all the information")
+      return;
+    }
     try {
       await axios
         .post("http://localhost:8000/signin", {
@@ -73,12 +76,12 @@ function SignIn() {
           if (res.data === "exist") {
             history("/home", { state: { id: email } });
           } else if (res.data === "notexist") {
-            // alert("User have not sign up or wrong password");
+            alert("User have not sign up or wrong password");
           }
         })
         .catch((e) => {
-          // alert("wrong details");
-          alert("User have not sign up or wrong password");
+          alert("wrong details");
+          //alert("User have not sign up or wrong password");
 
           console.log(e);
         });
@@ -89,103 +92,103 @@ function SignIn() {
 
   return (
     <>
-    <div className="wrapper">
-    <div className="wrapper_login">
-      <Container component="main" maxWidth="xs">
-        <CloseCircleFilled
-          style={{
-            fontWeight: "bold",
-            fontSize: "20px",
-            marginLeft: "95%",
-            marginTop: "4%",
-          }}
-          onClick={() => history("/")}
-        />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-
-          <Typography component="h1" variant="5">
-            Sign in
-          </Typography>
+    
+      <div className="wrapper_login">
+        <Container component="main" maxWidth="xs">
+          <CloseCircleFilled
+            style={{
+              fontWeight: "bold",
+              fontSize: "20px",
+              marginLeft: "95%",
+              marginTop: "4%",
+            }}
+            onClick={() => history("/")}
+          />
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type={showPassword ? "text" : "password"}
-              id="password"
-              autoComplete="current-password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              InputProps={{
-                endAdornment: (
-                  <IconButton onClick={toggleShowPassword}>
-                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                  </IconButton>
-                ),
-              }}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              onClick={submit}
-              sx={{ mt: 3, mb: 2 }}
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+
+            <Typography component="h1" variant="5">
+              Sign in
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
             >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type={showPassword ? "text" : "password"}
+                id="password"
+                autoComplete="current-password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                InputProps={{
+                  endAdornment: (
+                    <IconButton onClick={toggleShowPassword}>
+                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                    </IconButton>
+                  ),
+                }}
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                onClick={submit}
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="/reset-password" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="/signup" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-      </Container>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
-    </div>
-    </div>
+        </Container>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
+      </div>
+    
     </>
   );
 }

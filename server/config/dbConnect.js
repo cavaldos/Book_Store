@@ -24,6 +24,14 @@ const newSchema=new mongoose.Schema({
   password:{
     type:String,
     required:true
+  },
+  phonenumber:{
+    type:String,
+    required:true
+  },
+  confirmationCode:{
+    type:String,
+    required:false
   }
 })
 
