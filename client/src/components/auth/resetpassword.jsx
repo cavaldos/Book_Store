@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
 import Avatar from "@mui/material/Avatar";
@@ -39,7 +39,7 @@ function Copyright(props) {
 function ResetPassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    // const data = new FormData(event.currentTarget);
     // console.log({
     //   email: data.get("email"),
     //   password: data.get("password"),
@@ -50,7 +50,9 @@ function ResetPassword() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
+  const [              , setErrorMessage] = useState('');
+
   const [showPassword, setShowPassword] = React.useState(false);
   const [phonenumber,setPhonenumber]=useState('');
 

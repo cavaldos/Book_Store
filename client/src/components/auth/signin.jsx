@@ -62,7 +62,7 @@ function SignIn() {
 
   async function submit(e) {
     e.preventDefault();
-    if ( !email || !password) {
+    if (!email || !password) {
       alert("Please fill in all the information")
       return;
     }
@@ -92,7 +92,7 @@ function SignIn() {
 
   return (
     <>
-    
+
       <div className="wrapper_login">
         <Container component="main" maxWidth="xs">
           <CloseCircleFilled
@@ -188,7 +188,7 @@ function SignIn() {
         </Container>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </div>
-    
+
     </>
   );
 }

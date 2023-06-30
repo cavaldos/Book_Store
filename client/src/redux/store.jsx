@@ -1,11 +1,7 @@
-import { createStore, combineReducers } from 'redux';
-import reducers from './reducers';
+// import { createStore } from 'redux'
+// import combineReducers from "redux";
+import { configureStore } from '@reduxjs/toolkit';
+import reducer from './reducers';
 
-const rootReducer = combineReducers({
-    // các reducer sẽ được kết nối vào đây
-    reducers,
-});
-
-const store = createStore(rootReducer);
-
+const store = configureStore({ reducer });
 export default store;

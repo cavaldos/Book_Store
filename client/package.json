@@ -14,6 +14,7 @@
     "@mui/styled-engine-sc": "^5.12.0",
     "@mui/x-data-grid": "^6.8.0",
     "@mui/x-data-grid-generator": "^6.8.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
     "@types/node": "^20.3.1",
+    "babel-plugin-module-resolver": "^5.0.0",
     "css-loader": "^6.8.1",
     "customize-cra": "^1.0.0",
     "customize-cra-react-refresh": "^1.1.0",
