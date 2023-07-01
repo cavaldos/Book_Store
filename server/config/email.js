@@ -26,4 +26,5 @@ const sendConfirmationEmail = async (email, confirmationCode) => {
   }
 };
 
+// export default sendConfirmationEmail;
 module.exports = { sendConfirmationEmail };

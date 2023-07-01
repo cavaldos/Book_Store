@@ -1,8 +1,9 @@
 import './index.scss';
 
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+function Book() {
 
-function Book(props) {
     return (
         <>
             <div className="product">
@@ -13,13 +14,9 @@ function Book(props) {
                     />
                 </div>
                 <div className="product__content">
-                    <div className="product__content__title">
-                        <h3>Book title</h3>
+                    <div className="price">
+                     
                     </div>
-                    <button style={{ color: 'black', margin:'10px' }}>Add</button>
-                    <button>remove</button>
-                    <hr />
-                    {props.number}
                 </div>
             </div>
         </>

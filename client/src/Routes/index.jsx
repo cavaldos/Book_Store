@@ -16,9 +16,8 @@ const publicRoutes = [
     {
         path: '/manager-author',
         component: Author,
-        
     },
-    { 
+    {
         path: '/reset-password',
         component: ResetPassword,
         layout: null,
@@ -50,9 +49,13 @@ const publicRoutes = [
         path: '/my-wallet',
         component: Wallet,
     },
+    {
+        path: '/about',
+        component: Wallet,
+    },
+ 
 ];
 
-const privateRoutes = [
-]
+const privateRoutes = [];
 
 export { publicRoutes, privateRoutes };
