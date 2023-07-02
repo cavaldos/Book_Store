@@ -1,66 +1,44 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Book from './com/book';
 import './com/index.scss';
-import React from 'react';
-
 import { useSelector } from 'react-redux';
-// import {productReducer} from '../../redux/reducers/productReducer';
-import { useDispatch } from 'react-redux';
-// import {userReducer} from '../../redux/reducers/productReducer';
 
 function Home() {
-    const products = useSelector((state) => state.allProducts);
-    const users = useSelector((state) => state.allUsers);
-    const addToCart = useSelector((state) => state.addToCart);
-    const dispatch = useDispatch();
-    // const dispatch = useDispatch();
-    const add_to_cart = (id) => {
-        dispatch(addToCart(id));
-    };
-    console.log(products);
-    console.log(users);
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        axios
+            .get('https://fakestoreapi.com/products')
+            .then((response) => setProducts(response.data))
+            .catch((error) => console.log(error));
+    }, []);
+
+    const book = useSelector((state) => state.book);
+    console.log("book");
 
     return (
         <>
-            {products.map((product) => {
-                const {
-                    id,
-                    title,
-                    category,
-                    price,
-                    description,
-                    image,
-                    author,
-                    rating,
-                    quantity,
-                    addtocart,
-                } = product;
-                return (
-                    <div className="container" key={id}>
-                        <div className="image">
-                            <img src={image} alt={title} />
-                        </div>
-                        <div className="content">
-                            <h3>{title}</h3>
-                            <h3>{category}</h3>
-                            <h3>{price}</h3>
-                            <h3>{description}</h3>
-                            <h3>{author}</h3>
-                            <h3>{rating}</h3>
-                            <p>cart:</p>
-                            <h3>{quantity}</h3>
-                            <h3>{addtocart}</h3>
-                        </div>
-                        <div className="button">
-                            <button
-                                onClick={() => add_to_cart(addToCart)}
-                            >
-                                Add to cart
-                            </button>
-                        </div>
+            <div className="product-container">
+                {products.map((product) => (
+                    <div key={product.id} className="product-item">
+                        <Book
+                            title={product.title}
+                            price={product.price}
+                            rate={product.rating.rate}
+                            image={product.image}
+                        />
                     </div>
-                );
-            })}
+                ))}
+            </div>
         </>
     );
 }
 
 export default Home;
+//  <Book
+//      title="datastrcut"
+//      price="10"
+//      rate="3"
+//      author="khanh"
+//      image="https://images.unsplash.com/photo-1688149571284-ba299c1a247e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1634&q=80"
+//  />;

@@ -1,6 +1,4 @@
-
-
-.home{
+.home {
     position: relative;
     background-color: var(--background-wrraper);
     top: 20px;
@@ -9,10 +7,6 @@
     right: 10px;
     border-radius: 15px;
     min-height: 100vh;
-   
-   
-    
-    
 }
 .fillter {
     position: absolute;
@@ -26,23 +20,59 @@
     border-left: 1px solid rgb(69, 69, 69);
 }
 
-.product{
-    position: absolute;
-    width: 230px;
-    height: calc(230px * 1.4);
+.book-container {
+    position: relative;
     background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    margin: 10px;
-    border: 0.5px solid rgb(69, 69, 69);
-    .product__img{
-        width: 100%;
-        height: 70%;
-        border-radius: 15px 15px 0px 0px;
-        img{
+    margin: 10px 10px 10px 10px;
+    height: 22em;
+    width: 15em;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px 2px rgba(26, 25, 25, 0.5);
+    transition: all 0.25s ease-in-out;
+    .image {
+        position: relative;
+        text-align: center;
+        min-height: 10em;
+        min-width: 10em;
+        margin: 4px;
+        border-radius: 5px;
+        .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 5px;
             width: 100%;
             height: 100%;
-            border-radius: 15px 15px 0px 0px;
         }
     }
-    
+    &:hover {
+        box-shadow: 4px 4px 10px 2px rgba(26, 25, 25, 0.5);
+        transform: scale(1.1);
+    }
+    &::before {
+    }
+    &::after {
+    }
+}
+
+.product-container {
+    position: relative;
+    margin: 10px;
+    // background-color: aqua;
+    display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-item {
+    // background-color: red;
+    flex-basis: 10%;
+    margin-bottom: 1rem;
+    margin: 10px;
+    border-radius: 10px;
 }
