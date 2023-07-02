@@ -1,0 +1,25 @@
+.container-manager {
+    margin: 10px 50px 10px 50px;
+    background-color: var(--light-background);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    .container-profile {
+        margin: 5px;
+        padding: 10px;
+        min-height: 150px;
+        background-color: var(--background-wrraper);
+        border-radius: 8px;
+        border: 0.5px solid var(--black);
+        
+    }
+}
+
+.profile {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

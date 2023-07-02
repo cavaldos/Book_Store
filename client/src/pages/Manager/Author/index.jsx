@@ -1,10 +1,25 @@
 import React from 'react';
-
-const  Author=()=> {
-    console.log('Author');
+import '../style.scss';
+import Profile from '../profile';
+function Author() {
+    console.log('User');
     return (
         <>
-            <h1>Author</h1>
+            <div className="container-manager">
+            author
+                <div className="container-profile">
+                    <Profile />
+                </div>
+                <div className="container-profile">
+                    <Profile />
+                </div>
+                <div className="container-profile">
+                    <Profile />
+                </div>
+                <div className="container-profile">
+                    <Profile />
+                </div>
+            </div>
         </>
     );
 }

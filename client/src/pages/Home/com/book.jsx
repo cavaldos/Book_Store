@@ -4,7 +4,6 @@ import * as React from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
 
-import { useSelector } from 'react-redux';
 
 const style = {
     icon: {
@@ -59,7 +58,7 @@ const style = {
     },
 };
 function Book(props) {
-    const { id, title, price, description, quantity, author, image, rate } =
+    const {  title, price, description ,image, rate } =
         props;
 
     return (

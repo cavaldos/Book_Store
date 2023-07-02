@@ -14,7 +14,7 @@ function Home() {
     }, []);
 
     const book = useSelector((state) => state.book);
-    console.log("book");
+    console.log(book);
 
     return (
         <>
