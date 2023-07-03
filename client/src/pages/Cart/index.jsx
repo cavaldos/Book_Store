@@ -1,10 +1,12 @@
 import React from 'react';
-function Cart() {
 
-    console.log('Cart');
+import './index.scss';
+function Cart() {
+   
     return (
         <>
             <h2>Cart</h2>
+      
         </>
     );
 }

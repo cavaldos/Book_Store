@@ -1,6 +1,6 @@
 import './index.scss';
+import React from 'react';
 import Button from '@mui/material/Button';
-import * as React from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
 
@@ -58,8 +58,7 @@ const style = {
     },
 };
 function Book(props) {
-    const {  title, price, description ,image, rate } =
-        props;
+    const { title, price, description, image, rate } = props;
 
     return (
         <>
@@ -87,5 +86,4 @@ function Book(props) {
         </>
     );
 }
-
 export default Book;

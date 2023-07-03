@@ -21,10 +21,12 @@ const style = {
         paddingLeft: '12px',
     },
     menu: {
-        position: 'absolute',
+        position: 'relative',
         width: '100%',
         left: '0px',
         right: '0px',
+        display: 'flex',
+        backgroundColor: 'red',
     },
 };
 
@@ -33,13 +35,16 @@ function Sider() {
     const handleClick = (path) => {
         navigate(path);
     };
-    
+
     return (
         <div id="sider">
-            <div className="block">LOGO</div>
+            <div className="block">
+                LOGO
+              
+            </div>
 
-            <Sidebar style={style.menu}>
-               
+            <div className="sidebar">
+                {/* <Sidebar style={style.menu}> */}
                 <Menu>
                     <MenuItem onClick={() => handleClick('/')}>
                         <HomeOutlined style={style.icon} /> Home
@@ -55,7 +60,7 @@ function Sider() {
                             <ReadOutlined /> Author
                         </MenuItem>
                     </SubMenu>
-                    <MenuItem  onClick={() => handleClick('/my-cart')}>
+                    <MenuItem onClick={() => handleClick('/my-cart')}>
                         <ShoppingCartOutlined style={style.icon} />
                         My Cart
                     </MenuItem>
@@ -73,7 +78,8 @@ function Sider() {
                         About
                     </MenuItem>
                 </Menu>
-            </Sidebar>
+                {/* </Sidebar> */}
+            </div>
         </div>
     );
 }

@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Book from './com/book';
 import './com/index.scss';
-import { useSelector } from 'react-redux';
+import { Spin } from 'antd';
+
+// import { useSelector } from 'react-redux';
 
 function Home() {
+    const [loading, setLoading] = useState(false);
+
     const [products, setProducts] = useState([]);
     useEffect(() => {
         axios
@@ -12,24 +16,34 @@ function Home() {
             .then((response) => setProducts(response.data))
             .catch((error) => console.log(error));
     }, []);
+    //check loading
 
-    const book = useSelector((state) => state.book);
-    console.log(book);
-
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, [!products]);
     return (
         <>
-            <div className="product-container">
-                {products.map((product) => (
-                    <div key={product.id} className="product-item">
-                        <Book
-                            title={product.title}
-                            price={product.price}
-                            rate={product.rating.rate}
-                            image={product.image}
-                        />
-                    </div>
-                ))}
-            </div>
+            {loading ? (
+                <div className="loading">
+                    <Spin size="large" />
+                </div>
+            ) : (
+                <div className="product-container">
+                    {products.map((product) => (
+                        <div key={product.id} className="product-item">
+                            <Book
+                                title={product.title}
+                                price={product.price}
+                                rate={product.rating.rate}
+                                image={product.image}
+                            ></Book>
+                        </div>
+                    ))}
+                </div>
+            )}
         </>
     );
 }
