@@ -1,12 +1,12 @@
-import SignIn from '../components/auth/signin';
-import SignUp from '../components/auth/signup';
+import SignIn from '../components/authentication/signin';
+import SignUp from '../components/authentication/signup';
 import Cart from '../pages/Cart';
 import Home from '../pages/Home';
 import Author from '../pages/Manager/Author';
 import User from '../pages/Manager/User';
 import Revenue from '../pages/Revenue';
 import Wallet from '../pages/Wallet';
-import ResetPassword from '../components/auth/resetpassword';
+import ResetPassword from '../components/authentication/resetpassword';
 // public routes
 const publicRoutes = [
     {
@@ -42,11 +42,11 @@ const publicRoutes = [
     },
 
     {
-        path: '/my-cart',
+        path: '/cart',
         component: Cart,
     },
     {
-        path: '/my-wallet',
+        path: '/wallet',
         component: Wallet,
     },
     {

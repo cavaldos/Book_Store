@@ -3,9 +3,9 @@ import React from 'react';
 function Wallet() {
     console.log('Wallet');
     return (
-        <>
-            <h1>Wallet</h1>
-        </>
+        <div style={{ height: '100vh', backgroundColor: 'aqua' }}>
+            <h2>Cart</h2>
+        </div>
     );
 }
 

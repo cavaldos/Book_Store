@@ -13,6 +13,7 @@ export const bookSlice = createSlice({
         addToCart: (state, action) => {
             return {
                 ...state,
+                id: action.payload.id,
             };
         },
         

@@ -1,7 +1,7 @@
+import '../../components/layout/book/index.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Book from './com/book';
-import './com/index.scss';
+import Book from '../../components/layout/book/book';
 import { Spin } from 'antd';
 
 // import { useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ function Home() {
     const [loading, setLoading] = useState(false);
 
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         axios
             .get('https://fakestoreapi.com/products')

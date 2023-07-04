@@ -4,7 +4,10 @@ import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
 
-
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import  addToCart  from '../../../redux/features/bookSlice';
+import login from '../../../redux/features/userSilce';
 const style = {
     icon: {
         backgroundColor: '',
@@ -57,30 +60,33 @@ const style = {
         fontSize: '12px',
     },
 };
-function addToCart(productId, quantity) {
-    fetch('/api/add-to-cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ productId, quantity })
-    })
-    .then(response => {
-      if (response.ok) {
-        console.log('Item added to cart!');
-      } else {
-        console.error('Error adding item to cart:', response.statusText);
-      }
-    })
-    .catch(error => {
-      console.error('Error adding item to cart:', error);
-    });
-}
+// function addToCart(productId, quantity) {
+//     fetch('/api/add-to-cart', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({ productId, quantity })
+//     })
+//     .then(response => {
+//       if (response.ok) {
+//         console.log('Item added to cart!');
+//       } else {
+//         console.error('Error adding item to cart:', response.statusText);
+//       }
+//     })
+//     .catch(error => {
+//       console.error('Error adding item to cart:', error);
+//     });
+// }
+
 function Book(props, productId, quantity) {
     const { title, price, description, image, rate } = props;
+  
+
     const handleClick = () => {
-        addToCart(productId, quantity);
-      };
+        // dispatch(addToCart());
+    };
 
     return (
         <>
@@ -99,7 +105,12 @@ function Book(props, productId, quantity) {
                         <h3 style={style.h}> ${price}</h3>
                     </div>
                     <div className="description">{description}</div>
-                    <Button variant="outlined" size="small" style={style.icon} onClick={handleClick}>
+                    <Button
+                        variant="outlined"
+                        size="small"
+                        style={style.icon}
+                        onClick={handleClick}
+                    >
                         <AddShoppingCartIcon />
                     </Button>
                     <Rating style={style.rate} value={rate} readOnly />

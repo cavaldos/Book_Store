@@ -5,7 +5,9 @@ function Cart() {
    
     return (
         <>
-            <h2>Cart</h2>
+            <div style={{height:"100vh", backgroundColor:"aqua"}}>
+                <h2>Cart</h2>
+            </div>
       
         </>
     );

@@ -9,7 +9,7 @@ function Profile(props) {
             <div className="profile">
                 <div className="profile__image"></div>
                 <div className="content">
-                a
+                
                     <Form />
                 </div>
             </div>
