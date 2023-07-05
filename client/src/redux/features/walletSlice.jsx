@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
+//import subrice from redux
 export const walletSlice = createSlice({
     name: 'wallet',
     initialState: {

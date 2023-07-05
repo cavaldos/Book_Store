@@ -6,10 +6,8 @@ import Menus from '../layout/menu/index';
 const style = {
     sidebar: { color: 'white', background: '#010512' },
     header: {
-
         padding: 0,
         background: '#fefeff',
-    
     },
     button: { fontSize: '16px', width: 64, height: 64 },
     logo: {
@@ -28,6 +26,7 @@ const style = {
     },
     test: {
         backgroundColor: 'red',
+
         margin: '24px 16px',
     },
 };
