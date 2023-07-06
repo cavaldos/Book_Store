@@ -6,8 +6,20 @@ import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
 import BookIcon from '@material-ui/icons/Book';
 import { Link } from 'react-router-dom';
-
-const drawerWidth = 240;
+import clsx from 'clsx';
+import {
+    AppBar,
+    Toolbar,
+    Typography,
+    Drawer,
+    Divider,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+} from '@material-ui/core';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+const drawerWidth = 240;    
 
 const useStyles = makeStyles((theme) => ({
     root: {
