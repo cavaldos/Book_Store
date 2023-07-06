@@ -1,0 +1,30 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+    width: 100%;
+  background-color: #c0b0b0;
+}
+
+.content {
+  margin-left: 200px;
+  position: relative;
+  background-color: aquamarine;
+}
+
+.header {
+  position: fixed;
+  left: 300px;
+  top: 0;
+  right: 0;
+  height: 60px;
+  background-color: #523f3f;
+  z-index: 1;
+}
+
+.main {
+  background-color: rgb(133, 117, 96);
+  padding-top: 60px;
+}

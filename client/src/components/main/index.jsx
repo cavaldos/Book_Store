@@ -1,79 +1,127 @@
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Button, Layout, Menu } from 'antd';
-import { useState } from 'react';
-import Home from '../../pages/Home';
-import Menus from '../layout/menu/index';
-const style = {
-    sidebar: { color: 'white', background: '#010512' },
-    header: {
-        padding: 0,
-        background: '#fefeff',
-    },
-    button: { fontSize: '16px', width: 64, height: 64 },
-    logo: {
-        backgroundColor: '#323440',
-        height: '64px',
-        textAlign: 'center',
-        lineHeight: '64px',
-        padding: '0',
-    },
-    contents: {
-        margin: '24px 16px',
-        padding: 24,
-        minHeight: 280,
-        background: 'var(--white-color)',
-        borderRadius: '10px',
-    },
-    test: {
-        backgroundColor: 'red',
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import SettingsIcon from '@material-ui/icons/Settings';
+import Divider from '@material-ui/core/Divider';
+const drawerWidth = 240;
 
-        margin: '24px 16px',
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
     },
-};
-
-const { Header, Sider, Content } = Layout;
+    appBar: {
+        zIndex: 1300,
+    },
+    menuButton: {
+        marginRight: 36,
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+    toolbar: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: theme.spacing(0, 1),
+        ...theme.mixins.toolbar,
+    },
+}));
 const DefaultLayout = ({ children }) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const classes = useStyles();
+    const [open, setOpen] = useState(false);
+
+    const handleDrawerOpen = () => {
+        setOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+        setOpen(false);
+    };
+
     return (
-        <Layout>
-            <Sider
-                style={style.sidebar}
-                trigger={null}
-                collapsible
-                collapsed={collapsed}
+        <div className={classes.root}>
+            <AppBar position="fixed" className={classes.appBar}>
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerOpen}
+                        className={classes.menuButton}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap>
+                        My App
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Drawer
+                className={classes.drawer}
+                variant="persistent"
+                anchor="left"
+                open={open}
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
             >
-                <div className="logo" style={style.logo}>
-                    <h1> Book Store </h1>
+                <div className={classes.toolbar}>
+                    <IconButton onClick={handleDrawerClose}>
+                        <ChevronLeftIcon />
+                    </IconButton>
                 </div>
-                <div className="demo-logo-vertical" />
-                <Menus />
-            </Sider>
-            <Layout>
-                <Header style={style.header}>
-                    <Button
-                        style={style.button}
-                        type="text"
-                        icon={
-                            collapsed ? (
-                                <MenuUnfoldOutlined />
-                            ) : (
-                                <MenuFoldOutlined />
-                            )
-                        }
-                        onClick={() => setCollapsed(!collapsed)}
-                    />
-                </Header>
-                <Content style={style.contents}>
-                    {window.location.pathname === '/' ? (
-                        <>
-                            <Home />
-                        </>
-                    ) : (
-                        <>{children}</>
-                    )}
-                </Content>
-            </Layout>
-        </Layout>
+                <Divider />
+                <List>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <DashboardIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Dashboard" />
+                    </ListItem>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <SettingsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Settings" />
+                    </ListItem>
+                </List>
+            </Drawer>
+            <main className={classes.content}>
+                <div className={classes.toolbar}>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerOpen}
+                        className={classes.menuButton}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                </div>
+                {children}
+            </main>
+        </div>
     );
 };
+
 export default DefaultLayout;
