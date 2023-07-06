@@ -7,6 +7,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import BookIcon from '@material-ui/icons/Book';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import { Collapse } from '@mui/material';
+
 import {
     AppBar,
     Toolbar,
@@ -19,7 +21,7 @@ import {
     ListItemText,
 } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-const drawerWidth = 240;    
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -98,7 +100,9 @@ const DefaultLayout = ({ children }) => {
                     [classes.appBarShift]: open,
                 })}
             >
+                dfsgdfs
                 <Toolbar>
+                    dgfsfg
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -114,11 +118,16 @@ const DefaultLayout = ({ children }) => {
                         to="/"
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
+                        dfgfdg
                         <h1>Book Store</h1>
                     </Link>
                 </Toolbar>
             </AppBar>
             <Drawer
+              
+                elevation={16}
+                //hiden when screen is small
+
                 className={classes.drawer}
                 variant="persistent"
                 anchor="left"
@@ -127,6 +136,7 @@ const DefaultLayout = ({ children }) => {
                     paper: classes.drawerPaper,
                 }}
             >
+                dgfdfg
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
