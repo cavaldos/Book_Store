@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
 
 const DefaultLayout = ({ children }) => {
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const handleDrawerOpen = () => {
         setOpen(true);
