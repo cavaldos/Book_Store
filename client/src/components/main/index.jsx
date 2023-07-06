@@ -9,12 +9,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import SettingsIcon from '@material-ui/icons/Settings';
-import Divider from '@material-ui/core/Divider';
+import HomeIcon from '@material-ui/icons/Home';
+import BookIcon from '@material-ui/icons/Book';
+import { Link } from 'react-router-dom';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 1300,
     },
     menuButton: {
-        marginRight: 36,
+        marginRight: theme.spacing(2),
     },
     drawer: {
         width: drawerWidth,
@@ -38,14 +36,9 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
-    toolbar: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
-    },
+    toolbar: theme.mixins.toolbar,
 }));
+
 const DefaultLayout = ({ children }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -63,61 +56,50 @@ const DefaultLayout = ({ children }) => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <IconButton
+                        edge="start"
+                        className={classes.menuButton}
                         color="inherit"
                         aria-label="open drawer"
-                        edge="start"
                         onClick={handleDrawerOpen}
-                        className={classes.menuButton}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
-                        My App
-                    </Typography>
+                    <Link
+                        to="/"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                        <h1>Book Store</h1>
+                    </Link>
                 </Toolbar>
             </AppBar>
             <Drawer
                 className={classes.drawer}
-                variant="persistent"
+                variant="temporary"
                 anchor="left"
                 open={open}
+                onClose={handleDrawerClose}
                 classes={{
                     paper: classes.drawerPaper,
                 }}
             >
-                <div className={classes.toolbar}>
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
-                    </IconButton>
-                </div>
-                <Divider />
+                <div className={classes.toolbar} />
                 <List>
-                    <ListItem button>
+                    <ListItem button component={Link} to="/">
                         <ListItemIcon>
-                            <DashboardIcon />
+                            <HomeIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Dashboard" />
+                        <ListItemText primary="Home" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button component={Link} to="/books">
                         <ListItemIcon>
-                            <SettingsIcon />
+                            <BookIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Settings" />
+                        <ListItemText primary="Books" />
                     </ListItem>
                 </List>
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.toolbar}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerOpen}
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                </div>
+                <div className={classes.toolbar} />
                 {children}
             </main>
         </div>
