@@ -61,6 +61,7 @@ export default function SignUp() {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [phonenumber,setPhonenumber]=useState('')
+  const [confirmPassword, setConfirmPassword] = useState("");
 
     async function submit(e){
         e.preventDefault();
@@ -68,7 +69,11 @@ export default function SignUp() {
           alert("Please fill in all the information")
           return;
         }
-
+        
+        if (password !== confirmPassword) {
+          alert('Password and Confirm Password do not match.');
+          return;
+        }
         try{
 
             await axios.post("http://localhost:8000/signup",{
@@ -184,6 +189,29 @@ export default function SignUp() {
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
+                    InputProps={{
+                      endAdornment: (
+                        <IconButton onClick={toggleShowPassword}>
+                          {showPassword ? (
+                            <VisibilityOffIcon />
+                          ) : (
+                            <VisibilityIcon />
+                          )}
+                        </IconButton>
+                      ),
+                    }}
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type={showPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    autoComplete="confirm-password"
+                    onChange={(e) => { setConfirmPassword(e.target.value) }}
                     InputProps={{
                       endAdornment: (
                         <IconButton onClick={toggleShowPassword}>
