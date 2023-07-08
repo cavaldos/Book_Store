@@ -1,80 +1,115 @@
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Button, Layout, Menu } from 'antd';
+import '../layout/menu/menu.scss';
+import './styles.scss';
+
+import React from 'react';
 import { useState } from 'react';
-import Home from '../../pages/Home';
-import Menus from '../layout/menu/index';
-const style = {
-    sidebar: { color: 'white', background: '#010512' },
-    header: {
+import MenuItem from '../layout/menu';
+import BreadC from '../layout/header/breadcrumb';
 
-        padding: 0,
-        background: '#fefeff',
-    
-    },
-    button: { fontSize: '16px', width: 64, height: 64 },
-    logo: {
-        backgroundColor: '#323440',
-        height: '64px',
-        textAlign: 'center',
-        lineHeight: '64px',
-        padding: '0',
-    },
-    contents: {
-        margin: '24px 16px',
-        padding: 24,
-        minHeight: 280,
-        background: 'var(--white-color)',
-        borderRadius: '10px',
-    },
-    test: {
-        backgroundColor: 'red',
-        margin: '24px 16px',
-    },
-};
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
-const { Header, Sider, Content } = Layout;
 const DefaultLayout = ({ children }) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [toggle, setToggle] = useState('open');
+    const [scroll, setScroll] = useState('up');
+
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY;
+        scrollPosition > 50 ? setScroll('down') : setScroll('up');
+    });
+    const handleHeader = () => {
+        toggle === 'open' ? setToggle('close') : setToggle('open');
+    };
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    };
+
     return (
-        <Layout>
-            <Sider
-                style={style.sidebar}
-                trigger={null}
-                collapsible
-                collapsed={collapsed}
-            >
-                <div className="logo" style={style.logo}>
-                    <h1> Book Store </h1>
-                </div>
-                <div className="demo-logo-vertical" />
-                <Menus />
-            </Sider>
-            <Layout>
-                <Header style={style.header}>
-                    <Button
-                        style={style.button}
-                        type="text"
-                        icon={
-                            collapsed ? (
-                                <MenuUnfoldOutlined />
+        <>
+            <div className={toggle}>
+                {/*  */}
+                <div className="header">
+                    <div className={scroll}>
+                        <div
+                            className="button"
+                            onClick={() => {
+                                handleHeader();
+                            }}
+                        >
+                            {toggle === 'open' ? (
+                                <MenuFoldOutlined className="button-icon" />
                             ) : (
-                                <MenuFoldOutlined />
-                            )
-                        }
-                        onClick={() => setCollapsed(!collapsed)}
-                    />
-                </Header>
-                <Content style={style.contents}>
-                    {window.location.pathname === '/' ? (
-                        <>
-                            <Home />
-                        </>
-                    ) : (
-                        <>{children}</>
-                    )}
-                </Content>
-            </Layout>
-        </Layout>
+                                <MenuUnfoldOutlined className="button-icon" />
+                            )}
+                        </div>
+                        <div className="breadcrumb">
+                            <BreadC />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="sidebar">
+                    <div className="logo"></div>
+                    <div className="menu_list">
+                        <div className="menu_item">
+                            <MenuItem
+                                name="Home"
+                                icon=<MenuUnfoldOutlined />
+                                toggle={toggle}
+                                path="/"
+                            />
+                        </div>
+                        <div className="menu_item">
+                            <MenuItem
+                                name="Cart"
+                                icon=<MenuUnfoldOutlined />
+                                toggle={toggle}
+                                path="/cart"
+                            />
+                        </div>
+                        <div className="menu_item">
+                            <MenuItem
+                                name="Author"
+                                icon=<MenuUnfoldOutlined />
+                                toggle={toggle}
+                                path="/manager-author"
+                            />
+                        </div>{' '}
+                        <div className="menu_item">
+                            <MenuItem
+                                name="User"
+                                icon=<MenuUnfoldOutlined />
+                                toggle={toggle}
+                                path="/manager-user"
+                            />
+                        </div>{' '}
+                        <div className="menu_item">
+                            <MenuItem
+                                name="Revenue"
+                                icon=<MenuUnfoldOutlined />
+                                toggle={toggle}
+                                path="/revenue"
+                            />
+                        </div>
+                        <div className="menu_item">
+                            <MenuItem
+                                name="Wallet"
+                                icon=<MenuUnfoldOutlined />
+                                toggle={toggle}
+                                path="/wallet"
+                            />
+                        </div>
+                    </div>
+                </div>
+                {/* main */}
+                <div className="main">
+                    <div className="container">{children}</div>
+                    <div className="footer">
+                        <h1>footer</h1>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
+
 export default DefaultLayout;

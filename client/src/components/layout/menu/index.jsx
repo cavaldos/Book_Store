@@ -1,106 +1,34 @@
 import React from 'react';
-import { Menu } from 'antd';
 import {
-    MenuFoldOutlined,
-    // UserOutlined,
-    MenuUnfoldOutlined,
-    //
+    LaptopOutlined,
+    NotificationOutlined,
+    UserOutlined,
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
 
-function getItem(label, key, icon, children, type, onClick) {
-    return {
-        key,
-        icon,
-        children,
-        label,
-        type,
-        onClick,
-    };
-}
-const style = {
-    menu: {},
-};
-function Menus() {
+import { FaHome } from 'react-icons/fa';
+import './menu.scss';
+import { useNavigate } from 'react-router-dom';
+function MenuItem(props) {
+    const { path, name, icon, id, toggle } = props;
     const navigate = useNavigate();
     const handleClick = (path) => {
         navigate(path);
     };
     return (
         <>
-            <Menu
-                style={style.menu}
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                // items={items}
-                items={[
-                    getItem(
-                        'Home',
-                        '1',
-                        <MenuUnfoldOutlined />,
-                        null,
-                        'items',
-                        () => {
-                            handleClick('/');
-                        },
-                    ),
-                    getItem('Manger', 'sub1', <MenuUnfoldOutlined />, [
-                        getItem(
-                            'User',
-                            '2',
-                            <MenuUnfoldOutlined />,
-                            null,
-                            'item',
-                            () => {
-                                handleClick('/manager-user');
-                            },
-                        ),
-                        getItem(
-                            'Author',
-                            '3',
-                            <MenuUnfoldOutlined />,
-                            null,
-                            'item',
-                            () => {
-                                handleClick('/manager-author');
-                            },
-                        ),
-                    ]),
-                    getItem(
-                        'Wallet',
-                        '4',
-                        <MenuUnfoldOutlined />,
-                        null,
-                        'item',
-                        () => {
-                            handleClick('/wallet');
-                        },
-                    ),
-                    getItem(
-                        'Revenue',
-                        '5',
-                        <MenuUnfoldOutlined />,
-                        null,
-                        'item',
-                        () => {
-                            handleClick('/revenue');
-                        },
-                    ),
-                    getItem(
-                        'Cart',
-                        '6',
-                        <MenuUnfoldOutlined />,
-                        null,
-                        'item',
-                        () => {
-                            handleClick('/cart');
-                        },
-                    ),
-                ]}
-            />
+            <div
+                className="menu_container"
+                onClick={() => {
+                    handleClick(path);
+                }}
+            >
+                <div className={toggle}>
+                    <span className="menu-icon">{icon}</span>
+                    <h4 className="menu-name">{name}</h4>
+                </div>
+            </div>
         </>
     );
 }
 
-export default Menus;
+export default MenuItem;
