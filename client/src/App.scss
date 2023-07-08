@@ -8,19 +8,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
-    background-color: var(--light-bg);
-    // font-size: 62.5%;
 }
 :root {
-    --white-bg: #f1f2f5;
-    --light-background: #eee;
+    --light-bg: rgb(255, 254, 254);
+    --white-grey: #eee;
     --white: rgb(251, 253, 250);
-    --background-wrraper: #f5f5f5;
+
     --dark-bg: rgb(65, 64, 73);
     --dark-bg-top: rgb(65, 64, 73);
     --dark-bg-bot: rgb(26, 26, 28);
-    --dark-click: rgb(96, 96, 101);
-    --text-color: rgb(32, 43, 55);
+    --dark-click: rgb(86, 86, 95);
+    --text-dark: rgb(32, 43, 55);
+    --text-light: rgb(255, 254, 254);
 
     --border: 0.1rem solid rgba(0, 0, 0, 0.2);
     --distance-left: 13%;
