@@ -39,12 +39,22 @@ export default function SignUp() {
         setShowPassword(!showPassword);
     };
 
+<<<<<<< HEAD
     //--------------------------------------------------------------------------------
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phonenumber, setPhonenumber] = useState('');
+=======
+  //--------------------------------------------------------------------------------
+  const [firstname,setFirstname]=useState('')
+  const [lastname,setLastname]=useState('')
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const [phonenumber,setPhonenumber]=useState('')
+  const [confirmPassword, setConfirmPassword] = useState("");
+>>>>>>> 379086920a1b6c1332b496996476c82cc9503e7c
 
     async function submit(e) {
         e.preventDefault();
@@ -52,6 +62,7 @@ export default function SignUp() {
             alert('Please fill in all the information');
             return;
         }
+<<<<<<< HEAD
 
         try {
             await axios
@@ -75,9 +86,38 @@ export default function SignUp() {
                     console.log(e);
                 });
         } catch (e) {
+=======
+        
+        if (password !== confirmPassword) {
+          alert('Password and Confirm Password do not match.');
+          return;
+        }
+        try{
+
+            await axios.post("http://localhost:8000/signup",{
+              firstname,lastname,email,password,phonenumber
+            })
+            .then(res=>{
+                if(res.data==="exist"){
+                  alert("User already exists")
+                }
+                else if(res.data==="notexist"){
+                  alert("sign up succesfully!")
+                  history("/",{state:{id:email}})
+                }
+            })
+            .catch(e=>{
+                alert("wrong details")
+                console.log(e);
+            })
+
+        }
+        catch(e){
+>>>>>>> 379086920a1b6c1332b496996476c82cc9503e7c
             console.log(e);
         }
     }
+<<<<<<< HEAD
     return (
         <>
             <div className="wrapper_paper">
@@ -239,3 +279,178 @@ export default function SignUp() {
         </>
     );
 }
+=======
+  return (
+    <>
+   
+       <div className="wrapper_login">
+      {/* <ThemeProvider theme={defaultTheme}> */}
+      <Container component="main" maxWidth="xs">
+        <CloseCircleFilled
+          style={{
+            fontWeight: "bold",
+            fontSize: "20px",
+            marginLeft: "95%",
+            marginTop: "4%",
+          }}
+          onClick={() => history("/")}
+        />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
+            <form action="POST">
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                    onChange={(e) => {
+                      setFirstname(e.target.value);
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="Last Name"
+                    name="lastName"
+                    autoComplete="family-name"
+                    onChange={(e) => {
+                      setLastname(e.target.value);
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    autoComplete="new-password"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    InputProps={{
+                      endAdornment: (
+                        <IconButton onClick={toggleShowPassword}>
+                          {showPassword ? (
+                            <VisibilityOffIcon />
+                          ) : (
+                            <VisibilityIcon />
+                          )}
+                        </IconButton>
+                      ),
+                    }}
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type={showPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    autoComplete="confirm-password"
+                    onChange={(e) => { setConfirmPassword(e.target.value) }}
+                    InputProps={{
+                      endAdornment: (
+                        <IconButton onClick={toggleShowPassword}>
+                          {showPassword ? (
+                            <VisibilityOffIcon />
+                          ) : (
+                            <VisibilityIcon />
+                          )}
+                        </IconButton>
+                      ),
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="phonenumber"
+                    label="Phone Number"
+                    name="phonenumber"
+                    autoComplete="phonenumber"
+                    onChange={(e) => {
+                      setPhonenumber(e.target.value);
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox value="allowExtraEmails" color="primary" />
+                    }
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
+              </Grid>
+            </form>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={submit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/signin" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </div>
+    
+    </>
+  );
+}
+>>>>>>> 379086920a1b6c1332b496996476c82cc9503e7c
