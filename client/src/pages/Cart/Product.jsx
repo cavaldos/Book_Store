@@ -19,7 +19,15 @@ function Product(props) {
     const handleAddproduct = () => {
         if (quantity < max) {
             setQuantity(quantity + 1);
-            dispatch(addQuantity(1));  
+            // dispatch(
+            //     addQuantity({
+            //         product: {
+            //             id: 1,
+            //             quantity: 1,
+            //             price: 1,
+            //         },
+            //     }),
+            // );
 
             dispatch(updatePrice(price));
         }

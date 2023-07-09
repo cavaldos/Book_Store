@@ -95,7 +95,7 @@
             font-size: 30px;
             &:hover {
                 cursor: pointer;
-                background-color: var(--text-dark);
+                background-color: red;//var(--text-dark);
                 color: var(--white);
             }
         }
@@ -104,7 +104,7 @@
             font-size: 30px;
             &:hover {
                 cursor: pointer;
-                background-color: var(--text-dark);
+                background-color:aqua;// var(--text-dark);
                 color: var(--white);
             }
         }

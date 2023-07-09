@@ -25,7 +25,7 @@ function Home() {
             setLoading(false);
         }, 500);
     }, [products]);
-    console.log(products);
+    console.log( typeof products);
     return (
         <>
             {loading ? (

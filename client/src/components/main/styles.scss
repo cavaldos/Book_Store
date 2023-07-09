@@ -62,8 +62,11 @@
 }
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 1024px) {
-   
-    
+    .header {
+        .up {
+            background-color: red;
+        }
+    }
 }
 .main {
     transition: 0.3s;

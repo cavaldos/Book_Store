@@ -35,7 +35,7 @@ function Book(props) {
                 </div>
                 <div className="content">
                     <h3 className="title" style={style.title}>
-                        .{title}
+                        {title}
                     </h3>
                     {/* <div style={style.author} className="author">
                         <p style={style.author_p}>Written by: {author}</p>
