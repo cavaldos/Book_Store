@@ -7,7 +7,7 @@ import MenuItem from '../layout/menu';
 import BreadC from '../layout/header/breadcrumb';
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-
+import { useNavigate } from 'react-router';
 const DefaultLayout = ({ children }) => {
     const [toggle, setToggle] = useState('open');
     const [scroll, setScroll] = useState('up');
@@ -23,6 +23,10 @@ const DefaultLayout = ({ children }) => {
         window.scrollTo(0, 0);
     };
 
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        navigate('/signin');
+    };
     return (
         <>
             <div className={toggle}>
@@ -44,6 +48,15 @@ const DefaultLayout = ({ children }) => {
                         <div className="breadcrumb">
                             <BreadC />
                         </div>
+                        <button
+                            style={{ position: 'absolute', right: '10px' }}
+                            className="button-login"
+                            onClick={() => {
+                                handleLogin();
+                            }}
+                        >
+                            Login
+                        </button>
                     </div>
                 </div>
 
@@ -102,7 +115,7 @@ const DefaultLayout = ({ children }) => {
                 </div>
                 {/* main */}
                 <div className="main">
-                    <div className="container">{children}</div>
+                    <div className="containers">{children}</div>
                     <div className="footer">
                         <h1>footer</h1>
                     </div>

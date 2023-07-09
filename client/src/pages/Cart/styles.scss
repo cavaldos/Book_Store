@@ -4,6 +4,7 @@
     flex-flow: column wrap;
     border: 1px solid #5e5656;
     border-radius: 5px;
+    min-height: 80vh;
     .header-product {
         display: flex;
         flex-flow: row wrap;
@@ -80,29 +81,53 @@
         position: relative;
         flex: 1;
         display: flex;
-        flex-flow: column wrap;
-        .input {
-            position: absolute;
-            line-height: 100px;
-            height: 35px;
-            right: 40px;
-            top: 60px;
-            left: 40px;
+
+        .title {
+            font-size: 2rem;
+        }
+        .add {
+            border-radius: 5px;
+            font-size: 30px;
+            &:hover {
+                cursor: pointer;
+                background-color: var(--text-dark);
+                color: var(--white);
+            }
+        }
+        .sub {
+            border-radius: 5px;
+            font-size: 30px;
+            &:hover {
+                cursor: pointer;
+                background-color: var(--text-dark);
+                color: var(--white);
+            }
+        }
+        .icon {
+            position: relative;
+            margin: auto;
             text-align: center;
             justify-content: center;
-            font-size: larger;
-            border-radius: 5px;
-        }
-        h5 {
-            color: red;
+            align-items: center;
+
+            box-sizing: border-box;
         }
     }
     .price {
         flex: 1;
     }
     .remove {
+        position: relative;
         flex: 1;
-        
+        display: inline-block;
+        .total-product {
+            position: relative;
+            bottom: 40px;
+            margin: 0px;
+            padding: 0px;
+            max-height: 10px;
+           
+        }
     }
     .res {
         line-height: 100px;
@@ -114,7 +139,7 @@
     }
 }
 
-.total {
+.pay {
     margin: 10px 0 0 0;
     padding: 10px 0 0 0;
     background-color: rgb(68, 194, 183);
@@ -127,109 +152,3 @@
         margin: 10px;
     }
 }
-
-// .list-product {
-//     margin: 10px 0 0 0;
-//     padding: 10px 0 0 0;
-//     background-color: rgb(68, 194, 183);
-//     display: flex;
-//     flex-flow: column wrap;
-//     border: 1px solid #5e5656;
-//     border-radius: 5px;
-//     .header-product {
-//         display: flex;
-//         flex-flow: row wrap;
-//         background-color: rgb(202, 160, 160);
-//         margin: 10px;
-//         background-color: beige;
-//     }
-
-//     .title {
-//         flex: 4;
-//     }
-//     .quantity {
-//         flex: 1;
-//     }
-//     .price {
-//         flex: 1;
-//     }
-//     .option {
-//         flex: 1;
-//     }
-
-//     .mar {
-//         background-color: rgb(202, 160, 160);
-//         margin: 10px;
-//         text-align: center;
-//     }
-// }
-
-// .product {
-//     background-color: rgb(150, 110, 110);
-//     min-height: 150px;
-//     margin: 10px;
-//     box-sizing: border-box;
-//     border-radius: 10px;
-//     border-bottom: 1px solid #5e5656;
-//     display: flex;
-//     flex-flow: row wrap;
-
-//     .block-product {
-//         flex: 4;
-//         background-color: aqua;
-//         position: relative;
-//         display: flex;
-//         flex-flow: row wrap;
-//         .image {
-//             height: 140px;
-//             width: 140px;
-//             background-color: blue;
-//             flex: 2;
-//             position: relative;
-//             .img {
-//                 max-width: 100%;
-//                 max-height: 100%;
-//                 top: 3px;
-//                 left: 3px;
-//                 right: 3px;
-//                 bottom: 3px;
-//                 line-height: 100%;
-//                 text-align: center;
-//                 justify-self: center;
-//                 background-color: beige;
-//             }
-//         }
-//         .description {
-//             flex: 4;
-//             margin: 2px;
-//             background-color: beige;
-//         }
-//     }
-//     .quantity {
-//         flex: 1;
-//     }
-//     .price {
-//         flex: 1;
-//     }
-//     .option {
-//         flex: 1;
-//     }
-
-//     .mar {
-//         line-height: 100px;
-//     }
-// }
-
-// .total {
-//     margin: 10px 0 0 0;
-//     padding: 10px 0 0 0;
-//     background-color: rgb(68, 194, 183);
-//     display: flex;
-//     flex-flow: column wrap;
-//     border: 1px solid #5e5656;
-//     border-radius: 5px;
-//     .total-price {
-//         background-color: rgb(202, 160, 160);
-//         margin: 10px;
-//     }
-// }

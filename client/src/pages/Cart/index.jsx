@@ -4,14 +4,13 @@ import Product from './Product';
 import { useState } from 'react';
 
 function Cart() {
-    const image =
-        'https://images.unsplash.com/photo-1688648502777-e22f2aaa567c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1984&q=80';
-    // const [quantity, setQuantity] = useState(0); // tạo state để lưu số lượng sản phẩm được chọn
-    // const handleQuantityChange = (event) => {
-    //     // cập nhật state số lượng sản phẩm được chọn khi người dùng thay đổi giá trị input
-    //     setQuantity(event.target.value);
-    // };
-    // const total = price * quantity; // tính tổng số tiền cần thanh toán
+    const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+
+    // const price = storedProducts.map((product) => Number(product.price));
+
+    // //cách lấy ra từng giá trị trong price
+    // const total = price.reduce((a, b) => a + b, 0);
+    // console.log(total);
 
     return (
         <>
@@ -22,28 +21,20 @@ function Cart() {
                     <h5 className="price mar">Price</h5>
                     <h5 className="remove mar">Remove</h5>
                 </div>
-                <Product
-                    price="100"
-                    image={image}
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-                />{' '}
-                <Product
-                    price="100"
-                    image={image}
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-                />{' '}
-                <Product
-                    price="100"
-                    image={image}
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-                />{' '}
-                <Product
-                    price="100"
-                    image={image}
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-                />
+                {storedProducts.map((product, index) => (
+                    <Product
+                        key={index}
+                        name={product.name}
+                        quantity={product.quantity}
+                        price={product.price}
+                        image={product.image}
+                        id={product.id}
+                    />
+                ))}
             </div>
-            <div className="total">dfsa</div>
+            <div className="pay">
+                <h3>Total: ${1}</h3>
+            </div>
         </>
     );
 }

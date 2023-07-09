@@ -2,18 +2,44 @@ import React from 'react';
 import './styles.scss';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useState } from 'react';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
+import { message } from 'antd';
+import { useState, useEffect } from 'react';
 function Product(props) {
-    const { image, price, description } = props;
+    const { id, image, price, description } = props;
     const max = 10;
-    const removeProduct = () => {};
 
-    const [quantity, setQuantity] = useState(0); // tạo state để lưu số lượng sản phẩm được chọn
-    const handleQuantityChange = (event) => {
-        // cập nhật state số lượng sản phẩm được chọn khi người dùng thay đổi giá trị input
-        setQuantity(event.target.value);
+    const [quantity, setQuantity] = useState(1);
+    const total = price * quantity;
+
+    const handleAddproduct = () => {
+        if (quantity < max) {
+            setQuantity(quantity + 1);
+        }
     };
-    const total = price * quantity; // tính tổng số tiền cần thanh toán
+    const handleSubproduct = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+    // remove product
+    const [deletedProductId, setDeletedProductId] = useState(null);
+    const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    // console.log(storedProducts);
+    const removeProduct = (id) => {
+        const newProducts = storedProducts.filter(
+            (product) => product.id !== id,
+        );
+        localStorage.setItem('products', JSON.stringify(newProducts));
+        setDeletedProductId(id);
+        message.success('Product removed from cart');
+    };
+    useEffect(() => {
+        if (deletedProductId !== null) {
+            window.location.reload();
+        }
+    }, [deletedProductId]);
 
     return (
         <>
@@ -26,17 +52,24 @@ function Product(props) {
                             alt="this is picture"
                         />
                     </div>
-                    <div className="description res">{description}</div>
+                    <div className="description res">
+                        {description}
+                        {id}
+                    </div>
                 </div>
                 <div className="quantity res">
-                    <h5>The remaining amount : {max}</h5>
-                    <input
-                        className="input"
-                        type="number"
-                        name="num1"
-                        min="0"
-                        max={max}
-                        onChange={handleQuantityChange}
+                    <h3 className="icon title">{quantity}</h3>
+                    <AddIcon
+                        className="icon add"
+                        onClick={() => {
+                            handleAddproduct();
+                        }}
+                    />
+                    <RemoveIcon
+                        className="icon sub"
+                        onClick={() => {
+                            handleSubproduct();
+                        }}
                     />
                 </div>
                 <div className="price res">${price}</div>
@@ -50,13 +83,13 @@ function Product(props) {
                                 cursor: 'pointer',
                             },
                         }}
-                        onClick={() => removeProduct()}
+                        onClick={() => removeProduct(id)}
                         variant="outlined"
                         startIcon={<DeleteIcon />}
                     >
                         Delete
                     </Button>
-                    <div>Total: ${total}</div>{' '}
+                    <h5 className="total-product">Total: ${total}</h5>
                 </div>
             </div>
         </>

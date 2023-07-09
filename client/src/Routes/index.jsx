@@ -11,6 +11,7 @@ import ResetPassword from '../components/authentication/resetpassword';
 const publicRoutes = [
     {
         path: '/',
+
         component: Home,
     },
     {
@@ -53,9 +54,14 @@ const publicRoutes = [
         path: '/about',
         component: Wallet,
     },
- 
 ];
 
-const privateRoutes = [];
+const privateRoutes = [
+    {
+        path: '/',
+
+        component: Home,
+    },
+];
 
 export { publicRoutes, privateRoutes };
