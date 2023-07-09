@@ -18,9 +18,6 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import { CloseCircleFilled } from '@ant-design/icons'; //CloseCircleOutlined
 
-
-
-
 export default function SignUp() {
     const history = useNavigate();
 
