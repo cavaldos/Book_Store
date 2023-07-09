@@ -34,3 +34,33 @@
   background: #fff;
   border-top: 1px solid #e9e9e9;
 }
+
+//
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-info h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.user-info p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.user-info p:first-of-type {
+  margin-top: 0;
+}

@@ -6,27 +6,35 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { message } from 'antd';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addQuantity, updatePrice } from '../../redux/features/paymentSlice';
+import { set } from 'react-hook-form';
 function Product(props) {
     const { id, image, price, description } = props;
     const max = 10;
-
+    const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
     const total = price * quantity;
-
     const handleAddproduct = () => {
         if (quantity < max) {
             setQuantity(quantity + 1);
+            dispatch(addQuantity(1));  
+
+            dispatch(updatePrice(price));
         }
     };
     const handleSubproduct = () => {
         if (quantity > 1) {
             setQuantity(quantity - 1);
+            dispatch(addQuantity(-1));
+            dispatch(updatePrice(price));
         }
     };
+
     // remove product
     const [deletedProductId, setDeletedProductId] = useState(null);
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
-    // console.log(storedProducts);
     const removeProduct = (id) => {
         const newProducts = storedProducts.filter(
             (product) => product.id !== id,

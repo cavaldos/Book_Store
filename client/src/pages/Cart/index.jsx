@@ -2,15 +2,18 @@ import React from 'react';
 import './styles.scss';
 import Product from './Product';
 import { useState } from 'react';
-
+import { useSelector } from 'react-redux';
 function Cart() {
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
-
+    const a = storedProducts.length;
     // const price = storedProducts.map((product) => Number(product.price));
 
-    // //cách lấy ra từng giá trị trong price
-    // const total = price.reduce((a, b) => a + b, 0);
-    // console.log(total);
+    const pay_product = useSelector((state) => state.payment);
+
+    const number = pay_product.quantity;
+    const price = pay_product.price;
+    console.log(typeof pay_product);
+    console.log(pay_product);
 
     return (
         <>

@@ -35,6 +35,11 @@
         justify-content: center;
     }
 }
+@media only print {
+    .mar {
+        background-color: red;
+    }
+}
 //prodct
 .product {
     background-color: var(--white);
@@ -126,7 +131,6 @@
             margin: 0px;
             padding: 0px;
             max-height: 10px;
-           
         }
     }
     .res {

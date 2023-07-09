@@ -1,21 +1,19 @@
 import React from 'react';
-
-import { Form } from 'antd';
 import './style.scss';
 function Profile(props) {
+    const { id, email, firstName, lastName, avatarLink } = props.user;
 
-    
-    const { id, name, image, username, password, email } = props;
     return (
-        <>
-            <div className="profile">
-                <div className="profile__image"></div>
-                <div className="content">
-                    <button className="btn btn--primary">Edit</button>
-                    <Form />
-                </div>
+        <div className="user-profile">
+            <img src={avatarLink} alt="Avatar" />
+            <div className="user-info">
+                <h3>
+                    {firstName} {lastName}
+                </h3>
+                <p>ID: {id}</p>
+                <p>Email: {email}</p>
             </div>
-        </>
+        </div>
     );
 }
 
