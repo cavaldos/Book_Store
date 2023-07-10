@@ -3,6 +3,7 @@ import './styles.scss';
 import Product from './Product';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Height } from '@material-ui/icons';
 function Cart() {
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const a = storedProducts.length;
@@ -29,7 +30,7 @@ function Cart() {
 
     let currentState = localStorage.getItem('products');
     currentState = currentState ? JSON.parse(currentState) : [];
-    console.log("curentstatr",currentState)
+    console.log('curentstatr', currentState);
     return (
         <>
             <div className="list-product">
@@ -50,8 +51,20 @@ function Cart() {
                     />
                 ))}
             </div>
-            <div className="pay">
+            <div className="pay" style={{ minHeight: '100px' }}>
                 <h3>Total: ${totalPrice}</h3>
+                <button
+                    style={{
+                        position: 'absolute',
+                        bottom: '0px',
+                        height: '50px',
+                        width: '100%',
+                  
+                      
+                    }}
+                >
+                    pay
+                </button>
             </div>
         </>
     );

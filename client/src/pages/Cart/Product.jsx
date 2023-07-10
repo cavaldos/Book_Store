@@ -14,16 +14,25 @@ import {
     removeQuantity,
     resetState,
 } from '../../redux/features/paymentSlice';
-import { set } from 'react-hook-form';
+
 function Product(props) {
     const { id, image, price, description } = props;
     const max = 10;
     const dispatch = useDispatch();
-    const [quantity, setQuantity] = useState(1);
+    const [nquantity, setQuantity] = useState(1);
+    const quantity = useSelector((state) => {
+        const product = state.payment.products.find(
+            (product) => product.id === id,
+        );
+        return product ? product.quantity : 0;
+    });
+    const [quantityState, setQuantityState] = useState(quantity);
+
     const total = price * quantity;
     const handleAddproduct = () => {
         if (quantity < max) {
             setQuantity(quantity + 1);
+
             dispatch(
                 addQuantity({
                     product: {
@@ -50,8 +59,7 @@ function Product(props) {
         }
     };
 
-    const pay_product = useSelector((state) => state.payment);
-
+    console.log('n', nquantity);
     // remove product
     const [deletedProductId, setDeletedProductId] = useState(null);
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];

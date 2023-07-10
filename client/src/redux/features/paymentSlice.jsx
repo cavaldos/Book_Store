@@ -18,7 +18,10 @@ export const paymentSlice = createSlice({
         // products: currentState,
         products: [
             {
-                currentState,
+                // currentState,
+                id: 0,
+                quantity: 0,
+                price: 0,
             },
         ],
     },
