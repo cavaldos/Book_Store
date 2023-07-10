@@ -6,10 +6,25 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
 import { message } from 'antd';
 
+
 function Book(props) {
     const { id, title, price, description, image, rate } = props;
     const product = { id, title, price, description, image, rate };
 
+    // const MongoClient = require('mongodb').MongoClient;
+    // const url = 'mongodb://localhost:27017';
+    // const dbName = 'book';
+    // MongoClient.connect(url, function(err, client) {
+    //     console.log('Connected successfully to server');
+    //     const myProduct =
+    //     JSON.parse(localStorage.getItem('products')) || [];
+        
+    //     const collection = db.collection('book');
+    //     collection.insertOne(myProduct, function(err, result) {
+    //         console.log('Data inserted into collection');
+    //         client.close();
+    //     });
+    // });
     const handleClick = () => {
         const storedProducts =
             JSON.parse(localStorage.getItem('products')) || [];
@@ -26,7 +41,6 @@ function Book(props) {
             message.success('Product added to cart');
         }
     };
-    // console.log("book",product);
     return (
         <>
             <div className="book-container">
