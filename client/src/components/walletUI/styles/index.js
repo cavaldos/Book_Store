@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {
