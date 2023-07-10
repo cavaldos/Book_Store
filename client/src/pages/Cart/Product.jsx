@@ -8,7 +8,12 @@ import { message } from 'antd';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addQuantity, updatePrice } from '../../redux/features/paymentSlice';
+import {
+    addQuantity,
+    updatePrice,
+    removeQuantity,
+    resetState,
+} from '../../redux/features/paymentSlice';
 import { set } from 'react-hook-form';
 function Product(props) {
     const { id, image, price, description } = props;
@@ -19,31 +24,39 @@ function Product(props) {
     const handleAddproduct = () => {
         if (quantity < max) {
             setQuantity(quantity + 1);
-            // dispatch(
-            //     addQuantity({
-            //         product: {
-            //             id: 1,
-            //             quantity: 1,
-            //             price: 1,
-            //         },
-            //     }),
-            // );
-
-            dispatch(updatePrice(price));
+            dispatch(
+                addQuantity({
+                    product: {
+                        id: id,
+                        quantity: 1,
+                        price: price,
+                    },
+                }),
+            );
         }
     };
     const handleSubproduct = () => {
         if (quantity > 1) {
             setQuantity(quantity - 1);
-            dispatch(addQuantity(-1));
-            dispatch(updatePrice(price));
+            dispatch(
+                addQuantity({
+                    product: {
+                        id: id,
+                        quantity: -1,
+                        price: price,
+                    },
+                }),
+            );
         }
     };
+
+    const pay_product = useSelector((state) => state.payment);
 
     // remove product
     const [deletedProductId, setDeletedProductId] = useState(null);
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const removeProduct = (id) => {
+        dispatch(resetState());
         const newProducts = storedProducts.filter(
             (product) => product.id !== id,
         );
@@ -52,8 +65,10 @@ function Product(props) {
         message.success('Product removed from cart');
     };
     useEffect(() => {
+        // dispatch(removeQuantity(id));
         if (deletedProductId !== null) {
             window.location.reload();
+            dispatch(resetState());
         }
     }, [deletedProductId]);
 

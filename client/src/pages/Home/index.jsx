@@ -25,7 +25,8 @@ function Home() {
             setLoading(false);
         }, 500);
     }, [products]);
-    console.log( typeof products);
+
+   
     return (
         <>
             {loading ? (
@@ -42,6 +43,7 @@ function Home() {
                                 rate={product.rating.rate}
                                 image={product.image}
                                 id={product.id}
+                                quantity={0}
                             ></Book>
                         </div>
                     ))}

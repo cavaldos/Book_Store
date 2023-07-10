@@ -7,14 +7,29 @@ function Cart() {
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const a = storedProducts.length;
     // const price = storedProducts.map((product) => Number(product.price));
-
+    const calculateTotalQuantity = (products) => {
+        return products.reduce((total, product) => {
+            return total + product.quantity;
+        }, 0);
+    };
+    const calculateTotal = (products) => {
+        const totalQuantity = calculateTotalQuantity(products);
+        const totalPrice = products.reduce((total, product) => {
+            return total + product.price * product.quantity;
+        }, 0);
+        return {
+            totalQuantity,
+            totalPrice,
+        };
+    };
     const pay_product = useSelector((state) => state.payment);
+    const { totalQuantity, totalPrice } = calculateTotal(pay_product.products);
 
-    const number = pay_product.quantity;
-    const price = pay_product.price;
-    console.log(typeof pay_product);
-    console.log(pay_product);
+    console.log('state', pay_product);
 
+    let currentState = localStorage.getItem('products');
+    currentState = currentState ? JSON.parse(currentState) : [];
+    console.log("curentstatr",currentState)
     return (
         <>
             <div className="list-product">
@@ -36,7 +51,7 @@ function Cart() {
                 ))}
             </div>
             <div className="pay">
-                <h3>Total: ${1}</h3>
+                <h3>Total: ${totalPrice}</h3>
             </div>
         </>
     );

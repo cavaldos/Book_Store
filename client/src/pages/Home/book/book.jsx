@@ -5,15 +5,18 @@ import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
 import { message } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { addQuantity, updatePrice } from '../../../redux/features/paymentSlice';
 
 function Book(props) {
-    const { id, title, price, description, image, rate } = props;
-    const product = { id, title, price, description, image, rate };
-
+    const { id, title, price, description, image, rate, quantity } = props;
+    const product = { id, title, price, description, image, rate, quantity };
+    
+    const dispatch = useDispatch();
+  
     const handleClick = () => {
         const storedProducts =
             JSON.parse(localStorage.getItem('products')) || [];
-
         const existingProduct = storedProducts.find(
             (productInCart) => productInCart.id === product.id,
         );
@@ -24,9 +27,19 @@ function Book(props) {
             const updatedProducts = [...storedProducts, product];
             localStorage.setItem('products', JSON.stringify(updatedProducts));
             message.success('Product added to cart');
+            dispatch(
+                addQuantity({
+                    product: {
+                        id: id,
+                        quantity: 1,
+                        price: price,
+                    },
+                }),
+            );
         }
     };
-    // console.log("book",product);
+
+  
     return (
         <>
             <div className="book-container">
@@ -37,9 +50,6 @@ function Book(props) {
                     <h3 className="title" style={style.title}>
                         {title}
                     </h3>
-                    {/* <div style={style.author} className="author">
-                        <p style={style.author_p}>Written by: {author}</p>
-                    </div> */}
                     <div className="price" style={style.price}>
                         <h3 style={style.h}>
                             {' '}
@@ -55,6 +65,7 @@ function Book(props) {
                     >
                         <AddShoppingCartIcon />
                     </Button>
+
                     <Rating style={style.rate} value={rate} readOnly />
                 </div>
             </div>

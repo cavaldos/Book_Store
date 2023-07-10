@@ -6,6 +6,7 @@ import userSlice from './features/userSilce';
 import walletSlice from './features/walletSlice';
 import themeSlice from './features/themeSlice';
 import paymentSlice from './features/paymentSlice';
+
 const store = configureStore(
     {
         reducer: {
