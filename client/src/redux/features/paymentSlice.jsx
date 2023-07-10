@@ -15,15 +15,15 @@ if (savedProducts) {
 export const paymentSlice = createSlice({
     name: 'payment',
     initialState: {
-        // products: currentState,
-        products: [
-            {
-                // currentState,
-                id: 0,
-                quantity: 0,
-                price: 0,
-            },
-        ],
+        products: currentState,
+        // products: [
+        //     {
+        //         // currentState,
+        //         id: 0,
+        //         quantity: 0,
+        //         price: 0,
+        //     },
+        // ],
     },
 
     reducers: {

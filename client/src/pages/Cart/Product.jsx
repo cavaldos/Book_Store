@@ -19,7 +19,7 @@ function Product(props) {
     const { id, image, price, description } = props;
     const max = 10;
     const dispatch = useDispatch();
-    const [nquantity, setQuantity] = useState(1);
+    const [new_quantity, setQuantity] = useState(1);
     const quantity = useSelector((state) => {
         const product = state.payment.products.find(
             (product) => product.id === id,
@@ -27,6 +27,10 @@ function Product(props) {
         return product ? product.quantity : 0;
     });
     const [quantityState, setQuantityState] = useState(quantity);
+
+    useEffect(() => {
+        setQuantityState(quantity);
+    }, [quantity]);
 
     const total = price * quantity;
     const handleAddproduct = () => {
@@ -59,7 +63,7 @@ function Product(props) {
         }
     };
 
-    console.log('n', nquantity);
+    console.log('nqii', new_quantity);
     // remove product
     const [deletedProductId, setDeletedProductId] = useState(null);
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
@@ -97,7 +101,7 @@ function Product(props) {
                     </div>
                 </div>
                 <div className="quantity res">
-                    <h3 className="icon title">{quantity}</h3>
+                    <h3 className="icon title">{quantityState}</h3>
                     <AddIcon
                         className="icon add"
                         onClick={() => {

@@ -3,7 +3,6 @@ import './styles.scss';
 import Product from './Product';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Height } from '@material-ui/icons';
 function Cart() {
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const a = storedProducts.length;
