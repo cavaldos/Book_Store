@@ -6,6 +6,7 @@ export const userSlice = createSlice({
         id: 111,
         name: 'default',
         email: 'default@gmail.com',
+        password: 'default',
         isLoggedIn: false,
         isAdmin:false,
     },

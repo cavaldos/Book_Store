@@ -101,7 +101,7 @@ function Product(props) {
                     </div>
                 </div>
                 <div className="quantity res">
-                    <h3 className="icon title">{quantityState}</h3>
+                    <h3 className="icon title">{new_quantity}</h3>
                     <AddIcon
                         className="icon add"
                         onClick={() => {
