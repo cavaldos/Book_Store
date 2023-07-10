@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Getting Started with Create React App
 ### `yarn start`
 
@@ -19,4 +19,4 @@ In the project directory, you can run:
 
 
 ### `npm build`
->>>>>>> b66e43bf30295f862f0718f79b842dc0588ca925
+
