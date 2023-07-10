@@ -7,28 +7,34 @@ import Rating from '@mui/material/Rating';
 import { message } from 'antd';
 
 
+// const mongoose = require('mongoose');
+// const mySchema = new mongoose.Schema({
+//     id: String,
+//     title: String,
+//     price: String, 
+//     image: String,
+//     rate: String,
+// });
+
+// const MyModel = mongoose.model('MyModel', mySchema);
+
 function Book(props) {
     const { id, title, price, description, image, rate } = props;
     const product = { id, title, price, description, image, rate };
 
-    // const MongoClient = require('mongodb').MongoClient;
-    // const url = 'mongodb://localhost:27017';
-    // const dbName = 'book';
-    // MongoClient.connect(url, function(err, client) {
-    //     console.log('Connected successfully to server');
-    //     const myProduct =
-    //     JSON.parse(localStorage.getItem('products')) || [];
-        
-    //     const collection = db.collection('book');
-    //     collection.insertOne(myProduct, function(err, result) {
-    //         console.log('Data inserted into collection');
-    //         client.close();
-    //     });
-    // });
+
     const handleClick = () => {
         const storedProducts =
             JSON.parse(localStorage.getItem('products')) || [];
 
+        alert(JSON.stringify(storedProducts));
+        // const newDocument = new MyModel(JSON.stringify(storedProducts));
+        // // Save the new document to the database
+        // newDocument.save(function(err, savedDocument) {
+        //     if (err) return console.error(err);
+        //     console.log(savedDocument);
+        // });
+        
         const existingProduct = storedProducts.find(
             (productInCart) => productInCart.id === product.id,
         );
