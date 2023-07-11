@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/core";
+import { Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Balance, IconWrapper, InfoMoney, MoneyCard, Wrapper } from "./styles";
 import {
