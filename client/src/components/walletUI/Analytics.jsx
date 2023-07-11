@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import ChartJS from 'chart.js/auto';
 import { faker } from '@faker-js/faker'
 import { ChartWrapper, Header1 } from "./styles";
-import { darkBlue, darkGreen, darkRed } from "./styles/colors";
+//import { darkBlue, darkGreen, darkRed } from "./styles/colors";
 
 const options = {
   responsive: true,
@@ -26,17 +26,17 @@ const data = {
   datasets: [
     {
       label: 'Expense',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 10000 })),
+      data: labels.map(() => faker.number.int({ min: 0, max: 10000 })),
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
     {
       label: 'Balance',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 10000 })),
+      data: labels.map(() => faker.number.int({ min: 0, max: 10000 })),
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
     {
       label: 'Income',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 10000 })),
+      data: labels.map(() => faker.number.int({ min: 0, max: 10000 })),
       backgroundColor: 'rgba(0, 128, 0, 0.5)',
     },
   ],
