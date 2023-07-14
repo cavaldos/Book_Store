@@ -5,7 +5,6 @@ import {
     UserOutlined,
 } from '@ant-design/icons';
 
-import { FaHome } from 'react-icons/fa';
 import './menu.scss';
 import { useNavigate } from 'react-router-dom';
 function MenuItem(props) {

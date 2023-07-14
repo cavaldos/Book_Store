@@ -155,4 +155,13 @@
         background-color: rgb(202, 160, 160);
         margin: 10px;
     }
+    button {
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(36, 71, 71);
+            color: aliceblue;
+            text-shadow: 0 0 100px white;
+            font-weight: 400;
+        }
+    }
 }

@@ -6,11 +6,11 @@ import { Spin } from 'antd';
 
 import { useSelector } from 'react-redux';
 
+
 function Home() {
     const [loading, setLoading] = useState(false);
 
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
         axios
             .get('https://fakestoreapi.com/products')
@@ -25,7 +25,7 @@ function Home() {
             setLoading(false);
         }, 500);
     }, [products]);
-    console.log(products);
+
     return (
         <>
             {loading ? (
@@ -42,6 +42,7 @@ function Home() {
                                 rate={product.rating.rate}
                                 image={product.image}
                                 id={product.id}
+                                quantity={0}
                             ></Book>
                         </div>
                     ))}
