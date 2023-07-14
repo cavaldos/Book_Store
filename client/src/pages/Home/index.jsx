@@ -3,14 +3,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Book from './book/book';
 import { Spin } from 'antd';
-
+// import { getBookProducts } from '../../api/book_api';
 // import { useSelector } from 'react-redux';
 
 function Home() {
     const [loading, setLoading] = useState(false);
 
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
         axios
             .get('https://fakestoreapi.com/products')
@@ -26,7 +25,6 @@ function Home() {
         }, 500);
     }, [products]);
 
-   
     return (
         <>
             {loading ? (
