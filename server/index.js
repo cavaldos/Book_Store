@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require("express")
 const collection = require("./config/dbConnect")
 const cors = require("cors")
@@ -118,34 +117,6 @@ app.post("/reset-password", async (req, res) => {
         console.error(error);
         res.json("fail");
     }
-=======
-// const express = require('express');
-// const app = express();
-
-// // app.get('/api/products', (req, res) => {
-// //     const products = [
-// //         { id: 1, name: 'Nint
-// //         endo Switch', price: 299.99 },
-
-// app.get('/', (res, req) => res.send('Hello World!'));
-
-// // const PORT = process.env.PORT || 5000;
-// const PORT = 5000;
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-
-
-const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config();
-
-const app = express();
-
-// Kết nối đến MongoDB
-mongoose.connect(process.env.DB_CONNECTION, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
->>>>>>> khanh
 });
 
 // Kiểm tra kết nối đến MongoDB

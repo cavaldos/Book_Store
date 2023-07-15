@@ -1,6 +1,7 @@
 import './index.scss';
 import style from './styles';
 import React from 'react';
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
@@ -36,7 +37,18 @@ function Book(props) {
                     },
                 }),
             );
-        }
+            console.log('product name:', product.title);
+            // Send product ID and name to the backend server
+            const productName = product.title;
+            const productId = product.id;
+            axios.post('/api/cart', { id: productId, name: productName })
+                .then(response => {
+                    console.log('Product sent to server:', response.data);
+                })
+                .catch(error => {
+                    console.error('Error sending product to server:', error);
+                });
+            }
     };
 
   
