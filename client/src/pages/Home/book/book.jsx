@@ -7,13 +7,13 @@ import Rating from '@mui/material/Rating';
 import { message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, updatePrice } from '../../../redux/features/paymentSlice';
-
+import Edit from './edit';
 function Book(props) {
     const { id, title, price, description, image, rate, quantity } = props;
     const product = { id, title, price, description, image, rate, quantity };
-    
+
     const dispatch = useDispatch();
-  
+
     const handleClick = () => {
         const storedProducts =
             JSON.parse(localStorage.getItem('products')) || [];
@@ -39,7 +39,6 @@ function Book(props) {
         }
     };
 
-  
     return (
         <>
             <div className="book-container">
@@ -56,7 +55,9 @@ function Book(props) {
                             ${price}:id{id}
                         </h3>
                     </div>
-                    <div className="description">{description}</div>
+                    <div className="description">
+                        {description}
+                    </div>
                     <Button
                         variant="outlined"
                         size="small"
