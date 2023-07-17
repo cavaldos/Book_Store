@@ -1,10 +1,12 @@
+const MyModel = require('./BookSchema')
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/Book', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(error => console.error(error));
 
@@ -16,15 +18,19 @@ app.use(cors());
 const dataSchema = new mongoose.Schema({
     id: Number,
     name: String,
-},{collection: 'test'});
+    url: String,
+    quantity: Number,
+},{collection: 'cart'});
   
 const Data = mongoose.model('Data', dataSchema);
 
 app.post('/api/cart', (req, res) => {
   const data = req.body;
   const newData = new Data({
-    id: data.id,
-    name: data.name,
+    id: data.ID,
+    name: data.Tittle,
+    url: data.Image,
+    quantity: 1,
   });
   newData.save()
     .then(() => {
@@ -37,4 +43,17 @@ app.post('/api/cart', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+////Get database of book 
+app.get('/data', async (req,res)=>
+{
+  try {
+    const data = await MyModel.find();
+    res.json(data);}
+  catch(error)
+  {
+    console.error(error);
+    res.status(500).send('Internal server error');
+  }
+})
+
+app.listen(3000, () => console.log('Server started on portcls 3000'));

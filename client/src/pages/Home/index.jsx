@@ -13,7 +13,8 @@ function Home() {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         axios
-            .get('https://fakestoreapi.com/products')
+            .get('http://localhost:3000/data')
+            // .get('https://fakestoreapi.com/products')
             .then((response) => setProducts(response.data))
             .catch((error) => console.log(error));
     }, []);
@@ -37,11 +38,16 @@ function Home() {
                     {products.map((product) => (
                         <div key={product.id} className="product-item">
                             <Book
-                                title={product.title}
-                                price={product.price}
-                                rate={product.rating.rate}
-                                image={product.image}
-                                id={product.id}
+                                // title={product.title}
+                                // price={product.price}
+                                // rate={product.rating.rate}
+                                // image={product.image}
+                                // id={product.id}
+                                title={product.Tittle}
+                                price={product.Price}
+                                rate={product.Rating}
+                                image={product.Image}
+                                id={product.ID}
                                 quantity={0}
                             ></Book>
                         </div>
