@@ -55,9 +55,7 @@ function Book(props) {
                             ${price}:id{id}
                         </h3>
                     </div>
-                    <div className="description">
-                        {description}
-                    </div>
+                    <div className="description">{description}</div>
                     <Button
                         variant="outlined"
                         size="small"

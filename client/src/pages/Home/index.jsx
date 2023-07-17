@@ -59,7 +59,7 @@ function Home() {
                             />
                         </div>
                         <div className="fillter">
-                            <Fillter />
+                            {/* <Fillter /> */}
                         </div>
                     </div>
                     <div className="product-container">

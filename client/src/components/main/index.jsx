@@ -36,10 +36,15 @@ const DefaultLayout = ({ children }) => {
                     <div className={scroll}>
                         {' '}
                         <Button
-                            style={{ position:"absolute",width:"100px",right:"10px", backgroundColor: 'white', color: 'black' }}
+                            style={{
+                                position: 'absolute',
+                                width: '100px',
+                                right: '10px',
+                                backgroundColor: 'white',
+                                color: 'black',
+                            }}
                             className="button-signin"
                             variant="contained"
-                            onClick={{}}
                         >
                             Log out
                         </Button>
