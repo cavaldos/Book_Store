@@ -5,6 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import MenuItem from '../layout/menu';
 import BreadC from '../layout/header/breadcrumb';
+import Button from '@mui/material/Button';
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router';
@@ -33,6 +34,20 @@ const DefaultLayout = ({ children }) => {
                 {/*  */}
                 <div className="header">
                     <div className={scroll}>
+                        {' '}
+                        <Button
+                            style={{
+                                position: 'absolute',
+                                width: '100px',
+                                right: '10px',
+                                backgroundColor: 'white',
+                                color: 'black',
+                            }}
+                            className="button-signin"
+                            variant="contained"
+                        >
+                            Log out
+                        </Button>
                         <div
                             className="button"
                             onClick={() => {
@@ -48,15 +63,7 @@ const DefaultLayout = ({ children }) => {
                         <div className="breadcrumb">
                             <BreadC />
                         </div>
-                        <button
-                            style={{ position: 'absolute', right: '10px' }}
-                            className="button-login"
-                            onClick={() => {
-                                handleLogin();
-                            }}
-                        >
-                            Login
-                        </button>
+                        {/* <div className="control"></div> */}
                     </div>
                 </div>
 
