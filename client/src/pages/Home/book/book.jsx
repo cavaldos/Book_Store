@@ -41,7 +41,7 @@ function Book(props) {
             // Send product ID and name to the backend server
             const productName = product.title;
             const productId = product.id;
-            axios.post('/api/cart', { id: productId, name: productName })
+            axios.post('http://localhost:3000/api/cart', { id: productId, name: productName })
                 .then(response => {
                     console.log('Product sent to server:', response.data);
                 })
