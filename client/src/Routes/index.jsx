@@ -5,23 +5,14 @@ import Home from '../pages/Home';
 import Author from '../pages/Manager/Author';
 import User from '../pages/Manager/User';
 import Revenue from '../pages/Revenue';
-import Wallet from '../pages/Wallet';
 import ResetPassword from '../components/authentication/resetpassword';
-import OnlineLayout from '../components/onlineLayout';
 // public routes
 const publicRoutes = [
     {
         path: '/',
 
-        component: OnlineLayout,
-        layout: null,
-    },
-    {
-        path: '/t',
-
         component: Home,
     },
-
     {
         path: '/manager-author',
         component: Author,
@@ -54,15 +45,7 @@ const publicRoutes = [
         path: '/cart',
         component: Cart,
     },
-    {
-        path: '/wallet',
-        component: Wallet,
-    },
-    {
-        path: '/about',
-        component: Wallet,
-    },
-];
+    ];
 
 const privateRoutes = [
     {

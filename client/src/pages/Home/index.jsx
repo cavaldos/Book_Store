@@ -3,26 +3,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Book from './book/book';
 import { Spin } from 'antd';
-import { Select } from 'antd';
-import Fillter from './fillter/fillter';
-const categories = ['all', 'noval', 'math', 'anime'];
-const options = [];
-for (let i = 10; i < categories.length; i++) {
-    options.push({
-        value: categories[i],
-        label: categories[i],
-    });
-}
-const handleChange = (value) => {
-    console.log(options);
-    console.log(`selected ${value}`);
-};
+
+import { useSelector } from 'react-redux';
+
 
 function Home() {
     const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState([]);
-    
 
+    const [products, setProducts] = useState([]);
     useEffect(() => {
         axios
             .get('https://fakestoreapi.com/products')
@@ -37,6 +25,7 @@ function Home() {
             setLoading(false);
         }, 500);
     }, [products]);
+
     return (
         <>
             {loading ? (
@@ -44,39 +33,20 @@ function Home() {
                     <Spin size="large" />
                 </div>
             ) : (
-                <>
-                    <div className="option">
-                        <div className="select">
-                            <span style={{ margin: '10px' }}>Category :</span>
-                            <Select
-                                mode="tags"
-                                style={{
-                                    width: '30%',
-                                }}
-                                onChange={handleChange}
-                                tokenSeparators={[',']}
-                                options={options}
-                            />
+                <div className="product-container">
+                    {products.map((product) => (
+                        <div key={product.id} className="product-item">
+                            <Book
+                                title={product.title}
+                                price={product.price}
+                                rate={product.rating.rate}
+                                image={product.image}
+                                id={product.id}
+                                quantity={0}
+                            ></Book>
                         </div>
-                        <div className="fillter">
-                            {/* <Fillter /> */}
-                        </div>
-                    </div>
-                    <div className="product-container">
-                        {products.map((product) => (
-                            <div key={product.id} className="product-item">
-                                <Book
-                                    title={product.title}
-                                    price={product.price}
-                                    rate={product.rating.rate}
-                                    image={product.image}
-                                    id={product.id}
-                                    quantity={0}
-                                ></Book>
-                            </div>
-                        ))}
-                    </div>
-                </>
+                    ))}
+                </div>
             )}
         </>
     );
