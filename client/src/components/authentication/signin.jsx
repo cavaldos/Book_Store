@@ -16,6 +16,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { message } from 'antd';
 
 import IconButton from '@mui/material/IconButton';
 import { CloseCircleFilled } from '@ant-design/icons'; //CloseCircleOutlined
@@ -47,7 +48,7 @@ function SignIn() {
     async function submit(e) {
         e.preventDefault();
         if (!email || !password) {
-            alert('Please fill in all the information');
+            message.success('Please fill in all the information');
             return;
         }
         try {
@@ -60,12 +61,13 @@ function SignIn() {
                     if (res.data === 'exist') {
                         history('/home', { state: { id: email } });
                     } else if (res.data === 'notexist') {
-                        alert('User have not sign up or wrong password');
+                        message.success(
+                            'User have not sign up or wrong password',
+                        );
                     }
                 })
                 .catch((e) => {
-                    alert('wrong details');
-                    //alert("User have not sign up or wrong password");
+                    message.success('wrong details');
 
                     console.log(e);
                 });
@@ -92,10 +94,6 @@ function SignIn() {
                                 alignItems: 'center',
                             }}
                         >
-                            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                                <LockOutlinedIcon />
-                            </Avatar> */}
-
                             <Typography component="h1" variant="5">
                                 Sign in
                             </Typography>
@@ -172,10 +170,7 @@ function SignIn() {
                                         </Link>
                                     </Grid>
                                     <Grid item>
-                                        <Link
-                                            href="/signup"
-                                            variant="body2"
-                                        >
+                                        <Link href="/signup" variant="body2">
                                             {"Don't have an account? Sign Up"}
                                         </Link>
                                     </Grid>
