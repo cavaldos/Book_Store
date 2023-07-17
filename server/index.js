@@ -65,6 +65,7 @@
 //   } catch (err) {
 //     res.status(500).json({ message: err.message });
 //   }
+// mongodb+srv://bookstore:<password>@borbon.gmpunex.mongodb.net/
 // });
 
 const express = require('express');
@@ -72,13 +73,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+dotenv.config();
 
-mongoose.connect('mongodb://localhost:27017/express-auth', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-});
+mongoose
+    .connect(process.env.MONGODB_URL1)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.log('connect false \n', err));
 
 const app = express();
 app.use(express.json());
