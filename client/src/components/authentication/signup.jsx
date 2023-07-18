@@ -41,18 +41,12 @@ export default function SignUp() {
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [phonenumber, setPhonenumber] = useState('');
 
     async function submit(e) {
         e.preventDefault();
         if (!firstname || !lastname || !email || !password || !phonenumber) {
             alert('Please fill in all the information');
-            return;
-        }
-
-        if (password !== confirmPassword) {
-            alert('Password and Confirm Password do not match.');
             return;
         }
 
@@ -179,35 +173,6 @@ export default function SignUp() {
                                                             onClick={
                                                                 toggleShowPassword
                                                             }
-                                                        >
-                                                            {showPassword ? (
-                                                                <VisibilityOffIcon />
-                                                            ) : (
-                                                                <VisibilityIcon />
-                                                            )}
-                                                        </IconButton>
-                                                    ),
-                                                }}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <TextField
-                                                margin="normal"
-                                                required
-                                                fullWidth
-                                                name="confirmPassword"
-                                                label="Confirm Password"
-                                                type={showPassword ? 'text' : 'password'}
-                                                id="confirmPassword"
-                                                value={confirmPassword}
-                                                autoComplete="confirm-password"
-                                                onChange={(e) => {
-                                                    setConfirmPassword(e.target.value);
-                                                }}
-                                                InputProps={{
-                                                    endAdornment: (
-                                                        <IconButton
-                                                            onClick={toggleShowPassword}
                                                         >
                                                             {showPassword ? (
                                                                 <VisibilityOffIcon />

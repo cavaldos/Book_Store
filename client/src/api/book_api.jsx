@@ -2,8 +2,7 @@ import axios from 'axios';
 
 function fetchProducts() {
     return axios
-        .get('http://localhost:3000/data')
-        // .get('https://fakeapi.com/products')
+        .get('https://fakeapi.com/products')
         .then((response) => {
             return response.data;
         })

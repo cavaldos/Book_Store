@@ -1,2 +1,3 @@
 # Book_Store
-branch kanhf
+run client :npm start
+run server: nodemon
