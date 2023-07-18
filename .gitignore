@@ -1,9 +1,5 @@
 /test/
 /server/node_modules/
 /client/node_modules/
-<<<<<<< HEAD
-
-=======
->>>>>>> huy
 
 # mongodb+srv://bookstore:<password>@borbon.gmpunex.mongodb.net/?retryWrites=true&w=majority

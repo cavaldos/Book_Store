@@ -1,7 +1,14 @@
-const authControllers = require('../controllers/authControllers');
+const router = require("express").Router();
 
-const router = require('express').Router();
+const authControllers = require("../controllers/authController");
+const SiteController = require("../controllers/siteController");
 
-router.post('/register',authControllers.registerUser);
-router.post('/login',authControllers.loginUser);
+router.get("/", SiteController.index);
+
+router.post("/signup", authControllers.registerUser);
+router.post("/signin", authControllers.loginUser);
+router.post("/reset-password", () => {
+  "";
+});
+
 module.exports = router;

@@ -1,19 +1,20 @@
-const express = require('express');
-require('./config/connectmongod');
+const express = require("express");
 const app = express();
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const authRoutes = require('./routes/auth');
-const connectDB = require('./config/connectdb');
-
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 
+const MongoDB = require("./config/connectdb");
+const morgan = require("morgan");
+const authRoutes = require("./routes/auth");
+const route = require("./routes/");
+app.use(morgan("tiny"));
 
-app.use('/v1/auth', authRoutes);
+route(app);
+
+MongoDB.connect();
 app.use(express.json());
 
+//listen
 app.listen(process.env.PORT, () => {
-    console.log('Server is running on port', process.env.PORT);
+  console.log("Server is running on port", process.env.PORT);
 });
-
