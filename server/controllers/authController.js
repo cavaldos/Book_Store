@@ -1,108 +1,44 @@
-const bycrypt = require("bcryptjs");
-const User = require("../models/user");
+const user = require("../models/book");
 
-const authControllers = {
-  registerUser: async (req, res) => {
+const authController = {
+  login: async (req, res) => {
     try {
-      const salt = await bycrypt.genSalt(10);
-      const hashedPassword = await bycrypt.hash(req.body.password, salt);
-      const newUser = await new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-      });
-      //save to db
-      const user = await newUser.save();
-      res.status(200).json({
-        success: true,
-        message: "User created",
-        user,
-      });
+        res.json({ message: "login" });
     } catch (err) {
-      res.status(500).json({ success: false, message: err.message });
-      //   console.log(err);
+      res.status(500).json({
+        message: err.message,
+      });
     }
   },
-  loginUser: async (req, res) => {
+  register: async (req, res) => {
     try {
-      const user = await user.findone({
-        username: req.body.username,
-      });
-      if (!user)
-        return res.status(400).json({
-          success: false,
-          message: "Username or password is wrong",
-        });
-      const validPassword = await bycrypt.compare(
-        req.body.password,
-        user.password
-      );
-      if (!validPassword) {
-        res.status(400).json("wrong password");
-      }
-      if (user && validPassword) {
-        res.status(200).json(user);
-      }
+        res.json({ message: "register" });
+
     } catch (err) {
-      res.status(500).json({ success: false, message: err.message });
+      res.status(500).json({
+        message: err.message,
+      });
     }
   },
-  resetPassword: async (req, res) => {
-    
-  }
+  logout: async (req, res) => {
+    try {
+        res.json({ message: "logout" });
+
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  fogotpassword: async (req, res) => {
+    try {
+        res.json({ message: "fogotpassword" });
+
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
 };
-module.exports = authControllers;
-
-// const bcrypt = require("bcryptjs");
-// const User = require("../models/user");
-
-// const authControllers = {
-//   registerUser: async (req, res) => {
-//     try {
-//       const { username, email, password } = req.body;
-//       const salt = await bcrypt.genSalt(10);
-//       const hashedPassword = await bcrypt.hash(password, salt);
-//       const newUser = new User({
-//         username,
-//         email,
-//         password: hashedPassword,
-//       });
-//       const user = await newUser.save();
-//       res.status(200).json({
-//         success: true,
-//         message: "User created",
-//         user,
-//       });
-//     } catch (err) {
-//       res.status(500).json({ success: false, message: err.message });
-//     }
-//   },
-//   loginUser: async (req, res) => {
-//     try {
-//       const { username, password } = req.body;
-//       const user = await User.findOne({ username });
-//       if (!user) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Username or password is wrong",
-//         });
-//       }
-//       const validPassword = await bcrypt.compare(password, user.password);
-//       if (!validPassword) {
-//         return res.status(400).json({
-//           success: false,
-//           message: "Username or password is wrong",
-//         });
-//       }
-//       res.status(200).json({
-//         success: true,
-//         message: "Login successful",
-//         user,
-//       });
-//     } catch (err) {
-//       res.status(500).json({ success: false, message: err.message });
-//     }
-//   },
-// };
-
-// module.exports = authControllers;
+module.exports = authController;
