@@ -1,0 +1,52 @@
+[
+  {
+    "id": 21126072,
+    "username": "khanh",
+    "password": "khanh123",
+    "email": "khanh@gmail.com",
+    "firstname": "khanh",
+    "lastname": "nguyen",
+    "phonenumber": "1234567890",
+    "role": "admin"
+  },
+  {
+    "id": 21126069,
+    "username": "hung",
+    "password": "password123",
+    "email": "hung@gmail.com",
+    "firstname": "Hung",
+    "lastname": "Nguyen",
+    "phonenumber": "0987654321",
+    "role": "user"
+  },
+  {
+    "id": 21126065,
+    "username": "chau",
+    "password": "password123",
+    "email": "chau@gmail.com",
+    "firstname": "Chau",
+    "lastname": "Diem",
+    "phonenumber": "5555555555",
+    "role": "user"
+  },
+  {
+    "id": 211260735,
+    "username": "huy",
+    "password": "password123",
+    "email": "huy@gmail.com",
+    "firstname": "huy",
+    "lastname": "le",
+    "phonenumber": "21126900",
+    "role": "user"
+  },
+  {
+    "id": 2112604,
+    "username": "quy",
+    "password": "password123",
+    "email": "quy@gmail.com",
+    "firstname": "quy",
+    "lastname": "do",
+    "phonenumber": "232323323",
+    "role": "employee"
+  }
+]
