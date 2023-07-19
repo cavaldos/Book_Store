@@ -25,9 +25,10 @@ function Home() {
 
     useEffect(() => {
         axios
-            .get('https://fakestoreapi.com/products')
-            .then((response) => setProducts(response.data))
-            .catch((error) => console.log(error));
+          .get('https://fakestoreapi.com/products')
+        //   .get("http://localhost:5000/getallbook")
+          .then((response) => setProducts(response.data))
+          .catch((error) => console.log(error));
     }, []);
     //check loading
     useEffect(() => {

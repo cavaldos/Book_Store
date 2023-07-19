@@ -1,0 +1,3134 @@
+[{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab5530fb"
+  },
+  "ID": 1,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141036144.jpg",
+  "Tittle": "1984",
+  "Author": "George Orwell",
+  "Rating": 4,
+  "Price": 7.88,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 1949,
+  "Publisher": "Secker and Warburg",
+  "Description": "This dystopian novel is set in a totalitarian society where the government has complete control over every aspect of citizens' lives, including their thoughts and beliefs. It follows the story of Winston Smith, a low-ranking member of the ruling party who begins to rebel against the regime's oppressive tactics. It has become a classic in the genre of political fiction and has had a lasting influence on popular culture and political discourse.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab5530fc"
+  },
+  "ID": 2,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2413/9780241351642.jpg",
+  "Tittle": "12 Rules for Life",
+  "Author": "Jordan B. Peterson",
+  "Rating": 4,
+  "Price": 18.31,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2018,
+  "Publisher": "Random House Canada",
+  "Description": "This book presents a set of principles for living a meaningful and fulfilling life, drawing on psychology, philosophy, and the author's own experiences. It has been controversial for its views on topics such as gender and politics.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab5530fd"
+  },
+  "ID": 3,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/5531/9780553176988.jpg",
+  "Tittle": "A Brief History Of Time",
+  "Author": "Stephen Hawking",
+  "Rating": 4,
+  "Price": 9.12,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 1988,
+  "Publisher": "Bantam Books",
+  "Description": "This book provides an introduction to the concepts of cosmology, including the Big Bang theory, black holes, and the nature of time. It is written for a general audience and has become a best-seller.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab5530fe"
+  },
+  "ID": 4,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7847/9781784700089.jpg",
+  "Tittle": "Alan Turing: The Enigma",
+  "Author": "Andrew Hodges",
+  "Rating": 4,
+  "Price": 13.41,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 1983,
+  "Publisher": "Burnett Books",
+  "Description": "This biography explores the life and work of Alan Turing, a British mathematician and codebreaker during World War II. It also delves into his personal life, including his homosexuality and the persecution he faced as a result.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab5530ff"
+  },
+  "ID": 5,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141036137.jpg",
+  "Tittle": "Animal Farm",
+  "Author": "George Orwell",
+  "Rating": 4,
+  "Price": 7.98,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 1945,
+  "Publisher": "Secker and Warburg",
+  "Description": "This allegorical novel tells the story of a group of farm animals who rebel against their human owner and establish their own society. It is a commentary on the Russian Revolution and the rise of Stalinism.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553100"
+  },
+  "ID": 6,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3936/9780393609394.jpg",
+  "Tittle": "Astrophysics for People in a Hurry",
+  "Author": "Neil Degrasse Tyson",
+  "Rating": 4,
+  "Price": 13.37,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2017,
+  "Publisher": "W. W. Norton & Company",
+  "Description": "W. W. Norton & Company",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553101"
+  },
+  "ID": 7,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5098/9781509868087.jpg",
+  "Tittle": "Bad Blood",
+  "Author": "John Carreyrou",
+  "Rating": 4.5,
+  "Price": 8.4,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Knopf",
+  "Description": "This book is an investigative journalism account of the rise and fall of the health technology company Theranos, founded by Elizabeth Holmes. It exposes the fraud and deception within the company and the executives responsible for it.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553102"
+  },
+  "ID": 8,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2413/9780241334140.jpg",
+  "Tittle": "Becoming",
+  "Author": "Michelle Obama",
+  "Rating": 4.5,
+  "Price": 24.21,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Crown Publishing Group",
+  "Description": "This memoir chronicles the life and career of Michelle Obama, from her childhood on the South Side of Chicago to her years as First Lady of the United States. It reflects on the challenges and triumphs she faced along the way.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553103"
+  },
+  "ID": 9,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8484/9781848454125.jpg",
+  "Tittle": "Behind Closed Doors",
+  "Author": "B. A. Paris",
+  "Rating": 4,
+  "Price": 8.39,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2016,
+  "Publisher": "St. Martin's Press",
+  "Description": "This psychological thriller tells the story of a seemingly perfect couple, but as the story unfolds, it becomes clear that their marriage is not what it seems. It explores themes of domestic abuse and control.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553104"
+  },
+  "ID": 10,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8466/9781846685828.jpg",
+  "Tittle": "Being Mortal",
+  "Author": "Atul Gawande",
+  "Rating": 4.5,
+  "Price": 9.03,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2014,
+  "Publisher": "Metropolitan Books",
+  "Description": "This book explores the challenges of end-of-life care and the ways in which medicine can better serve the needs of the dying. It presents personal stories and research on topics such as hospice care, assisted living, and the medicalization of death.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553105"
+  },
+  "ID": 11,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4059/9781405916363.jpg",
+  "Tittle": "Big Little Lies",
+  "Author": "Liane Moriarty",
+  "Rating": 4.5,
+  "Price": 9.55,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2014,
+  "Publisher": "Berkley Books",
+  "Description": "This novel follows the lives of three women in a wealthy suburban community as their seemingly perfect lives begin to unravel. It explores themes of motherhood, domestic violence, and the pressure to conform to societal expectations.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553106"
+  },
+  "ID": 12,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3854/9780385480017.jpg",
+  "Tittle": "Bird By Bird",
+  "Author": "Anne Lamott",
+  "Rating": 4,
+  "Price": 12.23,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 1994,
+  "Publisher": "Anchor Books",
+  "Description": "This book is a guide for aspiring writers, offering advice on the creative process, overcoming writer's block, and writing with honesty and authenticity. It is written in a humorous and engaging style.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553107"
+  },
+  "ID": 13,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0995/9780099556756.jpg",
+  "Tittle": "Bloody Valentine",
+  "Author": "James Patterson",
+  "Rating": 3.5,
+  "Price": 3.66,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2021,
+  "Publisher": "Grand Central Publishing",
+  "Description": "This book is a thriller set in a small town on the brink of a Valentine's Day massacre.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553108"
+  },
+  "ID": 14,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4736/9781473635302.jpg",
+  "Tittle": "Born A Crime",
+  "Author": "Trevor Noah",
+  "Rating": 4.5,
+  "Price": 8.3,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2016,
+  "Publisher": "Spiegel & Grau",
+  "Description": "This memoir chronicles the childhood and early life of comedian Trevor Noah, who was born to a black mother and a white father in apartheid-era South Africa.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553109"
+  },
+  "ID": 15,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4711/9781471157790.jpg",
+  "Tittle": "Born to Run",
+  "Author": "Bruce Springsteen",
+  "Rating": 4,
+  "Price": 27.12,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2016,
+  "Publisher": "Simon & Schuster",
+  "Description": "This autobiography tells the story of musician Bruce Springsteen's life and career, from his early years in New Jersey to his rise to fame as a rock star.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55310a"
+  },
+  "ID": 16,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4736/9781473695986.jpg",
+  "Tittle": "Brief Answers to the Big Questions",
+  "Author": "Stephen Hawking",
+  "Rating": 4.5,
+  "Price": 11.64,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2018,
+  "Publisher": "Bantam Press",
+  "Description": "This book is a collection of essays and speeches by the late physicist Stephen Hawking, exploring topics such as the origins of the universe, time travel, and the possibility of extraterrestrial life.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55310b"
+  },
+  "ID": 17,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5445/9781544512273.jpg",
+  "Tittle": "Can't Hurt Me",
+  "Author": "David Goggins",
+  "Rating": 4.5,
+  "Price": 19.37,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Lioncrest Publishing",
+  "Description": "This memoir tells the story of former Navy SEAL and endurance athlete David Goggins, who overcame childhood abuse, obesity, and other challenges to become a record-breaking athlete and motivational speaker.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55310c"
+  },
+  "ID": 18,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/5005/9780500513606.jpg",
+  "Tittle": "Chanel",
+  "Author": "Daniele Bott",
+  "Rating": 4,
+  "Price": 31.18,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2010,
+  "Publisher": "Taschen",
+  "Description": "This book is a visual biography of fashion designer Coco Chanel, featuring photographs and illustrations of her life and work.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55310d"
+  },
+  "ID": 19,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1344/9780134494166.jpg",
+  "Tittle": "Clean Architecture",
+  "Author": "Robert C. Martin",
+  "Rating": 4,
+  "Price": 23.53,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2017,
+  "Publisher": "Prentice Hall",
+  "Description": "This book is a guide to software architecture, offering principles and strategies for designing software systems that are easy to maintain and modify.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55310e"
+  },
+  "ID": 20,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1323/9780132350884.jpg",
+  "Tittle": "Clean Code",
+  "Author": "Robert C. Martin",
+  "Rating": 4.5,
+  "Price": 26.56,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2008,
+  "Publisher": "Prentice Hall",
+  "Description": "This book is a guide to writing clean, maintainable code, offering best practices and guidelines for software developers.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55310f"
+  },
+  "ID": 21,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8478/9781847807717.jpg",
+  "Tittle": "Coco Chanel",
+  "Author": "Isabel Sanchez Vegara",
+  "Rating": 4,
+  "Price": 10.01,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2016,
+  "Publisher": "Frances Lincoln Children's Books",
+  "Description": "This children's book is a biographical account of the life of fashion designer Coco Chanel, focusing on her early years and her rise to fame.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553110"
+  },
+  "ID": 22,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9847/9780984782857.jpg",
+  "Tittle": "Cracking the Coding Interview",
+  "Author": "Gayle Laakmann McDowell",
+  "Rating": 4.5,
+  "Price": 33.99,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2015,
+  "Publisher": "CareerCup",
+  "Description": "This book is a guide to interviewing for software engineering jobs, offering strategies and practice problems for coding interviews.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553111"
+  },
+  "ID": 23,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/6924/9780692452745.jpg",
+  "Tittle": "Create This Book",
+  "Author": "Moriah Elizabeth",
+  "Rating": 4.5,
+  "Price": 17.05,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2015,
+  "Publisher": "Creative Outlet",
+  "Description": "This interactive journal is designed to inspire creativity and self-expression, with prompts and challenges for drawing, coloring, and other artistic activities.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553112"
+  },
+  "ID": 24,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7863/9781786331502.jpg",
+  "Tittle": "Daisy Jones and The Six",
+  "Author": "TAYLOR JENKINS REID",
+  "Rating": 4,
+  "Price": 14.67,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2019,
+  "Publisher": "Random House Publishing Group",
+  "Description": "The novel is about the rise of an iconic 1970s rock group and their beautiful lead singer, revealing the mystery behind their infamous break up",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553113"
+  },
+  "ID": 25,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4091/9781409168393.jpg",
+  "Tittle": "DanTDM: Trayaurus and the Enchanted Crystal",
+  "Author": "DanTDM",
+  "Rating": 4.5,
+  "Price": 14.93,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2016,
+  "Publisher": "HarperCollins Children's Books",
+  "Description": "This children's book is based on the adventures of popular YouTube personality DanTDM and his animated sidekick Trayaurus.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553114"
+  },
+  "ID": 26,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7850/9781785042140.jpg",
+  "Tittle": "Dare to Lead",
+  "Author": "Brene Brown",
+  "Rating": 4,
+  "Price": 13.09,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2018,
+  "Publisher": "Random House",
+  "Description": "This book is a guide to effective leadership, offering strategies and insights for building trust, courage, and vulnerability in the workplace.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553115"
+  },
+  "ID": 27,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2412/9780241257401.jpg",
+  "Tittle": "Daring Greatly",
+  "Author": "Brene Brown",
+  "Rating": 4.5,
+  "Price": 9.6,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2012,
+  "Publisher": "Avery",
+  "Description": "This book is a guide to embracing vulnerability and living a wholehearted life, offering insights and strategies for cultivating courage, compassion, and connection.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553116"
+  },
+  "ID": 28,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4521/9781452106557.jpg",
+  "Tittle": "Darth Vader and Son",
+  "Author": "Jeffrey Brown",
+  "Rating": 4,
+  "Price": 9.61,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2012,
+  "Publisher": "Chronicle Books",
+  "Description": "Darth Vader and Son” is a non-canon picture book written and illustrated by Jeffrey Brown. It is comprised of one-page comic illustrations that show Darth Vader parenting Luke Skywalker. ",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553117"
+  },
+  "ID": 29,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4169/9781416947370.jpg",
+  "Tittle": "Dear Zoo",
+  "Author": "Rod Campbell",
+  "Rating": 4.5,
+  "Price": 6.76,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 1982,
+  "Publisher": "Random House Children's Books",
+  "Description": "This children's book tells the story of a child who writes to the zoo to send them a pet, but each animal they send is unsuitable for various reasons.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553118"
+  },
+  "ID": 30,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3494/9780349411903.jpg",
+  "Tittle": "Deep Work",
+  "Author": "Cal Newport",
+  "Rating": 4,
+  "Price": 11.54,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2016,
+  "Publisher": "Grand Central Publishing",
+  "Description": "This book explores the concept of \"deep work,\" or the ability to focus without distraction on cognitively demanding tasks, offering strategies and advice for improving productivity and creativity.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553119"
+  },
+  "ID": 31,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2016/9780201633610.jpg",
+  "Tittle": "Design Patterns",
+  "Author": "Erich Gamma",
+  "Rating": 4,
+  "Price": 39.16,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 1994,
+  "Publisher": "Addison-Wesley Professional",
+  "Description": "This book is a classic guide to software design patterns, offering reusable solutions to common programming problems.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55311a"
+  },
+  "ID": 32,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2413/9780241341131.jpg",
+  "Tittle": "Digital Minimalism",
+  "Author": "Cal Newport",
+  "Rating": 4,
+  "Price": 14.58,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2019,
+  "Publisher": "Portfolio",
+  "Description": "This book explores the idea of digital minimalism, or the intentional use of technology to improve one's life and well-being, offering insights and strategies for reducing digital distractions and cultivating deeper, more meaningful experiences.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55311b"
+  },
+  "ID": 33,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3219/9780321965516.jpg",
+  "Tittle": "Don't Make Me Think, Revisited",
+  "Author": "Steve Krug",
+  "Rating": 4,
+  "Price": 23.03,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2014,
+  "Publisher": "New Riders",
+  "Description": "This book is a guide to web usability, offering insights and strategies for designing intuitive and user-friendly websites.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55311c"
+  },
+  "ID": 34,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7475/9780747585664.jpg",
+  "Tittle": "Eat, Pray, Love",
+  "Author": "Elizabeth Gilbert",
+  "Rating": 3.5,
+  "Price": 8.86,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2006,
+  "Publisher": "Penguin Books",
+  "Description": "This memoir tells the story of the author's travels to Italy, India, and Indonesia in search of personal growth and spiritual fulfillment, exploring themes of love, loss, and self-discovery.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55311d"
+  },
+  "ID": 35,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0073/9780007329069.jpg",
+  "Tittle": "Eats, Shoots and Leaves",
+  "Author": "Lynne Truss",
+  "Rating": 4,
+  "Price": 8.58,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2003,
+  "Publisher": "Profile Books",
+  "Description": "This book is a lighthearted guide to punctuation, offering humorous examples and anecdotes to illustrate the importance of proper punctuation usage.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55311e"
+  },
+  "ID": 36,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0995/9780099511021.jpg",
+  "Tittle": "Educated",
+  "Author": "Tara Westover",
+  "Rating": 4.5,
+  "Price": 9.61,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Random House",
+  "Description": "This memoir tells the story of the author's escape from a restrictive and abusive upbringing in rural Idaho, exploring themes of education, self-discovery, and the power of knowledge.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55311f"
+  },
+  "ID": 37,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7535/9780753557525.jpg",
+  "Tittle": "Elon Musk",
+  "Author": "Ashlee Vance",
+  "Rating": 4,
+  "Price": 7.61,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2015,
+  "Publisher": "Ecco",
+  "Description": "This biography tells the story of entrepreneur Elon Musk, exploring his life, career, and vision for the future of technology and space exploration.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553120"
+  },
+  "ID": 38,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4736/9781473637467.jpg",
+  "Tittle": "Factfulness",
+  "Author": "Hans Rosling",
+  "Rating": 4.5,
+  "Price": 11.82,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2018,
+  "Publisher": "Flatiron Books",
+  "Description": "This book explores the concept of factfulness, or the ability to see the world as it really is, offering insights and strategies for overcoming common biases and misconceptions.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553121"
+  },
+  "ID": 39,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4087/9781408708989.jpg",
+  "Tittle": "Fantastic Beasts and Where to Find Them",
+  "Author": "J. K. Rowling",
+  "Rating": 4.5,
+  "Price": 11.05,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2001,
+  "Publisher": "Bloomsbury Children's Books",
+  "Description": "This book is a companion to the Harry Potter series, exploring the magical creatures and characters of the wizarding world.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553122"
+  },
+  "ID": 40,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0072/9780007204496.jpg",
+  "Tittle": "Fear and Loathing in Las Vegas",
+  "Author": "Hunter S. Thompson",
+  "Rating": 4,
+  "Price": 8.3,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 1971,
+  "Publisher": "Random House",
+  "Description": "This book is a gonzo-style account of the author's drug-fueled trip to Las Vegas with his attorney, exploring themes of counterculture, disillusionment, and the American Dream.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553123"
+  },
+  "ID": 41,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7515/9780751568356.jpg",
+  "Tittle": "Friend Request",
+  "Author": "Laura Marshall",
+  "Rating": 4,
+  "Price": 5.23,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2017,
+  "Publisher": "Sphere",
+  "Description": "This psychological thriller tells the story of a woman who receives a friend request from a classmate who went missing years ago, and the dark secrets that are revealed as she tries to uncover the truth.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553124"
+  },
+  "ID": 42,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8412/9781841215655.jpg",
+  "Tittle": "Giraffes Can't Dance",
+  "Author": "Giles Andreae",
+  "Rating": 4.5,
+  "Price": 7.3,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 1999,
+  "Publisher": "Orchard Books",
+  "Description": "This children's book tells the story of a giraffe who learns to dance despite being teased by the other animals.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553125"
+  },
+  "ID": 43,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/4650/9780465026562.jpg",
+  "Tittle": "Godel, Escher, Bach",
+  "Author": "Douglas R. Hofstadter",
+  "Rating": 4.5,
+  "Price": 16.37,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 1979,
+  "Publisher": "Basic Books",
+  "Description": "This book is a philosophical exploration of the nature of consciousness and creativity, drawing on the works of mathematician Kurt Gödel, artist M.C. Escher, and composer Johann Sebastian Bach.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553126"
+  },
+  "ID": 44,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7802/9781780221359.jpg",
+  "Tittle": "Gone Girl",
+  "Author": "Gillian Flynn",
+  "Rating": 4,
+  "Price": 9.55,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2012,
+  "Publisher": "Crown Publishing Group",
+  "Description": "This psychological thriller tells the story of a man whose wife goes missing on their fifth wedding anniversary, and the twists and turns that follow as he becomes the prime suspect in her disappearance.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553127"
+  },
+  "ID": 45,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1419/9780141986005.jpg",
+  "Tittle": "Good Night Stories for Rebel Girls",
+  "Author": "Elena Favilli",
+  "Rating": 4.5,
+  "Price": 20.86,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2016,
+  "Publisher": "Timbuktu Labs",
+  "Description": "This children's book is a collection of stories about inspiring women throughout history and around the world, offering role models for young girls to look up to.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553128"
+  },
+  "ID": 46,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9978/9780997895827.jpg",
+  "Tittle": "Goodnight Stories for Rebel Girls 2",
+  "Author": "Elena Favilli",
+  "Rating": 4.5,
+  "Price": 21.15,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Timbuktu Labs",
+  "Description": "This sequel to \"Good Night Stories for Rebel Girls\" is another collection of stories about inspiring women throughout history and around the world, offering role models for young girls to look up to.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553129"
+  },
+  "ID": 47,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0993/9780099302780.jpg",
+  "Tittle": "Guns, Germs And Steel",
+  "Author": "Jared Diamond",
+  "Rating": 4,
+  "Price": 13.17,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 1997,
+  "Publisher": "W. W. Norton & Company",
+  "Description": "This book explores the role of geography and technology in shaping human history, offering a broad overview of world history and the factors that have contributed to the dominance of certain societies and cultures.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55312a"
+  },
+  "ID": 48,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/9252/9781925228601.jpg",
+  "Tittle": "Gut",
+  "Author": "Giulia Enders",
+  "Rating": 4,
+  "Price": 10.49,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2015,
+  "Publisher": "Scribe Publications",
+  "Description": "This book explores the role of the gut in overall health and provides insights into the workings of the digestive system. It includes information on topics such as the gut microbiome, digestion, and the mind-gut connection.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55312b"
+  },
+  "ID": 49,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9548/9780954852023.jpg",
+  "Tittle": "Gut and Psychology Syndrome",
+  "Author": "Dr Natasha Campbell-McBride",
+  "Rating": 4,
+  "Price": 19.48,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2010,
+  "Publisher": "Medinform Publishing",
+  "Description": "This book explores the link between gut health and mental health, and offers a diet plan designed to improve gut health and alleviate symptoms of conditions such as autism, ADHD, and depression.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55312c"
+  },
+  "ID": 50,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4919/9781491962299.jpg",
+  "Tittle": "Hands-On Machine Learning with Scikit-Learn and TensorFlow",
+  "Author": "Aurelien Geron",
+  "Rating": 4.5,
+  "Price": 30.53,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2017,
+  "Publisher": "O'Reilly Media",
+  "Description": "This book is a practical guide to machine learning, offering hands-on examples and exercises using the Python programming language and popular libraries such as Scikit-Learn and TensorFlow.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55312d"
+  },
+  "ID": 51,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4088/9781408890769.jpg",
+  "Tittle": "Harry Potter - A History of Magic",
+  "Author": "British Library",
+  "Rating": 4,
+  "Price": 30.92,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2017,
+  "Publisher": "Arthur A. Levine Books",
+  "Description": "This book is a companion to the British Library's exhibition of the same name, exploring the history and mythology behind the Harry Potter series.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55312e"
+  },
+  "ID": 52,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7515/9780751565355.jpg",
+  "Tittle": "Harry Potter and the Cursed Child - Parts I & II",
+  "Author": "J. K. Rowling",
+  "Rating": 3.5,
+  "Price": 15.43,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2016,
+  "Publisher": "Arthur A. Levine Books",
+  "Description": "This play script continues the story of Harry Potter nineteen years after the events of the original series, following the adventures of his son Albus and his friends.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55312f"
+  },
+  "ID": 53,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9960/9780996099936.jpg",
+  "Tittle": "Have You Filled A Bucket Today?",
+  "Author": "Carol McCloud",
+  "Rating": 4.5,
+  "Price": 8.66,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2006,
+  "Publisher": "Bucket Fillers",
+  "Description": "This children's book promotes the idea of kindness and encourages children to be \"bucket fillers\" by doing good deeds and making others feel happy.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553130"
+  },
+  "ID": 54,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7847/9781784703936.jpg",
+  "Tittle": "Homo Deus",
+  "Author": "Yuval Noah Harari",
+  "Rating": 4.5,
+  "Price": 12.9,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2016,
+  "Publisher": "Harper",
+  "Description": "This book explores the future of humanity, examining the ways in which technology and science are transforming human society and challenging our beliefs about life, death, and consciousness.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553131"
+  },
+  "ID": 55,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7160/9780716022237.jpg",
+  "Tittle": "How to Draw Anything",
+  "Author": "Mark Linley",
+  "Rating": 3.5,
+  "Price": 5.26,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2012,
+  "Publisher": "Robinson",
+  "Description": "This book is a beginner's guide to drawing, offering simple tips and techniques for improving your drawing skills.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553132"
+  },
+  "ID": 56,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/6712/9780671212094.jpg",
+  "Tittle": "How to Read a Book",
+  "Author": "Charles Van Doren",
+  "Rating": 4,
+  "Price": 9.49,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 1972,
+  "Publisher": "Touchstone",
+  "Description": "This classic guide to reading offers strategies and techniques for improving your reading comprehension and critical thinking skills.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553133"
+  },
+  "ID": 57,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4391/9781439199190.jpg",
+  "Tittle": "How to Win Friends and Influence People",
+  "Author": "Dale Carnegie",
+  "Rating": 4,
+  "Price": 8.3,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 1936,
+  "Publisher": "Gallery Books",
+  "Description": "This self-help book offers practical advice for improving your social skills and building strong relationships, with strategies for effective communication, persuasion, and leadership.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553134"
+  },
+  "ID": 58,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/1180/9781118008188.jpg",
+  "Tittle": "HTML and CSS",
+  "Author": "Jon Duckett",
+  "Rating": 4.5,
+  "Price": 22.68,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2011,
+  "Publisher": "Wiley",
+  "Description": "This beginner's guide to web development covers the basics of HTML and CSS, with examples and exercises to help you build your first website.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553135"
+  },
+  "ID": 59,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/2500/9781250038821.jpg",
+  "Tittle": "Humans of New York",
+  "Author": "Brandon Stanton",
+  "Rating": 4.5,
+  "Price": 21.46,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2013,
+  "Publisher": "St. Martin's Press",
+  "Description": "This photography book features portraits and stories of people from all walks of life in New York City, capturing the diversity and humanity of the city's inhabitants.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553136"
+  },
+  "ID": 60,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3455/9780345514400.jpg",
+  "Tittle": "I Know Why the Caged Bird Sings",
+  "Author": "Maya Angelou",
+  "Rating": 4,
+  "Price": 7.07,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 1969,
+  "Publisher": "Random House",
+  "Description": "This memoir tells the story of poet and activist Maya Angelou's childhood and early life, exploring themes of racism, trauma, and personal growth.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553137"
+  },
+  "ID": 61,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0612/9780061241895.jpg",
+  "Tittle": "influence",
+  "Author": "Robert B. Cialdini",
+  "Rating": 4,
+  "Price": 11.38,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 1984,
+  "Publisher": "Harper Business",
+  "Description": "This book explores the psychology of persuasion, offering insights and strategies for influencing others and defending yourself against manipulation.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553138"
+  },
+  "ID": 62,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3303/9780330351690.jpg",
+  "Tittle": "Into the Wild",
+  "Author": "Jon Krakauer",
+  "Rating": 4,
+  "Price": 7.07,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 1996,
+  "Publisher": "Villard",
+  "Description": "This nonfiction book tells the story of Christopher McCandless, a young man who ventured into the Alaskan wilderness with little preparation and ultimately lost his life. It explores themes of adventure, self-discovery, and the human spirit.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553139"
+  },
+  "ID": 63,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4447/9781444734164.jpg",
+  "Tittle": "Is it Just Me?",
+  "Author": "Miranda Hart",
+  "Rating": 4,
+  "Price": 8.35,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2012,
+  "Publisher": "Hodder & Stoughton.",
+  "Description": " The book is a Sunday Times number one bestseller and has sold over 700,000 copies. The book is a memoir that laments on the horrors of growing up and offers her younger self some essential advice on grappling with life’s unexpected perils and blunders",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55313a"
+  },
+  "ID": 64,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/8771/9780877180128.jpg",
+  "Tittle": "John Thompson's Easiest Piano Course",
+  "Author": "John Thompson",
+  "Rating": 4,
+  "Price": 6.71,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2005,
+  "Publisher": "Willis Music",
+  "Description": "This piano course is designed for beginners, offering a gradual progression of lessons and exercises to build fundamental skills and techniques.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55313b"
+  },
+  "ID": 65,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7475/9780747568766.jpg",
+  "Tittle": "Just Kids",
+  "Author": "Patti Smith",
+  "Rating": 4,
+  "Price": 9.43,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2010,
+  "Publisher": "Ecco",
+  "Description": "This memoir tells the story of singer-songwriter Patti Smith's relationship with photographer Robert Mapplethorpe and their experiences in the New York City art scene during the 1960s and 1970s.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55313c"
+  },
+  "ID": 66,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4721/9781472103536.jpg",
+  "Tittle": "Legacy",
+  "Author": "James Kerr",
+  "Rating": 4,
+  "Price": 9.7,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2013,
+  "Publisher": "Constable",
+  "Description": "This book explores the culture and leadership principles of the New Zealand All Blacks rugby team, offering insights and strategies for achieving excellence in sports and life.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55313d"
+  },
+  "ID": 67,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7538/9780753826614.jpg",
+  "Tittle": "Life",
+  "Author": "Keith Richards",
+  "Rating": 4,
+  "Price": 11.18,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2010,
+  "Publisher": "Little, Brown and Company",
+  "Description": "The book is about Richards’s life and his experiences with the Rolling Stones.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55313e"
+  },
+  "ID": 68,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1419/9780141981802.jpg",
+  "Tittle": "Life 3.0",
+  "Author": "Max Tegmark",
+  "Rating": 4,
+  "Price": 10,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2017,
+  "Publisher": "Knopf",
+  "Description": "This book explores the potential benefits and risks of artificial intelligence, offering insights into the future of technology and its impact on human society.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55313f"
+  },
+  "ID": 69,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4059/9781405930994.jpg",
+  "Tittle": "Lion",
+  "Author": "Saroo Brierley",
+  "Rating": 4,
+  "Price": 8.85,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2013,
+  "Publisher": "Penguin Books",
+  "Description": "This memoir tells the story of Saroo Brierley's journey to find his birth mother after being separated from his family as a child in India and adopted by an Australian couple.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553140"
+  },
+  "ID": 70,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4095/9781409549475.jpg",
+  "Tittle": "Look Inside Your Body",
+  "Author": "Louie Stowell",
+  "Rating": 4.5,
+  "Price": 10.65,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2012,
+  "Publisher": "Usborne Publishing Ltd",
+  "Description": "This children's book offers a fun and interactive look at the human body, with flaps to lift and facts to discover about the different systems and organs.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553141"
+  },
+  "ID": 71,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4088/9781408878729.jpg",
+  "Tittle": "Lost Connections",
+  "Author": "Johann Hari",
+  "Rating": 4.5,
+  "Price": 8.53,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Bloomsbury Publishing",
+  "Description": "This book explores the social and cultural factors that contribute to depression and anxiety, offering insights and strategies for addressing these issues and improving mental health.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553142"
+  },
+  "ID": 72,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8460/9781846041242.jpg",
+  "Tittle": "Man's Search For Meaning",
+  "Author": "Viktor E. Frankl",
+  "Rating": 4.5,
+  "Price": 9.66,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 1946,
+  "Publisher": "Beacon Press",
+  "Description": "This book is a memoir and philosophical treatise that reflects on the author's experiences as a prisoner in Nazi concentration camps during World War II. It argues that even in the most difficult circumstances, individuals can find meaning and purpose in life.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553143"
+  },
+  "ID": 73,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3491/9780349113913.jpg",
+  "Tittle": "Me Talk Pretty One Day",
+  "Author": "David Sedaris",
+  "Rating": 4,
+  "Price": 7.38,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2000,
+  "Publisher": "Little, Brown and Company",
+  "Description": "The book is separated into two parts. The first part consists of essays about Sedaris’s life before his move to Normandy, France, including his upbringing in suburban Raleigh, North Carolina, his time working odd jobs in New York City, and a visit to New York from a childhood friend and her husband. The second part of the book describes Sedaris’s experiences living in France with his partner Hugh and their attempts to learn French",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553144"
+  },
+  "ID": 74,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4019/9781401954406.jpg",
+  "Tittle": "Medical Medium Liver Rescue",
+  "Author": "Anthony William",
+  "Rating": 4,
+  "Price": 23.76,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2018,
+  "Publisher": "Hay House Inc.",
+  "Description": "This book provides a holistic approach to liver health, with advice on nutrition, supplements, and lifestyle changes. It includes information on the role of the liver in overall health and the ways in which it can be supported.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553145"
+  },
+  "ID": 75,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8499/9781849941679.jpg",
+  "Tittle": "Millie Marotta's Animal Kingdom",
+  "Author": "Millie Marotta",
+  "Rating": 4.5,
+  "Price": 11.6,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2014,
+  "Publisher": "Batsford",
+  "Description": "This coloring book features intricate illustrations of animals from around the world, offering a relaxing and creative activity for animal lovers of all ages.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553146"
+  },
+  "ID": 76,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4721/9781472139955.jpg",
+  "Tittle": "Mindset - Updated Edition",
+  "Author": "Carol Dweck",
+  "Rating": 4,
+  "Price": 8.6,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2006,
+  "Publisher": "Ballantine Books",
+  "Description": "This book explores the concept of mindset, or the belief system that shapes our attitudes and behaviors, offering insights and strategies for cultivating a growth mindset and achieving success in various areas of life. This is an updated edition of the original book, which was first published in 2006.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553147"
+  },
+  "ID": 77,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0994/9780099457046.jpg",
+  "Tittle": "Moab Is My Washpot",
+  "Author": "Stephen Fry",
+  "Rating": 4,
+  "Price": 5.99,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 1997,
+  "Publisher": "Hutchinson",
+  "Description": "“Moab Is My Washpot” is an autobiography by Stephen Fry. It describes his life up to the age of 20.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553148"
+  },
+  "ID": 78,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9788/8837/9788883701153.jpg",
+  "Tittle": "Moleskine Large Sketchbook Black",
+  "Rating": 4.5,
+  "Price": 12.18,
+  "ISBN": {
+    "$numberLong": "9790000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2005,
+  "Publisher": "Moleskine",
+  "Description": "This sketchbook features high-quality paper and a durable binding, making it a great choice for artists and designers who want to create and preserve their artwork.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553149"
+  },
+  "ID": 79,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9788/8837/9788883705625.jpg",
+  "Tittle": "Moleskine Large Watercolour Album And Notebook",
+  "Author": "Moleskine",
+  "Rating": 0,
+  "Price": 11.86,
+  "ISBN": {
+    "$numberLong": "9790000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2005,
+  "Publisher": "Moleskine",
+  "Description": "This watercolor album and notebook features high-quality paper that is specially designed for watercolor painting, as well as blank pages for notes and sketches.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55314a"
+  },
+  "ID": 80,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8609/9781860969423.jpg",
+  "Tittle": "Music Theory in Practice, Grade 1",
+  "Author": "Eric Taylor",
+  "Rating": 4,
+  "Price": 7.26,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 1990,
+  "Publisher": "Associated Board of the Royal Schools of Music",
+  "Description": "This music theory book is designed for students preparing for the Grade 1 examination of the Associated Board of the Royal Schools of Music, offering exercises and activities to develop essential skills and knowledge.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55314b"
+  },
+  "ID": 81,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8609/9781860969430.jpg",
+  "Tittle": "Music Theory in Practice, Grade 2",
+  "Author": "Eric Taylor",
+  "Rating": 4.5,
+  "Price": 6.99,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 1990,
+  "Publisher": "ABRSM",
+  "Description": "Music Theory in Practice Grade 5” is a book by Eric Taylor. It contains a detailed list of the requirements for the Grade 5 Theory of Music examination, information that may be needed in the context of the examination, specimen questions and exercises, and guidance on their solutions.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55314c"
+  },
+  "ID": 82,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8609/9781860969447.jpg",
+  "Tittle": "Music Theory in Practice, Grade 3",
+  "Author": "Eric Taylor",
+  "Rating": 4,
+  "Price": 7.57,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 1990,
+  "Publisher": "ABRSM",
+  "Description": "Music Theory in Practice Grade 5” is a book by Eric Taylor. It contains a detailed list of the requirements for the Grade 5 Theory of Music examination, information that may be needed in the context of the examination, specimen questions and exercises, and guidance on their solutions.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55314d"
+  },
+  "ID": 83,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8609/9781860969461.jpg",
+  "Tittle": "Music Theory in Practice, Grade 5",
+  "Author": "Eric Taylor",
+  "Rating": 4.5,
+  "Price": 8.8,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 1990,
+  "Publisher": "ABRSM",
+  "Description": "Music Theory in Practice Grade 5” is a book by Eric Taylor. It contains a detailed list of the requirements for the Grade 5 Theory of Music examination, information that may be needed in the context of the examination, specimen questions and exercises, and guidance on their solutions.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55314e"
+  },
+  "ID": 84,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3409/9780340936177.jpg",
+  "Tittle": "My Booky Wook",
+  "Author": "Russell Brand",
+  "Rating": 3.5,
+  "Price": 9.34,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2007,
+  "Publisher": " Hodder & Stoughton",
+  "Description": "My Booky Wook” is an autobiography by Russell Brand. It covers his life up to the age of 26. ",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55314f"
+  },
+  "ID": 85,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8431/9781843176572.jpg",
+  "Tittle": "My Grammar and I (Or Should That Be 'Me'?)",
+  "Author": "Caroline Taggart",
+  "Rating": 4,
+  "Price": 3.95,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2010,
+  "Publisher": "Michael O'Mara Books",
+  "Description": "This book is a humorous and informative guide to English grammar, offering insights and explanations to help readers improve their writing and communication skills.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553150"
+  },
+  "ID": 86,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8479/9781847941497.jpg",
+  "Tittle": "Never Split the Difference",
+  "Author": "Chris Voss",
+  "Rating": 4.5,
+  "Price": 7.69,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2016,
+  "Publisher": "Harper Business",
+  "Description": "This book is a guide to negotiation strategies and tactics, drawing on the author's experience as a former FBI hostage negotiator and offering practical advice for achieving successful outcomes in business and personal interactions.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553151"
+  },
+  "ID": 87,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5290/9781529028485.jpg",
+  "Tittle": "No Friend but the Mountains",
+  "Author": "Behrouz Boochani",
+  "Rating": 4,
+  "Price": 8.68,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2018,
+  "Publisher": "Picador",
+  "Description": "This memoir tells the story of Kurdish-Iranian journalist and refugee Behrouz Boochani's experience of being held in detention on Manus Island, offering a powerful and harrowing account of the inhumane treatment of refugees.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553152"
+  },
+  "ID": 88,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0608/9780060891541.jpg",
+  "Tittle": "On Writing Well",
+  "Author": "William Zinsser",
+  "Rating": 4.5,
+  "Price": 13.02,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2006,
+  "Publisher": "HarperCollins",
+  "Description": "This book is a guide to writing nonfiction, offering insights and advice on style, structure, and voice, as well as practical tips for editing and revising.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553153"
+  },
+  "ID": 89,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1996/9780199640942.jpg",
+  "Tittle": "Paperback Oxford English Dictionary",
+  "Author": "Oxford Dictionaries",
+  "Rating": 4,
+  "Price": 10.22,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2012,
+  "Publisher": "Oxford University Press",
+  "Description": "This dictionary is a compact and portable reference guide to the English language, featuring over 120,000 words and definitions, as well as pronunciation guides and other useful information.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553154"
+  },
+  "ID": 90,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4093/9781409303183.jpg",
+  "Tittle": "Peppa Pig: Little Library",
+  "Author": "Peppa Pig",
+  "Rating": 4,
+  "Price": 7.22,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2011,
+  "Publisher": "Ladybird Books",
+  "Description": "This children's book is a collection of six mini-books featuring characters from the popular animated TV series Peppa Pig, offering simple and engaging stories for young readers.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553155"
+  },
+  "ID": 91,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/6167/9781616770785.jpg",
+  "Tittle": "Piano Adventures",
+  "Author": "Nancy Faber",
+  "Rating": 4,
+  "Price": 7.43,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 1993,
+  "Publisher": "Faber Piano Adventures",
+  "Description": "“Piano Adventures” is a method for learning how to play the piano. It was created by Nancy and Randall Faber and has been used by piano students around the world. The method includes over 300 books, including the Piano Adventures Lesson Book .",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553156"
+  },
+  "ID": 92,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5011/9781501124020.jpg",
+  "Tittle": "Principles",
+  "Author": "Ray Dalio",
+  "Rating": 4,
+  "Price": 18.34,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2017,
+  "Publisher": "Simon & Schuster",
+  "Description": "This book is a guide to personal and professional success, offering principles and strategies for decision-making, problem-solving, and achieving one's goals, based on the author's experience as a successful investor and entrepreneur.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553157"
+  },
+  "ID": 93,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7839/9781783962433.jpg",
+  "Tittle": "Prisoners of Geography",
+  "Author": "Tim Marshall",
+  "Rating": 4,
+  "Price": 10.86,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2015,
+  "Publisher": "Scribner",
+  "Description": "This book explores the impact of geography on global politics and history, offering insights into the role of geography in shaping nations, cultures, and conflicts.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553158"
+  },
+  "ID": 94,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4338/9781433805615.jpg",
+  "Tittle": "Publication Manual of the American Psychological Association",
+  "Author": "American Psychological Association",
+  "Rating": 3.5,
+  "Price": 30.49,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2019,
+  "Publisher": "American Psychological Association",
+  "Description": "This manual is a comprehensive guide to the American Psychological Association (APA) style of writing and citation, offering guidelines and examples for formatting academic papers and research reports in the social and behavioral sciences.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553159"
+  },
+  "ID": 95,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0995/9780099560432.jpg",
+  "Tittle": "Ready Player One",
+  "Author": "Ernest Cline",
+  "Rating": 4.5,
+  "Price": 8.82,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2011,
+  "Publisher": "Random House",
+  "Description": "This science fiction novel is set in a dystopian future where people escape their harsh reality by entering into a virtual reality world, and follows a young protagonist's quest to win a fortune by solving a series of puzzles and challenges within the virtual world.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55315a"
+  },
+  "ID": 96,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/6126/9781612680194.jpg",
+  "Tittle": "Rich Dad Poor Dad",
+  "Author": "Robert T. Kiyosaki",
+  "Rating": 4,
+  "Price": 7.34,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 1997,
+  "Publisher": "Warner Books",
+  "Description": "This book is a personal finance guide, offering insights and advice on investing, money management, and building wealth, based on the author's experience growing up with two very different father figures who had opposing views on money and success.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55315b"
+  },
+  "ID": 97,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3305/9780330519021.jpg",
+  "Tittle": "Room",
+  "Author": "Emma Donoghue",
+  "Rating": 4,
+  "Price": 8.05,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2010,
+  "Publisher": "Little, Brown and Company",
+  "Description": "This novel is a gripping and suspenseful story of a woman and her young son who are held captive in a small room, told from the perspective of the child.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55315c"
+  },
+  "ID": 98,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1425/9780142501122.jpg",
+  "Tittle": "Room on the Broom",
+  "Author": "Julia Donaldson",
+  "Rating": 4.5,
+  "Price": 8.11,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2012,
+  "Publisher": "Puffin Books",
+  "Description": "This children's book is a whimsical and fun story about a witch and her animal friends who go on an adventure on a broomstick, encountering various obstacles and challenges along the way.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55315d"
+  },
+  "ID": 99,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0995/9780099590088.jpg",
+  "Tittle": "Sapiens",
+  "Author": "Yuval Noah Harari",
+  "Rating": 4.5,
+  "Price": 12.98,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2014,
+  "Publisher": "HarperCollins",
+  "Description": "This book is a sweeping history of human evolution, exploring the origins and development of Homo sapiens and the major historical events and trends that have shaped human societies and cultures.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55315e"
+  },
+  "ID": 100,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/9329/9781932907001.jpg",
+  "Tittle": "Save the Cat!",
+  "Author": "Blake Snyder",
+  "Rating": 4,
+  "Price": 12.65,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2005,
+  "Publisher": "Michael Wiese Productions",
+  "Description": "This book is a guide to screenwriting, offering insights and advice on developing compelling characters, crafting effective plot structures, and writing engaging dialogue, based on the author's experience as a successful screenwriter and educator.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55315f"
+  },
+  "ID": 101,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7515/9780751535662.jpg",
+  "Tittle": "Scar Tissue",
+  "Author": "Anthony Kiedis",
+  "Rating": 4,
+  "Price": 10.66,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2005,
+  "Publisher": "Hyperion",
+  "Description": "This memoir tells the story of Anthony Kiedis, lead singer of the Red Hot Chili Peppers, and his struggles with addiction, fame, and personal relationships, offering a candid and often harrowing account of his life and career.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553160"
+  },
+  "ID": 102,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7806/9781780671062.jpg",
+  "Tittle": "Secret Garden",
+  "Author": "Johanna Basford",
+  "Rating": 4.5,
+  "Price": 11.24,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2013,
+  "Publisher": "Laurence King Publishing",
+  "Description": "This coloring book features intricate illustrations of a secret garden, offering a relaxing and creative activity for nature lovers of all ages.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553161"
+  },
+  "ID": 103,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3491/9780349117546.jpg",
+  "Tittle": "Shantaram",
+  "Author": "Gregory David Roberts",
+  "Rating": 4.5,
+  "Price": 11.72,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2003,
+  "Publisher": "Abacus",
+  "Description": "This novel is a sweeping and epic story of an Australian fugitive who reinvents himself as a doctor in the slums of Mumbai, India, and becomes embroiled in various criminal and political activities.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553162"
+  },
+  "ID": 104,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/8041/9780804138321.jpg",
+  "Tittle": "Sharp Objects",
+  "Author": "Gillian Flynn",
+  "Rating": 4,
+  "Price": 8.25,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2007,
+  "Publisher": "Broadway Books",
+  "Description": "This novel is a psychological thriller about a journalist who returns to her hometown to investigate a series of murders, and confronts dark secrets from her own past as she delves deeper into the case.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553163"
+  },
+  "ID": 105,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7499/9780749942014.jpg",
+  "Tittle": "Sister",
+  "Author": "Rosamund Lupton",
+  "Rating": 4,
+  "Price": 8.04,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2010,
+  "Publisher": "Piatkus",
+  "Description": "This novel is a mystery thriller about a woman who investigates the disappearance of her younger sister, and discovers shocking secrets about her family and their past.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553164"
+  },
+  "ID": 106,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7806/9781780622286.jpg",
+  "Tittle": "Six of Crows",
+  "Author": "Leigh Bardugo",
+  "Rating": 4.5,
+  "Price": 8.8,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2015,
+  "Publisher": "Henry Holt and Co.",
+  "Description": "This novel is a fantasy heist story about a group of six outcasts who band together to pull off a dangerous and lucrative mission, set in a richly imagined world of magic and intrigue.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553165"
+  },
+  "ID": 107,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5101/9781510106284.jpg",
+  "Tittle": "Six of Crows: Collector's Edition",
+  "Author": "Leigh Bardugo",
+  "Rating": 4.5,
+  "Price": 14.51,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2017,
+  "Publisher": "Henry Holt and Co.",
+  "Description": "This collector's edition of \"Six of Crows\" features a special cover design, fan art, and a letter from the author, as well as the full text of the original novel.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553166"
+  },
+  "ID": 108,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2419/9780241958223.jpg",
+  "Tittle": "Start With Why",
+  "Author": "Simon Sinek",
+  "Rating": 4,
+  "Price": 8.9,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2009,
+  "Publisher": "Portfolio",
+  "Description": "This book is a guide to leadership and motivation, offering insights and strategies for inspiring and empowering individuals and organizations to achieve their full potential, based on the author's experience as a leadership consultant and speaker.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553167"
+  },
+  "ID": 109,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7611/9780761169253.jpg",
+  "Tittle": "Steal Like an Artist",
+  "Author": "Austin Kleon",
+  "Rating": 4,
+  "Price": 8.81,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2012,
+  "Publisher": "Workman Publishing Company",
+  "Description": "This book provides advice and inspiration for creative professionals, with a focus on the importance of borrowing from other artists and incorporating diverse influences into one's work. It includes exercises and prompts designed to spark creativity and innovation.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553168"
+  },
+  "ID": 110,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5956/9781595620156.jpg",
+  "Tittle": "StrengthsFinder 2.0",
+  "Author": "Tom Rath",
+  "Rating": 4,
+  "Price": 17.97,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2007,
+  "Publisher": "Gallup Press",
+  "Description": "This book is a guide to personal and professional development, offering insights and advice on identifying and leveraging one's strengths and talents, based on the author's experience as a researcher and consultant with Gallup.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553169"
+  },
+  "ID": 111,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1987/9780198739838.jpg",
+  "Tittle": "Superintelligence",
+  "Author": "Nick Bostrom",
+  "Rating": 4,
+  "Price": 9.93,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2014,
+  "Publisher": "Oxford University Press",
+  "Description": "This book explores the potential risks and benefits of artificial intelligence and the potential impact on humanity, offering insights and analysis from a range of perspectives, including philosophy, computer science, and ethics.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55316a"
+  },
+  "ID": 112,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4063/9781406331264.jpg",
+  "Tittle": "Ten Little Fingers and Ten Little Toes",
+  "Author": "Mem Fox",
+  "Rating": 4,
+  "Price": 8.15,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2008,
+  "Publisher": "Houghton Mifflin Harcourt",
+  "Description": "This children's book is a heartwarming and playful celebration of babies from around the world, highlighting their similarities and differences, and reminding us of the universal joys of childhood.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55316b"
+  },
+  "ID": 113,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0919/9780091929114.jpg",
+  "Tittle": "The 4-Hour Work Week",
+  "Author": "Timothy Ferriss",
+  "Rating": 4,
+  "Price": 14.32,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2009,
+  "Publisher": "Harmony",
+  "Description": "This book is a guide to entrepreneurship and lifestyle design, offering insights and strategies for achieving financial independence and a fulfilling life by leveraging technology and outsourcing, based on the author's experience as a successful entrepreneur and lifestyle guru.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55316c"
+  },
+  "ID": 114,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7807/9781780722405.jpg",
+  "Tittle": "The 8-week Blood Sugar Diet",
+  "Author": "Michael Mosley",
+  "Rating": 4,
+  "Price": 8.85,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2015,
+  "Publisher": "Short Books",
+  "Description": "This book explores the role of gut health in overall health and provides a diet plan designed to improve gut health. It includes recipes and meal plans, as well as information on the science behind the diet.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55316d"
+  },
+  "ID": 115,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/8654/9780865479937.jpg",
+  "Tittle": "The Anatomy of Story",
+  "Author": "John Truby",
+  "Rating": 4.5,
+  "Price": 14.94,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2008,
+  "Publisher": "Faber & Faber",
+  "Description": "This book is a guide to screenwriting and storytelling, offering insights and strategies for developing compelling characters, plot structures, and themes, based on the author's experience as a successful screenwriter and story consultant.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55316e"
+  },
+  "ID": 116,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5098/9781509829477.jpg",
+  "Tittle": "The Artist's Way",
+  "Author": "Julia Cameron",
+  "Rating": 4,
+  "Price": 12.61,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 1992,
+  "Publisher": "TarcherPerigee",
+  "Description": "This book is a guide to creativity and personal growth, offering insights and exercises for overcoming creative blocks, discovering one's true passions, and developing a fulfilling and creative life, based on the author's experience as a writer and creativity coach.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55316f"
+  },
+  "ID": 117,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7303/9780730324218.jpg",
+  "Tittle": "The Barefoot Investor",
+  "Author": "Scott Pape",
+  "Rating": 4.5,
+  "Price": 14.06,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2017,
+  "Publisher": "John Murray Learning",
+  "Description": "This personal finance guide offers practical and accessible advice for managing money, reducing debt, and building wealth, based on the author's experience as a financial advisor and media personality.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553170"
+  },
+  "ID": 118,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141038872.jpg",
+  "Tittle": "The Brain That Changes Itself",
+  "Author": "Norman Doidge",
+  "Rating": 4,
+  "Price": 11.03,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2007,
+  "Publisher": "Penguin Books",
+  "Description": "This book explores the plasticity of the human brain and the potential for neuroplasticity, offering insights and examples of how the brain can change and adapt throughout life, based on the author's experience as a psychiatrist and researcher.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553171"
+  },
+  "ID": 119,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8460/9781846045127.jpg",
+  "Tittle": "The Choice",
+  "Author": "Edith Eger",
+  "Rating": 4.5,
+  "Price": 9.37,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 2017,
+  "Publisher": "Rider",
+  "Description": "This memoir tells the story of Holocaust survivor Edith Eger, offering a powerful and inspiring account of resilience, healing, and forgiveness, as well as insights and advice on how to overcome trauma and live a fulfilling life.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553172"
+  },
+  "ID": 120,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1370/9780137081073.jpg",
+  "Tittle": "The Clean Coder",
+  "Author": "Robert C. Martin",
+  "Rating": 4.5,
+  "Price": 23.02,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2011,
+  "Publisher": "Prentice Hall",
+  "Description": "This book is a guide to professional software development, offering insights and advice on best practices, ethics, and communication strategies, based on the author's experience as a software engineer and educator.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553173"
+  },
+  "ID": 121,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7807/9781780723044.jpg",
+  "Tittle": "The Clever Guts Diet",
+  "Author": "Michael Mosley",
+  "Rating": 4,
+  "Price": 8.92,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2017,
+  "Publisher": "Short Books",
+  "Description": "This book is a guide to gut health and nutrition, offering insights and advice on the role of the microbiome in overall health and well-being, as well as practical tips for improving gut health through diet and lifestyle changes, based on the author's experience as a medical doctor and journalist.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553174"
+  },
+  "ID": 122,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141014081.jpg",
+  "Tittle": "The Complete MAUS",
+  "Author": "Art Spiegelman",
+  "Rating": 4.5,
+  "Price": 17.61,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 1996,
+  "Publisher": "Pantheon Books",
+  "Description": "This graphic novel is a memoir of the author's father's experiences during the Holocaust, using anthropomorphic animals to represent different groups of people and offer a unique perspective on the events of the Holocaust.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553175"
+  },
+  "ID": 123,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0994/9780099470434.jpg",
+  "Tittle": "The Curious Incident of the Dog in the Night-time",
+  "Author": "Mark Haddon",
+  "Rating": 4,
+  "Price": 8.7,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2003,
+  "Publisher": "Vintage",
+  "Description": "This novel is a mystery story told from the perspective of a teenage boy with Asperger's syndrome, who sets out to solve the mystery of his neighbor's murdered dog, and in the process discovers hidden secrets about his own life and family.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553176"
+  },
+  "ID": 124,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0075/9780007513765.jpg",
+  "Tittle": "The Day the Crayons Quit",
+  "Author": "Drew Daywalt",
+  "Rating": 4.5,
+  "Price": 9.5,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2013,
+  "Publisher": "Philomel Books",
+  "Description": "This children's book is a humorous and playful story about a group of crayons who go on strike, expressing their grievances through letters to their owner, and inspiring him to see the world in new and colorful ways.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553177"
+  },
+  "ID": 125,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/5532/9780553296983.jpg",
+  "Tittle": "The Diary of a Young Girl",
+  "Author": "Anne Frank",
+  "Rating": 4,
+  "Price": 6.52,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 1947,
+  "Publisher": "Doubleday",
+  "Description": "This memoir is a personal account of the experiences of Anne Frank, a young Jewish girl who lived in hiding with her family during the Nazi occupation of the Netherlands, offering a powerful and poignant testimony to the resilience of the human spirit.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553178"
+  },
+  "ID": 126,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3491/9780349142111.jpg",
+  "Tittle": "The Dry",
+  "Author": "Jane Harper",
+  "Rating": 4,
+  "Price": 8.64,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2016,
+  "Publisher": "Flatiron Books",
+  "Description": "This novel is a mystery thriller set in a small Australian town, following a detective investigating the murder of a family, and uncovering dark secrets and tensions within the town's community.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553179"
+  },
+  "ID": 127,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7857/9781785781728.jpg",
+  "Tittle": "The Elements of Eloquence",
+  "Author": "Mark Forsyth",
+  "Rating": 4.5,
+  "Price": 4.91,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2013,
+  "Publisher": "Icon Books",
+  "Description": "This book is a guide to rhetoric and language, offering insights and examples of the techniques and devices used by great writers and speakers throughout history to create powerful and memorable language, based on the author's experience as a writer and editor.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55317a"
+  },
+  "ID": 128,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2053/9780205309023.jpg",
+  "Tittle": "The Elements of Style",
+  "Author": "William I. Strunk",
+  "Rating": 4,
+  "Price": 8.09,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 1920,
+  "Publisher": "The Elements of Style Press",
+  "Description": "This book is a classic guide to writing and grammar, offering practical and concise advice on style, punctuation, and usage, and emphasizing the importance of clarity and simplicity in writing.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55317b"
+  },
+  "ID": 129,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7857/9781785781704.jpg",
+  "Tittle": "The Etymologicon",
+  "Author": "Mark Forsyth",
+  "Rating": 4,
+  "Price": 5.71,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2011,
+  "Publisher": "Icon Books",
+  "Description": "This book is a playful and informative exploration of the history and origins of words and phrases in the English language, offering insights and anecdotes into the fascinating world of etymology, based on the author's experience as a writer and editor.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55317c"
+  },
+  "ID": 130,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/5527/9780552779777.jpg",
+  "Tittle": "The Girl on the Train",
+  "Author": "Paula Hawkins",
+  "Rating": 4,
+  "Price": 9.65,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2015,
+  "Publisher": "Riverhead Books",
+  "Description": "This novel is a psychological thriller about a woman who becomes obsessed with a couple she sees from the train every day, and becomes embroiled in a web of secrets and lies that lead to a shocking conclusion.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55317d"
+  },
+  "ID": 131,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7423/9781742372389.jpg",
+  "Tittle": "The Happiest Refugee",
+  "Author": "Anh Do",
+  "Rating": 4,
+  "Price": 20.87,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Entertainment",
+  "Publish_Year": 2010,
+  "Publisher": "Allen & Unwin.",
+  "Description": "The book is about Do’s life as a refugee from Vietnam and his experiences growing up in Australia.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55317e"
+  },
+  "ID": 132,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8452/9781845298258.jpg",
+  "Tittle": "The Happiness Trap",
+  "Author": "Russ Harris",
+  "Rating": 4,
+  "Price": 8.34,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2008,
+  "Publisher": "Trumpeter",
+  "Description": "This book is based on acceptance and commitment therapy (ACT) and provides practical strategies for managing negative thoughts and emotions, and living a more fulfilling life.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55317f"
+  },
+  "ID": 133,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0995/9780099539551.jpg",
+  "Tittle": "The Hare with Amber Eyes",
+  "Author": "Edmund de Waal",
+  "Rating": 4,
+  "Price": 12.75,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2010,
+  "Publisher": "Chatto & Windus",
+  "Description": "This book is a memoir and family history that explores the journey of a collection of Japanese netsuke figurines, which are small ornamental objects used as toggles on traditional Japanese clothing. The author traces the history of the figurines through his family, from their creation in the 19th century to their possession by his family during World War II and their ultimate dispersal across the globe.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553180"
+  },
+  "ID": 134,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4063/9781406372151.jpg",
+  "Tittle": "The Hate U Give",
+  "Author": "Angie Thomas",
+  "Rating": 4.5,
+  "Price": 8,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2017,
+  "Publisher": "Balzer + Bray",
+  "Description": "This young adult novel follows the story of Starr Carter, a black teenager who witnesses the shooting of her unarmed friend by a white police officer. The book explores themes of racism, police brutality, and activism, and has been praised for its powerful and timely message.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553181"
+  },
+  "ID": 135,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4059/9781405911665.jpg",
+  "Tittle": "The Husband's Secret",
+  "Author": "Liane Moriarty",
+  "Rating": 4,
+  "Price": 9.33,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 2013,
+  "Publisher": "Amy Einhorn Books/Putnam",
+  "Description": "This novel is a domestic drama that follows the lives of three women whose lives are interconnected by a secret. The book explores themes of marriage, betrayal, and forgiveness, and has been described as a page-turner with surprising twists and turns.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553182"
+  },
+  "ID": 136,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0605/9780060555665.jpg",
+  "Tittle": "The Intelligent Investor",
+  "Author": "Benjamin Graham",
+  "Rating": 4,
+  "Price": 15.99,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 1949,
+  "Publisher": "Harper & Row",
+  "Description": "This classic book is considered one of the most influential works on value investing, a strategy that involves identifying stocks that are undervalued by the market. The book offers practical advice on how to analyze financial statements, assess management quality, and build a portfolio of stocks with a margin of safety.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553183"
+  },
+  "ID": 137,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5854/9781585428816.jpg",
+  "Tittle": "The Internet is a Playground",
+  "Author": "David Thorne",
+  "Rating": 4,
+  "Price": 15.09,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2011,
+  "Publisher": "TarcherPerigee",
+  "Description": "This book is a collection of humorous essays and email exchanges by Australian writer and comedian David Thorne. The book covers a range of topics, from office pranks to customer service complaints, and has been praised for its witty and irreverent humor.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553184"
+  },
+  "ID": 138,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/6709/9780670921607.jpg",
+  "Tittle": "The Lean Startup",
+  "Author": "Eric Ries",
+  "Rating": 4,
+  "Price": 11.5,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 2011,
+  "Publisher": "Crown Business",
+  "Description": "This book is a guide to the lean startup methodology, which emphasizes rapid experimentation, customer feedback, and iterative product development. The book offers practical advice for entrepreneurs and business leaders looking to create successful and sustainable businesses in a rapidly changing market.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553185"
+  },
+  "ID": 139,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/6165/9781616550417.jpg",
+  "Tittle": "The Legend of Zelda",
+  "Author": "Shigeru Miyamoto",
+  "Rating": 4.5,
+  "Price": 27.56,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 1986,
+  "Publisher": "Nintendo",
+  "Description": "This video game series follows the adventures of Link, a hero who must rescue Princess Zelda and defeat the evil Ganon. The series has become a cultural phenomenon, with multiple sequels, spin-offs, and adaptations in various forms of media.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553186"
+  },
+  "ID": 140,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8532/9781853261589.jpg",
+  "Tittle": "The Little Prince",
+  "Author": "Antoine de Saint-Exupery",
+  "Rating": 4.5,
+  "Price": 3.19,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 1943,
+  "Publisher": "Reynal & Hitchcock",
+  "Description": "This beloved children's book tells the story of a young prince who travels through space and meets various characters on his journey. The book is a philosophical fable that explores themes of love, friendship, and the importance of seeing the world with a childlike sense of wonder. The book has been translated into over 300 languages and is considered a classic of children's literature.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553187"
+  },
+  "ID": 141,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3305/9780330523622.jpg",
+  "Tittle": "The Man Who Mistook His Wife for a Hat",
+  "Author": "Oliver Sacks",
+  "Rating": 4,
+  "Price": 5.92,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 1985,
+  "Publisher": "Summit Books",
+  "Description": "This book is a collection of case studies of patients with neurological disorders. It explores the mysteries of the brain and the ways in which it can malfunction, and offers insights into the human condition.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553188"
+  },
+  "ID": 142,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7522/9780752265629.jpg",
+  "Tittle": "The Mindfulness Colouring Book",
+  "Author": "Emma Farrarons",
+  "Rating": 4,
+  "Price": 6.8,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 2015,
+  "Publisher": "Boxtree",
+  "Description": "This book contains a collection of intricate illustrations designed to help readers practice mindfulness and reduce stress. Each page features a different pattern for coloring, accompanied by inspirational quotes and mindfulness exercises.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553189"
+  },
+  "ID": 143,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8479/9781847946249.jpg",
+  "Tittle": "The Power of Habit",
+  "Author": "Charles Duhigg",
+  "Rating": 4,
+  "Price": 10.41,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2012,
+  "Publisher": "Random House",
+  "Description": "This book explores the science behind habit formation and how we can use that knowledge to change our behavior. Duhigg uses real-life examples and case studies to demonstrate how habits can be transformed and how that can lead to personal and professional success.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55318a"
+  },
+  "ID": 144,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2016/9780201616224.jpg",
+  "Tittle": "The Pragmatic Programmer",
+  "Author": "Andrew Hunt",
+  "Rating": 4.5,
+  "Price": 29.21,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 1999,
+  "Publisher": "Addison-Wesley Professional",
+  "Description": "This book is a classic in the field of software engineering, offering practical advice and techniques for improving programming skills. The authors emphasize the importance of writing maintainable and flexible code, and offer tips for debugging, testing, and teamwork.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55318b"
+  },
+  "ID": 145,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/3250/9780325074337.jpg",
+  "Tittle": "The Reading Strategies Book",
+  "Author": "Jennifer Serravallo",
+  "Rating": 4.5,
+  "Price": 43.95,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Dictionaries-Languages",
+  "Publish_Year": 2015,
+  "Publisher": "Heinemann",
+  "Description": "This book is designed to help teachers improve their students' reading comprehension by providing a wide range of strategies and techniques. Serravallo offers guidance on how to assess students' reading skills and target specific areas for improvement, with over 300 strategies organized by skill level.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55318c"
+  },
+  "ID": 146,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1424/9780142405802.jpg",
+  "Tittle": "The Snail and the Whale",
+  "Author": "Julia Donaldson",
+  "Rating": 4.5,
+  "Price": 8.75,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2003,
+  "Publisher": "Macmillan Children's Books",
+  "Description": "This children's book tells the story of a tiny snail who hitches a ride on the tail of a humpback whale and sees the world from a new perspective. With charming illustrations and rhyming text, the book teaches children about adventure, friendship, and the wonders of the natural world.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55318d"
+  },
+  "ID": 147,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2410/9780241003008.jpg",
+  "Tittle": "The Very Hungry Caterpillar",
+  "Author": "Eric Carle",
+  "Rating": 4.5,
+  "Price": 7.23,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 1969,
+  "Publisher": "Penguin Random House",
+  "Description": "This beloved children's book follows the journey of a hungry caterpillar as it eats its way through a variety of foods before transforming into a beautiful butterfly. The book teaches children about counting, days of the week, and the life cycle of a butterfly through colorful illustrations and simple text.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55318e"
+  },
+  "ID": 148,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/5452/9780545261241.jpg",
+  "Tittle": "The Wonky Donkey",
+  "Author": "Craig Smith",
+  "Rating": 4.5,
+  "Price": 6.45,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2009,
+  "Publisher": "Scholastic",
+  "Description": "This humorous children's book tells the story of a donkey with a \"wonky\" leg and a penchant for silliness. With catchy rhymes and lively illustrations, the book has become a popular read-aloud choice for young children.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55318f"
+  },
+  "ID": 149,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/8595/9780859537278.jpg",
+  "Tittle": "There Was an Old Lady Who Swallowed a Fly",
+  "Author": "Pam Adams",
+  "Rating": 4,
+  "Price": 5.89,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 1972,
+  "Publisher": "Child's Play International",
+  "Description": "This classic children's book is based on a traditional folk song and tells the story of an old lady who swallows a series of increasingly absurd creatures. With colorful illustrations and repetitive text, the book is a fun and engaging way for young children to learn about sequencing and cause-and-effect.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553190"
+  },
+  "ID": 150,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141033570.jpg",
+  "Tittle": "Thinking, Fast and Slow",
+  "Author": "Daniel Kahneman",
+  "Rating": 4,
+  "Price": 11.5,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2011,
+  "Publisher": "Farrar, Straus and Giroux",
+  "Description": "This book explores the two modes of thinking that humans use - intuitive and rational - and the biases and heuristics that can affect decision-making. It presents a synthesis of decades of research and is considered a classic in the field of behavioral economics.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553191"
+  },
+  "ID": 151,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/5098/9781509858637.jpg",
+  "Tittle": "This is Going to Hurt",
+  "Author": "Adam Kay",
+  "Rating": 4.5,
+  "Price": 7.6,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2017,
+  "Publisher": "Picador",
+  "Description": "This book is a collection of diary entries from Adam Kay's time as a junior doctor in the UK's National Health Service (NHS). It provides a candid and often humorous look at the challenges and pressures faced by doctors, as well as the impact on their personal lives.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553192"
+  },
+  "ID": 152,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/4463/9780446310789.jpg",
+  "Tittle": "To Kill a Mockingbird",
+  "Author": "Harper Lee",
+  "Rating": 4.5,
+  "Price": 8.54,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Crime-Thriller",
+  "Publish_Year": 1960,
+  "Publisher": "J. B. Lippincott & Co.",
+  "Description": "This classic novel is set in the Deep South of the United States during the 1930s. It follows the story of a young girl named Scout Finch as she learns about racism and injustice firsthand, following her father's defense of a black man in a controversial court case.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553193"
+  },
+  "ID": 153,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/7515/9780751529814.jpg",
+  "Tittle": "Tuesdays With Morrie",
+  "Author": "Mitch Albom",
+  "Rating": 4,
+  "Price": 5.15,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Biography",
+  "Publish_Year": 1997,
+  "Publisher": "Doubleday",
+  "Description": "This memoir details the conversations that Mitch Albom, a journalist, had with his former college professor Morrie Schwartz, who was dying of ALS. The book explores themes of life, death, and the importance of relationships, as Morrie shares his wisdom and experiences with Albom.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553194"
+  },
+  "ID": 154,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141035796.jpg",
+  "Tittle": "Ways of Seeing",
+  "Author": "John Berger",
+  "Rating": 4,
+  "Price": 8.36,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Art-Photography",
+  "Publish_Year": 1972,
+  "Publisher": "British Broadcasting Corporation and Penguin Books",
+  "Description": "This nonfiction book is a collection of essays and images that explore the ways in which we perceive and interpret visual art. It challenges traditional ways of looking at art and encourages readers to question the assumptions and biases that underlie our visual culture.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553195"
+  },
+  "ID": 155,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1419/9780141985411.jpg",
+  "Tittle": "Weapons of Math Destruction",
+  "Author": "Cathy O'neil",
+  "Rating": 4,
+  "Price": 9.53,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2016,
+  "Publisher": "Crown",
+  "Description": "This nonfiction book examines the impact of algorithms and big data on various aspects of society, such as education, employment, and criminal justice. It argues that these technologies can often perpetuate biases and inequalities, and proposes ways to create more ethical and transparent systems.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553196"
+  },
+  "ID": 156,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/1189/9781118907443.jpg",
+  "Tittle": "Web Design with HTML, CSS, JavaScript and jQuery Set",
+  "Author": "Jon Duckett",
+  "Rating": 4.5,
+  "Price": 29.93,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2014,
+  "Publisher": "Wiley",
+  "Description": "This instructional book is a comprehensive guide to web design, covering the basics of HTML, CSS, and JavaScript, as well as more advanced topics such as responsive design and jQuery. It includes numerous examples and exercises to help readers build their skills.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553197"
+  },
+  "ID": 157,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/8485/9781848549562.jpg",
+  "Tittle": "What If?",
+  "Author": "Randall Munroe",
+  "Rating": 4,
+  "Price": 10.62,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2014,
+  "Publisher": "Houghton Mifflin Harcourt",
+  "Description": "This nonfiction book answers absurd hypothetical questions using scientific principles and humor. The author, a former NASA roboticist and the creator of the webcomic xkcd, explores topics such as what would happen if you tried to hit a baseball pitched at 90 percent the speed of light, or if everyone on Earth jumped at the same time.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553198"
+  },
+  "ID": 158,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7847/9781784701994.jpg",
+  "Tittle": "When Breath Becomes Air",
+  "Author": "Paul Kalanithi",
+  "Rating": 4.5,
+  "Price": 9.05,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2016,
+  "Publisher": "Random House",
+  "Description": "This memoir chronicles the life and death of Paul Kalanithi, a neurosurgeon who was diagnosed with terminal lung cancer at the age of 36. It reflects on the meaning of life and death, and the pursuit of a meaningful existence.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab553199"
+  },
+  "ID": 159,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/8184/9780818402531.jpg",
+  "Tittle": "Where Did I Come From?",
+  "Author": "Peter Mayle",
+  "Rating": 4,
+  "Price": 9.51,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 1973,
+  "Publisher": "Lyle Stuart",
+  "Description": "This book is a humorous and informative guide to reproduction, aimed at children and young adults. It covers the basics of human anatomy, sex, and childbirth in a lighthearted and accessible way, using illustrations and simple language.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55319a"
+  },
+  "ID": 160,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1520/9780152067045.jpg",
+  "Tittle": "Where Is the Green Sheep?",
+  "Author": "Judy Horacek",
+  "Rating": 4,
+  "Price": 7.98,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2004,
+  "Publisher": "Penguin Random House Australia",
+  "Description": "This children's book is a playful and colorful exploration of different types of sheep, each with its own personality and characteristics. The story follows a group of sheep as they search for a missing green sheep, with lively illustrations and rhyming text.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55319b"
+  },
+  "ID": 161,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0918/9780091816971.jpg",
+  "Tittle": "Who Moved My Cheese",
+  "Author": "Spencer Johnson",
+  "Rating": 4,
+  "Price": 6.15,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Business-Finance-Law",
+  "Publish_Year": 1998,
+  "Publisher": "Vermilion",
+  "Description": "This self-help book uses a fictional story to illustrate the importance of adapting to change and taking personal responsibility for one's own success. It follows the journey of four characters who must navigate a maze to find cheese, with each character representing a different approach to dealing with change.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55319c"
+  },
+  "ID": 162,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/5525/9780552565974.jpg",
+  "Tittle": "Wonder",
+  "Author": "R. J. Palacio",
+  "Rating": 4.5,
+  "Price": 8.32,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Childrens-Books",
+  "Publish_Year": 2012,
+  "Publisher": "Alfred A. Knopf",
+  "Description": "This young adult novel tells the story of August Pullman, a boy with facial differences who is starting fifth grade in a mainstream school for the first time. The book explores themes of bullying, empathy, and acceptance, as August navigates the challenges of making friends and fitting in.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55319d"
+  },
+  "ID": 163,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/6165/9781616558451.jpg",
+  "Tittle": "World Of Warcraft: Chronicle Volume 1",
+  "Author": "Blizzard",
+  "Rating": 4.5,
+  "Price": 25.77,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Computing",
+  "Publish_Year": 2016,
+  "Publisher": "Dark Horse Books",
+  "Description": "It is written by BLIZZARD ENTERTAINMENT and is the first of the three books in the Chronicle series which attempts to codify, tighten up and clarify the history of Warcraft. The book reveals untold stories about the birth of the cosmos, the rise of ancient empires, and the forces that shaped Azeroth",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55319e"
+  },
+  "ID": 164,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1419/9780141976143.jpg",
+  "Tittle": "Wreck This Journal",
+  "Author": "Keri Smith",
+  "Rating": 4,
+  "Price": 9.59,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Medical",
+  "Publish_Year": 2007,
+  "Publisher": "Perigee Trade",
+  "Description": "This book is an interactive journal that encourages readers to engage in creative and unconventional ways of self-expression. It includes prompts and exercises that challenge traditional notions of journaling.",
+  "quantity": 10
+},
+{
+  "_id": {
+    "$oid": "64b4f58469d71d73ab55319f"
+  },
+  "ID": 165,
+  "Image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4504/9781450400244.jpg",
+  "Tittle": "Yoga Anatomy",
+  "Author": "Leslie Kaminoff",
+  "Rating": 4.5,
+  "Price": 17.73,
+  "ISBN": {
+    "$numberLong": "9780000000000"
+  },
+  "Genre": "Science-Geography",
+  "Publish_Year": 2007,
+  "Publisher": "Human Kinetics",
+  "Description": "It provides detailed anatomical illustrations of yoga poses and the muscles used during each pose. The book is divided into five parts: the skeletal system, the muscular system, breathing, the nervous system, and the anatomy of the yoga poses.",
+  "quantity": 10
+}]
