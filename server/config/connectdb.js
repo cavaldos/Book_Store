@@ -4,11 +4,7 @@ dotenv.config();
 
 async function connect() {
   try {
-    await mongoose.connect(process.env.MONGODB_URL1, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("Connected to MongoDB ", process.env.PORT);
+    await mongoose.connect(process.env.MONGODB_URL2);
   } catch (err) {
     console.log("connect false \n", err);
   }

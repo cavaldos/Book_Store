@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const wallet = require("./wallet"); 
+const wallet = require("./wallet");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
@@ -54,12 +54,12 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "admin", "employee"],
     default: "user",
   },
-  // account:[
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Wallet",
-  //   }
-  // ]
+  wallet: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Wallet",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);

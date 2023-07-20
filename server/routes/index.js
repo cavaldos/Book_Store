@@ -10,7 +10,6 @@ router.put("/:", userController.editUser);
 router.get("/getalluser", userController.getAllusers);
 router.post("/adduser", userController.addUser);
 
-
 // AUTHENTICATOR ROUTES
 router.get("/login", authController.login);
 router.get("/register", authController.register);

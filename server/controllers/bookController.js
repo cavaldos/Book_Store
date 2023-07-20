@@ -23,6 +23,7 @@ const bookController = {
     try {
       const users = await Book.find();
       res.status(200).json(users);
+      // res.json(dataToSend);
     } catch (err) {
       res.status(500).json({
         message: err.message,
