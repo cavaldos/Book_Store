@@ -5,6 +5,7 @@ import Book from "./book/book";
 import { Spin } from "antd";
 import { Select } from "antd";
 import Fillter from "./fillter/fillter";
+
 const categories = ["all", "noval", "math", "anime"];
 const options = [];
 for (let i = 10; i < categories.length; i++) {
@@ -21,7 +22,9 @@ const handleChange = (value) => {
 function Home() {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
+const handle = () => {
 
+}
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
@@ -47,6 +50,7 @@ function Home() {
         <>
           <div className="option">
             <div className="select">
+            
               <span style={{ margin: "10px" }}>Category :</span>
               <Select
                 mode="tags"

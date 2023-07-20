@@ -84,8 +84,9 @@ const walletSchema = new mongoose.Schema({
   },
 });
 
-let Wallet = mongoose.model("Wallet", walletSchema);
+const Wallet = mongoose.model("Wallet", walletSchema);
 
-let User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = { User, Wallet };
+// module.exports = { User, Wallet };
+module.exports = User;

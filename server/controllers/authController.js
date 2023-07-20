@@ -1,19 +1,22 @@
-const user = require("../models/user");
+// const User = require("../models/user");
+const { user } = require("../models/user");
 
 const authController = {
   signin: async (req, res) => {
+    const { email, password } = req.body;
     try {
-      res.json({ message: "login success" });
-
-      const check = await user.findOne({
+      const check = await User.findOne({
         email: email,
         password: password,
       });
-      if (check) {
+      if (check !== null && check !== undefined) {
         res.json({ message: "login success" });
+      } else {
+        res.json({ message: "login failed" });
       }
-      res.json({ message: "login false" });
     } catch (err) {
+      res.json("fail");
+
       res.status(500).json({
         message: err.message,
       });
@@ -43,12 +46,12 @@ const authController = {
      */
     try {
       res.json({ message: "register loadding" });
-      // const check = await collection.findOne({ email: email });
+      // const check = await user.findOne({ email: email });
       // if (check) {
       //   res.json("exist");
       // } else {
       //   res.json("notexist");
-      //   await collection.insertMany([data]);
+      //   await user.insertMany([data]);
       // }
     } catch (err) {
       res.status(500).json({
@@ -71,11 +74,11 @@ const authController = {
 
       const { email, password, phonenumber, confirmationCode } = req.body;
 
-      const check = await collection.findOne({
+      const check = await user.findOne({
         email: email,
         phonenumber: phonenumber,
       });
-      const check2 = await collection.findOne({
+      const check2 = await user.findOne({
         confirmationCode: confirmationCode,
       });
 
@@ -84,7 +87,7 @@ const authController = {
           res.json("code-no-texist");
         } else {
           // Cập nhật mật khẩu mới cho người dùng
-          await collection.updateOne(
+          await user.updateOne(
             { email: email },
             { $set: { password: password } }
           );
@@ -107,7 +110,7 @@ const authController = {
       const confirmationCode = Math.floor(100000 + Math.random() * 900000);
 
       // Lưu confirmation code vào CSDL hoặc bất kỳ cách nào phù hợp
-      await collection.updateOne(
+      await user.updateOne(
         { email: email },
         { $set: { confirmationCode: confirmationCode } }
       );
