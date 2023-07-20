@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const wallet = require("./wallet");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
@@ -54,6 +53,10 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "admin", "employee"],
     default: "user",
   },
+  confirmationCode: {
+    type: String,
+    required: false,
+  },
   wallet: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -62,4 +65,27 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("User", userSchema);
+const walletSchema = new mongoose.Schema({
+  id_card: {
+    type: Number,
+    required: true,
+    minlength: 5,
+    maxlength: 25,
+    unique: true,
+  },
+  account_balance: {
+    type: Number,
+    required: true,
+    minlength: 1,
+  },
+  info_user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+});
+
+let Wallet = mongoose.model("Wallet", walletSchema);
+
+let User = mongoose.model("User", userSchema);
+
+module.exports = { User, Wallet };

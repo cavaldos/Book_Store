@@ -1,27 +1,33 @@
 const router = require("express").Router();
-const userController = require("../controllers/useController");
 const authController = require("../controllers/authController");
+const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 const walletController = require("../controllers/walletController");
 
-// USER ROUTES
-// router.post("/", userController.addUser);
-router.put("/:", userController.editUser);
-router.get("/getalluser", userController.getAllusers);
+router.get("/", (req, res) => {
+  res.json({ message: "connected" });
+});
+
+//AUTHENTICATION
+router.get("/signin", authController.signin);
+router.post("/signup", authController.register);
+router.post("/logout", authController.logout);
+router.post("/resetpassword", authController.resetpassword);
+router.post("/verify", authController.sendConfirmationCode);
+
+//user
 router.post("/adduser", userController.addUser);
+router.post("/edituser", userController.editUser);
+router.get("/getallusers", userController.getAllusers);
 
-// AUTHENTICATOR ROUTES
-router.get("/login", authController.login);
-router.get("/register", authController.register);
-router.get("/logout", authController.logout);
-router.get("/fogotpassword", authController.fogotpassword);
+//BOOK
+router.post("/addbook", bookController.addBook);
+router.post("/editbook", bookController.editBook);
+router.get("/getallbooks", bookController.getAllBooks);
 
-//BOOK ROUTES
-router.get("/getallbook", bookController.getAllBooks);
-router.get("/addbook", bookController.addBook);
-router.get("/editbook/", bookController.editBook);
-
-// WALLET ROUTES
-router.get("/addwallet", walletController.addWallet);
+//WALLET
+router.post("/addwallet", walletController.addWallet);
+router.post("/editwallet", walletController.editWallet);
 router.get("/getallwallet", walletController.getAllWallet);
+
 module.exports = router;

@@ -1,52 +1,99 @@
-[
-  {
-    "id": 21126072,
-    "username": "khanh",
-    "password": "khanh123",
-    "email": "khanh@gmail.com",
-    "firstname": "khanh",
-    "lastname": "nguyen",
-    "phonenumber": "1234567890",
-    "role": "admin"
-  },
-  {
-    "id": 21126069,
-    "username": "hung",
-    "password": "password123",
-    "email": "hung@gmail.com",
-    "firstname": "Hung",
-    "lastname": "Nguyen",
-    "phonenumber": "0987654321",
-    "role": "user"
-  },
-  {
-    "id": 21126065,
-    "username": "chau",
-    "password": "password123",
-    "email": "chau@gmail.com",
-    "firstname": "Chau",
-    "lastname": "Diem",
-    "phonenumber": "5555555555",
-    "role": "user"
-  },
-  {
-    "id": 211260735,
-    "username": "huy",
-    "password": "password123",
-    "email": "huy@gmail.com",
-    "firstname": "huy",
-    "lastname": "le",
-    "phonenumber": "21126900",
-    "role": "user"
-  },
-  {
-    "id": 2112604,
-    "username": "quy",
-    "password": "password123",
-    "email": "quy@gmail.com",
-    "firstname": "quy",
-    "lastname": "do",
-    "phonenumber": "232323323",
-    "role": "employee"
-  }
-]
+[{
+  "id":1,
+  "username":"khanhnguyen",
+  "firstname": "khanh",
+  "lastname": "nguyen",
+  "email": "khanh@gmail.com",
+  "password": "wefwefmwk",
+  "phonenumber": "32940239402",
+  "confirmationCode": "",
+  "role": "admin"
+},
+{
+  "id":2,
+  "username":"randomname",
+  "firstname": "mlgmr",
+  "lastname": "grgkre",
+  "email": "mrkw4mek@gmail.com",
+  "password": "efnkeswmfk",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user"
+},
+{
+  "id":3,
+  "username":"randomname",
+  "firstname": "femlm",
+  "lastname": "esfew",
+  "email": "krgmk@gmail.com",
+  "password": "nkgsnkfs",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user"
+},
+{
+  "id":4,
+  "username":"randomname",
+  "firstname": "lr",
+  "lastname": "segmkesmf",
+  "email": "mekfmgsw@gmail.com",
+  "password": "megkesmgk",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user"
+},
+{
+  "id":5,
+  "username":"randomname",
+  "firstname": "efmk",
+  "lastname": "fekfmk",
+  "email": "fskem@gmail.com",
+  "password": "mkfesmkse",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user"
+},
+{
+  "id":6,
+  "username":"randomname",
+  "firstname": "efs",
+  "lastname": "efses",
+  "email": "sfglsfg@gmail.com",
+  "password": "mefksmfke",
+  "phonenumber": "84344805188",
+  "confirmationCode": "",
+  "role": "user"
+},
+{
+  "id":7,
+  "username":"randomname",
+  "firstname": "emk",
+  "lastname": "xekm",
+  "email": "dmkm@gmail.com",
+  "password": "4ddkmk",
+  "phonenumber": "84344805188",
+  "confirmationCode": "",
+  "role": "user"
+},
+{
+  "id":8,
+  "username":"randomname",
+  "firstname": "kesfm",
+  "lastname": "fsefm ",
+  "email": "lamnguyenvu1612@gmail.com",
+  "password": "VuHung309",
+  "phonenumber": "0344805188",
+  "confirmationCode": "970792",
+  "role": "user"
+},
+{
+  "id":9,
+  "username":"randomname",
+  "firstname": "kfnkw",
+  "lastname": "wefkme",
+  "email": "wsefmk@gmail.com",
+  "password": "wfmkwe",
+  "phonenumber": "0344805188",
+  "confirmationCode": "",
+  "role": "user"
+}]

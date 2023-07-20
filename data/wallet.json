@@ -1,16 +1,26 @@
 [
   {
-    "id_card": 123456789,
+    "id_card": 123,
     "account_balance": 100000
   },
   {
     "id_card": 1234,
     "account_balance": 100000
- 
   },
   {
-    "id_card": 123,
+    "id_card": 1234,
     "account_balance": 100000
-
+  },
+  {
+    "id_card": 12345,
+    "account_balance": 100000
+  },
+  {
+    "id_card": 123456,
+    "account_balance": 100000
+  },
+  {
+    "id_card": 1235678,
+    "account_balance": 100000
   }
 ]

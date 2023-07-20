@@ -6,10 +6,10 @@ const MongoDB = require("./config/connectdb");
 const morgan = require("morgan");
 
 app.use(morgan("tiny"));
-const allRouter = require("./routes/index");
+const allRouter = require("./routes");
 
 //ROUTES
-app.use(allRouter);
+app.use("/auth",allRouter);
 
 MongoDB.connect();
 app.use(express.json());

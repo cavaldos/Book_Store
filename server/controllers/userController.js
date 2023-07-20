@@ -1,9 +1,9 @@
-const User = require("../models/user");
+const { User } = require("../models/user");
 const mongoose = require("mongoose");
 const userController = {
   addUser: async (req, res) => {
     try {
-        res.json({ message: "adduser" });
+      res.json({ message: "adduser" });
     } catch (err) {
       res.status(500).json({
         message: err.message,
