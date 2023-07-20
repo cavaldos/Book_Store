@@ -21,86 +21,86 @@ import { CloseCircleFilled } from '@ant-design/icons'; //CloseCircleOutlined
 //----------------------------------------------------------------
 
 function ResetPassword() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // const data = new FormData(event.currentTarget);
-        // console.log({
-        //   email: data.get("email"),
-        //   password: data.get("password"),
-        // });
-    };
-    const history = useNavigate();
+     const handleSubmit = (event) => {
+       event.preventDefault();
+       // const data = new FormData(event.currentTarget);
+       // console.log({
+       //   email: data.get("email"),
+       //   password: data.get("password"),
+       // });
+     };
+     const history = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [showPassword, setShowPassword] = React.useState(false);
-    const [phonenumber, setPhonenumber] = useState('');
-    const [confirmationCode, setConfirmationCode] = useState('');
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
+     const [email, setEmail] = useState("");
+     const [password, setPassword] = useState("");
+     const [confirmPassword, setConfirmPassword] = useState("");
+     const [errorMessage, setErrorMessage] = useState("");
+     const [showPassword, setShowPassword] = React.useState(false);
+     const [phonenumber, setPhonenumber] = useState("");
+     const [confirmationCode, setConfirmationCode] = useState("");
+     const toggleShowPassword = () => {
+       setShowPassword(!showPassword);
+     };
 
-    const handleSendVerificationCode = async () => {
-        if (!email || !password || !confirmPassword || !phonenumber) {
-            alert(
-                'Please fill out the information before sending the email confirmation code',
-            );
-            return;
-        }
-        try {
-            const response = await axios.post(
-                'http://localhost:8000/send-confirmation-code',
-                { email },
-            );
-            if (response.data === 'success') {
-                alert('Verification code sent to your email.');
-            } else if (response.data === 'notexist') {
-                alert('Email or phone number wrong information');
-            } else {
-                setErrorMessage('Error occurs. Please try again later');
-            }
-        } catch (error) {
-            console.error(error);
-            setErrorMessage('Error occurs. Please try again later');
-        }
-    };
+     const handleSendVerificationCode = async () => {
+       if (!email || !password || !confirmPassword || !phonenumber) {
+         alert(
+           "Please fill out the information before sending the email confirmation code"
+         );
+         return;
+       }
+       try {
+         const response = await axios.post(
+           "http://localhost:8000/auth/send-confirmation-code",
+           { email }
+         );
+         if (response.data === "success") {
+           alert("Verification code sent to your email.");
+         } else if (response.data === "notexist") {
+           alert("Email or phone number wrong information");
+         } else {
+           setErrorMessage("Error occurs. Please try again later");
+         }
+       } catch (error) {
+         console.error(error);
+         setErrorMessage("Error occurs. Please try again later");
+       }
+     };
 
-    const handleResetPassword = async () => {
-        if (password !== confirmPassword) {
-            alert('Password and Confirm Password do not match.');
-            return;
-        }
-        if (!confirmationCode) {
-            alert('Please type your confirmation code before change password');
-            return;
-        }
-        try {
-            const response = await axios.post(
-                'http://localhost:8000/reset-password',
-                {
-                    email: email,
-                    password: password,
-                    phonenumber: phonenumber,
-                    confirmationCode: confirmationCode,
-                },
-            );
-            if (response.data === 'success') {
-                history('/signin', { state: { id: email } });
-                alert('Change Password Successfully');
-            } else if (response.data === 'notexist') {
-                alert('Email not exist or wrong phone number');
-            } else if (response.date === 'codenotexist') {
-                alert('wrong confirmation code');
-            } else {
-                alert('Error occurs. Please try again later');
-            }
-        } catch (error) {
-            console.error(error);
-            setErrorMessage('Error occur. Please try again later');
-        }
-    };
+     const handleResetPassword = async () => {
+       if (password !== confirmPassword) {
+         alert("Password and Confirm Password do not match.");
+         return;
+       }
+       if (!confirmationCode) {
+         alert("Please type your confirmation code before change password");
+         return;
+       }
+       try {
+         const response = await axios.post(
+           "http://localhost:8000/resetpassword",
+           {
+             email: email,
+             password: password,
+             phonenumber: phonenumber,
+             confirmationCode: confirmationCode,
+           }
+         );
+         if (response.data === "success") {
+           history("/signin", { state: { id: email } });
+           alert("Change Password Successfully");
+         } else if (response.data === "notexist") {
+           alert("Email not exist or wrong phone number");
+         } else if (response.date === "codenotexist") {
+           alert("wrong confirmation code");
+         } else {
+           alert("Error occurs. Please try again later");
+         }
+       } catch (error) {
+         console.error(error);
+         setErrorMessage("Error occur. Please try again later");
+       }
+     };
 
     return (
         <div className="wrapper_paper">

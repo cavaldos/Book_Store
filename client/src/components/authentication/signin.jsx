@@ -24,58 +24,56 @@ import { CloseCircleFilled } from '@ant-design/icons'; //CloseCircleOutlined
 import './auth.scss';
 
 function SignIn() {
-    const [showPassword, setShowPassword] = React.useState(false);
+        const [showPassword, setShowPassword] = React.useState(false);
 
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
+        const toggleShowPassword = () => {
+          setShowPassword(!showPassword);
+        };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          const data = new FormData(event.currentTarget);
+          console.log({
+            email: data.get("email"),
+            password: data.get("password"),
+          });
+        };
 
-    //--------------------------------------------------------------------------------
-    const history = useNavigate();
+        //--------------------------------------------------------------------------------
+        const history = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+        const [email, setEmail] = useState("");
+        const [password, setPassword] = useState("");
 
-    async function submit(e) {
-        e.preventDefault();
-        if (!email || !password) {
-            message.success('Please fill in all the information');
+        async function submit(e) {
+          e.preventDefault();
+          if (!email || !password) {
+            alert("Please fill in all the information");
             return;
-        }
-        try {
+          }
+          try {
             await axios
-                .post('http://localhost:8000/signin', {
-                    email,
-                    password,
-                })
-                .then((res) => {
-                    if (res.data === 'exist') {
-                        history('/home', { state: { id: email } });
-                    } else if (res.data === 'notexist') {
-                        message.success(
-                            'User have not sign up or wrong password',
-                        );
-                    }
-                })
-                .catch((e) => {
-                    message.success('wrong details');
+              .post("http://localhost:5000/auth/signin", {
+                email,
+                password,
+              })
+              .then((res) => {
+                if (res.data === "exist") {
+                  history("/t", { state: { id: email } });
+                } else if (res.data === "notexist") {
+                  alert("User have not sign up or wrong password");
+                }
+              })
+              .catch((e) => {
+                alert("wrong details");
+                //alert("User have not sign up or wrong password");
 
-                    console.log(e);
-                });
-        } catch (e) {
+                console.log(e);
+              });
+          } catch (e) {
             console.log(e);
+          }
         }
-    }
-
     return (
         <>
             <div className="wrapper_paper">
