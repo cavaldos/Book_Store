@@ -51,7 +51,7 @@ function ResetPassword() {
         }
         try {
             const response = await axios.post(
-                'http://localhost:8000/send-confirmation-code',
+                'http://localhost:8000/auth/send-confirmation-code',
                 { email },
             );
             if (response.data === 'success') {
@@ -78,7 +78,7 @@ function ResetPassword() {
         }
         try {
             const response = await axios.post(
-                'http://localhost:8000/reset-password',
+                'http://localhost:8000/auth/reset-password',
                 {
                     email: email,
                     password: password,

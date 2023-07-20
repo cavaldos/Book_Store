@@ -52,13 +52,13 @@ function SignIn() {
         }
         try {
             await axios
-                .post('http://localhost:8000/signin', {
+                .post('http://localhost:8000/auth/signin', {
                     email,
                     password,
                 })
                 .then((res) => {
                     if (res.data === 'exist') {
-                        history('/home', { state: { id: email } });
+                        history('/t', { state: { id: email } });
                     } else if (res.data === 'notexist') {
                         alert('User have not sign up or wrong password');
                     }

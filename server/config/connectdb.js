@@ -1,11 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const dotenv = require('dotenv');
-dotenv.config();
-mongoose
-    .connect(process.env.MONGODB_URL1)
-    .then(() => console.log('Connected to MongoDB cloud'))
-    .catch((err) => console.log('connect false \n', err));
+const dbConnect = () => {
+  mongoose
+    .connect("mongodb://localhost:27017/react-login-tut", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      console.log("MongoDB connected");
+    })
+    .catch((error) => {
+      console.error("MongoDB connection failed:", error);
+    });
+};
+
+module.exports = dbConnect;
 
 // mongoose
 //     .connect('mongodb://localhost:27017/react-login-tut')

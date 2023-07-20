@@ -1,22 +1,19 @@
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const authRoutes = require('./routes/auth');
-const connectDB = require('./config/connectdb');
-
-const dotenv = require('dotenv');
-dotenv.config();
-
+const express = require("express");
+const cors = require("cors");
 const app = express();
+const authRoutes = require("./routes/authRoutes");
+const confirmationRoutes = require("./routes/confirmationRoutes");
+const dbConnect = require("./config/connectdb");
 
-app.use('/v1/auth', authRoutes);
+dbConnect();
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-app.listen(process.env.PORT, () => {
-    console.log('Server is running on port', process.env.PORT);
+app.use("/auth", authRoutes);
+app.use("/confirmation", confirmationRoutes);
+
+app.listen(8000, () => {
+  console.log("port connected");
 });
-
-// mongoose
-//     .connect(process.env.MONGODB_URL1)
-//     .then(() => console.log('Connected to MongoDB'))
-//     .catch((err) => console.log('connect false \n', err));
