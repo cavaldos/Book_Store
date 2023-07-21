@@ -53,7 +53,7 @@ function SignIn() {
     }
     try {
       await axios
-        .post("http://localhost:5000/auth/signin", {
+        .post("http://localhost:8000/signin", {
           email,
           password,
         })

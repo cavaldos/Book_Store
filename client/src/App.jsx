@@ -1,9 +1,10 @@
 import "./App.scss";
+
+
 import React from "react";
 import { Fragment } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./components/main";
-import { setRole } from "./redux/features/roleSlice";
 import {
   publicRoutes,
   adminRoutes,
@@ -13,7 +14,6 @@ import {
 import {  useSelector } from "react-redux";
 const App = () => {
   const role = useSelector((state) => state.role.role);
-  
   const VerifyRoure = () => {
     switch (role) {
       case "admin":

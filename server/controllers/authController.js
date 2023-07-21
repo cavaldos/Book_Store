@@ -1,18 +1,18 @@
-// const User = require("../models/user");
-const { user } = require("../models/user");
-
+const User = require("../models/user");
+const bcrypt = require("bcrypt");
 const authController = {
   signin: async (req, res) => {
-    const { email, password } = req.body;
     try {
+      console.log("body:", req.body, "\n");
+      const { email, password } = req.body;
       const check = await User.findOne({
         email: email,
         password: password,
       });
-      if (check !== null && check !== undefined) {
-        res.json({ message: "login success" });
+      if (check) {
+        res.json("exist");
       } else {
-        res.json({ message: "login failed" });
+        res.json("notexist");
       }
     } catch (err) {
       res.json("fail");
@@ -23,36 +23,28 @@ const authController = {
     }
   },
   register: async (req, res) => {
-    const { firstname, lastname, email, password, phonenumber } = req.body;
-
-    const data = {
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: password,
-      phonenumber: phonenumber,
-      confirmationCode: "",
-    };
-    /**
-    {
-      "firstname": "Nguyen",
-      "lastname": "Van A",
-      "email": "asadf@gmail.com",
-      "password": "123456",
-      "phonenumber": "1234567890",
-      "confirmationCode": "123456"
-    } 
-
-     */
     try {
-      res.json({ message: "register loadding" });
-      // const check = await user.findOne({ email: email });
-      // if (check) {
-      //   res.json("exist");
-      // } else {
-      //   res.json("notexist");
-      //   await user.insertMany([data]);
-      // }
+      console.log("body:", req.body, "\n");
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+      const newUser = new User({
+        id: req.body.id,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        username: req.body.username,
+        email: req.body.email,
+        password: hashedPassword,
+        role: req.body.role,
+      });
+      const check = await User.findOne({
+        email: req.body.email,
+      });
+      if (check) {
+        res.json("exist");
+      }
+      const user = await newUser.save();
+      res.status(200).json("success");
     } catch (err) {
       res.status(500).json({
         message: err.message,
@@ -73,7 +65,7 @@ const authController = {
       res.json({ message: "fogotpassword loadding" });
 
       const { email, password, phonenumber, confirmationCode } = req.body;
-
+      console.log(req.body);
       const check = await user.findOne({
         email: email,
         phonenumber: phonenumber,
