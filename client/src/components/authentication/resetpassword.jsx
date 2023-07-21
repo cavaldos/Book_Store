@@ -42,30 +42,30 @@ function ResetPassword() {
        setShowPassword(!showPassword);
      };
 
-     const handleSendVerificationCode = async () => {
-       if (!email || !password || !confirmPassword || !phonenumber) {
-         alert(
-           "Please fill out the information before sending the email confirmation code"
-         );
-         return;
-       }
-       try {
-         const response = await axios.post(
-           "http://localhost:8000/auth/send-confirmation-code",
-           { email }
-         );
-         if (response.data === "success") {
-           alert("Verification code sent to your email.");
-         } else if (response.data === "notexist") {
-           alert("Email or phone number wrong information");
-         } else {
-           setErrorMessage("Error occurs. Please try again later");
-         }
-       } catch (error) {
-         console.error(error);
-         setErrorMessage("Error occurs. Please try again later");
-       }
-     };
+    const handleSendVerificationCode = async () => {
+        if (!email || !password || !confirmPassword || !phonenumber) {
+            alert(
+                'Please fill out the information before sending the email confirmation code',
+            );
+            return;
+        }
+        try {
+            const response = await axios.post(
+                'http://localhost:8000/send-confirmation-code',
+                { email },
+            );
+            if (response.data === 'success') {
+                alert('Verification code sent to your email.');
+            } else if (response.data === 'notexist') {
+                alert('Email or phone number wrong information');
+            } else {
+                setErrorMessage('Error occurs. Please try again later');
+            }
+        } catch (error) {
+            console.error(error);
+            setErrorMessage('Error occurs. Please try again later');
+        }
+    };
 
      const handleResetPassword = async () => {
        if (password !== confirmPassword) {
