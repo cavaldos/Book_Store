@@ -74,7 +74,12 @@ const bookController = {
   },
   findBook: async (req, res) => {
     try {
-      res.json({ message: "Find book" });
+      data = req.body;
+      console.log(data);
+
+      const foundBooks = await Book.find(data);
+
+      res.json(foundBooks);
     } 
     catch (err) {
       res.status(500).json({
