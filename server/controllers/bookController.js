@@ -63,7 +63,10 @@ const bookController = {
   },
   deleteBook: async (req, res) => {
     try {
-      res.json({ message: "Delete book" });
+      const data = req.body;
+      const maso = data.ID;
+      const users = await Book.deleteOne({ID: maso});
+      res.status(200).json(users);
     } 
     
     catch (err) {
