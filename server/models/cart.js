@@ -7,6 +7,10 @@ const cartSchema = new mongoose.Schema({
         minlength: 1,
         maxlength: 25,
     },
+    Image: {
+        type: String,
+        required: true,
+    },
     Tittle: {
         type: String,
         required: true,
@@ -21,23 +25,19 @@ const cartSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    Image: {
-        type: String,
-        required: true,
-    },
-    id: { //user ID
-        type: Number,
-        // required: true,
-        minlength: 1,
-        maxlength: 25,
-        unique: true,
-      },
-    username: {
-        type: String,
-        // required: true,
-        minlength: 1,
-        maxlength: 25,
-        default: null,
-    },
+    // id: { //user ID
+    //     type: Number,
+    //     // required: true,
+    //     minlength: 1,
+    //     maxlength: 25,
+    //     unique: true,
+    //   },
+    // username: {
+    //     type: String,
+    //     // required: true,
+    //     minlength: 1,
+    //     maxlength: 25,
+    //     default: null,
+    // },
 });
 module.exports = mongoose.model('Cart', cartSchema);
