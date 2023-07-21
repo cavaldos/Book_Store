@@ -182,7 +182,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 900,\n    \"username\": \"khanh\",\n    \"firstname\": \"khanh\",\n    \"lastname\": \"wefkme\",\n    \"email\": \"wsefmk@gmail.com\",\n    \"password\": \"wfmkwe\",\n    \"phonenumber\": \"0344805188\",\n    \"confirmationCode\": \"\",\n    \"role\": \"user\",\n    \"id_card\": \"15687\",\n    \"account_balance\": 10\n  }"
+					"raw": ""
 				},
 				"url": {
 					"raw": "http://localhost:8000/getallbooks",
@@ -203,6 +203,34 @@
 			"request": {
 				"method": "GET",
 				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "verify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"nnkhanh21@vp.fitus.edu.vn\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"verify"
+					]
+				}
 			},
 			"response": []
 		}

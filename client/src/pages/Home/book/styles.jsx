@@ -28,6 +28,9 @@ const style = {
     },
     title: {
         margin: '0px 5px ',
+        position: 'absolute',
+        top: '70%',
+        fontSize: '15px',
     },
     rate: {
         position: 'absolute',

@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const { sendEmail1 } = require("../config/email");
 const authController = {
   signin: async (req, res) => {
     try {
@@ -100,15 +101,15 @@ const authController = {
       const { email } = req.body;
       // Tạo confirmation code ngẫu nhiên
       const confirmationCode = Math.floor(100000 + Math.random() * 900000);
-
+      console.log(confirmationCode);
+      console.log(req.body);
       // Lưu confirmation code vào CSDL hoặc bất kỳ cách nào phù hợp
-      await user.updateOne(
+      await User.updateOne(
         { email: email },
         { $set: { confirmationCode: confirmationCode } }
       );
-
       // Gửi confirmation code đến địa chỉ email
-      await sendConfirmationEmail(email, confirmationCode.toString());
+      await sendEmail1(email, confirmationCode.toString());
 
       res.json("success");
     } catch (err) {

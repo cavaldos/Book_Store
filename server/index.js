@@ -4,14 +4,14 @@ const dotenv = require("dotenv");
 const MongoDB = require("./config/connectdb");
 const cors = require("cors");
 const morgan = require("morgan");
+const allRouter = require("./routes");
+
+app.use(express.json());
 dotenv.config();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 MongoDB.connect();
-
 app.use(morgan("tiny"));
-const allRouter = require("./routes");
-app.use(express.json());
 
 //ROUTES
 app.use(allRouter);
