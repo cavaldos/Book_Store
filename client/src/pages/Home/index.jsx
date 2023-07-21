@@ -24,8 +24,8 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
-
+      // .get("https://fakestoreapi.com/products")
+      .get("http://localhost:5000/auth/getallbooks")
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error));
   }, []);
