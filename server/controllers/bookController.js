@@ -61,5 +61,26 @@ const bookController = {
       });
     }
   },
+  deleteBook: async (req, res) => {
+    try {
+      res.json({ message: "Delete book" });
+    } 
+    
+    catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  findBook: async (req, res) => {
+    try {
+      res.json({ message: "Find book" });
+    } 
+    catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
 };
 module.exports = bookController;

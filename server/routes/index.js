@@ -24,6 +24,8 @@ router.get("/getallusers", userController.getAllusers);
 router.post("/addbook", bookController.addBook);
 router.post("/editbook", bookController.editBook);
 router.get("/getallbooks", bookController.getAllBooks);
+router.delete('/deletebook',bookController.deleteBook);
+router.get('/findbook',bookController.findBook);
 
 //WALLET
 router.post("/addwallet", walletController.addWallet);
