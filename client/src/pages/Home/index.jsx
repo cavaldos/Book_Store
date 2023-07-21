@@ -24,8 +24,8 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
-
+      //.get("https://fakestoreapi.com/products")
+      .get("http://localhost:5000/auth/getallbooks")
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -62,14 +62,19 @@ function Home() {
           </div>
           <div className="product-container">
             {products.map((product) => (
-              <div key={product.id} className="product-item">
+              <div key={product.ID} className="product-item">
                 <Book
-                  title={product.title}
-                  price={product.price}
-                  rate={product.rating.rate}
-                  image={product.image}
-                  id={product.id}
-                  quantity={0}
+                  id={product.ID}
+                  image={product.Image}
+                  title={product.Tittle}
+                  author={product.Author}
+                  rate={product.Rating}
+                  price={product.Price}
+                  isbn={product.ISBN}
+                  genre={product.Genre}
+                  publish_year={product.Publish_Year}
+                  publisher={product.Publisher}
+                  quantity={product.quantity}
                 ></Book>
               </div>
             ))}

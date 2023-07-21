@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, updatePrice } from '../../../redux/features/paymentSlice';
 import Edit from './edit';
 function Book(props) {
-    const { id, title, price, description, image, rate, quantity } = props;
-    const product = { id, title, price, description, image, rate, quantity };
+    const { id, image, title, author, rate, price, isbn, genre, publish_year, publisher, description, quantity  } = props;
+    const product = { id, image, title, author, rate, price, isbn, genre, publish_year, publisher, description, quantity};
 
     const dispatch = useDispatch();
 

@@ -8,6 +8,10 @@ const morgan = require("morgan");
 app.use(morgan("tiny"));
 const allRouter = require("./routes");
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  next();
+});
 //ROUTES
 app.use("/auth",allRouter);
 
