@@ -4,6 +4,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 const MongoDB = require("./config/connectdb");
 const morgan = require("morgan");
+const bodyParser = require('body-parser')
+
+//Mild way
+app.use(bodyParser.json());
 
 app.use(morgan("tiny"));
 const allRouter = require("./routes");
