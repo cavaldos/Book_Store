@@ -26,11 +26,14 @@ function Home() {
   const handle = () => {};
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("http://localhost:8000/getallbooks")
+
+      // .get(process.env.GET_ALL_BOOK)
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error));
   }, []);
   //check loading
+  console.log(products);
   useEffect(() => {
     setLoading(true);
     const hasProducts = !!products;

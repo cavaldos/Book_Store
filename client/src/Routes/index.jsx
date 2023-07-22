@@ -8,7 +8,7 @@ import Revenue from "../pages/Revenue";
 import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
-
+import ChatBot from "../util/chat";
 // public routes
 const publicRoutes = [
   {
@@ -30,6 +30,10 @@ const publicRoutes = [
     path: "/reset-password",
     component: ResetPassword,
     layout: null,
+  },
+  {
+    path: "/chat",
+    component: ChatBot,
   },
 ];
 
