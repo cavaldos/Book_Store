@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
-// import { useForm } from "react-hook-form"
-import axios from "axios";
+import "./auth.scss";
 import { useNavigate } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
+import axios from "axios";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -11,18 +10,16 @@ import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { message } from "antd";
-
 import IconButton from "@mui/material/IconButton";
-import { CloseCircleFilled } from "@ant-design/icons"; //CloseCircleOutlined
 
-import "./auth.scss";
-
+import Closebutton from "./custom/closebutton";
+import Role from "./custom/setrole";
+import Background from "./custom/background";
 function SignIn() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -77,11 +74,14 @@ function SignIn() {
   }
   return (
     <>
-      <div className="wrapper_paper">
-        <div className="background">background</div>
+      <div className="wrapper">
+        <Background />
         <div className="wrapper_signin">
-          <Container component="main" maxWclassNameth="xs">
-            <CloseCircleFilled className="close" onClick={() => history("/")} />
+          {/* <Container component="main" maxWclassNameth="xs"> */}
+          <Container component="main">
+
+            <Closebutton />
+
             <Box
               sx={{
                 marginTop: 8,
@@ -93,6 +93,8 @@ function SignIn() {
               <Typography component="h1" variant="5">
                 Sign in
               </Typography>
+              <Role />
+
               <Box
                 component="form"
                 onSubmit={handleSubmit}

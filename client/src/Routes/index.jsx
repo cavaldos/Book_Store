@@ -8,19 +8,37 @@ import Revenue from "../pages/Revenue";
 import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
+
 // public routes
 const publicRoutes = [
   {
     path: "/",
-
     component: OnlineLayout,
     layout: null,
   },
   {
-    path: "/t",
-    component: Home,
+    path: "/signin",
+    component: SignIn,
+    layout: null,
   },
+  {
+    path: "/signup",
+    component: SignUp,
+    layout: null,
+  },
+  {
+    path: "/reset-password",
+    component: ResetPassword,
+    layout: null,
+  },
+];
 
+const adminRoutes = [
+  {
+    path: "/",
+
+    component: Wallet,
+  },
   {
     path: "/manager-author",
     component: Author,
@@ -60,29 +78,6 @@ const publicRoutes = [
   {
     path: "/about",
     component: Wallet,
-  },
-];
-
-const adminRoutes = [
-  {
-    path: "/",
-
-    component: Wallet,
-  },
-  {
-    path: "/dashboard",
-
-    component: Wallet,
-  },
-  {
-    path: "/manager",
-
-    component: Wallet,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
-    layout: null,
   },
 ];
 const userRoutes = [

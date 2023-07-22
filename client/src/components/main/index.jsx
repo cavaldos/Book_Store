@@ -25,9 +25,7 @@ const DefaultLayout = ({ children }) => {
     };
 
     const navigate = useNavigate();
-    const handleLogin = () => {
-        navigate('/signin');
-    };
+   
     return (
         <>
             <div className={toggle}>

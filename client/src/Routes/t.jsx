@@ -84,7 +84,6 @@ const employeeRoutes = [
     path: "/",
     component: Home,
   },
-
 ];
 
 export { publicRoutes, adminRoutes, userRoutes, employeeRoutes };
