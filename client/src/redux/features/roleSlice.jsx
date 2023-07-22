@@ -10,7 +10,7 @@ export const roleSlice = createSlice({
   name: "role",
   initialState: {
     role: role.public,
-    roleRouter: role.public ,
+    roleRouter: role.public,
     email: "",
     password: "",
   },
@@ -32,11 +32,11 @@ export const roleSlice = createSlice({
     },
     removeRole: (state, action) => {
       return {
-        initialState: {
-          role: role.public,
-          email: "removed",
-          password: "removed",
-        },
+        ...state,
+        role: role.public,
+        roleRouter: role.public,
+        email: "",
+        password: "",
       };
     },
   },

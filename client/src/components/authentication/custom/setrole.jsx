@@ -20,15 +20,15 @@ function Role() {
     <>
       <div className={toggle}>
         <div className="select-role">
-          <div className="user rle" onClick={handleRole("user")}>
+          <button className="user rle" onClick={handleRole("user")}>
             User
-          </div>
-          <div className="employee rle" onClick={handleRole("employee")}>
+          </button>
+          <button className="employee rle" onClick={handleRole("employee")}>
             Employee
-          </div>
-          <div className="admin rle" onClick={handleRole("admin")}>
+          </button>
+          <button className="admin rle" onClick={handleRole("admin")}>
             Admin
-          </div>
+          </button>
         </div>
       </div>
     </>

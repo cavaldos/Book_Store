@@ -21,10 +21,15 @@
     box-sizing: border-box;
     font-size: 20px;
     font-weight: bold;
+    
     &:hover {
       cursor: pointer;
       border: 2px solid var(--dark-bg);
     }
+  }
+  button{
+  background-color: #ffffff00;
+
   }
 }
 .toggle-public .select-role {

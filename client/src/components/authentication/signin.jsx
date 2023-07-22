@@ -20,32 +20,35 @@ import IconButton from "@mui/material/IconButton";
 import Closebutton from "./custom/closebutton";
 import Role from "./custom/setrole";
 import Background from "./custom/background";
+import { useSelector } from "react-redux";
 function SignIn() {
   const [showPassword, setShowPassword] = React.useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
+  const role = useSelector((state) => state.role.role);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get("email"),
       password: data.get("password"),
+      role: role,
     });
   };
 
   //--------------------------------------------------------------------------------
   const history = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   async function submit(e) {
     e.preventDefault();
     if (!email || !password) {
-      alert("Please fill in all the information");
+      message.warning("Please fill in all the information");
       return;
     }
     try {
@@ -53,21 +56,20 @@ function SignIn() {
         .post("http://localhost:8000/signin", {
           email,
           password,
+          role,
         })
         .then((res) => {
           if (res.data === "exist") {
             history("/t", { state: { id: email } });
+            message.success("Login success");
           } else if (res.data === "notexist") {
-            alert("User have not sign up or wrong password");
+            message.warning("User have not sign up or wrong password");
           }
         })
         .catch((e) => {
-          alert("wrong details");
-          //alert("User have not sign up or wrong password");
-
+          message.error("wrong details");
           console.log(e);
         });
-      console.log("khanh");
     } catch (e) {
       console.log(e);
     }
@@ -79,7 +81,6 @@ function SignIn() {
         <div className="wrapper_signin">
           {/* <Container component="main" maxWclassNameth="xs"> */}
           <Container component="main">
-
             <Closebutton />
 
             <Box
