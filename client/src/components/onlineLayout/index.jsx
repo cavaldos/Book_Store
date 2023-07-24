@@ -4,7 +4,7 @@ import './styles.scss';
 import React from 'react';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
-
+import Footer from '../layout/footer';
 import Home from '../../pages/Home';
 import { useNavigate } from 'react-router';
 const OnlineLayout = () => {
@@ -58,9 +58,10 @@ const OnlineLayout = () => {
                 <div className="containers_online">
                     <Home />
                 </div>
-                <div className="footer_online">
+                {/* <div className="footer_online">
                     <h1>footer</h1>
-                </div>
+                </div> */}
+                <Footer/>
             </div>
         </>
     );
