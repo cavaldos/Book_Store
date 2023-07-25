@@ -118,7 +118,7 @@
     right: 15px;
     padding-top: 90px;
     padding-right: 30px;
-    padding-bottom: 100px;
+    padding-bottom: 10px;
 
     // border shadow
     .containers {
@@ -133,16 +133,16 @@
         top: 0px;
         right: 100px;
     }
-    .footer {
-        bottom: 0;
-        width: 100%;
-        height: 100px;
-        min-width: 300px;
-        background-color: green;
-        box-sizing: border-box;
-        margin: 10px;
-        border-radius: 5px;
-    }
+    // .footer {
+    //     bottom: 0;
+    //     width: 100%;
+    //     height: 100px;
+    //     min-width: 300px;
+    //     background-color: green;
+    //     box-sizing: border-box;
+    //     margin: 10px;
+    //     border-radius: 5px;
+    // }
 }
 
 .open {

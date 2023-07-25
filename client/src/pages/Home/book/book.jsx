@@ -1,6 +1,7 @@
 import './index.scss';
 import style from './styles';
 import React from 'react';
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
@@ -9,8 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addQuantity, updatePrice } from '../../../redux/features/paymentSlice';
 import Edit from './edit';
 function Book(props) {
-    const { id, title, price, description, image, rate, quantity } = props;
-    const product = { id, title, price, description, image, rate, quantity };
+    const { id, image, title, author, rate, price, isbn, genre, publish_year, publisher, description, quantity  } = props;
+    const product = { id, image, title, author, rate, price, isbn, genre, publish_year, publisher, description, quantity};
 
     const dispatch = useDispatch();
 
@@ -31,11 +32,14 @@ function Book(props) {
                 addQuantity({
                     product: {
                         id: id,
+                        name: title,
+                        image: image,
                         quantity: 1,
                         price: price,
                     },
                 }),
             );
+            
         }
     };
 
@@ -52,7 +56,7 @@ function Book(props) {
                     <div className="price" style={style.price}>
                         <h3 style={style.h}>
                             {' '}
-                            ${price}:id{id}
+                            ${price}
                         </h3>
                     </div>
                     <div className="description">{description}</div>

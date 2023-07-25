@@ -6,7 +6,7 @@ import { useState } from 'react';
 import MenuItem from '../layout/menu';
 import BreadC from '../layout/header/breadcrumb';
 import Button from '@mui/material/Button';
-
+import Footer from '../layout/footer';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router';
 const DefaultLayout = ({ children }) => {
@@ -123,9 +123,7 @@ const DefaultLayout = ({ children }) => {
                 {/* main */}
                 <div className="main">
                     <div className="containers">{children}</div>
-                    <div className="footer">
-                        <h1>footer</h1>
-                    </div>
+                    <Footer/>
                 </div>
             </div>
         </>

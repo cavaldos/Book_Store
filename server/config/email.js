@@ -5,15 +5,16 @@ dotenv.config();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.user_email,
-    pass: process.env.user_password,
+
+    user: process.env.EMAIL,
+    pass: process.env.PASS,
   },
 });
 
-const sendConfirmationEmail = async (email, confirmationCode) => {
+const sendEmail1 = async (email, confirmationCode) => {
   try {
     const mailOptions = {
-      from: process.env.user_email,
+      from: process.env.EMAIL,
       to: email,
       subject: "Confirmation Code for Password Reset",
       text: `Your confirmation code is: ${confirmationCode}`,
@@ -26,5 +27,5 @@ const sendConfirmationEmail = async (email, confirmationCode) => {
   }
 };
 
-// export default sendConfirmationEmail;
-module.exports = { sendConfirmationEmail };
+
+module.exports = { sendEmail1 };

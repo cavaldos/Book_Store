@@ -1,19 +1,24 @@
 const express = require("express");
-const cors = require("cors");
-const app = express();
-const authRoutes = require("./routes/authRoutes");
-const confirmationRoutes = require("./routes/confirmationRoutes");
-const dbConnect = require("./config/connectdb");
 
-dbConnect();
+const app = express();
+const dotenv = require("dotenv");
+const MongoDB = require("./config/connectdb");
+const cors = require("cors");
+const morgan = require("morgan");
+const allRouter = require("./routes");
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+dotenv.config();
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+MongoDB.connect();
+app.use(morgan("tiny"));
 
-app.use("/auth", authRoutes);
-app.use("/confirmation", confirmationRoutes);
+//ROUTES
+app.use(allRouter);
 
-app.listen(8000, () => {
-  console.log("port connected");
+//listen
+app.listen(process.env.PORT, () => {
+  console.log("Server is running on port", process.env.PORT);
 });
+

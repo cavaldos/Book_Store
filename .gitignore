@@ -2,3 +2,4 @@
 /server/node_modules/
 /client/node_modules/
 
+# mongodb+srv://bookstore:<password>@borbon.gmpunex.mongodb.net/?retryWrites=true&w=majority

@@ -1,26 +1,19 @@
 const mongoose = require("mongoose");
 
-const dbConnect = () => {
-  mongoose
-    .connect("mongodb://localhost:27017/react-login-tut", {
+const dotenv = require("dotenv");
+dotenv.config();
+
+
+const URL = process.env.MONGODB_URL1;
+async function connect() {
+  try {
+    await mongoose.connect(URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    })
-    .then(() => {
-      console.log("MongoDB connected");
-    })
-    .catch((error) => {
-      console.error("MongoDB connection failed:", error);
     });
-};
-
-module.exports = dbConnect;
-
-// mongoose
-//     .connect('mongodb://localhost:27017/react-login-tut')
-//     .then(() => {
-//         console.log('mongodb connected local');
-//     })
-//     .catch(() => {
-//         console.log('failed local');
-//     });
+    console.log("connect successfully", ":<<", URL, ">>");
+  } catch (err) {
+    console.log("connect false \n", err);
+  }
+}
+module.exports = { connect };

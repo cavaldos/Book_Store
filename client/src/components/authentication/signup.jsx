@@ -22,58 +22,60 @@ export default function SignUp() {
     const history = useNavigate();
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        // const data = new FormData(event.currentTarget);
-        // console.log({
-        //   email: data.get("email"),
-        //   password: data.get("password"),
-        // });
+      event.preventDefault();
+      // const data = new FormData(event.currentTarget);
+      // console.log({
+      //   email: data.get("email"),
+      //   password: data.get("password"),
+      // });
     };
 
     const [showPassword, setShowPassword] = React.useState(false);
 
     const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
+      setShowPassword(!showPassword);
     };
 
     //--------------------------------------------------------------------------------
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [phonenumber, setPhonenumber] = useState('');
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [phonenumber, setPhonenumber] = useState("");
 
     async function submit(e) {
-        e.preventDefault();
-        if (!firstname || !lastname || !email || !password || !phonenumber) {
-            alert('Please fill in all the information');
-            return;
-        }
+      e.preventDefault();
+      if (!firstname || !lastname || !email || !password || !phonenumber) {
+        alert("Please fill in all the information");
+        return;
+      }
 
-        try {
-            await axios
-                .post('http://localhost:8000/auth/signup', {
-                    firstname,
-                    lastname,
-                    email,
-                    password,
-                    phonenumber,
-                })
-                .then((res) => {
-                    if (res.data === 'exist') {
-                        alert('User already exists');
-                    } else if (res.data === 'notexist') {
-                        alert('sign up succesfully!');
-                        history('/', { state: { id: email } });
-                    }
-                })
-                .catch((e) => {
-                    alert('wrong details');
-                    console.log(e);
-                });
-        } catch (e) {
+
+      try {
+        await axios
+          .post("http://localhost:5000/signup", {
+            firstname,
+            lastname,
+            email,
+            password,
+            phonenumber,
+          })
+          .then((res) => {
+            if (res.data === "exist") {
+              alert("User already exists");
+            } else if (res.data === "notexist") {
+              alert("sign up succesfully!");
+              history("/", { state: { id: email } });
+            }
+          })
+          .catch((e) => {
+            alert("wrong details");
+
             console.log(e);
-        }
+          });
+      } catch (e) {
+        console.log(e);
+      }
     }
     return (
         <>

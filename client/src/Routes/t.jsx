@@ -18,6 +18,7 @@ const publicRoutes = [
   },
   {
     path: "/t",
+
     component: Home,
   },
 
@@ -67,22 +68,7 @@ const adminRoutes = [
   {
     path: "/",
 
-    component: Wallet,
-  },
-  {
-    path: "/dashboard",
-
-    component: Wallet,
-  },
-  {
-    path: "/manager",
-
-    component: Wallet,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
-    layout: null,
+    component: Home,
   },
 ];
 const userRoutes = [
@@ -98,6 +84,7 @@ const employeeRoutes = [
     path: "/",
     component: Home,
   },
+
 ];
 
 export { publicRoutes, adminRoutes, userRoutes, employeeRoutes };
