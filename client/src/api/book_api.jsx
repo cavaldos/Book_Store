@@ -1,27 +1,32 @@
-import axios from 'axios';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-function fetchProducts() {
-    return axios
-        .get('https://fakeapi.com/products')
-        .then((response) => {
-            return response.data;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}
 
-function getBookProducts(products) {
-    return products.filter((product) => product.type === 'book');
+const fetchProducts=(url)=> {
+  try {
+    axios.get(url).then((res) => {
+      console.log(res.data);
+      return res.data;
+    });
+  } catch (error) {
+    console.log("not connect ", error);
+  }
 }
+export default fetchProducts;
 
-async function fetchBookProducts() {
-    try {
-        const products = await fetchProducts();
-        const bookProducts = getBookProducts(products);
-        return bookProducts;
-    } catch (error) {
-        console.log(error);
-    }
+/**
+ "https://fakestoreapi.com/products
+
+
+async function fetchProducts(url) {
+  try {
+    axios.get(url).then((res) => {
+      console.log(res.data);
+      return res.data;
+    });
+  } catch (error) {
+    console.log("not connect ", error);
+  }
 }
-export { fetchBookProducts };
+export default fetchProducts;
+ */

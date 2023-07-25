@@ -1,0 +1,53 @@
+.home {
+  position: relative;
+  border-radius: 5px;
+  margin: 20px 200px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-bg);
+  display: grid;
+  grid-template-columns: 350px 1fr 250px;
+  grid-template-rows: 550px 100px 100vh;
+
+  .con {
+    position: relative;
+    border-radius: 5px;
+    margin: 1px;
+    background-color: rgb(192, 98, 98);
+  }
+  .home-container_1 {
+  }
+
+  .home-container_2 {
+    margin: 0px 10px;
+    .carousel {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      border-radius: 8px;
+      .car-contens {
+        .pic {
+          min-width: 200px;
+          min-height: 450px;
+          border-radius: 5px ;
+        
+          background-color: aqua;
+          font-size: 40px;
+        }
+      }
+    }
+  }
+  .home-container_3 {
+  }
+  .home-container_4 {
+    margin: 10px 0;
+    grid-column: 1/4;
+  }
+  .home-container_5 {
+    grid-column: 1/4;
+  }
+}

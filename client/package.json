@@ -16,6 +16,7 @@
     "@mui/x-data-grid": "^6.8.0",
     "@mui/x-data-grid-generator": "^6.8.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "@tippyjs/react": "^4.2.6",
     "antd": "^5.6.1",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
@@ -23,7 +24,7 @@
     "normalize.css": "^8.0.1",
     "openai": "^3.3.0",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.4",
+
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.0",
     "react-redux": "^8.1.1",

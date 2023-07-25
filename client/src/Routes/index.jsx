@@ -35,6 +35,52 @@ const publicRoutes = [
     path: "/chat",
     component: ChatBot,
   },
+
+  {
+    path: "/home",
+
+    component: Home,
+  },
+  {
+    path: "/manager-author",
+    component: Author,
+  },
+  {
+    path: "/reset-password",
+    component: ResetPassword,
+    layout: null,
+  },
+  {
+    path: "/manager-user",
+    component: User,
+  },
+  {
+    path: "/signin",
+    component: SignIn,
+    layout: null,
+  },
+  {
+    path: "/signup",
+    component: SignUp,
+    layout: null,
+  },
+  {
+    path: "/revenue",
+    component: Revenue,
+  },
+
+  {
+    path: "/cart",
+    component: Cart,
+  },
+  {
+    path: "/wallet",
+    component: Wallet,
+  },
+  {
+    path: "/about",
+    component: Wallet,
+  },
 ];
 
 const adminRoutes = [
