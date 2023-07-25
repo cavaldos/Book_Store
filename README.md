@@ -5,5 +5,7 @@
 
 ### `run server: nodemon`
 
+#hung
+
 trong server  vào file .env sửa password thành 21126072
 
