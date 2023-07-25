@@ -11,22 +11,11 @@ import React from "react";
 // };
 function Footer() {
   return (
-    // <div className="footer">
-    //   <Carousel style={{  }}>
-    //     <div>
-    //       <h3 style={contentStyle}>1</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={contentStyle}>2</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={contentStyle}>3</h3>
-    //     </div>
-    //     <div>
-    //       <h3 style={contentStyle}>4</h3>
-    //     </div>
-    //   </Carousel>
-    // </div>
+	<>
+    <div className="footer">
+      
+      
+    
     <footer class="footer">
   	 <div class="container">
   	 	<div class="row">
@@ -69,7 +58,10 @@ function Footer() {
   	 		</div>
   	 	</div>
   	 </div>
+
     </footer>
+    </div>
+	</>
   );
 }
 export default Footer;
