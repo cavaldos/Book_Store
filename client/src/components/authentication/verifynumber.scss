@@ -1,0 +1,21 @@
+/* Base Styles (if needed) */
+.react-tel-input .form-control {
+    width: 100%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 16px;
+  }
+  
+  /* Component Styles */
+.opt-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px; /* You can adjust the value according to your needs */
+}
+  
+.opt-container input {
+    margin-right: 0;
+    flex: 1;
+    padding-top: 5px;
+    outline: none;
+}

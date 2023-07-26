@@ -37,6 +37,7 @@ const authController = {
         username: req.body.username,
         email: req.body.email,
         password: hashedPassword,
+        phonenumber: req.body.phonenumber,
         role: req.body.role,
       });
       const check = await User.findOne({

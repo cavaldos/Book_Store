@@ -53,7 +53,7 @@ export default function SignUp() {
 
       try {
         await axios
-          .post("http://localhost:5000/signup", {
+          .post("http://localhost:8000/register", {
             firstname,
             lastname,
             email,
@@ -63,9 +63,9 @@ export default function SignUp() {
           .then((res) => {
             if (res.data === "exist") {
               alert("User already exists");
-            } else if (res.data === "notexist") {
+            } else if (res.data === "success") {
               alert("sign up succesfully!");
-              history("/", { state: { id: email } });
+              history("/verification-number", { state: { id: email } });
             }
           })
           .catch((e) => {

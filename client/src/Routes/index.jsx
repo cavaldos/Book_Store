@@ -8,11 +8,11 @@ import Revenue from "../pages/Revenue";
 import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
+import VerificationNumber from '../components/authentication/verificationnumber';
 // public routes
 const publicRoutes = [
   {
     path: "/",
-
     component: OnlineLayout,
     layout: null,
   },
@@ -20,7 +20,6 @@ const publicRoutes = [
     path: "/t",
     component: Home,
   },
-
   {
     path: "/manager-author",
     component: Author,
@@ -60,6 +59,11 @@ const publicRoutes = [
   {
     path: "/about",
     component: Wallet,
+  },
+  {
+    path: '/verification-number',
+    component: VerificationNumber,
+    layout: null,
   },
 ];
 

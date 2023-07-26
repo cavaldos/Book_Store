@@ -51,7 +51,7 @@ function ResetPassword() {
         }
         try {
             const response = await axios.post(
-                'http://localhost:8000/auth/send-confirmation-code',
+                'http://localhost:8000/send-confirmation-code',
                 { email },
             );
             if (response.data === 'success') {
