@@ -7,8 +7,8 @@ export const userSlice = createSlice({
         name: 'default',
         email: 'default@gmail.com',
         password: 'default',
-        isLoggedIn: false,
-        isAdmin:false,
+        isLoggedIn: true,
+        isAdmin: true,
     },
     reducers: {
         login: (state, action) => {
