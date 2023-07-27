@@ -1,9 +1,17 @@
 import React, {Component} from 'react'
 import UserDataService from '../../services/UserDataService';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { Link } from 'react-router-dom';
 
 const columns = [
-  { field: 'username', headerName: 'Username', width: 100 },
+  { 
+    field: 'username', 
+    headerName: 'Username', 
+    width: 100,
+    renderCell: (params) => (
+      <Link to={`/manage-user/${params.row.username}`}>{params.row.username}</Link>
+    )
+  },
   { field: 'email', headerName: 'Email', width: 200 },
   {
     field: 'fullname',
@@ -62,3 +70,4 @@ export default class UserList extends Component{
     );
   }
 }
+
