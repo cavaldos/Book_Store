@@ -1,9 +1,26 @@
 import React, {Component} from 'react'
 import UserDataService from '../../services/UserDataService';
+import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { FormControl, InputLabel, OutlinedInput, InputAdornment } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import PhoneInput from 'react-phone-input-2';
+import './style.css'
+import TextFieldFull from './TextFieldFull';
+import PasswordField from './PasswordField';
+
+function BackButton() {
+    const navigate = useNavigate();
+    return(
+        <Button
+        variant='contained'
+        onClick={() => {
+            navigate(-1);
+        }}>
+            Back
+        </Button>
+    )
+}
 
 export default class AddUser extends Component {
     constructor(props){
@@ -14,16 +31,29 @@ export default class AddUser extends Component {
             email: "",
             firstname: "",
             lastname: "",
-            phonenumber: ""
+            phonenumber: "",
+            firstnameValid: false,
+            lastnameValid: false,
+            emailValid: false,
+            usernameValid: true,
+            passwordValid: true,
+            phonenumberValid: true,
         }
-        
         this.changeUsername = this.changeUsername.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.changeEmail = this.changeEmail.bind(this);
         this.changeFirstName = this.changeFirstName.bind(this);
         this.changeLastName = this.changeLastName.bind(this);
         this.changePhoneNumber = this.changePhoneNumber.bind(this);
+        this.isValidEmail = this.isValidEmail.bind(this);
+        this.isValidUsername = this.isValidUsername.bind(this);
+        this.isValidFirstName = this.isValidFirstName.bind(this);
+        this.isValidLastName = this.isValidLastName.bind(this);
+        this.isValidPhoneNumber = this.isValidPhoneNumber.bind(this);
+        this.isValidPassword = this.isValidPassword.bind(this);
     }
+
+    
     changeUsername = (event) => {
         this.setState({
             username: event.target.value
@@ -49,11 +79,66 @@ export default class AddUser extends Component {
             lastname: event.target.value
         })
     }
-    changePhoneNumber = (event) => {
+    changePhoneNumber = (value) => {
         this.setState({
-            phonenumber: event.target.value
+            phonenumber: value
         })
     }
+    isValidFirstName = (firstname) => {
+        const hasError = (firstname) ? (firstname === '') : true;
+        const error = (hasError) ? 'Must not be empty' : ''
+        this.setState({
+            firstnameValid: !hasError
+        })
+        return {hasError, error};
+    }
+    isValidLastName = (lastname) => {
+        const hasError = (lastname) ? (lastname === '') : true;
+        const error = (hasError) ? 'Must not be empty' : ''
+        this.setState({
+            lastnameValid: !hasError
+        })
+        return {hasError, error};
+    }
+    isValidEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+        const hasError = !regex.test(email);
+        const error = (hasError) ? 'Not a valid email' : '';
+        this.setState({
+            emailValid: !hasError
+        })
+        return {hasError, error};
+    }
+    isValidUsername(username) {
+        const hasError = false;
+        const error = '';
+        this.setState({
+            usernameValid: !hasError
+        })
+        return {hasError, error};
+    }
+    isValidPassword(password) {
+        const hasError = false;
+        const error = '';
+        this.setState({
+            passwordValid: !hasError
+        })
+        return {hasError, error};
+    }
+    isValidPhoneNumber(phonenumber) {
+        const hasError = false;
+        const error = '';
+        this.setState({
+            phonenumberValid: !hasError
+        })
+        return {hasError, error};
+    }
+    // export function isAValidPhoneNumber(number) {
+    //     const phoneNumber = parsePhoneNumber(' 8 (800) 555-35-35 ', 'RU')
+    //     const hasError = phoneNumber ? !phoneNumber.isPossible() : true;
+    //     const error = (hasError) ? 'Not a valid phone number' : '';
+    //     return {hasError, error};
+    // }
     newAccount() {
         this.setState({
             id: null,
@@ -65,7 +150,7 @@ export default class AddUser extends Component {
             phonenumber: ""
         })
     }
-    addAccount = () => {
+    addUser = () => {
         var data = {
             username: this.state.username,
             password: this.state.password,
@@ -77,86 +162,72 @@ export default class AddUser extends Component {
         UserDataService.create(data);
     }
     render(){
+        let valid = false;
         return(
             <Box
             component="form"
             sx={{
-                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                '& .MuiTextField-root': { m: 1 },
             }}
             noValidate
             autoComplete="off"
+            onChange={() => {
+                valid = this.state.firstnameValid 
+                && this.state.lastnameValid
+                && this.state.emailValid
+                && this.state.usernameValid
+                && this.state.passwordValid
+                && this.state.phonenumberValid;
+                console.log(valid)
+            }}
             >
-                {/* <label>First name:<input
-                    type='text'
-                    value={this.state.firstname}
-                    onChange={this.changeFirstName}/>
-                </label>
-                
-                <label>Last name:<input
-                    type='text'
-                    value={this.state.lastname}
-                    onChange={this.changeLastName}/>    
-                </label>
-
-                <label>Email:<input
-                    type='text'
-                    value={this.state.email}
-                    onChange={this.changeEmail}/>
-                </label>
-
-                <label>Username:<input
-                    type='text'
-                    value={this.state.username}
-                    onChange={this.changeUsername}/>
-                </label>
-
-                <label>Password:<input
-                    type='text'
-                    value={this.state.password}
-                    onChange={this.changePassword}/>
-                </label>
-
-                <button onClick={this.addAccount}>
-                    Create new account
-                </button> */}
-
-                <TextField 
+                <TextFieldFull
                 id="firstname" 
                 label="First name" 
                 variant="outlined"
-                value={this.state.firstname}
-                onChange={this.changeFirstName}
+                width='100ch'
+                check={this.isValidFirstName}
+                changeValue={this.changeFirstName}
                 />
-                <TextField 
+                <TextFieldFull 
                 id="lastname" 
                 label="Last name" 
                 variant="outlined"
-                value={this.state.lastname}
-                onChange={this.changeLastName}
+                check={this.isValidLastName}
+                changeValue={this.changeLastName}
                 />
-                <TextField 
+                <TextFieldFull
                 id="email" 
                 label="Email" 
                 variant="outlined"
-                value={this.state.email}
-                onChange={this.changeEmail}
+                check={this.isValidEmail}
+                changeValue={this.changeEmail}
                 />
-                <TextField
+                <TextFieldFull
                 id="username" 
                 label="Username" 
                 variant="outlined"
-                value={this.state.username}
-                onChange={this.changeUsername}
+                check={this.isValidUsername}
+                changeValue={this.changeUsername}
                 />
-                <TextField
-                fullWidth
-                id="phonenumber" 
-                label="Phonenumber" 
-                variant="outlined"
-                value={this.state.phonenumber}
-                onChange={this.changePhoneNumber}
+                <PasswordField
+                changeValue={this.changePassword}
                 />
-
+                <PhoneInput
+                    name="multipleErrorInput4"
+                    autoCorrect="off"
+                    placeholder="Enter a Valid Phone Number"
+                    country={"gb"}
+                    value={this.state.phonenumber}
+                    onChange={this.changePhoneNumber}
+                />
+                <Button
+                disabled={!valid}
+                variant='contained'
+                onClick={this.addUser}>
+                    Create new user 
+                </Button>
+                <BackButton/>
             </Box>
         )
     }
