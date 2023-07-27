@@ -1,15 +1,22 @@
 import "../layout/menu/menu.scss";
 import "./styles.scss";
+import AdminSidebar from "../layout/sidebar/adminSidebar";
+import UserSidebar from "../layout/sidebar/userSidebar";
+import EmployeeSidebar from "../layout/sidebar/employeeSidebar";
+import BreadC from "../layout/header/breadcrumb";
+import Footer from "../layout/footer";
+import Avatar from "@mui/material/Avatar";
 
 import React from "react";
 import { useState } from "react";
-import MenuItem from "../layout/menu";
-import BreadC from "../layout/header/breadcrumb";
-import Button from "@mui/material/Button";
-import Footer from "../layout/footer";
+import { Menu, Dropdown } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+// import "antd/dist/antd.css";
+
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router";
 import Search from "../layout/header/search";
+
+import { useSelector } from "react-redux";
 
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
@@ -25,8 +32,23 @@ const DefaultLayout = ({ children }) => {
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
+  const role = useSelector((state) => state.role.role);
+  const roleemail = useSelector((state) => state.role.email);
 
-  const navigate = useNavigate();
+  const handleMenuClick = (e) => {
+    if (e.key === "logout") {
+      // Handle logout logic
+    } else if (e.key === "profile") {
+      // Handle profile logic
+    }
+  };
+
+  const menu = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="profile">Profile</Menu.Item>
+      <Menu.Item key="logout">Logout</Menu.Item>
+    </Menu>
+  );
 
   return (
     <>
@@ -34,20 +56,6 @@ const DefaultLayout = ({ children }) => {
         {/*  */}
         <div className="header">
           <div className={scroll}>
-            {" "}
-            <Button
-              style={{
-                position: "absolute",
-                width: "100px",
-                right: "10px",
-                backgroundColor: "white",
-                color: "black",
-              }}
-              className="button-signin"
-              variant="contained"
-            >
-              Log out
-            </Button>
             <div
               className="button"
               onClick={() => {
@@ -63,66 +71,23 @@ const DefaultLayout = ({ children }) => {
             <div className="breadcrumb">
               <BreadC />
             </div>
-            <div className="search">
-              <Search />
-            </div>
+            <Search />
+
+            <Dropdown overlay={menu} trigger={["click"]}>
+              <Avatar className="avatar" icon={<UserOutlined />} />
+            </Dropdown>
           </div>
         </div>
 
-        <div className="sidebar">
-          <div className="logo"></div>
-          <div className="menu_list">
-            <div className="menu_item">
-              <MenuItem
-                name="Home"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/"
-              />
-            </div>
-            <div className="menu_item">
-              <MenuItem
-                name="Cart"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/cart"
-              />
-            </div>
-            <div className="menu_item">
-              <MenuItem
-                name="Author"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/manager-author"
-              />
-            </div>{" "}
-            <div className="menu_item">
-              <MenuItem
-                name="User"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/manager-user"
-              />
-            </div>{" "}
-            <div className="menu_item">
-              <MenuItem
-                name="Revenue"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/revenue"
-              />
-            </div>
-            <div className="menu_item">
-              <MenuItem
-                name="Wallet"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/wallet"
-              />
-            </div>
-          </div>
-        </div>
-        {/* main */}
+        {role === "admin" ? (
+          <AdminSidebar toggle={toggle} />
+        ) : role === "employee" ? (
+          <EmployeeSidebar toggle={toggle} />
+        ) : (
+          <UserSidebar toggle={toggle} />
+        )}
+
+        {/*  dsf*/}
         <div className="main">
           <div className="containers">{children}</div>
           <Footer />

@@ -9,7 +9,6 @@
   bottom: 0px;
   padding: 0.5rem;
   border-radius: 5px;
-
   background-image: linear-gradient(
     to bottom,
     var(--dark-bg-top),
@@ -60,6 +59,13 @@
       transition: all 0.35s;
     }
   }
+  .avatar {
+    position: absolute;
+    top: 8px;
+    bottom: 1px;
+    right: 30px;
+    display: flex;
+  }
   .up {
     position: absolute;
     top: 0;
@@ -73,6 +79,7 @@
     background-color: var(--white-grey);
     transition: all 0.35s;
     padding: 5px;
+    // background-color: aqua;
   }
   .down {
     padding: 5px;
@@ -93,23 +100,10 @@
     .button-icon {
       background-color: var(--white);
     }
-    .search {
-      line-height: 50px;
-      top: 0px;
-      bottom: 10px;
-      height: 45px;
-      transition: all 0.35s;
-    }
+    
   }
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 1024px) {
-  .header {
-    .up {
-      background-color: red;
-    }
-  }
-}
 .main {
   transition: all 0.35s;
   position: relative;
@@ -136,15 +130,9 @@
     left: 10px;
     top: 0px;
     right: 100px;
+    margin: 0 0 5px 0;
   }
   .footer {
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    min-width: 300px;
-    background-color: rgb(48, 172, 48);
-    box-sizing: border-box;
-    margin: 10px;
     border-radius: 5px;
   }
 }
@@ -188,14 +176,55 @@
   transform: translate(-50%, -50%);
   padding: 8px 5px;
 }
-.search {
-  position: absolute;
-  top: 8px;
-  left: 30%;
-  right: 40%;
-  min-width: 200px;
-  min-height: 50px;
-  transition: all 0.35s;
-  border-radius: 8px;
-  padding: 2px;
+
+@media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  .header {
+    .up {
+      background-color: rgb(157, 255, 0);
+    }
+  }
+}
+// ipad air
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  .header {
+    .up {
+      background-color: red;
+    }
+  }
+}
+
+//iphone 12pro doc
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  .header {
+    .up {
+      background-color: rgb(90, 54, 54);
+    }
+  }
+}
+
+//iphone 12pro ngang
+@media only screen and (device-width: 844px) and (device-height: 390px) and (-webkit-device-pixel-ratio: 3) {
+  .header {
+    .up {
+      background-color: rgb(90, 54, 54);
+    }
+  }
+}
+
+//respoo auto
+@media only screen and (min-device-width: 375px) and (max-device-width: 649px) {
+  .header {
+    .up {
+      background-color: rgb(60, 10, 177);
+    }
+  }
+}
+
+//respoo auto
+@media only screen and (min-device-width: 300px) and (max-device-width: 399px) {
+  .header {
+    .up {
+      background-color: rgb(109, 25, 53);
+    }
+  }
 }
