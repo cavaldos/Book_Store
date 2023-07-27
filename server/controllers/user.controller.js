@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const db = require('../models')
 const User = db.User;
 
@@ -24,6 +25,8 @@ exports.create = (req, res) => {
         res.status(400).send('Username/Password cannot be empty!');
         return;
     }
+    const confirmationCode = generateConfirmationCode();
+
     const user = new User({
         _id: new mongoose.Types.ObjectId(),
         firstname: req.body.firstname,
@@ -32,8 +35,8 @@ exports.create = (req, res) => {
         username: req.body.username,
         password: req.body.password,
         phonenumber: req.body.phonenumber,
-        confirmationCode: generateConfirmationCode,
-        admin: false
+        confirmationCode: confirmationCode,
+        admin: false,
     })
     console.log(user);
     user

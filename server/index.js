@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 // Cổng mặc định cho server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 app.use('/v1/auth', authRoutes);
 
