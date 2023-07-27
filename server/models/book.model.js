@@ -6,7 +6,6 @@ const bookSchema = new mongoose.Schema({
         minlength: 3,
         maxlength: 25,
     },
-
     title: {
         type: String,
         required: true,
