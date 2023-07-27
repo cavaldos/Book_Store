@@ -8,6 +8,7 @@ import Revenue from '../pages/Revenue';
 import Wallet from '../pages/Wallet';
 import ResetPassword from '../components/authentication/resetpassword';
 import OnlineLayout from '../components/onlineLayout';
+import AddUser from '../components/user/add-user.component';
 // public routes
 const publicRoutes = [
     {
@@ -18,7 +19,6 @@ const publicRoutes = [
     },
     {
         path: '/t',
-
         component: Home,
     },
 
@@ -34,6 +34,10 @@ const publicRoutes = [
     {
         path: '/manager-user',
         component: User,
+    },
+    {
+        path: '/manager-user/add',
+        component: AddUser,
     },
     {
         path: '/signin',
