@@ -4,7 +4,7 @@
   height: 300px;
   border-radius: 20px;
   border-bottom: 2px solid #979494;
-
+  
   .background-profile {
     padding: 20px;
     height: 240px;
@@ -39,26 +39,27 @@
   margin: 20px;
   border-radius: 20px;
   padding: 10px;
-  background-color: #e6e8ec;
+  background-color: #fdfdfd;
   display: flex;
   flex-direction: column;
   .wallet-profile {
     position: relative;
-    background-color: rgb(136, 136, 136);
+    background-color: var(--white-grey);
     padding: 10px;
     display: flex;
     width: 900px;
     flex-direction: row;
-    border: 2px solid #030303;
+    border: 2px solid #bebbbb;
     border-radius: 10px;
     .edit-wallet {
-      border: 2px solid #979494;
       flex: 3;
       margin: 0 10px 0 0;
+    ;
       .balance {
         padding: 0 0 0 10px;
         position: relative;
-        background-color: red;
+        background-image: linear-gradient(to right, rgb(57,54,70) 0%, rgb(79,69,87) 100%);
+        color:white;
         margin: 10px;
         border-radius: 10px;
         p {
@@ -67,7 +68,7 @@
         }
       }
       .buttonp{
-        background-color: gray;
+        background-color: rgb(57,54,70);
         margin: 4px 10px;
       }
 
