@@ -9,6 +9,7 @@ import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import ChatBot from "../util/chat";
+import Profile from "../pages/Profile/profile";
 // public routes
 const publicRoutes = [
   {
@@ -32,8 +33,8 @@ const publicRoutes = [
     layout: null,
   },
   {
-    path: "/chat",
-    component: ChatBot,
+    path: "/profile",
+    component: Profile,
   },
 
   {

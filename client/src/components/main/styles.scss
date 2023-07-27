@@ -61,11 +61,26 @@
   }
   .avatar {
     position: absolute;
-    top: 8px;
+    top: 7px;
     bottom: 1px;
     right: 30px;
     display: flex;
   }
+
+  .badge {
+
+    position: absolute;
+    top: 12px;
+    bottom: 1px;
+    right: 100px;
+    display: flex;
+    font-size: 30px;
+    .bell{
+      color: rgb(63, 63, 63);
+      
+    }
+  }
+
   .up {
     position: absolute;
     top: 0;
@@ -100,7 +115,6 @@
     .button-icon {
       background-color: var(--white);
     }
-    
   }
 }
 

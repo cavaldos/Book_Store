@@ -5,18 +5,18 @@ import UserSidebar from "../layout/sidebar/userSidebar";
 import EmployeeSidebar from "../layout/sidebar/employeeSidebar";
 import BreadC from "../layout/header/breadcrumb";
 import Footer from "../layout/footer";
-import Avatar from "@mui/material/Avatar";
+import Search from "../layout/header/search";
+import Notify from "./custom/notify";
 
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
+import Avatar from "@mui/material/Avatar";
 import { Menu, Dropdown } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-// import "antd/dist/antd.css";
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import Search from "../layout/header/search";
 
-import { useSelector } from "react-redux";
 
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
@@ -35,21 +35,32 @@ const DefaultLayout = ({ children }) => {
   const role = useSelector((state) => state.role.role);
   const roleemail = useSelector((state) => state.role.email);
 
-  const handleMenuClick = (e) => {
-    if (e.key === "logout") {
-      // Handle logout logic
-    } else if (e.key === "profile") {
-      // Handle profile logic
-    }
-  };
-
   const menu = (
-    <Menu onClick={handleMenuClick}>
-      <Menu.Item key="profile">Profile</Menu.Item>
-      <Menu.Item key="logout">Logout</Menu.Item>
+    <Menu style={{ borderRadius: "5px" }}>
+      <Menu.Item>
+        <button style={{ border: "none", backgroundColor: "transparent" }}>
+          Home
+        </button>
+      </Menu.Item>
+      <Menu.Item>
+        <button style={{ border: "none", backgroundColor: "transparent" }}>
+          Profile
+        </button>
+      </Menu.Item>
+      <Menu.Item>
+        <button
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            fontWeight: "bold",
+            color: "red",
+          }}
+        >
+          Logout
+        </button>
+      </Menu.Item>
     </Menu>
   );
-
   return (
     <>
       <div className={toggle}>
@@ -72,10 +83,15 @@ const DefaultLayout = ({ children }) => {
               <BreadC />
             </div>
             <Search />
-
             <Dropdown overlay={menu} trigger={["click"]}>
-              <Avatar className="avatar" icon={<UserOutlined />} />
+              <Avatar
+                className="avatar"
+                alt={roleemail}
+                src="/static/images/avatar/1.jpg"
+              />
             </Dropdown>
+            
+            <Notify />
           </div>
         </div>
 
