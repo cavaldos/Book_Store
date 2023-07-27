@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
-    // required: true,
+    required: false,
     minlength: 1,
     maxlength: 25,
-    // unique: true,
+    unique: true,
   },
   username: {
     type: String,

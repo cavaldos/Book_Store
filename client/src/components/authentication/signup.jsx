@@ -42,6 +42,25 @@ export default function SignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phonenumber, setPhonenumber] = useState("");
+    const [verificationCode, setVerificationCode] = useState('');
+    const [verificationSent, setVerificationSent] = useState(false);
+    const [verificationError, setVerificationError] = useState(false);
+
+    // const handleSendVerification = async () => {
+    //     try {
+    //         if (!email) {
+    //             alert('Please enter your email first.');
+    //             return;
+    //         }
+
+    //         await axios.post('http://localhost:8000/verify', { email });
+    //         setVerificationSent(true);
+    //     } catch (error) {
+    //         alert('Failed to send verification code.');
+    //         console.error(error);
+    //     }
+    // };
+
 
     async function submit(e) {
       e.preventDefault();
@@ -49,7 +68,6 @@ export default function SignUp() {
         alert("Please fill in all the information");
         return;
       }
-
 
       try {
         await axios
@@ -61,11 +79,10 @@ export default function SignUp() {
             phonenumber,
           })
           .then((res) => {
-            if (res.data === "exist") {
+            if (res.data === "success") {
+                history("/verification-email", { state: { email } });
+            } else if (res.data === "exist") {
               alert("User already exists");
-            } else if (res.data === "success") {
-              alert("sign up succesfully!");
-              history("/verification-number", { state: { id: email } });
             }
           })
           .catch((e) => {
@@ -74,7 +91,7 @@ export default function SignUp() {
             console.log(e);
           });
       } catch (e) {
-        console.log(e);
+        console.log(e); 
       }
     }
     return (
@@ -214,6 +231,33 @@ export default function SignUp() {
                                         </Grid>
                                     </Grid>
                                 </form>
+                                {/* {verificationSent && (
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            required
+                                            fullWidth
+                                            id="verificationCode"
+                                            label="Verification Code"
+                                            name="verificationCode"
+                                            autoComplete="verification-code"
+                                            //onChange={(e) => setVerificationCode(e.target.value)}
+                                            onChange={(e) => {
+                                                setVerificationCode(e.target.value);
+                                                setVerificationError(false); // Clear verification error on input change
+                                            }}
+                                        />
+                                    </Grid>
+                                )}
+                                {!verificationSent && (
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        sx={{ mt: 3, mb: 2 }}
+                                        onClick={handleSendVerification}
+                                    >
+                                        Send Verification Code
+                                    </Button>
+                                )} */}
                                 <Button
                                     type="submit"
                                     fullWidth

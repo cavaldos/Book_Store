@@ -51,7 +51,7 @@ function ResetPassword() {
         }
         try {
             const response = await axios.post(
-                'http://localhost:8000/send-confirmation-code',
+                'http://localhost:8000/verify',
                 { email },
             );
             if (response.data === 'success') {
@@ -70,7 +70,7 @@ function ResetPassword() {
 
 
 
-     const handleResetPassword = async () => {
+    const handleResetPassword = async () => {
        if (password !== confirmPassword) {
          alert("Password and Confirm Password do not match.");
          return;
@@ -103,7 +103,7 @@ function ResetPassword() {
          console.error(error);
          setErrorMessage("Error occur. Please try again later");
        }
-     };
+    };
 
 
     return (

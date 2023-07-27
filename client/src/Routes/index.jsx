@@ -8,7 +8,7 @@ import Revenue from "../pages/Revenue";
 import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
-import VerificationNumber from '../components/authentication/verificationnumber';
+import VerificationEmail from '../components/authentication/verificationemail';
 // public routes
 const publicRoutes = [
   {
@@ -61,8 +61,8 @@ const publicRoutes = [
     component: Wallet,
   },
   {
-    path: '/verification-number',
-    component: VerificationNumber,
+    path: '/verification-email',
+    component: VerificationEmail,
     layout: null,
   },
 ];

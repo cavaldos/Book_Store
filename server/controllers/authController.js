@@ -29,16 +29,19 @@ const authController = {
       console.log("body:", req.body, "\n");
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
+      const generateRandomID = () => {
+        return Math.floor(Math.random() * 1000) + 1;
+      };
       const newUser = new User({
-        id: req.body.id,
+        id: generateRandomID(),
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        username: req.body.username,
+        username: req.body.firstname + " " + req.body.lastname,
         email: req.body.email,
         password: hashedPassword,
         phonenumber: req.body.phonenumber,
-        role: req.body.role,
+        confirmationCode: req.body.confirmationCode,
+        role: "user",
       });
       const check = await User.findOne({
         email: req.body.email,
@@ -65,15 +68,15 @@ const authController = {
   },
   resetpassword: async (req, res) => {
     try {
-      res.json({ message: "fogotpassword loadding" });
+      //res.json({ message: "fogotpassword loadding" });
 
       const { email, password, phonenumber, confirmationCode } = req.body;
       console.log(req.body);
-      const check = await user.findOne({
+      const check = await User.findOne({
         email: email,
         phonenumber: phonenumber,
       });
-      const check2 = await user.findOne({
+      const check2 = await User.findOne({
         confirmationCode: confirmationCode,
       });
 
@@ -82,7 +85,7 @@ const authController = {
           res.json("code-no-texist");
         } else {
           // Cập nhật mật khẩu mới cho người dùng
-          await user.updateOne(
+          await User.updateOne(
             { email: email },
             { $set: { password: password } }
           );
@@ -97,7 +100,27 @@ const authController = {
       });
     }
   },
+  checkConfirmationcode: async (req, res) => {
+    try {
+      //res.json({ message: "fogotpassword loadding" });
 
+      const { confirmationCode } = req.body;
+      console.log(req.body);
+      const check = await User.findOne({
+        confirmationCode: confirmationCode,
+      });
+
+      if (check) {
+        res.json("success");
+      } else {
+        res.json("notexist-code");
+      }
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
   sendConfirmationCode: async (req, res) => {
     try {
       const { email } = req.body;
