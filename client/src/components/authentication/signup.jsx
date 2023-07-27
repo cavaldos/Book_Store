@@ -84,8 +84,8 @@ export default function SignUp() {
   return (
     <>
       <div className="wrapper">
-        <Background />
-
+        <div id="su_bg"><Background /></div>
+  
         <div className="wrapper_signup">
           {/* <ThemeProvider theme={defaultTheme}> */}
           <Container component="main" maxWidth="xs">

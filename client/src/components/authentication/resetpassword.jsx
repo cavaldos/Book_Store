@@ -105,8 +105,7 @@ function ResetPassword() {
 
   return (
     <div className="wrapper">
-      <Background />
-
+      <div id="rs_bg"><Background/></div>
       <div className="wrapper_reset">
         <ThemeProvider theme={createTheme()}>
           <Container component="main" maxWidth="xs">

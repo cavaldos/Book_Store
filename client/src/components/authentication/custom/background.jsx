@@ -6,7 +6,7 @@ function Background() {
   return (
     <>
       <div className="background">
-        <div className={role}>css trong daay
+        <div className={role} >
         <div className="k"></div>
         </div>
       </div>
