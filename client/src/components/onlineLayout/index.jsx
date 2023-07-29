@@ -45,9 +45,7 @@ const OnlineLayout = () => {
           >
             Sign Up
           </Button>
-          <div className="search">
-            <Search />
-          </div>
+          <Search />
         </div>
       </div>
 
@@ -56,9 +54,6 @@ const OnlineLayout = () => {
         <div className="containers_online">
           <Home />
         </div>
-        {/* <div className="footer_online">
-                    <h1>footer</h1>
-                </div> */}
         <Footer />
       </div>
     </>

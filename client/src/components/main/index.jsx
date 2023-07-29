@@ -1,15 +1,22 @@
 import "../layout/menu/menu.scss";
 import "./styles.scss";
+import AdminSidebar from "../layout/sidebar/adminSidebar";
+import UserSidebar from "../layout/sidebar/userSidebar";
+import EmployeeSidebar from "../layout/sidebar/employeeSidebar";
+import BreadC from "../layout/header/breadcrumb";
+import Footer from "../layout/footer";
+import Search from "../layout/header/search";
+import Notify from "./custom/notify";
 
 import React from "react";
 import { useState } from "react";
-import MenuItem from "../layout/menu";
-import BreadC from "../layout/header/breadcrumb";
-import Button from "@mui/material/Button";
-import Footer from "../layout/footer";
+import { useSelector } from "react-redux";
+
+import Avatar from "@mui/material/Avatar";
+import { Menu, Dropdown } from "antd";
+
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router";
-import Search from "../layout/header/search";
+
 
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
@@ -25,29 +32,41 @@ const DefaultLayout = ({ children }) => {
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
+  const role = useSelector((state) => state.role.role);
+  const roleemail = useSelector((state) => state.role.email);
 
-  const navigate = useNavigate();
-
+  const menu = (
+    <Menu style={{ borderRadius: "5px" }}>
+      <Menu.Item>
+        <button style={{ border: "none", backgroundColor: "transparent" }}>
+          Home
+        </button>
+      </Menu.Item>
+      <Menu.Item>
+        <button style={{ border: "none", backgroundColor: "transparent" }}>
+          Profile
+        </button>
+      </Menu.Item>
+      <Menu.Item>
+        <button
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            fontWeight: "bold",
+            color: "red",
+          }}
+        >
+          Logout
+        </button>
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <>
       <div className={toggle}>
         {/*  */}
         <div className="header">
           <div className={scroll}>
-            {" "}
-            <Button
-              style={{
-                position: "absolute",
-                width: "100px",
-                right: "10px",
-                backgroundColor: "white",
-                color: "black",
-              }}
-              className="button-signin"
-              variant="contained"
-            >
-              Log out
-            </Button>
             <div
               className="button"
               onClick={() => {
@@ -63,66 +82,28 @@ const DefaultLayout = ({ children }) => {
             <div className="breadcrumb">
               <BreadC />
             </div>
-            <div className="search">
-              <Search />
-            </div>
+            <Search />
+            <Dropdown overlay={menu} trigger={["click"]}>
+              <Avatar
+                className="avatar"
+                alt={roleemail}
+                src="/static/images/avatar/1.jpg"
+              />
+            </Dropdown>
+            
+            <Notify />
           </div>
         </div>
 
-        <div className="sidebar">
-          <div className="logo"></div>
-          <div className="menu_list">
-            <div className="menu_item">
-              <MenuItem
-                name="Home"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/"
-              />
-            </div>
-            <div className="menu_item">
-              <MenuItem
-                name="Cart"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/cart"
-              />
-            </div>
-            <div className="menu_item">
-              <MenuItem
-                name="Author"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/manager-author"
-              />
-            </div>{" "}
-            <div className="menu_item">
-              <MenuItem
-                name="User"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/manager-user"
-              />
-            </div>{" "}
-            <div className="menu_item">
-              <MenuItem
-                name="Revenue"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/revenue"
-              />
-            </div>
-            <div className="menu_item">
-              <MenuItem
-                name="Wallet"
-                icon=<MenuUnfoldOutlined />
-                toggle={toggle}
-                path="/wallet"
-              />
-            </div>
-          </div>
-        </div>
-        {/* main */}
+        {role === "admin" ? (
+          <AdminSidebar toggle={toggle} />
+        ) : role === "employee" ? (
+          <EmployeeSidebar toggle={toggle} />
+        ) : (
+          <UserSidebar toggle={toggle} />
+        )}
+
+        {/*  dsf*/}
         <div className="main">
           <div className="containers">{children}</div>
           <Footer />
