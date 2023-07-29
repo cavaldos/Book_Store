@@ -19,7 +19,7 @@ function EmployeeSidebar(props) {
           <div className="menu_item">
             <MenuItem
               name="Employee"
-              icon=<MenuUnfoldOutlined />
+              icon= <MenuUnfoldOutlined />
               toggle={toggle}
               path="/"
             />

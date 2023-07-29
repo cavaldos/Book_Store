@@ -41,6 +41,12 @@ const publicRoutes = [
     path: "/home",
 
     component: Home,
+    children: [
+      {
+        path: "/user",
+        element: Home,
+      },
+    ],
   },
   {
     path: "/manager-author",
@@ -84,53 +90,6 @@ const publicRoutes = [
   },
 ];
 
-const adminRoutes = [
-  {
-    path: "/",
-
-    component: Wallet,
-  },
-  {
-    path: "/manager-author",
-    component: Author,
-  },
-  {
-    path: "/reset-password",
-    component: ResetPassword,
-    layout: null,
-  },
-  {
-    path: "/manager-user",
-    component: User,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
-    layout: null,
-  },
-  {
-    path: "/signup",
-    component: SignUp,
-    layout: null,
-  },
-  {
-    path: "/revenue",
-    component: Revenue,
-  },
-
-  {
-    path: "/cart",
-    component: Cart,
-  },
-  {
-    path: "/wallet",
-    component: Wallet,
-  },
-  {
-    path: "/about",
-    component: Wallet,
-  },
-];
 const userRoutes = [
   {
     path: "/",
@@ -146,4 +105,4 @@ const employeeRoutes = [
   },
 ];
 
-export { publicRoutes, adminRoutes, userRoutes, employeeRoutes };
+export { publicRoutes, userRoutes, employeeRoutes };

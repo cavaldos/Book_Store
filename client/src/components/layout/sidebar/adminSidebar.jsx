@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 // import Search from "../layout/header/search";
 
 function AdminSidebar(props) {
-  const {toggle}=props
+  const { toggle } = props;
   return (
     <>
       <div className="sidebar">

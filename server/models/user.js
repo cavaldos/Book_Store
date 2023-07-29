@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
-    // required: true,
+    required: true,
     minlength: 1,
     maxlength: 25,
-    // unique: true,
+    unique: true,
   },
   username: {
     type: String,
@@ -32,19 +32,21 @@ const userSchema = new mongoose.Schema({
     required: false,
     minlength: 1,
     maxlength: 25,
+    default: "...",
   },
   lastname: {
     type: String,
     required: false,
     minlength: 1,
     maxlength: 25,
+    default: "...",
   },
   phonenumber: {
     type: String,
     required: false,
-    minlength: 10,
-    maxlength: 10,
-    default: null,
+    minlength: 1,
+    maxlength: 20,
+    default: "84+",
     //   unique: true,
   },
   role: {

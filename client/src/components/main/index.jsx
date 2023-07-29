@@ -17,7 +17,6 @@ import { Menu, Dropdown } from "antd";
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
-
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
   const [scroll, setScroll] = useState("up");
@@ -83,14 +82,14 @@ const DefaultLayout = ({ children }) => {
               <BreadC />
             </div>
             <Search />
-            <Dropdown overlay={menu} trigger={["click"]}>
+            <Dropdown trigger={["click"]}>
               <Avatar
                 className="avatar"
                 alt={roleemail}
                 src="/static/images/avatar/1.jpg"
               />
             </Dropdown>
-            
+
             <Notify />
           </div>
         </div>
