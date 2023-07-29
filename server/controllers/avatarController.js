@@ -1,14 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const Avatar = require("../models/avatar");
-const cloudinary = require("cloudinary").v2;
-const  upload  = require("../config/cloudinaryUpload");
-
-cloudinary.config({
-  cloud_name: "deo6kaqhj",
-  api_key: "654553992794258",
-  api_secret: "iFlLS3fOSJrpOH60qqMmLKEwIOQ",
-});
+const cloudinary = require("../config/cloudinary");
 
 const avatarController = {
   setProfilePic: async (req, res, next) => {
