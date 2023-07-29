@@ -6,11 +6,13 @@ const MongoDB = require("./config/connectdb");
 const cors = require("cors");
 const morgan = require("morgan");
 const allRouter = require("./routes");
+const expressfileupload = require("express-fileupload")
 
 app.use(express.json());
 dotenv.config();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(expressfileupload());
 MongoDB.connect();
 app.use(morgan("tiny"));
 

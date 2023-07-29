@@ -9,6 +9,7 @@ import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import VerificationEmail from '../components/authentication/verificationemail';
+import RenderAvatar from "../components/avatar/avatar";
 // public routes
 const publicRoutes = [
   {
@@ -63,6 +64,11 @@ const publicRoutes = [
   {
     path: '/verification-email',
     component: VerificationEmail,
+    layout: null,
+  },
+  {
+    path: '/avatar',
+    component: RenderAvatar,
     layout: null,
   },
 ];

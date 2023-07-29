@@ -1,4 +1,3 @@
-
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const { sendEmail1 } = require("../config/email");
@@ -143,6 +142,7 @@ const authController = {
       });
     }
   },
+
 };
 module.exports = authController;
 
