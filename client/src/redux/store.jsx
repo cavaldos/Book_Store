@@ -3,19 +3,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import bookSlice from './features/bookSlice';
 import userSlice from './features/userSilce';
-import walletSlice from './features/walletSlice';
+import roleSlice from './features/roleSlice';
 import themeSlice from './features/themeSlice';
 import paymentSlice from './features/paymentSlice';
-import roleSlice  from './features/roleSlice';
+// import roleSlice  from './features/roleSlice';
 const store = configureStore(
     {
         reducer: {
             book: bookSlice,
             user: userSlice,
-            wallet: walletSlice,
+            role: roleSlice,
             theme: themeSlice,
             payment: paymentSlice,
-            role: roleSlice,
+         
         },
     },
     {},

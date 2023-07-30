@@ -28,9 +28,8 @@ import Background from "./custom/background";
 
 import { useDispatch, useSelector } from "react-redux";
 
-// import Role from "./custom/setrole";
-// import updateRole from "../../redux/features/roleSlice";
-// import setRole from "../../redux/features/roleSlice";
+
+import {updateRole} from "../../redux/features/roleSlice";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +37,7 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -53,58 +52,54 @@ function SignIn() {
   };
   const newdata = { role, email, password };
   async function submit(e) {
-    // e.preventDefault();
-    // if (!email) {
-    //   message.error("Email is required");
-    //   return;
-    // }
-    // if (!password) {
-    //   message.error("Password is required");
-    //   return;
-    // }
-    // if (!role) {
-    //   message.error("Role is required");
-    //   return;
-    // }
+    e.preventDefault();
+    if (!email) {
+      message.error("Email is required");
+      return;
+    }
+    if (!password) {
+      message.error("Password is required");
+      return;
+    }
+    if (!role) {
+      message.error("Role is required");
+      return;
+    }
 
-
-
-
-
-    // try {
-    //   await axios
-    //     .post(`http://localhost:8001/signin`, {
-    //       email,
-    //       password,
-    //       role,
-    //     })
-    //     .then((res) => {
-    //       if (res.data === "adminsuccess") {
-    //         message.success("Sign in success with admin role");
-    //         history("/");
-    //         dispatch(
-    //           updateRole({
-    //             role: "admin",
-    //             roleRouter: "admin",
-    //             email: email,
-    //             password: password,
-    //           })
-    //         );
-    //       } else if (res.data === "usersuccess") {
-    //         message.success("Sign in success with user role");
-    //       } else if (res.data === "employeesuccess") {
-    //         message.success("Sign in success with employee role");
-    //       } else {
-    //         message.error("Sign in not success1");
-    //       }
-    //     })
-    //     .catch((e) => {
-    //       message.error("Sign in not success2");
-    //       console.log(e);
-    //     });
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      await axios
+        .post(`http://localhost:8001/signin`, {
+          email,
+          password,
+          role,
+        })
+        .then((res) => {
+          if (res.data === "adminsuccess") {
+            message.success("Sign in success with admin role");
+            dispatch(
+              updateRole({
+                role: role,
+                roleRouter: role,
+                email: email,
+                password: password,
+              })
+            );
+            navigate("/");
+          } else if (res.data === "usersuccess") {
+            message.success("Sign in success with user role");
+          } else if (res.data === "employeesuccess") {
+            message.success("Sign in success with employee role");
+          } else {
+            message.error("Sign in not success1");
+          }
+        })
+        .catch((e) => {
+          message.error("Sign in not success2");
+          console.log(e);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (

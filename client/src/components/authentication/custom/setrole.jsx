@@ -2,7 +2,7 @@ import React from "react";
 import "../auth.scss";
 import "./setrole.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { setRole } from "../../../redux/features/roleSlice";
+// import { setRole } from "../../../redux/features/roleSlice";
 function Role() {
   // const dispatch = useDispatch();
   // const role = useSelector((state) => state.role.role);
