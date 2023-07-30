@@ -12,15 +12,7 @@ import DefaultLayout from "./components/main";
 import { publicRoutes, userRoutes, employeeRoutes } from "./Routes";
 import adminRoutes from "./Routes/adminRoutes";
 import { useSelector } from "react-redux";
-
-function Notfound() {
-  return (
-    <>
-      <h1>404</h1>
-    </>
-  );
-}
-
+const Notfound = React.lazy(() => import("./components/layout/error/notfound"));
 const App = () => {
   const roleRouter = useSelector((state) => state.role.roleRouter);
   const VerifyRoure = () => {
@@ -48,7 +40,7 @@ const App = () => {
               element={
                 <Layout>
                   <Page />
-                  <Outlet /> {/* Sử dụng Outlet để hiển thị children */}
+                  <Outlet />
                 </Layout>
               }
             />

@@ -36,18 +36,6 @@ const publicRoutes = [
     path: "/profile",
     component: Profile,
   },
-
-  {
-    path: "/home",
-
-    component: Home,
-    children: [
-      {
-        path: "/user",
-        element: Home,
-      },
-    ],
-  },
   {
     path: "/manager-author",
     component: Author,
@@ -57,37 +45,6 @@ const publicRoutes = [
     component: ResetPassword,
     layout: null,
   },
-  {
-    path: "/manager-user",
-    component: User,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
-    layout: null,
-  },
-  {
-    path: "/signup",
-    component: SignUp,
-    layout: null,
-  },
-  {
-    path: "/revenue",
-    component: Revenue,
-  },
-
-  {
-    path: "/cart",
-    component: Cart,
-  },
-  {
-    path: "/wallet",
-    component: Wallet,
-  },
-  {
-    path: "/about",
-    component: Wallet,
-  },
 ];
 
 const userRoutes = [
@@ -95,6 +52,23 @@ const userRoutes = [
     path: "/",
 
     component: Home,
+  },
+  {
+    path: "/user",
+
+    component: Home,
+  },
+  {
+    path: "/user/cart",
+    component: Cart,
+  },
+  {
+    path: "/user/wallet",
+    component: Wallet,
+  },
+  {
+    path: "/user/profile",
+    component: Profile,
   },
 ];
 

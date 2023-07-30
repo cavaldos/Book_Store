@@ -243,78 +243,11 @@ const [messages, setMessages] = useState([]);
 import "./chat.scss";
 import React, { useState, useEffect } from "react";
 
-import { Input, Button, List } from "antd";
-
-import axios from "axios";
-import { Configuration, OpenAIApi } from "openai";
-
 const Chatbot = () => {
-  const [engines, setEngines] = useState([]);
-  const KEY = "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";
-  const URL1 = "https://api.openai.com/v1/engines/davinci-codex/completions";
-  const URL2 =
-    "https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium";
-
-  const configuration = new Configuration({
-    organization: "org-dxE9CUIccVpqJmhr31vTIo8b",
-    apiKey: KEY,
-  });
-  const openai = new OpenAIApi(configuration);
-
-  useEffect(() => {
-    const getEngines = async () => {
-      const response = await openai.listEngines();
-      setEngines(response.data);
-    };
-    getEngines();
-  }, []);
-  const generateAnswer = async (prompt) => {
-    try {
-      const response = await axios.post(
-        // "https://api.openai.com/v1/engines/davinci-codex/completions",
-        URL2,
-        {
-          prompt,
-          max_tokens: 100,
-          n: 1,
-          stop: "\n",
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            // using key 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
-            Authorization: `Bearer ${KEY}`,
-          },
-        }
-      );
-      const { choices } = response.data?.choices?.[0] || {};
-      const answer = choices?.[0]?.text;
-      return answer;
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  };
-  console.log(engines);
-  const promt = "hello";
-  //create comproetion openai
-  const [messages, setMessages] = useState([]);
-  const sendMessage = async (value) => {
-    setMessages([...messages, { text: value, isUser: true }]);
-    const answer = await generateAnswer(value);
-    setMessages([...messages, { text: answer, isUser: false }]);
-  };
-
+ 
   return (
     <>
-      <div className="chatbot">
-        <button
-          className="btn btn-primary"
-          onClick={() => sendMessage("hello")}
-        >
-          Click me
-        </button>
-      </div>
+      
     </>
   );
 };
