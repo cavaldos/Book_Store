@@ -9,12 +9,15 @@ function Role() {
   const [toggle, setToggle] = React.useState("toggle-" + role);
 
   const handleRole = (Srole) => () => {
-    setToggle("toggle-" + Srole);
     dispatch(
       setRole({
         role: Srole,
       })
     );
+    setToggle("toggle-" + Srole);
+    console.log("...");
+    console.log("roleinpur", Srole);
+    console.log(role);
   };
   return (
     <>
