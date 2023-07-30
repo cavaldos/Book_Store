@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Notification = require("./notification");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
@@ -72,6 +73,23 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: 0,
   },
+  Notification: {
+    type: Array,
+    required: false,
+    default: [
+      Notification({
+        id: 0,
+        content: "Welcome to Bookstore",
+        time: Date.now(),
+        statusbar: false,
+      }),
+
+    ],
+
+  },
+
+
+
 });
 
 const User = mongoose.model("User", userSchema);
