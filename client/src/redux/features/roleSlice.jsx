@@ -9,8 +9,8 @@ const role = {
 export const roleSlice = createSlice({
   name: "role",
   initialState: {
-    role: role.public,
-    roleRouter: role.public,
+    role: role.user,
+    roleRouter: role.user,
     email: "khhanh @gmail.com",
     password: "",
   },
