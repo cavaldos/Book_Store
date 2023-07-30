@@ -6,7 +6,7 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import Footer from "../layout/footer";
 import Home from "../../pages/Home";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import Search from "../layout/header/search";
 
 const OnlineLayout = () => {
