@@ -1,21 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const role = {
-  public: "public",
-  admin: "admin",
-  user: "user",
-  employee: "employee",
-};
+//import subrice from redux
 export const roleSlice = createSlice({
   name: "role",
   initialState: {
-    role: role.user,
-    roleRouter: role.user,
-    email: "khhanh @gmail.com",
-    password: "",
+      role: "admin",
+      roleRouter: "admin",
+      email: "",
+      password: "",
   },
   reducers: {
-    setRole: (state, action) => {
+    updateRole: (state, action) => {
       return {
         ...state,
         role: action.payload.role,
@@ -23,23 +18,8 @@ export const roleSlice = createSlice({
         email: action.payload.email,
         password: action.payload.password,
       };
-    },
-    updateRole: (state, action) => {
-      return {
-        ...state,
-        role: action.payload.role,
-      };
-    },
-    removeRole: (state, action) => {
-      return {
-        ...state,
-        role: role.public,
-        roleRouter: role.public,
-        email: "",
-        password: "",
-      };
-    },
+    }
   },
 });
-export const { setRole, updateRole, removeRole } = roleSlice.actions;
+export const { updateRole } = roleSlice.actions;
 export default roleSlice.reducer;

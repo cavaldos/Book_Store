@@ -59,7 +59,7 @@ function ManagerUser() {
           />
           <Space>
             <Button
-              type="primary"
+              // type="primary"
               onClick={() => confirm()}
               icon={<SearchOutlined />}
               size="small"

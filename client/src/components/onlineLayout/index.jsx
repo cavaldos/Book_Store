@@ -8,7 +8,6 @@ import Footer from "../layout/footer";
 import Home from "../../pages/Home";
 import { useNavigate } from "react-router-dom";
 import Search from "../layout/header/search";
-
 const OnlineLayout = () => {
   const [scroll, setScroll] = useState("up_online");
 
@@ -23,7 +22,7 @@ const OnlineLayout = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = (path) => {
+  const handle = (path) => {
     navigate(path);
   };
 
@@ -34,14 +33,14 @@ const OnlineLayout = () => {
           <Button
             className="button-signin"
             variant="contained"
-            onClick={() => handleLogin("/signin")}
+            onClick={() => handle("/signin")}
           >
             Sign in
           </Button>
           <Button
             className="button-signup"
             variant="contained"
-            onClick={() => handleLogin("/signup")}
+            onClick={() => handle("/signup")}
           >
             Sign Up
           </Button>

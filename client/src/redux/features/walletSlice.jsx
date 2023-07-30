@@ -7,7 +7,7 @@ export const walletSlice = createSlice({
         id: 12,
         name: 'wallet',
         price: 100,
-        surplus: 1000,
+        // surplus: "100000",
     },
     reducers: {
         recharge: (state, action) => {
