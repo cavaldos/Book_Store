@@ -27,7 +27,7 @@ const avatarController = {
       // Delete the temporary file after uploading to Cloudinary
       fs.unlinkSync(tempFilePath);
 
-      // Lấy link ảnh từ kết quả upload
+      // get link Url after upload
       const imageUrl = result.secure_url;
 
       // Lưu link ảnh vào MongoDB

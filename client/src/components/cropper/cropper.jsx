@@ -6,11 +6,11 @@ import Slider from "@material-ui/core/Slider";
 import Button from "@material-ui/core/Button";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-import getCroppedImg, { generateDownload } from "../../utils/cropImage";
+import getCroppedImg, { generateDownload } from "../../util/cropImage";
 import { IconButton, makeStyles } from "@material-ui/core";
 import { SnackbarContext } from "../snackbar/snackbar";
 import { BackdropContext } from "../backdrop/backdrop";
-import { dataURLtoFile } from "../../utils/dataURLtoFile.js";
+import { dataURLtoFile } from "../../util/dataURLtoFile.js";
 
 const useStyles = makeStyles({
   iconButton: {

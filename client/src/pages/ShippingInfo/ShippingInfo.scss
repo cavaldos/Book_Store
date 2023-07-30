@@ -1,0 +1,18 @@
+.wrapperShippingInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+  
+    font-weight: 700;
+}
+
+.col-10 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+
+.col-lg-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}

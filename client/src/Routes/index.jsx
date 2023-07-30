@@ -10,6 +10,8 @@ import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import VerificationEmail from '../components/authentication/verificationemail';
 import RenderAvatar from "../components/avatar/avatar";
+import ShippingInfo from "../pages/ShippingInfo/ShippingInfo";
+
 // public routes
 const publicRoutes = [
   {
@@ -69,6 +71,11 @@ const publicRoutes = [
   {
     path: '/avatar',
     component: RenderAvatar,
+    layout: null,
+  },
+  {
+    path: '/shipping',
+    component: ShippingInfo,
     layout: null,
   },
 ];
