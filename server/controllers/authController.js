@@ -10,13 +10,19 @@ const authController = {
         email: email,
         password: password,
         role: role,
-
       });
       console.log("check",check);
-      if (check) {
-        res.json("exist");
-      } else {
-        res.json("notexist");
+      if (check && check.role === "admin") {
+        res.json("adminsuccess");
+      } 
+      else if (check && check.role === "user") {
+        res.json("usersuccess");
+      }
+      else if (check && check.role === "employee") {
+        res.json("employeesuccess");
+      }
+      else {
+        res.json("siginfail");
       }
 
     } catch (err) {
