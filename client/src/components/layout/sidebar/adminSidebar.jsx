@@ -1,68 +1,47 @@
 import "../../main/styles.scss";
+import Logo from "./logo";
 
 import React from "react";
-import { useState } from "react";
 import MenuItem from "../menu/index";
-// import BreadC from "../layout/header/breadcrumb";
-import Button from "@mui/material/Button";
-// import Footer from "../layout/footer";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router";
-// import Search from "../layout/header/search";
 
 function AdminSidebar(props) {
   const { toggle } = props;
   return (
     <>
       <div className="sidebar">
-        <div className="logo"></div>
+        <Logo />
         <div className="menu_list">
           <div className="menu_item">
             <MenuItem
-              name="Admin"
-              icon=<MenuUnfoldOutlined />
+              name="Home"
               toggle={toggle}
               path="/"
+              icon={<MenuUnfoldOutlined />}
             />
           </div>
           <div className="menu_item">
             <MenuItem
-              name="Cart"
-              icon=<MenuUnfoldOutlined />
+              name="Manager-user"
               toggle={toggle}
-              path="/cart"
+              path="/admin/user"
+              icon={<MenuUnfoldOutlined />}
             />
           </div>
           <div className="menu_item">
             <MenuItem
-              name="Author"
-              icon=<MenuUnfoldOutlined />
+              name="Manager-product"
               toggle={toggle}
-              path="/manager-author"
-            />
-          </div>{" "}
-          <div className="menu_item">
-            <MenuItem
-              name="User"
-              icon=<MenuUnfoldOutlined />
-              toggle={toggle}
-              path="/manager-user"
-            />
-          </div>{" "}
-          <div className="menu_item">
-            <MenuItem
-              name="Revenue"
-              icon=<MenuUnfoldOutlined />
-              toggle={toggle}
-              path="/revenue"
+              path="/admin/product"
+              icon={<MenuFoldOutlined />}
             />
           </div>
           <div className="menu_item">
             <MenuItem
-              name="Wallet"
-              icon=<MenuUnfoldOutlined />
+              name="Manager-revenue"
               toggle={toggle}
-              path="/wallet"
+              path="/admin/revenue"
+              icon={<MenuFoldOutlined />}
             />
           </div>
         </div>
