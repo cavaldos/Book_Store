@@ -47,7 +47,7 @@ function Home() {
           </Carousel>
         </div>
         <div className="home-container_3 con">fillter</div>
-        <div className="home-container_4 con">quang cao</div>
+        <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
           {products.map(
             ({ ID, Image, Tittle, Author, Rating, Price, Description }) => (

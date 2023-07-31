@@ -9,7 +9,7 @@
   background-color: var(--light-bg);
   display: grid;
   grid-template-columns: 350px 1fr 250px;
-  grid-template-rows: 550px 100px auto;
+  grid-template-rows: 550px 150px auto;
 
   .con {
     position: relative;
@@ -43,9 +43,13 @@
   }
   .home-container_3 {
   }
+
+  
   .home-container_4 {
     margin: 10px 0;
     grid-column: 1/4;
+    background-image: url("../../../public/Advertisement.png");
+    background-size: contain;
   }
 
   .home-container_5 {
