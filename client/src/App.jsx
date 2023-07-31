@@ -2,16 +2,17 @@ import "./App.scss";
 
 import React from "react";
 import { Fragment } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import DefaultLayout from "./components/main";
 import {
-  publicRoutes,
-  adminRoutes,
-  userRoutes,
-  employeeRoutes,
-} from "./Routes";
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from "react-router-dom";
+import DefaultLayout from "./components/main";
+import { publicRoutes, userRoutes, employeeRoutes } from "./Routes";
+import adminRoutes from "./Routes/adminRoutes";
 import { useSelector } from "react-redux";
-
+const Notfound = React.lazy(() => import("./components/layout/error/notfound"));
 const App = () => {
   const roleRouter = useSelector((state) => state.role.roleRouter);
   const VerifyRoure = () => {
@@ -39,11 +40,13 @@ const App = () => {
               element={
                 <Layout>
                   <Page />
+                  <Outlet />
                 </Layout>
               }
             />
           );
         })}
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>
   );

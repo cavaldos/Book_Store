@@ -23,6 +23,16 @@ class LocalStorage {
     }
     localStorage.setItem(this.key, JSON.stringify(data));
   }
+
+  addProduct(product) {
+    const data = this.getData();
+    if (!Array.isArray(data)) {
+      console.error("Error: data must be an array");
+      return;
+    }
+    data.push(product);
+    this.saveData(data);
+  }
 }
 
 export default LocalStorage;

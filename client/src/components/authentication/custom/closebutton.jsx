@@ -10,7 +10,7 @@ function Closebutton() {
           
           <CloseOutlined
             className="close-auth-icon"
-            onClick={() => history("/")}
+            onClick={() => history(-1)}
           />
         </div>
       </>

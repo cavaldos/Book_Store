@@ -320,3 +320,17 @@
 // };
 
 // export default Chatbot;
+
+import "./chat.scss";
+import React, { useState, useEffect } from "react";
+
+const Chatbot = () => {
+ 
+  return (
+    <>
+      
+    </>
+  );
+};
+
+export default Chatbot;

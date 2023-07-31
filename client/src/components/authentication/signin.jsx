@@ -20,12 +20,15 @@ import IconButton from "@mui/material/IconButton";
 import Closebutton from "./custom/closebutton";
 import Role from "./custom/setrole";
 import Background from "./custom/background";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import updateRole from "../../redux/features/roleSlice";
 function SignIn() {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const history = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -43,7 +46,6 @@ function SignIn() {
   };
 
   //--------------------------------------------------------------------------------
-  const history = useNavigate();
 
   async function submit(e) {
     e.preventDefault();
@@ -53,15 +55,23 @@ function SignIn() {
     }
     try {
       await axios
-        .post("http://localhost:8000/signin", {
+        .post("http://localhost:8001/signin", {
           email,
           password,
           role,
         })
         .then((res) => {
           if (res.data === "exist") {
-            history("/t", { state: { id: email } });
+            // history("/", { state: { id: email } });
+            history("/");
+            dispatch(updateRole({ roleRouter: "admin", role: "admin" }));
             message.success("Login success");
+            
+            // Lưu giá trị vào localStorage
+            localStorage.setItem("role", role);
+            localStorage.setItem("roleRouter", role);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
           } else if (res.data === "notexist") {
             message.warning("User have not sign up or wrong password");
           }

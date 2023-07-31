@@ -1,13 +1,13 @@
-import SignIn from "../components/authentication/signin";
-import SignUp from "../components/authentication/signup";
-import Cart from "../pages/Cart";
-import Home from "../pages/Home";
-import Author from "../pages/Manager/Author";
-import User from "../pages/Manager/User";
-import Revenue from "../pages/Revenue";
-import Wallet from "../pages/Wallet";
-import ResetPassword from "../components/authentication/resetpassword";
-import OnlineLayout from "../components/onlineLayout";
+import SignIn from "../client/src/components/authentication/signin";
+import SignUp from "../client/src/components/authentication/signup";
+import Cart from "../client/src/pages/Cart";
+import Home from "../client/src/pages/Home";
+import Author from "../client/src/pages/Manager/Author";
+import User from "../client/src/pages/Manager/User";
+import Revenue from "../client/src/pages/Revenue";
+import Wallet from "../client/src/pages/Wallet";
+import ResetPassword from "../client/src/components/authentication/resetpassword";
+import OnlineLayout from "../client/src/components/onlineLayout";
 // public routes
 const publicRoutes = [
   {
