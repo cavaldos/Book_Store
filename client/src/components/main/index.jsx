@@ -16,7 +16,10 @@ import Avatar from "@mui/material/Avatar";
 import { Menu, Dropdown } from "antd";
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-// import SidebarRespon from "./custom/sidebarrespon";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/features/roleSlice";
+import { updateRole } from "../../redux/features/roleSlice";
+
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
   const [scroll, setScroll] = useState("up");
@@ -60,6 +63,18 @@ const DefaultLayout = ({ children }) => {
       </Menu.Item>
     </Menu>
   );
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(
+      updateRole({
+        role: "public",
+        roleRouter: "public",
+        email: "...",
+        password: "...",
+      })
+    );
+  };
+
   return (
     <>
       <div className={toggle}>
@@ -83,13 +98,16 @@ const DefaultLayout = ({ children }) => {
               <BreadC />
             </div>
             <Search />
-            <Dropdown trigger={["click"]}>
-              <Avatar
-                className="avatar"
-                alt={roleemail}
-                src="/static/images/avatar/1.jpg"
-              />
-            </Dropdown>
+            {/* <Dropdown  trigger={["click"]}> */}
+            <Avatar
+              className="avatar"
+              alt={roleemail}
+              src="/static/images/avatar/1.jpg"
+              onClick={() => {
+                logout();
+              }}
+            />
+            {/* </Dropdown> */}
 
             <Notify />
           </div>
