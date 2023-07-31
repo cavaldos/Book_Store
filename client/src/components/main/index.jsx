@@ -17,7 +17,6 @@ import { Menu, Dropdown } from "antd";
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux/features/roleSlice";
 import { updateRole } from "../../redux/features/roleSlice";
 
 const DefaultLayout = ({ children }) => {
