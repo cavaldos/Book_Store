@@ -18,18 +18,17 @@ import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import { message } from "antd";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-import { message } from "antd";
 import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
 
 import { useDispatch, useSelector } from "react-redux";
 
-
-import {updateRole} from "../../redux/features/roleSlice";
+import { updateRole } from "../../redux/features/roleSlice";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -68,33 +67,32 @@ function SignIn() {
 
     try {
       await axios
-        .post(`http://localhost:8001/signin`, {
-          email,
-          password,
-          role,
-        })
+        .post(`http://localhost:8001/signin`, newdata)
         .then((res) => {
           if (res.data === "adminsuccess") {
             message.success("Sign in success with admin role");
-            dispatch(
-              updateRole({
-                role: role,
-                roleRouter: role,
-                email: email,
-                password: password,
-              })
-            );
+
+            setTimeout(() => {
+              dispatch(
+                updateRole({
+                  role: role,
+                  roleRouter: role,
+                  email: email,
+                  password: password,
+                })
+              );
+            }, 100);
             navigate("/");
           } else if (res.data === "usersuccess") {
             message.success("Sign in success with user role");
           } else if (res.data === "employeesuccess") {
             message.success("Sign in success with employee role");
           } else {
-            message.error("Sign in not success1");
+            message.error("Sign In not success");
           }
         })
         .catch((e) => {
-          message.error("Sign in not success2");
+          message.error("Sign in not success");
           console.log(e);
         });
     } catch (err) {
