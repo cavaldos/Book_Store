@@ -14,6 +14,7 @@ export const Notfound = (props) => {
         flexDirection: "column",
       }}
     >
+      <h1>404</h1>
       <h1>Notfound</h1>
       <h3 style={{color:'blue'}}>
         <Link to="/">Go to home</Link>

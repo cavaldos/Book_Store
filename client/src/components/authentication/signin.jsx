@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./auth.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -10,80 +11,95 @@ import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { message } from "antd";
 import IconButton from "@mui/material/IconButton";
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import { message } from "antd";
+
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import Closebutton from "./custom/closebutton";
-import Role from "./custom/setrole";
 import Background from "./custom/background";
-import { useDispatch, useSelector } from "react-redux";
-import updateRole from "../../redux/features/roleSlice";
-function SignIn() {
-  const [showPassword, setShowPassword] = React.useState(false);
 
+import { useDispatch, useSelector } from "react-redux";
+
+import { updateRole } from "../../redux/features/roleSlice";
+
+function SignIn() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const role = useSelector((state) => state.role.role);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      role: role,
-    });
   };
-
-  //--------------------------------------------------------------------------------
-
+  const handleChange = (event) => {
+    setRole(event.target.value);
+  };
+  const newdata = { role, email, password };
   async function submit(e) {
     e.preventDefault();
-    if (!email || !password) {
-      message.warning("Please fill in all the information");
+    if (!email) {
+      message.error("Email is required");
       return;
     }
+    if (!password) {
+      message.error("Password is required");
+      return;
+    }
+    if (!role) {
+      message.error("Role is required");
+      return;
+    }
+
     try {
       await axios
-        .post("http://localhost:8001/signin", {
-          email,
-          password,
-          role,
-        })
+        .post(`http://localhost:8001/signin`, newdata)
         .then((res) => {
-          if (res.data === "exist") {
-            // history("/", { state: { id: email } });
-            history("/");
-            dispatch(updateRole({ roleRouter: "admin", role: "admin" }));
-            message.success("Login success");
-            
-            // Lưu giá trị vào localStorage
-            localStorage.setItem("role", role);
-            localStorage.setItem("roleRouter", role);
-            localStorage.setItem("email", email);
-            localStorage.setItem("password", password);
-          } else if (res.data === "notexist") {
-            message.warning("User have not sign up or wrong password");
+          if (res.data === "adminsuccess") {
+            message.success("Sign in success with admin role");
+
+            setTimeout(() => {
+              dispatch(
+                updateRole({
+                  role: role,
+                  roleRouter: role,
+                  email: email,
+                  password: password,
+                })
+              );
+            }, 100);
+            navigate("/");
+          } else if (res.data === "usersuccess") {
+            message.success("Sign in success with user role");
+          } else if (res.data === "employeesuccess") {
+            message.success("Sign in success with employee role");
+          } else {
+            message.error("Sign In not success");
           }
         })
         .catch((e) => {
-          message.error("wrong details");
+          message.error("Sign in not success");
           console.log(e);
         });
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   }
+
   return (
     <>
       <div className="wrapper">
@@ -104,7 +120,6 @@ function SignIn() {
               <Typography component="h1" variant="5">
                 Sign in
               </Typography>
-              <Role />
 
               <Box
                 component="form"
@@ -149,6 +164,21 @@ function SignIn() {
                     ),
                   }}
                 />
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Role</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={role}
+                    label="Role"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value={"user"}>User</MenuItem>
+                    <MenuItem value={"employee"}>Employee</MenuItem>
+                    <MenuItem value={"admin"}>Admin</MenuItem>
+                  </Select>
+                </FormControl>
+
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
