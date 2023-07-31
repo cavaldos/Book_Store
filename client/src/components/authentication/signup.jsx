@@ -41,29 +41,36 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
-  const [phonenumber, setPhonenumber] = useState("");
+
   const [role, setRole] = useState("");
   const [confirmationCode, setConfirmationCode] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
-
-  const handleSendVerificationCode = async () => {
-    if (!email || !password || !confirmPassword) {
+  const sendCodeSignUp = async () => {
+    console.log("sendCodeSignUp", email, password, confirmpassword);
+    if (password !== confirmpassword) {
+      message.error("Password and Confirm Password must be the same");
+      return;
+    }
+    if (!email || !password || !confirmpassword) {
       message.error(
         "Please fill out the information before sending the email confirmation code"
       );
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8001/verify", {
-        email,
-      });
-      if (response.data === "sendCodeSuccess") {
+      await message.loading("Sending verification code...", 1);
+      const response = await axios.post(
+        "http://localhost:8001/verifyemailsignup",
+        {
+          email,
+        }
+      );
+      if (response.data === "sendemailsuccess") {
         message.success(
           "Send verification code successfully, please check your email"
         );
       } else if (response.data === "emailExist") {
-        message.error("Email not exist");
+        message.error("Email already exists, please try again");
       } else {
         message.error("Error occurs. Please try again later");
       }
@@ -83,12 +90,11 @@ export default function SignUp() {
     email,
     password,
     confirmpassword,
-    phonenumber,
     role,
+    confirmationCode,
   };
   async function submit(e) {
     e.preventDefault();
-   
 
     if (!firstname) {
       message.error("First Name is required");
@@ -110,10 +116,7 @@ export default function SignUp() {
       message.error("Confirm Password is required");
       return;
     }
-    if (!phonenumber) {
-      message.error("Phone Number is required");
-      return;
-    }
+
     if (!role) {
       message.error("Role is required");
       return;
@@ -127,27 +130,29 @@ export default function SignUp() {
       await axios
         .post(`http://localhost:8001/register`, newdata)
         .then((res) => {
-          if (res.data === "RegisterUserSuccess") {
-            message.success("Register successfully");
+          if (res.data === "confirmationCodefail") {
+            message.error("Confirmation Code is not correct,pelase send again");
+          } else if (res.data === "RegisterUserSuccess") {
+            message.success("Register successfully with user role");
             setTimeout(() => {
               history("/login");
             }, 2000);
           } else if (res.data === "RegisterEmployeesUccess") {
-            message.error("Register successfully");
+            message.success("Register successfully with employee role");
             setTimeout(() => {
               history("/login");
             }, 2000);
           } else if (res.data === "RegisterFail") {
-            message.error("Register failed");
+            message.error("Register failed1");
           }
         })
         .catch((err) => {
-          message.error("Register Failed");
+          message.error("Register Failed2");
           console.log(err);
         });
     } catch (e) {
       console.log(e);
-      message.error("Register failed");
+      message.error("Register failed3");
     }
   }
   return (
@@ -155,7 +160,6 @@ export default function SignUp() {
       <div className="wrapper">
         <Background />
         <div className="wrapper_signup">
-          {/* <ThemeProvider theme={defaultTheme}> */}
           <Container component="main" maxWidth="xs">
             <Closebutton />
             <Box
@@ -270,18 +274,6 @@ export default function SignUp() {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      id="phonenumber"
-                      label="Phone Number"
-                      name="phonenumber"
-                      autoComplete="phonenumber"
-                      onChange={(e) => {
-                        setPhonenumber(e.target.value);
-                      }}
-                    />
-
                     <FormControl style={{ marginTop: "20px" }} fullWidth>
                       <InputLabel id="demo-simple-select-label">
                         Role
@@ -299,26 +291,27 @@ export default function SignUp() {
                         <MenuItem value={"employee"}>Employee</MenuItem>
                       </Select>
                     </FormControl>
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      onClick={sendCodeSignUp}
+                      sx={{ mt: 1, mb: 2 }}
+                    >
+                      Send Code to Email
+                    </Button>
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="confirmationCode"
+                      label="Verification Code"
+                      name="confirmationCode"
+                      autoComplete="confirmationCode"
+                      value={confirmationCode}
+                      onChange={(e) => setConfirmationCode(e.target.value)}
+                    />
                   </Grid>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    onClick={handleSendVerificationCode}
-                    sx={{ mt: 1, mb: 2 }}
-                  >
-                    Send Code to Email
-                  </Button>
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="confirmationCode"
-                    label="Verification Code"
-                    name="confirmationCode"
-                    autoComplete="confirmationCode"
-                    value={confirmationCode}
-                    onChange={(e) => setConfirmationCode(e.target.value)}
-                  />
+
                   <Grid item xs={12}>
                     <FormControlLabel
                       control={

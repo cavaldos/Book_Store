@@ -10,7 +10,7 @@ router.post("/register", authController.register); // đã viết xong
 router.post("/logout", authController.logout); // chưa viết
 router.post("/resetpassword", authController.resetpassword); // chưa xong
 router.post("/verify", authController.sendConfirmationCode); // chưa xong
-
+router.post("/verifyemailsignup", authController.verifyEmailSignUp); // chưa xong
 //user
 router.post("/deleteuser", userController.deleteUser); // da xong, test ok roi
 router.post("/adduser", userController.addUser); // da xong, test ok roi

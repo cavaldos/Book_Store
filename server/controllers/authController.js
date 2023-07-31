@@ -1,6 +1,8 @@
 const User = require("../models/user");
-const bcrypt = require("bcrypt");
+
 const { sendEmail1 } = require("../config/email");
+const randomCode = Math.floor(100001 + Math.random() * 900000);
+
 const authController = {
   signin: async (req, res) => {
     try {
@@ -29,26 +31,52 @@ const authController = {
       });
     }
   },
+
+  verifyEmailSignUp: async (req, res) => {
+    try {
+      const { email } = req.body;
+      await sendEmail1(email, randomCode.toString());
+      //find
+      const check = await User.findOne({
+        email: email,
+      });
+      if (check) {
+        res.json("emailExist");
+        return;
+      }
+      
+      res.json("sendemailsuccess");
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+
   register: async (req, res) => {
     try {
+      const maxId = await User.findOne({}, { id: 1 })
+        .sort({ id: -1 })
+        .limit(1)
+        .exec();
       const {
-        phonenumber,
         email,
         password,
         confirmpassword,
         firstname,
         lastname,
         role,
+        confirmationCode,
       } = req.body;
 
-      const maxId = await User.findOne({}, { id: 1 })
-        .sort({ id: -1 })
-        .limit(1)
-        .exec();
-      console.log("Max id:", maxId.id);
-      if (password !== confirmpassword) {
-        res.json("passwordnotmatch");
+      if (confirmationCode !== randomCode.toString()) {
+        await res.json("confirmationCodefail");
+        return;
+      } else if (password !== confirmpassword) {
+        await res.json("passwordnotmatch");
+        return;
       }
+
       const newUser = new User({
         id: maxId.id + 1,
         email,
@@ -57,16 +85,20 @@ const authController = {
         lastname,
         username: firstname + "" + lastname,
         role,
-        phonenumber,
+        confirmationCode: confirmationCode,
       });
-      console.log("usernew", newUser);
       const result = await newUser.save();
       if (result && result.role === "user") {
         res.json("RegisterUserSuccess");
+        console.log("RegisterUserSuccess");
+        return;
       } else if (result && result.role === "employee") {
         res.json("RegisterEmployeesUccess");
+        console.log("RegisterEmployeesUccess");
+        return;
       } else {
         res.json("RegisterFail");
+        console.log("RegisterFail");
       }
     } catch (err) {
       res.status(500).json({
