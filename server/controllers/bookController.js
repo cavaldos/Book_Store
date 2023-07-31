@@ -3,31 +3,23 @@ const Cart = require("../models/cart");
 
 const bookController = {
   addBook: async (req, res) => {
-    // try {
-    //   res.json({ message: "addbook" });
-    // } catch (err) {
-    //   res.status(500).json({
-    //     message: err.message,
-    //   });
-    // }
     try {
-      const data = req.body;
-      console.log(data);
-      const newBook = new Book({
-        ID: data.ID,
-        Image: data.Image,
-        Tittle: data.Tittle,
-        Author: data.Author,
-        Rating: data.Rating,
-        Price: data.Price,
-        ISBN: data.ISBN,
-        Genre: data.Genre,
-        Publish_Year: data.Publish_Year,
-        Publisher: data.Publisher,
-        Description: data.Description,
-        quantity: data.quantity,
-      });
-
+    const data = req.body;
+    const newBook = new Book({
+    ID: data.ID,
+    Image: data.Image,
+    Tittle: data.Tittle,
+    Author: data.Author,
+    Rating: data.Rating,
+    Price: data.Price,
+    ISBN: data.ISBN,
+    Genre: data.Genre,
+    Publish_Year: data.Publish_Year,
+    Publisher: data.Publisher,
+    Description: data.Description,
+    quantity: data.quantity,
+  });
+    
       // Save the new Book document to the database
       await newBook.save();
       // Send a response to the client
@@ -57,8 +49,27 @@ const bookController = {
   
   editBook: async (req, res) => {
     try {
-      res.json({ message: "editbook" });
-    } catch (err) {
+      const data = req.body;
+      const filter = { ID: data.ID };
+      const updat = new Book({
+      ID: data.ID,
+      Image: data.Image,
+      Tittle: data.Tittle,
+      Author: data.Author,
+      Rating: data.Rating,
+      Price: data.Price,
+      ISBN: data.ISBN,
+      Genre: data.Genre,
+      Publish_Year: data.Publish_Year,
+      Publisher: data.Publisher,
+      Description: data.Description,
+      quantity: data.quantity,
+    } )
+    const options = { upsert: true };
+    const result = await Book.updateOne(filter, updat, options);
+    res.status(200).json(result);
+  }
+    catch (err) {
       res.status(500).json({
         message: err.message,
       });

@@ -9,7 +9,7 @@ function Background() {
         <div className={role} >
         <div className="k"></div>
         {/* </div> */}
-      </div>
+      </div></div>
     </>
   );
 }
