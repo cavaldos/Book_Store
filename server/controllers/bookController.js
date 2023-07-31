@@ -50,8 +50,7 @@ const bookController = {
   editBook: async (req, res) => {
     try {
       const data = req.body;
-      const filter = { ID: data.ID };
-      const updat = new Book({
+      const result = await Book.updateOne({ID: data.ID}, {$set : {
       ID: data.ID,
       Image: data.Image,
       Tittle: data.Tittle,
@@ -63,11 +62,8 @@ const bookController = {
       Publish_Year: data.Publish_Year,
       Publisher: data.Publisher,
       Description: data.Description,
-      quantity: data.quantity,
-    } )
-    const options = { upsert: true };
-    const result = await Book.updateOne(filter, updat, options);
-    res.status(200).json(result);
+      quantity: data.quantity,}} );
+      res.status(200).json(result);
   }
     catch (err) {
       res.status(500).json({

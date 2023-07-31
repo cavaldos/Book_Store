@@ -19,10 +19,10 @@ router.get("/getallusers", userController.getAllusers); // đã viết xong
 router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
 
 //BOOK
-router.post("/addbook", bookController.addBook); //  da xong
-router.post("/editbook", bookController.editBook); // chua viet
-router.get("/getallbooks", bookController.getAllBooks); // da xong
-router.delete("/deletebook", bookController.deleteBook); // da xong
-router.get("/findbooks", bookController.findBook);// da xong
+router.post("/addbook", bookController.addBook); //  da xong, da test
+router.post("/editbook", bookController.editBook); // da xong, da test
+router.get("/getallbooks", bookController.getAllBooks); // da xong, da test
+router.delete("/deletebook", bookController.deleteBook); // da xong, da test
+router.get("/findbooks", bookController.findBook);// da xong, da test
 
 module.exports = router;
