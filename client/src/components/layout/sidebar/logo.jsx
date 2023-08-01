@@ -2,8 +2,10 @@ import React from "react";
 import "./sidebar.scss";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
-
+import { useSelector } from "react-redux";
+import { Tooltip } from "antd";
 function Logo() {
+  const role = useSelector((state) => state.role);
   return (
     <>
       <div id="logo">
@@ -16,8 +18,10 @@ function Logo() {
             // src="https://zos.alipayobjects.cofm/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
           />
         </Space>
-        <h5 className="name-sidebar">khasfh</h5>
-        <p className="role-sidebar">Admin</p>
+        <Tooltip placement="rightBottom" title={role.email}>
+          <h5 className="name-sidebar">{role.email}</h5>
+        </Tooltip>
+        <p className="role-sidebar">{role.role}</p>
       </div>
     </>
   );

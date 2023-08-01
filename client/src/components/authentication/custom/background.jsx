@@ -6,10 +6,10 @@ function Background() {
   return (
     <>
       <div className="background">
-        <div className={role} >
+        {/* <div className={role}>css trong daay */}
         <div className="k"></div>
         {/* </div> */}
-      </div></div>
+      </div>
     </>
   );
 }
