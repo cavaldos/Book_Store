@@ -8,6 +8,8 @@ import Fillter from "./fillter/fillter";
 import Product from "../Cart/Product";
 import { Carousel } from "antd";
 
+// import PayPalCheckoutButton from "../../util/payment/payment";
+
 function Home() {
   const [products, setProducts] = useState([]);
   const [topRatedProducts, setTopRatedProducts] = useState([]);
@@ -76,7 +78,10 @@ function Home() {
             ))}
           </Carousel>
         </div>
-        <div className="home-container_3 con">fillter</div>
+        <div className="home-container_3 con">
+          fillter
+          {/* <PayPalCheckoutButton /> */}
+        </div>
         <div className="home-container_6 con">Sort</div>
         <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
