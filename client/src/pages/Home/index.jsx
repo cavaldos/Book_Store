@@ -34,17 +34,28 @@ function Home() {
   return (
     <>
       <div className="home">
-        <div className="home-container_1 con">sort</div>
         <div className="home-container_2 con">
           <Carousel className="carousel" autoplay>
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
               <div key={ID} className="car-contens">
+                Top Book
+                <img className="pic" src={Image} alt={Tittle} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <div className="home-container_1 con">
+          <Carousel className="carousel" autoplay>
+            {topRatedProducts.map(({ ID, Image, Tittle }) => (
+              <div key={ID} className="car-contens">
+                Daily recommended book
                 <img className="pic" src={Image} alt={Tittle} />
               </div>
             ))}
           </Carousel>
         </div>
         <div className="home-container_3 con">fillter</div>
+        <div className="home-container_6 con">Sort</div>
         <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
           {products.map(
