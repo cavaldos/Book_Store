@@ -80,7 +80,7 @@ const DefaultLayout = ({ children }) => {
         {/*  */}
         <div className="header">
           <div className={scroll}>
-            <div
+            <button
               className="button"
               onClick={() => {
                 handleHeader();
@@ -91,7 +91,7 @@ const DefaultLayout = ({ children }) => {
               ) : (
                 <MenuUnfoldOutlined className="button-icon" />
               )}
-            </div>
+            </button>
 
             <div className="breadcrumb">
               <BreadC />

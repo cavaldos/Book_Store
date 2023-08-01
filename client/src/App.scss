@@ -16,7 +16,8 @@
   --dark-bg: rgb(65, 64, 73);
   --dark-bg-top: rgb(65, 64, 73);
   --dark-bg-bot: rgb(26, 26, 28);
-  
+  --dbt: rgb(53, 53, 58);
+  --dbb: rgb(41, 41, 44);
   --dark-click: rgb(86, 86, 95);
   --text-dark: rgb(32, 43, 55);
   --text-light: rgb(255, 254, 254);
@@ -38,6 +39,6 @@
 }
 
 //ihone 5/SE
-@media only screen and (min-device-width: 300px) and (max-device-width: 650px) {
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
   // iphone 5/SE/12 pro
 }
