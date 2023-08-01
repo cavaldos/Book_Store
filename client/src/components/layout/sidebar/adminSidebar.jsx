@@ -44,6 +44,46 @@ function AdminSidebar(props) {
               icon={<MenuFoldOutlined />}
             />
           </div>
+          <div className="menu_item">
+            <MenuItem
+              name="Manager-revenue"
+              toggle={toggle}
+              path="/admin/revenue"
+              icon={<MenuFoldOutlined />}
+            />
+          </div>
+          <div className="menu_item">
+            <MenuItem
+              name="Manager-revenue"
+              toggle={toggle}
+              path="/admin/revenue"
+              icon={<MenuFoldOutlined />}
+            />
+          </div>
+          <div className="menu_item">
+            <MenuItem
+              name="Manager-revenue"
+              toggle={toggle}
+              path="/admin/revenue"
+              icon={<MenuFoldOutlined />}
+            />
+          </div>
+          <div className="menu_item">
+            <MenuItem
+              name="Manager-revenue"
+              toggle={toggle}
+              path="/admin/revenue"
+              icon={<MenuFoldOutlined />}
+            />
+          </div>
+          <div className="menu_item">
+            <MenuItem
+              name="Manager-revenue"
+              toggle={toggle}
+              path="/admin/revenue"
+              icon={<MenuFoldOutlined />}
+            />
+          </div>
         </div>
       </div>
     </>

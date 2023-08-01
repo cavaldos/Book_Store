@@ -44,7 +44,7 @@ const authController = {
         res.json("emailExist");
         return;
       }
-      
+
       res.json("sendemailsuccess");
     } catch (err) {
       res.status(500).json({

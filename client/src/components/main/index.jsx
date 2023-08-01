@@ -96,7 +96,7 @@ const DefaultLayout = ({ children }) => {
             <div className="breadcrumb">
               <BreadC />
             </div>
-            <Search />
+            {/* <Search /> */}
             {/* <Dropdown  trigger={["click"]}> */}
             <Avatar
               className="avatar"
