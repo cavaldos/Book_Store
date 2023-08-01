@@ -9,6 +9,7 @@ import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import ChatBot from "../util/chat";
+import Profile from "../pages/Profile/profile";
 // public routes
 const publicRoutes = [
   {
@@ -32,14 +33,8 @@ const publicRoutes = [
     layout: null,
   },
   {
-    path: "/chat",
-    component: ChatBot,
-  },
-
-  {
-    path: "/home",
-
-    component: Home,
+    path: "/profile",
+    component: Profile,
   },
   {
     path: "/manager-author",
@@ -50,91 +45,30 @@ const publicRoutes = [
     component: ResetPassword,
     layout: null,
   },
-  {
-    path: "/manager-user",
-    component: User,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
-    layout: null,
-  },
-  {
-    path: "/signup",
-    component: SignUp,
-    layout: null,
-  },
-  {
-    path: "/revenue",
-    component: Revenue,
-  },
-
-  {
-    path: "/cart",
-    component: Cart,
-  },
-  {
-    path: "/wallet",
-    component: Wallet,
-  },
-  {
-    path: "/about",
-    component: Wallet,
-  },
 ];
 
-const adminRoutes = [
-  {
-    path: "/",
-
-    component: Wallet,
-  },
-  {
-    path: "/manager-author",
-    component: Author,
-  },
-  {
-    path: "/reset-password",
-    component: ResetPassword,
-    layout: null,
-  },
-  {
-    path: "/manager-user",
-    component: User,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
-    layout: null,
-  },
-  {
-    path: "/signup",
-    component: SignUp,
-    layout: null,
-  },
-  {
-    path: "/revenue",
-    component: Revenue,
-  },
-
-  {
-    path: "/cart",
-    component: Cart,
-  },
-  {
-    path: "/wallet",
-    component: Wallet,
-  },
-  {
-    path: "/about",
-    component: Wallet,
-  },
-];
 const userRoutes = [
   {
     path: "/",
 
     component: Home,
+  },
+  {
+    path: "/user",
+
+    component: Home,
+  },
+  {
+    path: "/user/cart",
+    component: Cart,
+  },
+  {
+    path: "/user/wallet",
+    component: Wallet,
+  },
+  {
+    path: "/user/profile",
+    component: Profile,
   },
 ];
 
@@ -145,4 +79,4 @@ const employeeRoutes = [
   },
 ];
 
-export { publicRoutes, adminRoutes, userRoutes, employeeRoutes };
+export { publicRoutes, userRoutes, employeeRoutes };

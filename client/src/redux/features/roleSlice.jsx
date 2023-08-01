@@ -1,45 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const role = {
-  public: "public",
-  admin: "admin",
-  user: "user",
-  employee: "employee",
-};
 export const roleSlice = createSlice({
   name: "role",
   initialState: {
-    role: role.public,
-    roleRouter: role.public,
-    email: "",
-    password: "",
+    role: "public",
+    roleRouter: "public",
+    email: "...",
+    password: "...",
   },
   reducers: {
-    setRole: (state, action) => {
-      return {
-        ...state,
-        role: action.payload.role,
-        roleRouter: action.payload.roleRouter,
-        email: action.payload.email,
-        password: action.payload.password,
-      };
-    },
     updateRole: (state, action) => {
-      return {
-        ...state,
-        role: action.payload.role,
-      };
+      state.role = action.payload.role;
+      state.roleRouter = action.payload.roleRouter;
+      state.email = action.payload.email;
+      state.password = action.payload.password;
     },
-    removeRole: (state, action) => {
-      return {
-        ...state,
-        role: role.public,
-        roleRouter: role.public,
-        email: "",
-        password: "",
-      };
-    },
+    logout: (state,action) => {
+      state.role = "public";
+      state.roleRouter = "public";
+      state.email = "...";
+      state.password = "...";
+    }
+
   },
 });
-export const { setRole, updateRole, removeRole } = roleSlice.actions;
+
+export const { updateRole,logout } = roleSlice.actions;
 export default roleSlice.reducer;

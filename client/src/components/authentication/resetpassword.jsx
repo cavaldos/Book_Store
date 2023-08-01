@@ -21,85 +21,80 @@ import IconButton from "@mui/material/IconButton";
 import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
 import Role from "./custom/setrole";
+import { message } from "antd";
 
 //----------------------------------------------------------------
 
 function ResetPassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
   };
   const history = useNavigate();
 
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [phonenumber, setPhonenumber] = useState("");
   const [confirmationCode, setConfirmationCode] = useState("");
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const handleSendVerificationCode = async () => {
-    if (!email || !password || !confirmPassword || !phonenumber) {
-      alert(
+    if (!email || !password || !confirmPassword) {
+      message.error(
         "Please fill out the information before sending the email confirmation code"
       );
       return;
     }
     try {
-      const response = await axios.post(
-        "http://localhost:8000/send-confirmation-code",
-        { email }
-      );
-      if (response.data === "success") {
-        alert("Verification code sent to your email.");
-      } else if (response.data === "notexist") {
-        alert("Email or phone number wrong information");
+      const response = await axios.post("http://localhost:8001/verify", {
+        email,
+      });
+      if (response.data === "sendCodeSuccess") {
+        message.success(
+          "Send verification code successfully, please check your email"
+        );
+      } else if (response.data === "emailExist") {
+        message.error("Email not exist");
       } else {
-        setErrorMessage("Error occurs. Please try again later");
+        message.error("Error occurs. Please try again later");
       }
     } catch (error) {
       console.error(error);
-      setErrorMessage("Error occurs. Please try again later");
     }
   };
 
   const handleResetPassword = async () => {
     if (password !== confirmPassword) {
-      alert("Password and Confirm Password do not match.");
+      message.error("Password and confirm password must be the same");
       return;
     }
     if (!confirmationCode) {
-      alert("Please type your confirmation code before change password");
+      message.error("Please enter confirmation code");
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8000/resetpassword", {
-        email: email,
-        password: password,
-        phonenumber: phonenumber,
-        confirmationCode: confirmationCode,
-      });
-      if (response.data === "success") {
-        history("/signin", { state: { id: email } });
-        alert("Change Password Successfully");
-      } else if (response.data === "notexist") {
-        alert("Email not exist or wrong phone number");
-      } else if (response.date === "codenotexist") {
-        alert("wrong confirmation code");
-      } else {
-        alert("Error occurs. Please try again later");
-      }
+      await axios
+        .post("http://localhost:8001/resetpassword", {
+          email: email,
+          password: password,
+          confirmationCode: confirmationCode,
+        })
+        .then((res) => {
+          if (res.data === "resetpasswordsuccess") {
+            message.success("Reset password successfully");
+            history("/signin");
+          } else if (res.data === "resetpasswordfail") {
+            message.error("Reset password failed, please try again later");
+          }
+        })
+        .catch((err) => {
+          message.error("Reset password failed");
+          console.error(err);
+        });
     } catch (error) {
       console.error(error);
-      setErrorMessage("Error occur. Please try again later");
     }
   };
 
@@ -195,20 +190,6 @@ function ResetPassword() {
                         )}
                       </IconButton>
                     ),
-                  }}
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="phonenumber"
-                  label="Phone Number"
-                  name="phonenumber"
-                  autoComplete="phonenumber"
-                  autoFocus
-                  value={phonenumber}
-                  onChange={(e) => {
-                    setPhonenumber(e.target.value);
                   }}
                 />
 

@@ -1,10 +1,10 @@
 .search-wrapper {
   position: absolute;
-  top: 5px;
-  left: 0;
-  right: 0;
-  bottom: 5px;
   min-height: 45px;
+  top:5px;
+  bottom: 20px;
+  width: 500px;
+  left:300px;
   border-radius: 5px;
   padding: 2px;
   background-color: var(--white);
@@ -18,7 +18,8 @@
     position: absolute;
     line-height: 35px;
     left: 20px;
-    width: 430px;
+    right:10px;
+    width: 390px;
     border-radius: 4px;
     outline: none;
     border-style: none;
@@ -31,12 +32,12 @@
     right: 60px;
     line-height: 40px;
     font-size: 18px;
-    top:2px;
+    top: 2px;
     &:hover {
       color: black;
       cursor: pointer;
     }
-}
+  }
   .span-icon {
     position: relative;
     float: right;
@@ -54,13 +55,11 @@
     color: rgb(118, 119, 119);
     &:hover {
       font-size: 35px;
-
       cursor: pointer;
       color: black;
     }
   }
 }
-
 
 .search-result {
   position: relative;
