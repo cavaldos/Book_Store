@@ -4,7 +4,7 @@ export const bookSlice = createSlice({
     name: 'book',
     initialState: {
         id: 12,
-        title: 'd',
+        title: 'dsa',
         price: 100,
 
     },

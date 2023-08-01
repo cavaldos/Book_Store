@@ -21,8 +21,6 @@ function Home() {
   }, []);
   useEffect(() => {
     axios
-      // .get("https://fakestoreapi.com/products ")
-
       .get("http://localhost:8001/getallbooks")
       .then((response) => {
         setProducts(response.data);
@@ -32,9 +30,8 @@ function Home() {
       })
       .catch((error) => console.log(error));
   }, []);
- 
-  // console.log("khanhtest product",products);
-  
+  console.log(topRatedProducts);
+  // console.log(products);
 
   return (
     <>

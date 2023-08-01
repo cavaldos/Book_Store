@@ -7,35 +7,34 @@ import AddIcon from "@mui/icons-material/Add";
 import { message } from "antd";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  removeOrder,
-  increaseQuantity,
-  decreaseQuantity,
-} from "../../redux/features/orderSlice";
+
 
 function Product(props) {
   const { id, image, description, price } = props;
-  const quantity = useSelector((state) => {
-    const order = state.order.find((item) => item.id === id);
-    return order ? order.quantity : 0;
-  });
-  const [totalPrice, setTotalPrice] = useState(0);
-  
-  const total = price * quantity;
-  useEffect(() => {
-    setTotalPrice(price * quantity);
-  }, [price, quantity]);
-  const dispatch = useDispatch();
+  const [new_quantity, setNew_quantity] = useState(1);
+  const [total, setTotal] = useState(price * new_quantity);
 
-  const handleAddproduct = (id) => {
-    dispatch(increaseQuantity(id));
+
+
+  const handleAddproduct = () => {
+    setNew_quantity(new_quantity + 1);
+    setTotal(price * (new_quantity + 1));
   };
-  const handleSubproduct = (id) => {
-    dispatch(decreaseQuantity(id));
+  const handleSubproduct = () => {
+    if (new_quantity > 1) {
+      setNew_quantity(new_quantity - 1);
+      setTotal(price * (new_quantity - 1));
+    }
   };
   const removeProduct = (id) => {
-    dispatch(removeOrder(id));
-    message.success("Delete product successfully");
+
+     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+     const updatedCart = cart.filter((item) => item.id !== id);
+     localStorage.setItem("cart", JSON.stringify(updatedCart));
+     message.success("Product removed from cart!");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   return (
@@ -48,17 +47,17 @@ function Product(props) {
           <div className="description res">{description}</div>
         </div>
         <div className="quantity res">
-          <h3 className="icon title">{quantity}</h3>
+          <h3 className="icon title">{new_quantity}</h3>
           <AddIcon
             className="icon add"
             onClick={() => {
-              handleAddproduct(id);
+              handleAddproduct();
             }}
           />
           <RemoveIcon
             className="icon sub"
             onClick={() => {
-              handleSubproduct(id);
+              handleSubproduct();
             }}
           />
         </div>
@@ -79,7 +78,7 @@ function Product(props) {
           >
             Delete
           </Button>
-          <h5 className="total-product">Total: ${totalPrice.toFixed(2)}</h5>
+          <h5 className="total-product">Total: ${total}</h5>
         </div>
       </div>
     </>

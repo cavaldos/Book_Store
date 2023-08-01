@@ -5,33 +5,38 @@ import InfoBook from "./infobook";
 import { message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../../redux/features/orderSlice";
+
 function Book(props) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { id, image, title, author, rate, price, description } = props;
-  const role = useSelector((state) => state.role);
-  const orders = useSelector((state) => state.order);
+
+  const navigate = useNavigate();
+  const role = useSelector((state) => state.role.role);
 
   const handleAddToCart = () => {
-    const existingOrder = orders.find((order) => order.id === id);
-    if (existingOrder) {
-      message.warning("Product already exists");
-      return;
+    const product = {
+      id,
+      image,
+      title,
+      author,
+      rate,
+      price,
+      description,
+    };
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const isProductInCart = cart.some((item) => item.title === title);
+
+    if (isProductInCart) {
+      message.warning("Product already in cart!");
     } else {
-      let newOrder = {
-        id,
-        image,
-        title,
-        author,
-        rate,
-        price,
-        description,
-      };
-      dispatch(addToCart(newOrder));
-      message.success("Product added to cart successfully");
+      cart.push(product);
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      message.success("Added to cart!");
     }
   };
 
@@ -49,12 +54,12 @@ function Book(props) {
         {/* <button className="btn" onClick={handleAddToCart}>
           <ShoppingCartOutlined />
         </button> */}
-        {role.role === "user" ? (
+        {role === "user" ? (
           <button className="btn" onClick={handleAddToCart}>
             <ShoppingCartOutlined />
           </button>
         ) : (
-          <button style={{ display: "none" }}></button>
+          <button style={{display:"none"}}></button>
         )}
       </div>
     </>
