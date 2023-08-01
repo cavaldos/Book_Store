@@ -1,0 +1,94 @@
+.wrapper-profile {
+  position: relative;
+  margin: 20px 20px 0px 20px;
+  height: 300px;
+  border-radius: 20px;
+  border-bottom: 2px solid #979494;
+
+  .background-profile {
+    padding: 20px;
+    height: 240px;
+    border-radius: 20px 20px 0 0;
+    // background-color: line;
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%);
+    .avatar-profile {
+      position: absolute;
+      left: 20px;
+      bottom: 35px;
+      font-size: 60px;
+      min-height: 120px;
+      min-width: 120px;
+    }
+    .name-profile {
+      position: absolute;
+      left: 150px;
+      bottom: 75px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .role-profile {
+      position: absolute;
+      left: 150px;
+      bottom: 60px;
+      font-size: 20px;
+    }
+  }
+}
+
+.info {
+  margin: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #e6e8ec;
+  display: flex;
+  flex-direction: column;
+  .wallet-profile {
+    position: relative;
+    background-color: rgb(136, 136, 136);
+    padding: 10px;
+    display: flex;
+    width: 900px;
+    flex-direction: row;
+    border: 2px solid #030303;
+    border-radius: 10px;
+    .edit-wallet {
+      border: 2px solid #979494;
+      flex: 3;
+      margin: 0 10px 0 0;
+      .balance {
+        padding: 0 0 0 10px;
+        position: relative;
+        background-color: red;
+        margin: 10px;
+        border-radius: 10px;
+        p {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+      .buttonp{
+        background-color: gray;
+        margin: 4px 10px;
+      }
+
+    }
+    .wrapper-card {
+      flex: 2;
+
+      .flip-card {
+        position: relative;
+      }
+    }
+  }
+  .oder-profile {
+    display: flex;
+    flex-direction: column;
+    .oder {
+      flex: 1;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #fbc2eb;
+    }
+  }
+}

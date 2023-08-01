@@ -1,0 +1,18 @@
+#order_summary {
+    border: 1px solid #e3e3e3;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+}
+
+.order-summary-values {
+    float: right;
+    font-weight: bold;
+}
+
+#checkout_btn,
+.review-btn {
+  background-color: #fa9c23;
+  border-color: #fa9c23;
+  margin-top: 2rem;
+  border-radius: 5rem;
+}

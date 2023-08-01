@@ -87,7 +87,7 @@ export default function VerificationEmail() {
 
     return (
         <>
-            <div className="wrapper_paper">
+            <div className="wrapper">
                 <div className="background">sadf</div>
 
                 <div className="wrapper_signup">

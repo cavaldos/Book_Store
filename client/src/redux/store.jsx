@@ -1,13 +1,13 @@
 // import { createStore } from 'redux'
 // import combineReducers from "redux";
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
 import bookSlice from './features/bookSlice';
 import userSlice from './features/userSilce';
 import walletSlice from './features/walletSlice';
 import themeSlice from './features/themeSlice';
 import paymentSlice from './features/paymentSlice';
 import roleSlice  from './features/roleSlice';
-import routesSlice from "./features/routes";
+import shippingReducer from './features/shippinginfoSlice';
 const store = configureStore(
     {
         reducer: {
@@ -17,7 +17,7 @@ const store = configureStore(
             theme: themeSlice,
             payment: paymentSlice,
             role: roleSlice,
-            routes: routesSlice,
+            shipping: shippingReducer,
         },
     },
     {},

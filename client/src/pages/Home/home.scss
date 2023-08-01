@@ -1,0 +1,72 @@
+.home {
+  position: relative;
+  border-radius: 5px;
+  margin: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-bg);
+  display: grid;
+  grid-template-columns: 350px 1fr 250px;
+  grid-template-rows: 550px 100px auto;
+
+  .con {
+    position: relative;
+    border-radius: 5px;
+    margin: 1px;
+    background-color: rgb(167, 162, 162);
+  }
+  .home-container_1 {
+  }
+
+  .home-container_2 {
+    margin: 0px 10px;
+    .carousel {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      border-radius: 8px;
+      .car-contens {
+        .pic {
+          min-width: 200px;
+          min-height: 450px;
+          border-radius: 5px;
+
+          background-color: aqua;
+          font-size: 40px;
+        }
+      }
+    }
+  }
+  .home-container_3 {
+  }
+  .home-container_4 {
+    margin: 10px 0;
+    grid-column: 1/4;
+  }
+
+  .home-container_5 {
+    position: relative;
+    grid-column: 1/4;
+    min-height: 600px;
+    display: gird;
+    padding: 10px 0px 10px 0px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--light-bg);
+
+    .product-container {
+      display: inline-block;
+      position: relative;
+      &:nth-last-child(-n + 3) {
+        grid-column-start: 1;
+      }
+    }
+  }
+}

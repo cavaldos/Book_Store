@@ -1,89 +1,161 @@
-import "./book/index.scss";
+import "./home.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Book from "./book/book";
 import { Spin } from "antd";
 import { Select } from "antd";
 import Fillter from "./fillter/fillter";
-// using dotenv
-const categories = ["all", "noval", "math", "anime"];
-const options = [];
-for (let i = 10; i < categories.length; i++) {
-  options.push({
-    value: categories[i],
-    label: categories[i],
-  });
-}
-const handleChange = (value) => {
-  console.log(options);
-  console.log(`selected ${value}`);
-};
-console.log(process.env.PORT);
-function Home() {
-  const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
+import Product from "../Cart/Product";
+import { Carousel } from "antd";
 
-  const handle = () => {};
+function Home() {
+  const [products, setProducts] = useState([]);
+  const [topRatedProducts, setTopRatedProducts] = useState([]);
+
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      // .get("https://fakestoreapi.com/products ")
+      .get("http://localhost:8000/getallbooks")
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error));
   }, []);
-  //check loading
   useEffect(() => {
-    setLoading(true);
-    const hasProducts = !!products;
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  }, [products]);
+    axios
+      .get("http://localhost:8000/getallbooks")
+      .then((response) => {
+        setProducts(response.data);
+        setTopRatedProducts(
+          response.data.filter((product) => product.Rating === 4.5)
+        );
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  console.log(topRatedProducts);
+  // console.log(products);
+
   return (
     <>
-      {loading ? (
-        <div className="loading">
-          <Spin size="large" />
-        </div>
-      ) : (
-        <>
-          <div className="option">
-            <div className="select">
-              <span style={{ margin: "10px" }}>Category :</span>
-              <Select
-                mode="tags"
-                style={{
-                  width: "30%",
-                }}
-                onChange={handleChange}
-                tokenSeparators={[","]}
-                options={options}
-              />
-            </div>
-            <div className="fillter">{/* <Fillter /> */}</div>
-          </div>
-          <div className="product-container">
-            {products.map((product) => (
-              <div key={product.ID} className="product-item">
-                <Book
-                  id={product.ID}
-                  image={product.Image}
-                  title={product.Tittle}
-                  author={product.Author}
-                  rate={product.Rating}
-                  price={product.Price}
-                  isbn={product.ISBN}
-                  genre={product.Genre}
-                  publish_year={product.Publish_Year}
-                  publisher={product.Publisher}
-                  quantity={product.quantity}
-                ></Book>
+      <div className="home">
+        <div className="home-container_1 con">sort</div>
+        <div className="home-container_2 con">
+          <Carousel className="carousel" autoplay>
+            {topRatedProducts.map(({ ID, Image, Tittle }) => (
+              <div key={ID} className="car-contens">
+                <img className="pic" src={Image} alt={Tittle} />
               </div>
             ))}
-          </div>
-        </>
-      )}
+          </Carousel>
+        </div>
+        <div className="home-container_3 con">fillter</div>
+        <div className="home-container_4 con">quang cao</div>
+        <div className="home-container_5 con">
+          {products.map(
+            ({ ID, Image, Tittle, Author, Rating, Price, Description }) => (
+              <Book
+                key={ID}
+                id={ID}
+                image={Image}
+                title={Tittle}
+                author={Author}
+                price={Price}
+                rate={Rating}
+                description={Description}
+              />
+            )
+          )}
+        </div>
+      </div>
     </>
   );
 }
 
 export default Home;
+
+/*
+
+import "./home.scss";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Book from "./book/book";
+import { Spin, Pagination } from "antd";
+import Fillter from "./fillter/fillter";
+import { Carousel } from "antd";
+
+function Home() {
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [totalItems, setTotalItems] = useState(0);
+
+  useEffect(() => {
+    fetchData();
+  }, [currentPage, pageSize]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8001/getallbooks?_page=${currentPage}&_limit=${pageSize}`
+      );
+      setProducts(response.data);
+      setTotalItems(response.headers["x-total-count"]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handlePageChange = (page, pageSize) => {
+    setCurrentPage(page);
+    setPageSize(pageSize);
+  };
+
+  return (
+    <>
+      <div className="home">
+        <div className="home-container_1 con">sort</div>
+        <div className="home-container_2 con">
+          <Carousel className="carousel" autoplay>
+            <div className="car-contens">
+              <div className="pic">easdf</div>
+            </div>
+            <div className="car-contens">
+              <div className="pic">esdf</div>
+            </div>
+            <div className="car-contens">
+              <div className="pic">esdf</div>
+            </div>
+
+            <div className="car-contens">
+              <div className="pic">esdfsdfsd</div>
+            </div>
+          </Carousel>
+        </div>
+        <div className="home-container_3 con">filter</div>
+        <div className="home-container_4 con">quang cao</div>
+        <div className="home-container_5 con">
+          {products.map(({ ID, Image, Tittle, Author, Rating, Price }) => (
+            <Book
+              id={ID}
+              image={Image}
+              title={Tittle}
+              author={Author}
+              price={Price}
+              rate={Rating}
+            />
+          ))}
+        </div>
+        <div className="pagination-container">
+          <Pagination
+            current={currentPage}
+            pageSize={pageSize}
+            total={totalItems}
+            onChange={handlePageChange}
+          />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Home;
+
+*/

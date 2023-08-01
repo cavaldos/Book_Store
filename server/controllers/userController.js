@@ -1,6 +1,8 @@
 const User = require("../models/user");
 const mongoose = require("mongoose");
 
+
+
 const userController = {
   deleteUser: async (req, res) => {
     try {
@@ -12,7 +14,7 @@ const userController = {
       if (check) {
         res.json("deleted");
       } else {
-        res.json("notexist");
+        res.json("deletedfail");
       }
     } catch (err) {
       res.status(500).json({
@@ -20,6 +22,50 @@ const userController = {
       });
     }
   },
+  addUser: async (req, res) => {
+    try {
+      const { id, email, password, username, phonenumber, role } = req.body;
+
+      const maxId = await User.findOne({}, { id: 1 })
+        .sort({ id: -1 })
+        .limit(1)
+        .exec();
+      console.log("Max id:", maxId.id);
+      const newUser = new User({
+        id: maxId.id + 1,
+        email,
+        password,
+        username,
+        phonenumber,
+        role,
+      });
+
+      // Generate id if it doesn't exist
+      console.log("usernew", newUser);
+      const result = await newUser.save();
+      res.status(201).json("added")
+
+    } catch (err) {
+      res.status(500).json(
+        "addfail"
+
+
+      );
+
+    }
+  },
+
+  getNumberOfUsers: async (req, res) => {
+    try {
+      const users = await User.find();
+      res.status(200).json(users.length);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+
   editUser: async (req, res) => {
     try {
       const { id } = req.params;

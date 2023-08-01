@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
-// import { useForm } from "react-hook-form"
-import axios from "axios";
+import "./auth.scss";
 import { useNavigate } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
+import axios from "axios";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -11,45 +10,48 @@ import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { message } from "antd";
-
 import IconButton from "@mui/material/IconButton";
-import { CloseCircleFilled } from "@ant-design/icons"; //CloseCircleOutlined
 
-import "./auth.scss";
-
+import Closebutton from "./custom/closebutton";
+import Role from "./custom/setrole";
+import Background from "./custom/background";
+import { useDispatch, useSelector } from "react-redux";
+import updateRole from "../../redux/features/roleSlice";
 function SignIn() {
   const [showPassword, setShowPassword] = React.useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const history = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
+  const role = useSelector((state) => state.role.role);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get("email"),
       password: data.get("password"),
+      role: role,
     });
   };
 
   //--------------------------------------------------------------------------------
-  const history = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
 
   async function submit(e) {
     e.preventDefault();
     if (!email || !password) {
-      alert("Please fill in all the information");
+      message.warning("Please fill in all the information");
       return;
 
     }
@@ -58,32 +60,41 @@ function SignIn() {
         .post("http://localhost:8000/signin", {
           email,
           password,
+          role,
         })
         .then((res) => {
           if (res.data === "exist") {
-            history("/t", { state: { id: email } });
+            // history("/", { state: { id: email } });
+            history("/");
+            dispatch(updateRole({ roleRouter: "admin", role: "admin" }));
+            message.success("Login success");
+            
+            // Lưu giá trị vào localStorage
+            localStorage.setItem("role", role);
+            localStorage.setItem("roleRouter", role);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
           } else if (res.data === "notexist") {
-            alert("User have not sign up or wrong password");
+            message.warning("User have not sign up or wrong password");
           }
         })
         .catch((e) => {
-          alert("wrong details");
-          //alert("User have not sign up or wrong password");
-
+          message.error("wrong details");
           console.log(e);
         });
-      console.log("khanh");
     } catch (e) {
       console.log(e);
     }
   }
   return (
     <>
-      <div className="wrapper_paper">
-        <div className="background">background</div>
+      <div className="wrapper">
+        <Background />
         <div className="wrapper_signin">
-          <Container component="main" maxWclassNameth="xs">
-            <CloseCircleFilled className="close" onClick={() => history("/")} />
+          {/* <Container component="main" maxWclassNameth="xs"> */}
+          <Container component="main">
+            <Closebutton />
+
             <Box
               sx={{
                 marginTop: 8,
@@ -95,6 +106,8 @@ function SignIn() {
               <Typography component="h1" variant="5">
                 Sign in
               </Typography>
+              <Role />
+
               <Box
                 component="form"
                 onSubmit={handleSubmit}

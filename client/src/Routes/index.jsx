@@ -11,6 +11,7 @@ import OnlineLayout from "../components/onlineLayout";
 import VerificationEmail from '../components/authentication/verificationemail';
 import RenderAvatar from "../components/avatar/avatar";
 import ShippingInfo from "../pages/ShippingInfo/ShippingInfo";
+import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 
 // public routes
 const publicRoutes = [
@@ -78,30 +79,14 @@ const publicRoutes = [
     component: ShippingInfo,
     layout: null,
   },
-];
-
-const adminRoutes = [
   {
-    path: "/",
-
-    component: Wallet,
-  },
-  {
-    path: "/dashboard",
-
-    component: Wallet,
-  },
-  {
-    path: "/manager",
-
-    component: Wallet,
-  },
-  {
-    path: "/signin",
-    component: SignIn,
+    path: '/confirm',
+    component: ConfirmOrder,
     layout: null,
-  },
+  }
 ];
+
+
 const userRoutes = [
   {
     path: "/",
@@ -117,4 +102,4 @@ const employeeRoutes = [
   },
 ];
 
-export { publicRoutes, adminRoutes, userRoutes, employeeRoutes };
+export { publicRoutes, userRoutes, employeeRoutes };

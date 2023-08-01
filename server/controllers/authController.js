@@ -5,16 +5,20 @@ const authController = {
   signin: async (req, res) => {
     try {
       console.log("body:", req.body, "\n");
-      const { email, password } = req.body;
+      const { email, password, role } = req.body;
       const check = await User.findOne({
         email: email,
         password: password,
+        role: role,
+
       });
+      console.log("check",check);
       if (check) {
         res.json("exist");
       } else {
         res.json("notexist");
       }
+
     } catch (err) {
       res.json("fail");
 
@@ -39,7 +43,7 @@ const authController = {
         email: req.body.email,
         password: hashedPassword,
         phonenumber: req.body.phonenumber,
-        confirmationCode: req.body.confirmationCode,
+        confirmationCode: "",
         role: "user",
       });
       const check = await User.findOne({

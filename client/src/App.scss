@@ -26,6 +26,63 @@
     --shadow-default: 0px 10px 20px 0.5px rgba(99, 88, 88, 0.3);
 }
 
+@media only screen and (min-width: 1180px) and (max-width: 1929px) {
+  .header {
+    .up {
+      background-color: rgb(157, 255, 0);
+    }
+  }
+}
+// ipad air
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  .header {
+    .up {
+      background-color: red;
+    }
+  }
+}
+
+//iphone 12pro doc
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  .header {
+    .up {
+      background-color: rgb(90, 54, 54);
+    }
+  }
+}
+
+//iphone 12pro ngang
+@media only screen and (device-width: 844px) and (device-height: 390px) and (-webkit-device-pixel-ratio: 3) {
+  .header {
+    .up {
+      background-color: rgb(90, 54, 54);
+    }
+  }
+}
+
+//respoo auto
+@media only screen and (min-device-width: 375px) and (max-device-width: 649px) {
+  .header {
+    .up {
+      background-color: rgb(60, 10, 177);
+    }
+  }
+}
+
+//respoo auto
+@media only screen and (min-device-width: 300px) and (max-device-width: 399px) {
+  .header {
+    .up {
+      background-color: rgb(109, 25, 53);
+    }
+  }
+}
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////
 // :root {
 //   --main-color: #8e44ad;

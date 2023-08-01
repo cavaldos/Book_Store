@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
+const Notification = require("./notification");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
-    required: false,
+    required: true,
     minlength: 1,
     maxlength: 25,
     unique: true,
@@ -33,19 +34,21 @@ const userSchema = new mongoose.Schema({
     required: false,
     minlength: 1,
     maxlength: 25,
+    default: "...",
   },
   lastname: {
     type: String,
     required: false,
     minlength: 1,
     maxlength: 25,
+    default: "...",
   },
   phonenumber: {
     type: String,
     required: false,
-    minlength: 10,
-    maxlength: 10,
-    default: null,
+    minlength: 1,
+    maxlength: 20,
+    default: "84+",
     //   unique: true,
   },
   role: {
@@ -71,6 +74,23 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: 0,
   },
+  Notification: {
+    type: Array,
+    required: false,
+    default: [
+      Notification({
+        id: 0,
+        content: "Welcome to Bookstore",
+        time: Date.now(),
+        statusbar: false,
+      }),
+
+    ],
+
+  },
+
+
+
 });
 
 const User = mongoose.model("User", userSchema);

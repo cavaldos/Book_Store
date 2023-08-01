@@ -2,9 +2,13 @@ import React, { Fragment, useState } from 'react';
 import { countries } from 'countries-list';
 import CheckoutSteps from '../../components/checkoutstep/CheckoutSteps';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { SetAddress, SetCity, SetPostalCode, SetPhoneNo, SetCountry } from '../../redux/features/shippinginfoSlice';
 
 const Shipping = () => {
   const history = useNavigate();
+  const dispatch = useDispatch();
+
   const countriesList = Object.values(countries);
 
   const [address, setAddress] = useState('');
@@ -15,6 +19,24 @@ const Shipping = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log('address:', address);
+    console.log('city:', city);
+    console.log('postalCode:', postalCode);
+    console.log('phoneNo:', phoneNo);
+    console.log('country:', country);
+
+    // Make sure all the required fields have valid values before dispatching
+    if (!address || !city || !postalCode || !phoneNo || !country) {
+      console.log('Please fill in all the required fields.');
+      return;
+    }
+
+    dispatch(SetAddress(address));
+    dispatch(SetCity(city));
+    dispatch(SetPostalCode(postalCode));
+    dispatch(SetPhoneNo(phoneNo));
+    dispatch(SetCountry(country));
+
     history('/confirm');
   };
 
