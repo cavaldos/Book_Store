@@ -15,15 +15,8 @@ export const roleSlice = createSlice({
       state.email = action.payload.email;
       state.password = action.payload.password;
     },
-    logout: (state,action) => {
-      state.role = "public";
-      state.roleRouter = "public";
-      state.email = "...";
-      state.password = "...";
-    }
-
   },
 });
 
-export const { updateRole,logout } = roleSlice.actions;
+export const { updateRole } = roleSlice.actions;
 export default roleSlice.reducer;

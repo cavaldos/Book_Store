@@ -71,6 +71,7 @@ function SignIn() {
         .then((res) => {
           if (res.data === "adminsuccess") {
             message.success("Sign in success with admin role");
+
             setTimeout(() => {
               dispatch(
                 updateRole({
@@ -84,30 +85,8 @@ function SignIn() {
             navigate("/");
           } else if (res.data === "usersuccess") {
             message.success("Sign in success with user role");
-             setTimeout(() => {
-               dispatch(
-                 updateRole({
-                   role: role,
-                   roleRouter: role,
-                   email: email,
-                   password: password,
-                 })
-               );
-             }, 100);
-             navigate("/");
           } else if (res.data === "employeesuccess") {
             message.success("Sign in success with employee role");
-             setTimeout(() => {
-               dispatch(
-                 updateRole({
-                   role: role,
-                   roleRouter: role,
-                   email: email,
-                   password: password,
-                 })
-               );
-             }, 100);
-             navigate("/");
           } else {
             message.error("Sign In not success");
           }
