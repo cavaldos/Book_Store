@@ -109,11 +109,13 @@ const bookController = {
   },
   findBook: async (req, res) => {
     try {
-      data = req.body;
-      console.log(data);
+      const data = req.body;
+      const name = data.Tittle;
 
-      const foundBooks = await Book.find(data);
-
+      // // Use a regular expression to perform a partial match on the book name
+      const regex = new RegExp(name, 'i');
+      const foundBooks = await Book.find({ Tittle: { $regex: regex } });
+      
       res.json(foundBooks);
     }
     catch (err) {
