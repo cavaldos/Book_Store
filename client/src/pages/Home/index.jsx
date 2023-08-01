@@ -11,25 +11,47 @@ import { Carousel } from "antd";
 function Home() {
   const [products, setProducts] = useState([]);
   const [topRatedProducts, setTopRatedProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(12);
+  const [totalPages, setTotalPages] = useState(1);
+  const [pageNumbers, setPageNumbers] = useState([]);
 
   useEffect(() => {
+    fetchProducts();
+  }, [currentPage, pageSize]);
+
+  const fetchProducts = () => {
+    const url = `http://localhost:8001/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
     axios
-      // .get("https://fakestoreapi.com/products ")
-      .get("http://localhost:8001/getallbooks")
-      .then((response) => setProducts(response.data))
+      .get(url)
+      .then((response) => {
+        setProducts(response.data.books);
+        setTotalPages(response.data.totalPages);
+        // Generate an array of page numbers [1, 2, 3, ..., totalPages]
+        setPageNumbers(Array.from({ length: response.data.totalPages }, (_, i) => i + 1));
+      })
       .catch((error) => console.log(error));
-  }, []);
+  };
+  //get top book
   useEffect(() => {
     axios
       .get("http://localhost:8001/gettopbooks")
       .then((response) => {
         setProducts(response.data);
         setTopRatedProducts(response.data );
+         
       })
       .catch((error) => console.log(error));
   }, []);
   console.log(topRatedProducts);
-  // console.log(products);
+
+  // Add the pagination controls
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
 
   return (
     <>
@@ -72,7 +94,36 @@ function Home() {
               />
             )
           )}
+          <div className="pagination-container">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="control"
+            >
+              {"<"}
+            </button>
+            <div className="page-number-container">
+              {pageNumbers.map((pageNumber) => (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  disabled={currentPage === pageNumber}
+                  className={currentPage === pageNumber ? "active" : ""}
+                >
+                  {pageNumber}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="control"
+            >
+              {">"}
+            </button>
+          </div>
         </div>
+        
       </div>
     </>
   );
