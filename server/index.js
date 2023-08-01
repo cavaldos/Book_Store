@@ -16,11 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 MongoDB.connect();
 app.use(morgan("tiny"));
 
-
 //ROUTES
 app.use(allRouter);
-
-
 
 //listen
 app.listen(process.env.PORT, () => {

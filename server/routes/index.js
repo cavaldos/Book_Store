@@ -3,7 +3,6 @@ const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 
-
 //AUTHENTICATION
 router.post("/signin", authController.signin); // đã viết xong
 router.post("/register", authController.register); // đã viết xong
@@ -19,8 +18,11 @@ router.get("/getallusers", userController.getAllusers); // đã viết xong
 router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
 
 //BOOK
-router.post("/addbook", bookController.addBook); //  chua viet
-router.post("/editbook", bookController.editBook); // chua viet
-router.get("/getallbooks", bookController.getAllBooks); // da xong
+router.post("/addbook", bookController.addBook); //  da xong, da test
+router.post("/editbook", bookController.editBook); // da xong, da test
+router.get("/getallbooks", bookController.getAllBooks); // da xong, da test // da xong, da test
+router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // da xong, da test
+router.delete("/deletebook", bookController.deleteBook); // da xong, da test
+router.post("/findbooks", bookController.findBook); // da xong, da test
 
 module.exports = router;
