@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import Product from "./Product";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+
 
 function Cart() {
   const [cart, setCart] = useState([]);
-  const dispatch = useDispatch();
   const orders = useSelector((state) => state.order);
   useEffect(() => {
     setCart(orders);

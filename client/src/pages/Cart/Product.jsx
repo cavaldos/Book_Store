@@ -20,7 +20,7 @@ function Product(props) {
     return order ? order.quantity : 0;
   });
   const [totalPrice, setTotalPrice] = useState(0);
-  
+
   const total = price * quantity;
   useEffect(() => {
     setTotalPrice(price * quantity);

@@ -22,7 +22,6 @@ export const orderSlice = createSlice({
     },
     removeOrder: (state, action) => {
       const idToRemove = action.payload;
-      console.log("idToRemove", idToRemove);
       return state.filter((item) => item.id !== idToRemove);
     },
     increaseQuantity: (state, action) => {
