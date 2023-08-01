@@ -21,7 +21,8 @@ router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xo
 //BOOK
 router.post("/addbook", bookController.addBook); //  da xong, da test
 router.post("/editbook", bookController.editBook); // da xong, da test
-router.get("/getallbooks", bookController.getAllBooks); // da xong, da test
+router.get("/getallbooks", bookController.getAllBooks); // da xong, da test // da xong, da test
+router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // da xong, da test
 router.delete("/deletebook", bookController.deleteBook); // da xong, da test
 router.get("/findbooks", bookController.findBook);// da xong, da test
 

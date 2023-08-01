@@ -32,20 +32,20 @@ const bookController = {
       });
     }
   },
-  searchBook: async (req, res) => {
-    try {
-      const data = req.body;
-      console.log(data);
-      const foundBooks = await Book.find(data);
+  // searchBook: async (req, res) => {
+  //   try {
+  //     const data = req.body;
+  //     console.log(data);
+  //     const foundBooks = await Book.find(data);
     
-      res.json(foundBooks);
-    }
-    catch (err) {
-      res.status(500).json({
-        message: err.message,
-      });
-    }
-  },
+  //     res.json(foundBooks);
+  //   }
+  //   catch (err) {
+  //     res.status(500).json({
+  //       message: err.message,
+  //     });
+  //   }
+  // },
   
   editBook: async (req, res) => {
     try {
@@ -74,6 +74,17 @@ const bookController = {
   getAllBooks: async (req, res) => {
     try {
       const users = await Book.find();
+      res.status(200).json(users);
+      // res.json(dataToSend);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  getTopBooks: async (req, res) => {
+    try {
+      const users = await Book.find({Rating: {$gte: 4.5}}).limit(10);
       res.status(200).json(users);
       // res.json(dataToSend);
     } catch (err) {

@@ -21,12 +21,10 @@ function Home() {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallbooks")
+      .get("http://localhost:8001/gettopbooks")
       .then((response) => {
         setProducts(response.data);
-        setTopRatedProducts(
-          response.data.filter((product) => product.Rating === 4.5)
-        );
+        setTopRatedProducts(response.data );
       })
       .catch((error) => console.log(error));
   }, []);
