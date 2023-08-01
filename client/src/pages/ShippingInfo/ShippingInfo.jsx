@@ -82,7 +82,7 @@ const Shipping = () => {
 
       <div style={formStyle} className="container mx-auto my-10">
         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>Shipping Info</h1>
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', textAlign:'center' }}>Shipping Info</h1>
           <form onSubmit={submitHandler}>
             <div>
               <label htmlFor="address_field" style={labelStyle}>

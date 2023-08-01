@@ -14,7 +14,7 @@ function ManagerProduct() {
   //http:localhost:8000/getallbooks
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallbooks")
+      .get("http://localhost:8000/getallbooks")
       .then((response) => {
         setBook(response.data);
       })

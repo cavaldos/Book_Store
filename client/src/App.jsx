@@ -1,6 +1,7 @@
 import "./App.scss";
+import axios from 'axios'
 
-import React from "react";
+import React, {useEffect, useState } from "react";
 import { Fragment } from "react";
 import {
   BrowserRouter as Router,
@@ -12,8 +13,28 @@ import DefaultLayout from "./components/main";
 import { publicRoutes, userRoutes, employeeRoutes } from "./Routes";
 import adminRoutes from "./Routes/adminRoutes";
 import { useSelector } from "react-redux";
+
+// Payment
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
 const Notfound = React.lazy(() => import("./components/layout/error/notfound"));
 const App = () => {
+  const [stripeApiKey, setStripeApiKey] = useState('');
+
+  useEffect(() => {
+
+    async function getStripApiKey() {
+      const { data } = await axios.get('http://localhost:8000/sendAPIStripe');
+
+      setStripeApiKey(data.stripeApiKey)
+    }
+
+    getStripApiKey();
+
+  }, [])
+
+
   const roleRouter = useSelector((state) => state.role.roleRouter);
   const VerifyRoure = () => {
     switch (roleRouter) {
@@ -39,8 +60,10 @@ const App = () => {
               path={route.path}
               element={
                 <Layout>
-                  <Page />
-                  <Outlet />
+                  <Elements stripe={loadStripe(stripeApiKey)}>
+                    <Page />
+                    <Outlet />
+                  </Elements>
                 </Layout>
               }
             />

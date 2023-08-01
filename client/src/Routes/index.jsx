@@ -12,6 +12,7 @@ import VerificationEmail from '../components/authentication/verificationemail';
 import RenderAvatar from "../components/avatar/avatar";
 import ShippingInfo from "../pages/ShippingInfo/ShippingInfo";
 import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
+import Payment from "../pages/Payment/Payment";
 
 // public routes
 const publicRoutes = [
@@ -82,6 +83,11 @@ const publicRoutes = [
   {
     path: '/confirm',
     component: ConfirmOrder,
+    layout: null,
+  },
+  {
+    path: '/payment',
+    component: Payment,
     layout: null,
   }
 ];

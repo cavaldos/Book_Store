@@ -16,7 +16,7 @@ function ManagerUser() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallusers")
+      .get("http://localhost:8000/getallusers")
       .then((response) => {
         setUsers(response.data);
       })

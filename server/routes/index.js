@@ -3,6 +3,7 @@ const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 const avatarController = require("../controllers/avatarController");
+const paymentController = require("../controllers/paymentController");
 
 
 //AUTHENTICATION
@@ -27,6 +28,9 @@ router.get("/getallbooks", bookController.getAllBooks); // da xong
 
 //SETAVATAR
 router.post("/setProfilePic", avatarController.setProfilePic);
+
+//STRIPE
+router.get("/sendAPIStripe",paymentController.sendStripApi);
 
 
 module.exports = router;
