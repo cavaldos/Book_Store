@@ -97,3 +97,19 @@
     background-color: rgb(30, 36, 36);
   }
 }
+
+
+//middle
+@media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  // máy tính màn hinh nhỏ
+}
+
+// ipad air
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  // ipad
+}
+
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
+  // iphone 5/SE/12 pro
+}

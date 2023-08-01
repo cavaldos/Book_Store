@@ -7,7 +7,7 @@ import store from "./redux/store";
 import { createRoot } from "react-dom/client";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./redux/store";
-import { set } from "react-hook-form";
+
 
 const root = createRoot(document.getElementById("root"));
 
