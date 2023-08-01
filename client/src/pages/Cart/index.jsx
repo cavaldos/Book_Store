@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import Product from "./Product";
-import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function Cart() {
   const [cart, setCart] = useState([]);
-
-  function getCartData() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    return cart;
-  }
+  const dispatch = useDispatch();
+  const orders = useSelector((state) => state.order);
   useEffect(() => {
-    const cartData = getCartData();
-    setCart(cartData);
-  }, []);
-
-  console.log("cart", cart);
-  // rest of the component code
+    setCart(orders);
+  }, [orders]);
+  const totalPrice = cart.reduce(
+    (acc, curr) => acc + curr.price * curr.quantity,
+    0
+  );
   return (
     <>
       <div className="list-product">
@@ -26,9 +23,10 @@ function Cart() {
           <h5 className="price mar">Price</h5>
           <h5 className="remove mar">Remove</h5>
         </div>
-        {cart.map(({ image, title, author, rate, price,description }) => (
+        {cart.map(({ id, image, title, author, rate, price, description }) => (
           <Product
-            key={title}
+            key={id}
+            id={id}
             image={image}
             title={title}
             author={author}
@@ -39,7 +37,7 @@ function Cart() {
         ))}
       </div>
       <div className="pay" style={{ minHeight: "100px" }}>
-        <h3>Total: $40</h3>
+        <h3>Total: ${totalPrice.toFixed(2)}</h3>
         <button
           style={{
             position: "absolute",
@@ -48,7 +46,7 @@ function Cart() {
             width: "100%",
           }}
         >
-          pay
+          Pay
         </button>
       </div>
     </>

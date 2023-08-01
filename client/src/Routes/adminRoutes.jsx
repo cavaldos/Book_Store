@@ -10,6 +10,11 @@ const adminRoutes = [
     component: Home,
   },
   {
+    path: "/admin",
+
+    component: Home,
+  },
+  {
     path: "/admin/user",
 
     component: ManagerUser,
