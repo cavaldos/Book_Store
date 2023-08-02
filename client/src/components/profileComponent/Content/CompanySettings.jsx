@@ -10,7 +10,8 @@ import {
     NumberInput,
     NumberInputField,
     NumberInputStepper,
-  } from '@chakra-ui/react'
+} from '@chakra-ui/react'
+import "../UserProfile.scss"
   
   function CompanySettings() {
     return (

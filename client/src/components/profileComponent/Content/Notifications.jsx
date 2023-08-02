@@ -1,4 +1,5 @@
 import { FormControl, FormLabel, Switch } from '@chakra-ui/react'
+import "../UserProfile.scss"
 
 function Notifications() {
   return (

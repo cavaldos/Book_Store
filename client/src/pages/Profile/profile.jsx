@@ -1,6 +1,6 @@
 import "./profile.scss";
 import Avatar from "@mui/material/Avatar";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import StateOder from "./stateOder";
 import Card from "./card/card";

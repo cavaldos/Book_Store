@@ -14,6 +14,7 @@ import ShippingInfo from "../pages/ShippingInfo/ShippingInfo";
 import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 import Payment from "../pages/Payment/Payment";
 import UserProfile from "../components/profileComponent/UserProfile";
+import Profile from "../pages/Profile/profile";
 
 // public routes
 const publicRoutes = [
@@ -117,6 +118,11 @@ const userRoutes = [
     component: UserProfile,
     layout: null,
   },
+  // {
+  //   path: '/profile',
+  //   component: Profile,
+  //   layout: null,
+  // },
   // {
   //   path: '/avatar',
   //   component: RenderAvatar,

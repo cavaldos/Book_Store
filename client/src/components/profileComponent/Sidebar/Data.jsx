@@ -1,4 +1,5 @@
 import { Box, Text, VStack } from '@chakra-ui/react'
+import "../UserProfile.scss"
 
 const list = [
   {
@@ -31,14 +32,13 @@ function Data() {
           w="full"
           py={3}
           px={5}
-          d="flex"
           alignItems="center"
           justifyContent="space-between"
           borderBottomWidth={1}
           borderColor="brand.light"
         >
-          <Text color="brand.dark">{item.name}</Text>
-          <Text color={`brand.${item.color}`} fontWeight="bold">
+          <Text color="brand.dark" flex={1}>{item.name}</Text>
+          <Text color={`brand.${item.color}`} fontWeight="bold" flex={1}>
             {item.value}
           </Text>
         </Box>

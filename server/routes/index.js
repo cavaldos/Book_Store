@@ -4,6 +4,7 @@ const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 const avatarController = require("../controllers/avatarController");
 const paymentController = require("../controllers/paymentController");
+const editprofileController = require("../controllers/editprofileController");
 
 
 //AUTHENTICATION
@@ -29,9 +30,11 @@ router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // d
 router.delete("/deletebook", bookController.deleteBook); // da xong, da test
 router.post("/findbooks", bookController.findBook);// da xong, da test
 
-//SETAVATAR
+//SETPROFILE
 router.post("/setProfilePic", avatarController.setProfilePic);
 router.get("/getAvatar", avatarController.getAvatar);
+router.post("/getProfile", editprofileController.getProfile);
+router.post("/editProfile", editprofileController.editProfile);
 
 //STRIPE
 router.get("/sendAPIStripe",paymentController.sendStripApi);
