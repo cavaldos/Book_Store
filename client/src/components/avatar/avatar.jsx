@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./avatar.scss";
 
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
@@ -11,6 +11,7 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles } from "@material-ui/core/styles";
 import { IconButton } from "@material-ui/core";
 import RenderCropper from "./cropper/cropper";
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: "1rem",
     position: "absolute",
     bottom: "0",
-    right: "-1rem",
+    right: "0rem",
     backgroundColor: "white",
 
     "&:hover": {
@@ -34,11 +35,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RenderAvatar() {
+  const email= useSelector((state) => state.role.email);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-
   const [avatar, setAvatar] = React.useState("");
+
+  useEffect(() => {
+    // Fetch the user's avatar from the backend when the component mounts
+    const fetchAvatar = async () => {
+      try {
+        const res = await fetch(`http://localhost:8000/getAvatar?email=${email}`);
+        const data = await res.json();
+        setAvatar(data.photoUrl);
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    fetchAvatar();
+  }, [email]);
+
+  
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -86,7 +103,7 @@ export default function RenderAvatar() {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          <CameraAltIcon fontSize="large" />
+          <CameraAltIcon fontSize="small" size ="20"/>
         </IconButton>
 
         <Popper

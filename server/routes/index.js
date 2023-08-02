@@ -31,6 +31,7 @@ router.post("/findbooks", bookController.findBook);// da xong, da test
 
 //SETAVATAR
 router.post("/setProfilePic", avatarController.setProfilePic);
+router.get("/getAvatar", avatarController.getAvatar);
 
 //STRIPE
 router.get("/sendAPIStripe",paymentController.sendStripApi);

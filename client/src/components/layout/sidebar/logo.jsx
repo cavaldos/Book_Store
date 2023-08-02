@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./sidebar.scss";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
@@ -6,6 +6,24 @@ import { useSelector } from "react-redux";
 import { Tooltip } from "antd";
 function Logo() {
   const role = useSelector((state) => state.role);
+  const [avatar, setAvatar] = React.useState("");
+
+
+  useEffect(() => {
+    // Fetch the user's avatar from the backend when the component mounts
+    const fetchAvatar = async () => {
+      try {
+        const res = await fetch(`http://localhost:8000/getAvatar?email=${role.email}`);
+        const data = await res.json();
+        setAvatar(data.photoUrl);
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    fetchAvatar();
+  }, [role.email]);
+  
+
   return (
     <>
       <div id="logo">
@@ -14,8 +32,8 @@ function Logo() {
             className="avatar-sidebar"
             shape="square"
             size={120}
-            icon={<UserOutlined />}
-            // src="https://zos.alipayobjects.cofm/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            // icon={<UserOutlined />}
+            src={avatar || "img/unknown.png"}
           />
         </Space>
         <Tooltip placement="rightBottom" title={role.email}>

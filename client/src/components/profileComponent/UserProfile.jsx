@@ -4,7 +4,7 @@ import { theme } from './helpers'
 import Cover from './Cover'
 import Main from './Main'
 
-export default function MainProfile() {
+export default function UserProfile() {
     return (
         <SimpleBar style={{ maxHeight: '100vh' }}>
             <ChakraProvider theme={theme}>

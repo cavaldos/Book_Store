@@ -1,16 +1,19 @@
 const fs = require("fs");
 const path = require("path");
-const Avatar = require("../models/avatar");
+const User = require("../models/user");
 const cloudinary = require("../config/cloudinary");
 
 const avatarController = {
   setProfilePic: async (req, res, next) => {
     try {
       console.log(req.files); // Add this line to check the req.files object
+      console.log(req.body.email)
 
       if (!req.files || !req.files.croppedImage) {
         return res.status(400).json({ error: "No image file provided" });
       }
+
+      const email = req.body.email;
 
       // Manually create a temporary file
       const tempDir = "temp/"; // Create a "temp" directory in your project
@@ -30,11 +33,35 @@ const avatarController = {
       // get link Url after upload
       const imageUrl = result.secure_url;
 
-      // Lưu link ảnh vào MongoDB
-      const avatar = new Avatar({ photoUrl: imageUrl });
-      await avatar.save();
+      // store image url to MongoDB
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      // Update the user's photoUrl field with the new image URL
+      user.photoUrl = imageUrl;
+      await user.save();
+
 
       res.status(200).json({ data: imageUrl });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: "Server error" });
+    }
+  },
+  getAvatar: async (req, res, next) => {
+    try {
+      const { email } = req.query;
+
+      // Find the user in the database using the email
+      const user = await User.findOne({ email });
+      if (!user || !user.photoUrl) {
+        return res.status(404).json({ error: "User avatar not found" });
+      }
+
+      // Return the user's avatar URL
+      res.status(200).json({ photoUrl: user.photoUrl });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: "Server error" });

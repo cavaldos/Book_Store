@@ -84,13 +84,12 @@ const userSchema = new mongoose.Schema({
         time: Date.now(),
         statusbar: false,
       }),
-
     ],
-
   },
-
-
-
+  photoUrl: {
+    type: String,
+    required: false,
+  }
 });
 
 const User = mongoose.model("User", userSchema);

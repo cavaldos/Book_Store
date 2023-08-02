@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import "./cropper.scss";
 
 import Cropper from "react-easy-crop";
@@ -11,6 +11,7 @@ import { IconButton, makeStyles } from "@material-ui/core";
 import { SnackbarContext } from "../snackbar/snackbar";
 import { BackdropContext } from "../backdrop/backdrop";
 import { dataURLtoFile } from "../../../util/dataURLtoFile.js";
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles({
   iconButton: {
@@ -28,6 +29,8 @@ const useStyles = makeStyles({
 });
 
 export default function RenderCropper({ handleCropper, setAvatar }) {
+  const email= useSelector((state) => state.role.email);
+
   const classes = useStyles();
 
   const inputRef = React.useRef();
@@ -96,12 +99,13 @@ export default function RenderCropper({ handleCropper, setAvatar }) {
       // Create a new FormData and append the file to it
       const formData = new FormData();
       formData.append("croppedImage", file);
+      formData.append("email", email);
 
       showBackdrop();
 
       const res = await fetch("http://localhost:8000/setProfilePic", {
         method: "POST",
-        body: formData,
+        body: formData
       });
 
       const res2 = await res.json();
@@ -114,6 +118,23 @@ export default function RenderCropper({ handleCropper, setAvatar }) {
       console.warn(err);
     }
   };
+  useEffect(() => {
+    // Fetch the user's photoUrl from the backend when the component mounts
+    const fetchAvatar = async () => {
+      try {
+        const res = await fetch(`http://localhost:8000/getAvatar?email=${email}`);
+        const data = await res.json();
+        if (data.photoUrl) {
+          setAvatar(data.photoUrl);
+          console.log(data);
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    fetchAvatar();
+  }, [email]);
+
 
 
   return (

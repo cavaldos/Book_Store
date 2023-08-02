@@ -7,6 +7,21 @@ import Card from "./card/card";
 import Button from "@mui/material/Button";
 function Profile() {
   const role = useSelector((state) => state.role);
+  const [avatar, setAvatar] = React.useState("");
+  
+  useEffect(() => {
+    // Fetch the user's avatar from the backend when the component mounts
+    const fetchAvatar = async () => {
+      try {
+        const res = await fetch(`http://localhost:8000/getAvatar?email=${role.email}`);
+        const data = await res.json();
+        setAvatar(data.photoUrl);
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    fetchAvatar();
+  }, [role.email]);
 
   return (
     <>
@@ -15,7 +30,7 @@ function Profile() {
           <Avatar
             className="avatar-profile"
             alt={role.email}
-            src="/static/images/avatar/1.jpg"
+            src={avatar || "/static/images/avatar/1.jpg"}
           />
           <h1 className="name-profile">{role.email}</h1>
           <p className="role-profile">{role.role}</p>
