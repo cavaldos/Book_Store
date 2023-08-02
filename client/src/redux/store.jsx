@@ -3,7 +3,7 @@ import userSlice from "./features/userSilce";
 import roleSlice from "./features/roleSlice";
 import themeSlice from "./features/themeSlice";
 import paymentSlice from "./features/paymentSlice";
-import oderSlice from "./features/oderSlice";
+import orderSlice from "./features/orderSlice";
 import shippinginfoSlice from "./features/shippinginfoSlice";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
@@ -29,7 +29,7 @@ const rootReducer = combineReducers({
   payment: paymentSlice,
   book: bookSlice,
   user: userSlice,
-  oder: oderSlice,
+  oder: orderSlice,
   shippinginfo: shippinginfoSlice,
 });
 
