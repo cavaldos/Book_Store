@@ -18,8 +18,15 @@ import {
   VStack,
 } from '@chakra-ui/react'
 
+import { useSelector } from 'react-redux'
+
+import RenderAvatar from '../../avatar/avatar'
+
 function Profile() {
+
   const [userProfile, setUserProfile] = useState(null)
+  const role = useSelector((state) => state.role);
+
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const profileImage = useRef(null)
@@ -43,13 +50,15 @@ function Profile() {
 
   return (
     <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
-      <Avatar
+      {/* <Avatar
         size="2xl"
         name="Tim Cook"
         cursor="pointer"
         // onClick={openChooseImage}
         src={userProfile ? userProfile : '/img/tim-cook.jpg'}
-      >
+      > */}
+      
+
         {/* <AvatarBadge bg="brand.blue" boxSize="1em">
           <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -59,13 +68,14 @@ function Profile() {
             />
           </svg>
         </AvatarBadge> */}
-      </Avatar>
+      {/* </Avatar> */}
       {/* <input
         hidden
         type="file"
         ref={profileImage}
         onChange={changeProfileImage}
       /> */}
+      <RenderAvatar/>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -93,7 +103,10 @@ function Profile() {
           Tim Cook
         </Heading>
         <Text color="brand.gray" fontSize="sm">
-          CEO of Apple
+          {role.role}
+        </Text>
+        <Text color="brand.gray" fontSize="sm">
+          {role.email}
         </Text>
       </VStack>
     </VStack>

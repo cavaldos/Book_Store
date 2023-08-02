@@ -85,11 +85,6 @@ const publicRoutes = [
     component: Payment,
     layout: null,
   },
-  {
-    path: '/profile',
-    component: MainProfile,
-    layout: null,
-  },
 ];
 
 
@@ -121,6 +116,16 @@ const userRoutes = [
   {
     path: "user/cart",
     component: Cart,
+  },
+  {
+    path: '/profile',
+    component: MainProfile,
+    layout: null,
+  },
+  {
+    path: '/avatar',
+    component: RenderAvatar,
+    layout: null,
   },
 ];
 

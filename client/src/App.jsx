@@ -13,8 +13,8 @@ import DefaultLayout from "./components/main";
 import { publicRoutes, userRoutes, employeeRoutes } from "./Routes";
 import adminRoutes from "./Routes/adminRoutes";
 import { useSelector } from "react-redux";
-import RenderSnackbar from "./components/snackbar/snackbar";
-import SimpleBackdrop from "./components/backdrop/backdrop";
+import RenderSnackbar from "./components/avatar/snackbar/snackbar";
+import SimpleBackdrop from "./components/avatar/backdrop/backdrop";
 
 // Payment
 import { Elements } from '@stripe/react-stripe-js'

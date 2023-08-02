@@ -10,7 +10,7 @@ import MenuList from "@material-ui/core/MenuList";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles } from "@material-ui/core/styles";
 import { IconButton } from "@material-ui/core";
-import RenderCropper from "../cropper/cropper";
+import RenderCropper from "./cropper/cropper";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   cameraIcon: {
-    height: "4rem",
-    width: "4rem",
+    height: "1rem",
+    width: "1rem",
     position: "absolute",
     bottom: "0",
-    right: "100px",
+    right: "-1rem",
     backgroundColor: "white",
 
     "&:hover": {
@@ -76,7 +76,7 @@ export default function RenderAvatar() {
     <>
       <div className="avatar-container">
         <div className="avatar">
-          <img src={avatar} alt="avatar" className="avatar-img" />
+          <img src={avatar || "img/unknown.png"} alt="avatar" className="avatar-img" />
         </div>
 
         <IconButton
