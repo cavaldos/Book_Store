@@ -75,33 +75,40 @@ const bookController = {
       });
     }
   },
+  getallBookManage: async (req, res) => {
+    try {
+      const users = await Book.find();
+      res.status(200).json(users);
+      // res.json(dataToSend);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+
   getAllBooks: async (req, res) => {
     try {
-      const { page = 1, pageSize = 12 } = req.query;
-      const pageNumber = parseInt(page);
-      const pageSizeNumber = parseInt(pageSize);
-
-      // Calculate the number of documents to skip based on the page number and page size.
-      const skipDocuments = pageSizeNumber * (pageNumber - 1);
-
-      // Fetch books with pagination from the database.
-      const totalBooks = await Book.countDocuments();
-      const totalPages = Math.ceil(totalBooks / pageSizeNumber);
-
-      const books = await Book.find().skip(skipDocuments).limit(pageSizeNumber);
-
-      // Generate an array of page numbers [1, 2, 3, ...]
-      const pageNumbersArray = Array.from(
-        { length: totalPages },
-        (_, i) => i + 1
-      );
-
-      res.status(200).json({
-        books,
-        totalPages,
-        currentPage: pageNumber,
-        pageNumbers: pageNumbersArray,
-      });
+      // const { page = 1, pageSize = 12 } = req.query;
+      // const pageNumber = parseInt(page);
+      // const pageSizeNumber = parseInt(pageSize);
+      // // Calculate the number of documents to skip based on the page number and page size.
+      // const skipDocuments = pageSizeNumber * (pageNumber - 1);
+      // // Fetch books with pagination from the database.
+      // const totalBooks = await Book.countDocuments();
+      // const totalPages = Math.ceil(totalBooks / pageSizeNumber);
+      // const books = await Book.find().skip(skipDocuments).limit(pageSizeNumber);
+      // // Generate an array of page numbers [1, 2, 3, ...]
+      // const pageNumbersArray = Array.from(
+      //   { length: totalPages },
+      //   (_, i) => i + 1
+      // );
+      // res.status(200).json({
+      //   books,
+      //   totalPages,
+      //   currentPage: pageNumber,
+      //   pageNumbers: pageNumbersArray,
+      // });
     } catch (err) {
       res.status(500).json({
         message: err.message,

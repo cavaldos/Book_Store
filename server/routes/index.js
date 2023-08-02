@@ -15,6 +15,7 @@ router.post("/deleteuser", userController.deleteUser); // da xong, test ok roi
 router.post("/adduser", userController.addUser); // da xong, test ok roi
 router.post("/edituser", userController.editUser); // da xong chua test
 router.get("/getallusers", userController.getAllusers); // đã viết xong
+// router.get("/gettopusers", userController.getTopUsers); // đã viết xong
 router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
 
 //BOOK
@@ -24,5 +25,5 @@ router.get("/getallbooks", bookController.getAllBooks); // da xong, da test // d
 router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // da xong, da test
 router.delete("/deletebook", bookController.deleteBook); // da xong, da test
 router.post("/findbooks", bookController.findBook); // da xong, da test
-
+router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da test
 module.exports = router;

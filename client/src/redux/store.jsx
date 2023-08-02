@@ -20,7 +20,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["role", "theme", "order"],
+  whitelist: ["role", "theme", "order" ],
 };
 const rootReducer = combineReducers({
   role: roleSlice,

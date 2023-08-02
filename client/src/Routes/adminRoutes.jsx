@@ -15,17 +15,13 @@ const adminRoutes = [
     component: Home,
   },
   {
-    path: "/admin/user",
+    path: "/admin/manage-user",
 
     component: ManagerUser,
   },
-  {
-    path: "/admin/employee",
 
-    component: Wallet,
-  },
   {
-    path: "/admin/product",
+    path: "admin/product",
 
     component: ManagerProduct,
   },
@@ -44,4 +40,4 @@ const adminRoutes = [
   },
 ];
 
-export default adminRoutes ;
+export default adminRoutes;

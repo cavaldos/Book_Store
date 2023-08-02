@@ -18,11 +18,11 @@ import { Menu, Dropdown } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { updateRole } from "../../redux/features/roleSlice";
-
+import { useNavigate } from "react-router-dom";
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
   const [scroll, setScroll] = useState("up");
-
+  const navigate = useNavigate();
   window.addEventListener("scroll", function () {
     const scrollPosition = window.scrollY;
     scrollPosition > 50 ? setScroll("down") : setScroll("up");
@@ -72,6 +72,8 @@ const DefaultLayout = ({ children }) => {
         password: "...",
       })
     );
+    navigate("/");
+    
   };
 
   return (

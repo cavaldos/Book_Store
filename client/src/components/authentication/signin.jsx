@@ -46,9 +46,8 @@ function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
   };
-  const handleChange = (event) => {
-    setRole(event.target.value);
-  };
+ 
+  console.log("sign in",role);
   const newdata = { role, email, password };
   async function submit(e) {
     e.preventDefault();
@@ -84,30 +83,30 @@ function SignIn() {
             navigate("/");
           } else if (res.data === "usersuccess") {
             message.success("Sign in success with user role");
-             setTimeout(() => {
-               dispatch(
-                 updateRole({
-                   role: role,
-                   roleRouter: role,
-                   email: email,
-                   password: password,
-                 })
-               );
-             }, 100);
-             navigate("/");
+            setTimeout(() => {
+              dispatch(
+                updateRole({
+                  role: role,
+                  roleRouter: role,
+                  email: email,
+                  password: password,
+                })
+              );
+            }, 100);
+            navigate("/");
           } else if (res.data === "employeesuccess") {
             message.success("Sign in success with employee role");
-             setTimeout(() => {
-               dispatch(
-                 updateRole({
-                   role: role,
-                   roleRouter: role,
-                   email: email,
-                   password: password,
-                 })
-               );
-             }, 100);
-             navigate("/");
+            setTimeout(() => {
+              dispatch(
+                updateRole({
+                  role: role,
+                  roleRouter: role,
+                  email: email,
+                  password: password,
+                })
+              );
+            }, 100);
+            navigate("/");
           } else {
             message.error("Sign In not success");
           }
@@ -192,7 +191,7 @@ function SignIn() {
                     id="demo-simple-select"
                     value={role}
                     label="Role"
-                    onChange={handleChange}
+                    onChange={(e) => setRole(e.target.value)}
                   >
                     <MenuItem value={"user"}>User</MenuItem>
                     <MenuItem value={"employee"}>Employee</MenuItem>
