@@ -8,9 +8,16 @@ import Fillter from "./fillter/fillter";
 import Product from "../Cart/Product";
 import { Carousel } from "antd";
 
+import { useSelector } from "react-redux"
+
 function Home() {
   const [products, setProducts] = useState([]);
   const [topRatedProducts, setTopRatedProducts] = useState([]);
+
+
+  const roleRouter = useSelector((state) => state.role.roleRouter);
+  console.log(roleRouter);
+
 
   useEffect(() => {
     axios
@@ -21,12 +28,10 @@ function Home() {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/getallbooks")
+      .get("http://localhost:8000/gettopbooks")
       .then((response) => {
         setProducts(response.data);
-        setTopRatedProducts(
-          response.data.filter((product) => product.Rating === 4.5)
-        );
+        setTopRatedProducts(response.data );
       })
       .catch((error) => console.log(error));
   }, []);
@@ -36,18 +41,29 @@ function Home() {
   return (
     <>
       <div className="home">
-        <div className="home-container_1 con">sort</div>
         <div className="home-container_2 con">
           <Carousel className="carousel" autoplay>
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
               <div key={ID} className="car-contens">
+                Top Book
+                <img className="pic" src={Image} alt={Tittle} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <div className="home-container_1 con">
+          <Carousel className="carousel" autoplay>
+            {topRatedProducts.map(({ ID, Image, Tittle }) => (
+              <div key={ID} className="car-contens">
+                Daily recommended book
                 <img className="pic" src={Image} alt={Tittle} />
               </div>
             ))}
           </Carousel>
         </div>
         <div className="home-container_3 con">fillter</div>
-        <div className="home-container_4 con">quang cao</div>
+        <div className="home-container_6 con">Sort</div>
+        <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
           {products.map(
             ({ ID, Image, Tittle, Author, Rating, Price, Description }) => (

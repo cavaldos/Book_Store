@@ -13,6 +13,8 @@ import DefaultLayout from "./components/main";
 import { publicRoutes, userRoutes, employeeRoutes } from "./Routes";
 import adminRoutes from "./Routes/adminRoutes";
 import { useSelector } from "react-redux";
+import RenderSnackbar from "./components/snackbar/snackbar";
+import SimpleBackdrop from "./components/backdrop/backdrop";
 
 // Payment
 import { Elements } from '@stripe/react-stripe-js'
@@ -20,7 +22,7 @@ import { loadStripe } from '@stripe/stripe-js'
 
 const Notfound = React.lazy(() => import("./components/layout/error/notfound"));
 const App = () => {
-  const [stripeApiKey, setStripeApiKey] = useState('');
+  const [stripeApiKey, setStripeApiKey] = useState("empty");
 
   useEffect(() => {
 
@@ -36,6 +38,7 @@ const App = () => {
 
 
   const roleRouter = useSelector((state) => state.role.roleRouter);
+
   const VerifyRoure = () => {
     switch (roleRouter) {
       case "admin":
@@ -48,6 +51,7 @@ const App = () => {
         return publicRoutes;
     }
   };
+  console.log(roleRouter);
   return (
     <Router>
       <Routes>
@@ -61,8 +65,12 @@ const App = () => {
               element={
                 <Layout>
                   <Elements stripe={loadStripe(stripeApiKey)}>
-                    <Page />
-                    <Outlet />
+                    <RenderSnackbar>
+                      <SimpleBackdrop>
+                        <Page />
+                        <Outlet />
+                      </SimpleBackdrop>
+                    </RenderSnackbar>
                   </Elements>
                 </Layout>
               }

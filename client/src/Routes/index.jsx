@@ -13,6 +13,7 @@ import RenderAvatar from "../components/avatar/avatar";
 import ShippingInfo from "../pages/ShippingInfo/ShippingInfo";
 import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 import Payment from "../pages/Payment/Payment";
+import MainProfile from "../components/profileComponent/MainProfile";
 
 // public routes
 const publicRoutes = [
@@ -52,7 +53,6 @@ const publicRoutes = [
     path: "/revenue",
     component: Revenue,
   },
-
   {
     path: "/cart",
     component: Cart,
@@ -81,23 +81,46 @@ const publicRoutes = [
     layout: null,
   },
   {
-    path: '/confirm',
-    component: ConfirmOrder,
-    layout: null,
-  },
-  {
     path: '/payment',
     component: Payment,
     layout: null,
-  }
+  },
+  {
+    path: '/profile',
+    component: MainProfile,
+    layout: null,
+  },
 ];
 
 
 const userRoutes = [
   {
     path: "/",
-
     component: Home,
+  },
+  {
+    path: '/shipping',
+    component: ShippingInfo,
+    layout: null,
+  },
+  {
+    path: '/profile',
+    component: MainProfile,
+    layout: null,
+  },
+  {
+    path: '/payment',
+    component: Payment,
+    layout: null,
+  },
+  {
+    path: '/confirm',
+    component: ConfirmOrder,
+    layout: null,
+  },
+  {
+    path: "user/cart",
+    component: Cart,
   },
 ];
 

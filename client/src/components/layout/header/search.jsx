@@ -6,47 +6,78 @@ import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 
 function Search() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
+  const [matchedBooks, setMatchedBooks] = useState([]);
+
   const handleChange = (event) => {
-    setValue(event.target.value);
+    const searchQuery = event.target.value;
+    setValue(searchQuery);
+    // Send the book name to the backend server for search suggestions
+    fetchSuggestions(searchQuery);
+  };
+
+  const fetchSuggestions = (searchQuery) => {
+    // Replace 'http://localhost:8001/findbooks' with the actual URL of your backend API to fetch search suggestions.
+    fetch('http://localhost:8001/findbooks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ Tittle: searchQuery }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Process the data received from the server
+        console.log('Server response:', data);
+        // Update the state with the matched books
+        setMatchedBooks(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   const handleClear = () => {
     setValue("");
+    setMatchedBooks([]);
   };
 
   return (
     <Tippy
-      visible={value.length > 0}
+      render={() => (
+        <div className="search-result">
+          <ul>
+            {matchedBooks.map((book, index) => (
+              <li key={index}>{book.Tittle}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      placement="bottom-start"
       interactive={true}
-      render={(attrs) => <div className="search-result">{value}</div>}
-      placement="bottom"
+      visible={value.length > 0 && matchedBooks.length > 0}
     >
       <div className="search-wrapper">
         <input
           className="search-input"
           type="text"
-          placeholder="search-input"
+          placeholder="Search for books"
           value={value}
           onChange={handleChange}
         />
         {value.length > 0 && (
-          <button>
-            <CloseCircleOutlined
-              className="search-icon-close"
-              onClick={handleClear}
-            />
+          <button onClick={handleClear}>
+            <CloseCircleOutlined className="search-icon-close" />
           </button>
         )}
-        <Tippy content="Search" placement="right">
-          <SearchOutlined className="search-icon-search" />
-        </Tippy>
+        <SearchOutlined className="search-icon-search"/>
       </div>
     </Tippy>
   );
 }
 
 export default Search;
+
 
 /*
 import "./header.scss";

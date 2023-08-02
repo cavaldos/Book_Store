@@ -3,31 +3,23 @@ const Cart = require("../models/cart");
 
 const bookController = {
   addBook: async (req, res) => {
-    // try {
-    //   res.json({ message: "addbook" });
-    // } catch (err) {
-    //   res.status(500).json({
-    //     message: err.message,
-    //   });
-    // }
     try {
-      const data = req.body;
-      console.log(data);
-      const newBook = new Book({
-        ID: data.ID,
-        Image: data.Image,
-        Tittle: data.Tittle,
-        Author: data.Author,
-        Rating: data.Rating,
-        Price: data.Price,
-        ISBN: data.ISBN,
-        Genre: data.Genre,
-        Publish_Year: data.Publish_Year,
-        Publisher: data.Publisher,
-        Description: data.Description,
-        quantity: data.quantity,
-      });
-
+    const data = req.body;
+    const newBook = new Book({
+    ID: data.ID,
+    Image: data.Image,
+    Tittle: data.Tittle,
+    Author: data.Author,
+    Rating: data.Rating,
+    Price: data.Price,
+    ISBN: data.ISBN,
+    Genre: data.Genre,
+    Publish_Year: data.Publish_Year,
+    Publisher: data.Publisher,
+    Description: data.Description,
+    quantity: data.quantity,
+  });
+    
       // Save the new Book document to the database
       await newBook.save();
       // Send a response to the client
@@ -40,25 +32,40 @@ const bookController = {
       });
     }
   },
-  searchBook: async (req, res) => {
-    try {
-      const data = req.body;
-      console.log(data);
-      const foundBooks = await Book.find(data);
+  // searchBook: async (req, res) => {
+  //   try {
+  //     const data = req.body;
+  //     console.log(data);
+  //     const foundBooks = await Book.find(data);
     
-      res.json(foundBooks);
-    }
-    catch (err) {
-      res.status(500).json({
-        message: err.message,
-      });
-    }
-  },
+  //     res.json(foundBooks);
+  //   }
+  //   catch (err) {
+  //     res.status(500).json({
+  //       message: err.message,
+  //     });
+  //   }
+  // },
   
   editBook: async (req, res) => {
     try {
-      res.json({ message: "editbook" });
-    } catch (err) {
+      const data = req.body;
+      const result = await Book.updateOne({ID: data.ID}, {$set : {
+      ID: data.ID,
+      Image: data.Image,
+      Tittle: data.Tittle,
+      Author: data.Author,
+      Rating: data.Rating,
+      Price: data.Price,
+      ISBN: data.ISBN,
+      Genre: data.Genre,
+      Publish_Year: data.Publish_Year,
+      Publisher: data.Publisher,
+      Description: data.Description,
+      quantity: data.quantity,}} );
+      res.status(200).json(result);
+  }
+    catch (err) {
       res.status(500).json({
         message: err.message,
       });
@@ -67,6 +74,17 @@ const bookController = {
   getAllBooks: async (req, res) => {
     try {
       const users = await Book.find();
+      res.status(200).json(users);
+      // res.json(dataToSend);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  getTopBooks: async (req, res) => {
+    try {
+      const users = await Book.find({Rating: {$gte: 4.5}}).limit(10);
       res.status(200).json(users);
       // res.json(dataToSend);
     } catch (err) {
@@ -91,11 +109,13 @@ const bookController = {
   },
   findBook: async (req, res) => {
     try {
-      data = req.body;
-      console.log(data);
+      const data = req.body;
+      const name = data.Tittle;
 
-      const foundBooks = await Book.find(data);
-
+      // // Use a regular expression to perform a partial match on the book name
+      const regex = new RegExp(name, 'i');
+      const foundBooks = await Book.find({ Tittle: { $regex: regex } });
+      
       res.json(foundBooks);
     }
     catch (err) {

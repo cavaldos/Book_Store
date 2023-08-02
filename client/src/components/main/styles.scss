@@ -58,6 +58,12 @@
       align-items: center;
       transition: all 0.35s;
     }
+    &:hover {
+      .button-icon {
+        color: black;
+        scale: 1.1;
+      }
+    }
   }
   .avatar {
     position: absolute;
@@ -68,16 +74,14 @@
   }
 
   .badge {
-
     position: absolute;
     top: 12px;
     bottom: 1px;
     right: 100px;
     display: flex;
     font-size: 30px;
-    .bell{
+    .bell {
       color: rgb(63, 63, 63);
-      
     }
   }
 
@@ -155,7 +159,6 @@
 .open {
   .sidebar {
     width: 15.5rem;
-    
   }
   .header {
     left: 285px;
@@ -169,13 +172,13 @@
     width: 5.5rem;
     text-align: center;
     justify-content: center;
-    
+
     #logo {
       .avatar-sidebar {
         background-color: transparent;
         width: 20px;
         height: 50px;
-      }      
+      }
       .name-sidebar {
         font-size: 0px;
       }
@@ -223,7 +226,7 @@
   }
 }
 
-//iphone 12pro doc  
+//iphone 12pro doc
 @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
   .header {
     .up {

@@ -1,9 +1,15 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { countries } from 'countries-list';
 import CheckoutSteps from '../../components/checkoutstep/CheckoutSteps';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { SetAddress, SetCity, SetPostalCode, SetPhoneNo, SetCountry } from '../../redux/features/shippinginfoSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  SetAddress,
+  SetCity,
+  SetPostalCode,
+  SetPhoneNo,
+  SetCountry,
+} from '../../redux/features/shippinginfoSlice';
 
 const Shipping = () => {
   const history = useNavigate();
@@ -11,11 +17,12 @@ const Shipping = () => {
 
   const countriesList = Object.values(countries);
 
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [phoneNo, setPhoneNo] = useState('');
-  const [country, setCountry] = useState('');
+  // Get the values from the Redux store
+  const address = useSelector((state) => state.shippinginfo.address);
+  const city = useSelector((state) => state.shippinginfo.city);
+  const postalCode = useSelector((state) => state.shippinginfo.postalCode);
+  const phoneNo = useSelector((state) => state.shippinginfo.phoneNo);
+  const country = useSelector((state) => state.shippinginfo.country);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -77,7 +84,6 @@ const Shipping = () => {
 
   return (
     <Fragment>
-
       <CheckoutSteps shipping />
 
       <div style={formStyle} className="container mx-auto my-10">
@@ -93,7 +99,7 @@ const Shipping = () => {
                 id="address_field"
                 style={inputStyle}
                 value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) => dispatch(SetAddress(e.target.value))}
                 required
               />
             </div>
@@ -107,7 +113,7 @@ const Shipping = () => {
                 id="city_field"
                 style={inputStyle}
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
+                onChange={(e) => dispatch(SetCity(e.target.value))}
                 required
               />
             </div>
@@ -121,7 +127,7 @@ const Shipping = () => {
                 id="phone_field"
                 style={inputStyle}
                 value={phoneNo}
-                onChange={(e) => setPhoneNo(e.target.value)}
+                onChange={(e) => dispatch(SetPhoneNo(e.target.value))}
                 required
               />
             </div>
@@ -135,7 +141,7 @@ const Shipping = () => {
                 id="postal_code_field"
                 style={inputStyle}
                 value={postalCode}
-                onChange={(e) => setPostalCode(e.target.value)}
+                onChange={(e) => dispatch(SetPostalCode(e.target.value))}
                 required
               />
             </div>
@@ -148,7 +154,7 @@ const Shipping = () => {
                 id="country_field"
                 style={inputStyle}
                 value={country}
-                onChange={(e) => setCountry(e.target.value)}
+                onChange={(e) => dispatch(SetCountry(e.target.value))}
                 required
               >
                 {countriesList.map((country) => (

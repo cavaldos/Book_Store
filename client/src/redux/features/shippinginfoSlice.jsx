@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const shippingSlice = createSlice({
-  name: 'shipping',
+  name: 'shippinginfo',
   initialState: {
     address: '',
     city: '',

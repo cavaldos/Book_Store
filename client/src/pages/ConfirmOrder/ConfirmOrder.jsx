@@ -8,7 +8,7 @@ import CheckoutSteps from '../../components/checkoutstep/CheckoutSteps'
 
 const ConfirmOrder = () => {
     const history = useNavigate();
-    const shippingInfo = useSelector((state) => state.shipping);
+    const shippingInfo = useSelector((state) => state.shippinginfo);
 
     // const { cartItems, shippingInfo } = useSelector(state => state.cart)
     // const { user } = useSelector(state => state.auth)

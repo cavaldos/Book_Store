@@ -1,6 +1,8 @@
 const User = require("../models/user");
-const bcrypt = require("bcrypt");
+
 const { sendEmail1 } = require("../config/email");
+const randomCode = Math.floor(100001 + Math.random() * 900000);
+
 const authController = {
   signin: async (req, res) => {
     try {
@@ -8,17 +10,19 @@ const authController = {
       const { email, password, role } = req.body;
       const check = await User.findOne({
         email: email,
-        password: password,
+        //password: password,
         role: role,
-
       });
-      console.log("check",check);
-      if (check) {
-        res.json("exist");
+      console.log("check", check);
+      if (check && check.role === "admin") {
+        res.json("adminsuccess");
+      } else if (check && check.role === "user") {
+        res.json("usersuccess");
+      } else if (check && check.role === "employee") {
+        res.json("employeesuccess");
       } else {
-        res.json("notexist");
+        res.json("siginfail");
       }
-
     } catch (err) {
       res.json("fail");
 
@@ -27,33 +31,74 @@ const authController = {
       });
     }
   },
-  register: async (req, res) => {
+  verifyEmailSignUp: async (req, res) => {
     try {
-      console.log("body:", req.body, "\n");
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password, salt);
-      const generateRandomID = () => {
-        return Math.floor(Math.random() * 1000) + 1;
-      };
-      const newUser = new User({
-        id: generateRandomID(),
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.firstname + " " + req.body.lastname,
-        email: req.body.email,
-        password: hashedPassword,
-        phonenumber: req.body.phonenumber,
-        confirmationCode: "",
-        role: "user",
-      });
+      const { email } = req.body;
+      await sendEmail1(email, randomCode.toString());
+      //find
       const check = await User.findOne({
-        email: req.body.email,
+        email: email,
       });
       if (check) {
-        res.json("exist");
+        res.json("emailExist");
+        return;
       }
-      const user = await newUser.save();
-      res.status(200).json("success");
+      
+      res.json("sendemailsuccess");
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+
+  register: async (req, res) => {
+    try {
+      const maxId = await User.findOne({}, { id: 1 })
+        .sort({ id: -1 })
+        .limit(1)
+        .exec();
+      const {
+        email,
+        password,
+        confirmpassword,
+        firstname,
+        lastname,
+        role,
+        confirmationCode,
+      } = req.body;
+
+      if (confirmationCode !== randomCode.toString()) {
+        await res.json("confirmationCodefail");
+        return;
+      } else if (password !== confirmpassword) {
+        await res.json("passwordnotmatch");
+        return;
+      }
+
+      const newUser = new User({
+        id: maxId.id + 1,
+        email,
+        password,
+        firstname,
+        lastname,
+        username: firstname + "" + lastname,
+        role,
+        confirmationCode: confirmationCode,
+      });
+      const result = await newUser.save();
+      if (result && result.role === "user") {
+        res.json("RegisterUserSuccess");
+        console.log("RegisterUserSuccess");
+        return;
+      } else if (result && result.role === "employee") {
+        res.json("RegisterEmployeesUccess");
+        console.log("RegisterEmployeesUccess");
+        return;
+      } else {
+        res.json("RegisterFail");
+        console.log("RegisterFail");
+      }
     } catch (err) {
       res.status(500).json({
         message: err.message,
@@ -72,30 +117,18 @@ const authController = {
   resetpassword: async (req, res) => {
     try {
       //res.json({ message: "fogotpassword loadding" });
-
-      const { email, password, phonenumber, confirmationCode } = req.body;
+      const { email, password, confirmationCode } = req.body;
       console.log(req.body);
       const check = await User.findOne({
         email: email,
-        phonenumber: phonenumber,
       });
       const check2 = await User.findOne({
         confirmationCode: confirmationCode,
       });
-
-      if (check) {
-        if (confirmationCode !== check.confirmationCode) {
-          res.json("code-no-texist");
-        } else {
-          // Cập nhật mật khẩu mới cho người dùng
-          await User.updateOne(
-            { email: email },
-            { $set: { password: password } }
-          );
-          res.json("success");
-        }
+      if (check && check2) {
+        res.json("resetpasswordsuccess");
       } else {
-        res.json("notexist");
+        res.json("resetpasswordfail");
       }
     } catch (err) {
       res.status(500).json({
@@ -127,20 +160,25 @@ const authController = {
   sendConfirmationCode: async (req, res) => {
     try {
       const { email } = req.body;
+
+      const user = await User.findOne({ email: email });
+      if (!user) {
+        return res.status(404).json("emailExist");
+      }
       // Tạo confirmation code ngẫu nhiên
       const confirmationCode = Math.floor(100000 + Math.random() * 900000);
       console.log(confirmationCode);
       console.log(req.body);
-      // Lưu confirmation code vào CSDL hoặc bất kỳ cách nào phù hợp
+
+      await sendEmail1(email, confirmationCode.toString());
       await User.updateOne(
         { email: email },
         { $set: { confirmationCode: confirmationCode } }
       );
-      // Gửi confirmation code đến địa chỉ email
-      await sendEmail1(email, confirmationCode.toString());
 
-      res.json("success");
+      res.json("sendCodeSuccess");
     } catch (err) {
+      res, json("fail");
       res.status(500).json({
         message: err.message,
       });
