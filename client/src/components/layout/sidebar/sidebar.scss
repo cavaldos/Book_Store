@@ -1,0 +1,28 @@
+#sider {
+    position: fixed;
+    // background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.6);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    top: 0em;
+    left: 0px;
+    width: var(--distance-left);
+    height: 100vh;
+    box-sizing: border-box;
+    .block {
+        position: relative;
+        display: flex;
+
+        // background-color: var(--white);
+        // background-color: rgba(255, 255, 255, 0.6);
+        padding: 70px 10px 70px 10px;
+        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .sidebar {
+      
+
+        background-color: var(--white);
+        // background-color: rgba(255, 255, 255, 0.6);
+
+        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+}

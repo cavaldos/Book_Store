@@ -1,45 +1,40 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./App.scss";
+import React from 'react';
+import { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { publicRoutes, privateRoutes } from './Routes';
 
-import Header from "./components/DefaultLayout/header";
-import Sidebar from "./components/DefaultLayout/sidebar";
-import Login from "./components/DefaultLayout/login";
-import Register from "./components/DefaultLayout/register";
-import Book from "./components/DefaultLayout/book";
-import Manager from "./components/DefaultLayout/manager";
-import Wrapper from "./components/DefaultLayout/wrapper";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import './App.scss';
+import DefaultLayout from './components/main';
+
 const App = () => {
-  return (
-    <div className="wrapper">
-      <Header />
-      <Register />
-      <Sidebar />
-    </div>
-  );
+    const VerifyRoure = publicRoutes;
+
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    {/*  */}
+                    {VerifyRoure.map((route, index) => {
+                        const Layout =
+                            route.layout === null ? Fragment : DefaultLayout;
+                        const Page = route.component;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                    {/*  */}
+                </Routes>
+            </div>
+        </Router>
+    );
 };
 
-const Main = () => {
-  return (
-    <div className="wrapper">
-      <Header />
-      <Login />
-      <Sidebar />
-    </div>
-  );
-};
-
-const Wpage = () => {
-  return (
-    <div className="wrapper">
-     
-      <Wrapper />
-    </div>
-  );
-};
-ReactDOM.render(<Main />, document.getElementById("root"));
-// export default Main;
-// export default Home;
-export default Main;
-//co
+export default App;
