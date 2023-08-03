@@ -20,7 +20,7 @@
 .header {
   transition: all 0.35s;
   position: fixed;
-  top: 13px;
+  top: 8px;
   height: 70px;
   width: auto;
   right: 12px;
@@ -29,6 +29,7 @@
   padding: 10px;
   z-index: 10;
   transition-duration: all 0.35s;
+
   .button {
     position: absolute;
     top: 1px;
@@ -83,7 +84,6 @@
     background-color: var(--white);
     opacity: 0.94;
     width: auto;
-
     height: 50px;
     transition: all 0.4s;
     animation: alternate;
@@ -206,195 +206,73 @@
 //middle
 @media only screen and (min-width: 1180px) and (max-width: 1900px) {
   .sidebar {
-    position: fixed;
-    margin: 5px 5px 5px 5px;
-    bottom: 10px;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
   }
   .header {
-    transition: all 0.35s;
-    position: fixed;
-    top: 13px;
-    height: 70px;
-    right: 18px;
-    width: auto;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 10px;
-    z-index: 10;
-    display: flex;
-    transition-duration: all 0.35s;
-    display: inline-block;
-    // .control{
-    //     position: absolute;
-    //     background-color: red;
-
-    // }
     .button {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      bottom: 1px;
-      border-radius: 5px;
-      width: 50px;
-      display: flex;
       .button-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        background-color: var(--white-grey);
-        font-size: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.35s;
       }
       &:hover {
         .button-icon {
-          color: black;
-          scale: 1.1;
+          color: rgb(102, 88, 88);
         }
       }
     }
+    .up {
+      left: 0px;
+      height: 55px;
+    }
+    .down {
+      .button-icon {
+      }
+    }
     .avatar {
-      position: absolute;
-      top: 7px;
-      bottom: 1px;
-      right: 30px;
-      display: flex;
     }
 
     .badge {
-      position: absolute;
-      top: 12px;
-      bottom: 1px;
-      right: 100px;
-      display: flex;
-      font-size: 30px;
       .bell {
-        color: rgb(63, 63, 63);
-      }
-    }
-
-    .up {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0px;
-      width: auto;
-      border-radius: 5px;
-      transition: 0.6s;
-      background-color: var(--white-grey);
-      transition: all 0.35s;
-      padding: 5px;
-      // background-color: aqua;
-    }
-    .down {
-      padding: 5px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0 15px 15px 15px;
-      width: auto;
-      border-radius: 5px;
-      background-color: var(--white);
-      opacity: 0.94;
-      transition: 0.4s;
-      box-shadow: 0px 5px 20px 0.3px rgba(59, 59, 59, 0.5);
-      height: 100px;
-
-      // box-shadow: 0px 10px 20px 0.5px rgba(0, 0, 0, 0.5);
-      .button-icon {
-        background-color: var(--white);
       }
     }
   }
 
   .main {
-    right: 30px;
-    padding: 90px 0px 30px 100px;
+    right: 0px;
     .containers {
-      display: block;
     }
     .footer {
-      display: block;
     }
   }
 
   .open {
     .sidebar {
-      transition: all 0.35s;
-      width: 15.5rem; //
     }
     .header {
-      left: 285px; //
     }
     .main {
-      padding-left: 285px;
+      padding-top: 75px;
+      padding-left: 275px;
+      margin: 0;
     }
   }
   .close {
     .sidebar {
-      transition: all 0.35s;
-      width: 5rem;
       #logo {
         .avatar-sidebar {
-          background-color: transparent;
-          width: 20px;
-          height: 50px;
         }
         .name-sidebar {
-          font-size: 0px;
         }
         .role-sidebar {
-          font-size: 0px;
         }
       }
     }
     .header {
-      left: 125px;
     }
     .main {
-      width: 100vw;
-      right: 0;
-      position: relative;
-      padding-left: 85px;
-      padding-right: 20px;
+      padding-top: 75px;
+      padding-left: 100px;
+      margin: 0;
     }
   }
-
   .breadcrumb {
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    max-width: 300px;
-    width: auto;
-    height: 40px;
-    line-height: 100%;
-    font-size: 15px;
-    left: 200px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 8px 5px;
-    color: red;
-  }
-
-  .header {
-    .down {
-      background-color: red;
-    }
-    .up {
-      background-color: blue;
-    }
   }
 }
 
@@ -416,31 +294,10 @@
     z-index: 10;
     transition-duration: all 0.35s;
     .button {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      bottom: 1px;
-      border-radius: 5px;
-      width: 50px;
-      display: flex;
       .button-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        background-color: var(--white-grey);
-        font-size: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.35s;
       }
       &:hover {
         .button-icon {
-          color: black;
-          scale: 1.1;
         }
       }
     }
@@ -466,52 +323,39 @@
 
     .up {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0px;
-      width: auto;
-      border-radius: 5px;
-      transition: 0.6s;
-      background-color: var(--white-grey);
-      transition: all 0.35s;
-      padding: 5px;
-      // background-color: aqua;
     }
     .down {
       padding: 5px;
-      position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
       margin: 0 15px 15px 15px;
-      width: auto;
+
       border-radius: 5px;
-      height: 100px;
-
-      background-color: var(--white);
-      opacity: 0.94;
-      transition: 0.4s;
-
+      height: 55px;
       .button-icon {
         background-color: var(--white);
       }
     }
   }
-
   .main {
     .containers {
     }
     .footer {
     }
   }
-
   .open {
     .sidebar {
       transition: all 0.35s;
       width: 15.5rem; //
+      #logo {
+        .avatar-sidebar {
+        }
+        .name-sidebar {
+          // font-size: 0px;
+        }
+        .role-sidebar {
+          // font-size: 0px;
+        }
+      }
     }
     .header {
       left: 260px; //
@@ -521,7 +365,7 @@
       width: 100vw;
       right: 0;
       position: relative;
-      padding-left: 255px;
+      padding-left: 250px;
       padding-right: 20px;
     }
   }
@@ -553,14 +397,6 @@
       padding-right: 20px;
     }
   }
-
-  .breadcrumb {
-  }
-  // .header {
-  //   .up {
-  //     background-color: red;
-  //   }
-  // }
 }
 
 //ihone 5/SE
@@ -623,7 +459,6 @@
       }
     }
   }
-
   .main {
     .containers {
     }
@@ -639,6 +474,7 @@
     .header {
       left: 200px;
       right: 10px;
+      min-width: 600px;
     }
     .main {
       width: 100vw;
@@ -664,12 +500,8 @@
       }
     }
     .header {
-      //close
       left: 10px;
       right: 10px;
-      // & strong {
-      //   display: none;
-      // }
     }
     .main {
       width: 100vw;
@@ -679,7 +511,5 @@
       padding-left: 0px;
       padding-right: 20px;
     }
-  }
-  .breadcrumb {
   }
 }

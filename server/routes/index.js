@@ -2,6 +2,7 @@ const router = require("express").Router();
 const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
+const orderController = require("../controllers/orderController");
 
 //AUTHENTICATION
 router.post("/signin", authController.signin); // đã viết xong
@@ -26,4 +27,12 @@ router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // d
 router.delete("/deletebook", bookController.deleteBook); // da xong, da test
 router.post("/findbooks", bookController.findBook); // da xong, da test
 router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da test
+
+
+
+router.post("/createorder", orderController.createOrder); // da xong, da test
+router.get("/getallorder", orderController.getAllOrder); // da xong, da test
+router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
+router.post("/findorder", orderController.findOrder); // da xong, da test
+router.post("/removeorder", orderController.removeOrder); // da xong, da test
 module.exports = router;

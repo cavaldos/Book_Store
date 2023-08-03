@@ -146,7 +146,6 @@ const bookController = {
       // // Use a regular expression to perform a partial match on the book name
       const regex = new RegExp(name, "i");
       const foundBooks = await Book.find({ Tittle: { $regex: regex } });
-
       res.json(foundBooks);
     } catch (err) {
       res.status(500).json({

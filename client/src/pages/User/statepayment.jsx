@@ -7,8 +7,7 @@ const ConfirmOrder = () => {
   return (
     <div>
       <h2>Confirm Orderl</h2>
-      {/* Thêm các trường thông tin đơn hàng cần xác nhận */}
-      <p> Thêm các trường thông tin đơn hàng cần xác nhận </p>
+      <p>  hien thi don dan </p>
     </div>
   );
 };
@@ -17,7 +16,7 @@ const PaymentDetails = () => {
   return (
     <div>
       <h2>Payment Details</h2>
-      <p> Thêm các trường thông tin đơn hàng cần xác nhận </p>
+      <p> xacs nhan xanhtoans </p>
     </div>
   );
 };
@@ -26,7 +25,7 @@ const OrderConfirmation = () => {
   return (
     <div>
       <h2>Order Confirmation</h2>
-      <p> Thêm các trường thông tin đơn hàng cần xác nhận </p>
+      <p> cho user xac nhan down hang</p>
     </div>
   );
 };
@@ -35,7 +34,7 @@ const InTransit = () => {
   return (
     <div>
       <h2>In Transit</h2>
-      <p> Thêm các trường thông tin đơn hàng cần xác nhận </p>
+      <p> don hang dang duoc giao toi ban </p>
 
     </div>
   );

@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import Product from "./Product";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { createPayment } from "../../redux/features/paymentSlice";
+import { message } from "antd";
+import { v4 as uuidv4 } from "uuid";
 
 function Cart() {
   const [cart, setCart] = useState([]);
   const orders = useSelector((state) => state.order);
+  const payment = useSelector((state) => state.payment);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const orderCode=uuidv4();
   useEffect(() => {
     setCart(orders);
   }, [orders]);
@@ -14,6 +20,30 @@ function Cart() {
     (acc, curr) => acc + curr.price * curr.quantity,
     0
   );
+  const handlePay = () => {
+    if (cart.length === 0) {
+      message.error("Please add product to cart");
+      return;
+    }
+    if (payment.orderDetails !== "") {
+      message.success("You already have an order in progress");
+    }
+    const orderDetails = cart.map((item) => {
+      return {
+        id: item.id,
+        quantity: item.quantity,
+      };
+    });
+    const payload = {
+      orderDetails,
+      email_user:user.email,
+      currentStep: 0,
+      id_payment:  orderCode,
+      total: totalPrice,
+    };
+    dispatch(createPayment(payload));
+  
+  };
   return (
     <>
       <div className="list-product">
@@ -45,6 +75,7 @@ function Cart() {
             height: "50px",
             width: "100%",
           }}
+          onClick={handlePay}
         >
           Pay
         </button>

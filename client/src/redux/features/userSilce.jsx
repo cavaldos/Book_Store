@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { get } from "http";
 import { useEffect } from "react";
 
 export const userSlice = createSlice({
@@ -10,7 +9,12 @@ export const userSlice = createSlice({
     name: "",
     email: "",
     password: "",
-    Notification: [],
+    Notification: [
+      {
+        id: 1,
+        title: "Thông báo 1",
+      },
+    ],
     number_notification: Notification.length,
   },
   reducers: {
@@ -24,10 +28,22 @@ export const userSlice = createSlice({
       state.Notification = action.payload.Notification;
       state.number_notification = action.payload.number_notification;
     },
+    addNotification: (state, action) => {
+      state.Notification.push(action.payload);
+      state.id += 1;
+    },
+    removeNotification: (state, action) => {
+      const idToRemove = action.payload;
+      state.Notification = state.Notification.filter(
+        (item) => item.id !== idToRemove
+      );
+      state.number_notification = state.Notification.length;
+    },
   },
 });
 
-export const { setUser, getNotification } = userSlice.actions;
+export const { setUser, getNotification, addNotification, removeNotification } =
+  userSlice.actions;
 
 export default userSlice.reducer;
 // // Thực hiện gọi API để lấy thông tin user

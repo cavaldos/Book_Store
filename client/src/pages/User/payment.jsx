@@ -1,76 +1,178 @@
+// import React, { useState, useEffect, useRef } from "react";
+// import { Steps, Button } from "antd";
+// import axios from "axios";
+// import LoadingOutlined from "@ant-design/icons/LoadingOutlined";
+// import "./user.scss";
+// import {
+//   ConfirmOrder,
+//   PaymentDetails,
+//   OrderConfirmation,
+//   InTransit,
+// } from "./statepayment";
+// import { useSelector, useDispatch } from "react-redux";
+// import {
+//   createPayment,
+//   updateCurrentStep,
+// } from "../../redux/features/paymentSlice";
+// const { Step } = Steps;
+
+// const Payment = () => {
+//   const [getAllOrder, setGetAllOrder] = useState([]);
+//   const dispatch = useDispatch();
+//   const order = useSelector((state) => state.order);
+//   const payment = useSelector((state) => state.payment);
+
+//   // console.log("order", order);
+//   // console.log("payment", payment);
+
+//   const currentStep = payment.currentStep;
+//   // console.log("currentStep", currentStep);
+
+//   // useEffect(() => {
+//   //   axios
+//   //     .get("http://localhost:8001/getallorder")
+//   //     .then((res) => {
+//   //       setGetAllOrder(res.data);
+//   //     })
+//   //     .catch((err) => {
+//   //       console.log(err);
+//   //     });
+//   // }, []);
+
+//   // console.log("getAllOrder", getAllOrder);
+//   // console.log("getAllOrder", getAllOrder[0].order_volume[0].id_book);
+
+//   const handleNext = () => {
+//     dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
+//   };
+//   const handlePrev = () => {
+//     dispatch(createPayment({ currentStep: currentStep - 1 }));
+//   };
+//   const steps = [
+//     {
+//       title: "Confirm Order",
+//       content: <ConfirmOrder />,
+//       description: "This is a description.",
+//     },
+//     {
+//       title: "Payment Details",
+//       content: <PaymentDetails />,
+//     },
+//     {
+//       title: "Order Confirmation",
+//       content: <OrderConfirmation />,
+//       icon: <LoadingOutlined />,
+//     },
+//     {
+//       title: "In Transit",
+//       content: <InTransit />,
+//     },
+//   ];
+//   return (
+//     <>
+//       <div className="payment">
+//         <Steps className="step" current={currentStep} items={steps} />
+//         {currentStep === 0 && <ConfirmOrder />}
+//         {currentStep === 1 && <PaymentDetails />}
+//         {currentStep === 2 && <OrderConfirmation />}
+//         {currentStep === 3 && <InTransit />}
+//         <div style={{ marginTop: "24px" }}>
+//           {currentStep > 0 && (
+//             <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
+//               Previous
+//             </Button>
+//           )}
+//           {currentStep < 2 ? (
+//             <Button type="primary" onClick={handleNext}>
+//               Next
+//             </Button>
+//           ) : (
+//             <Button type="primary" disabled>
+//               Finish
+//             </Button>
+//           )}
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Payment;
+
+
+
 import React, { useState } from "react";
-import { Steps, Button } from "antd";
-import { createPayment } from "../../redux/features/paymentSlice";
+import { Button, Steps } from "antd";
 import {
   ConfirmOrder,
   PaymentDetails,
   OrderConfirmation,
   InTransit,
 } from "./statepayment";
-import { useSelector, useDispatch } from "react-redux";
-const { Step } = Steps;
+
+const steps = [
+  {
+    title: "Confirm Order",
+    content: <ConfirmOrder />,
+  },
+  {
+    title: "Payment Details",
+    content: <PaymentDetails />,
+  },
+  {
+    title: "Order Confirmation",
+    content: <OrderConfirmation />,
+  },
+  {
+    title: "In Transit",
+    content: <InTransit />,
+  },
+];
 
 const Payment = () => {
-  const dispatch = useDispatch();
-  const order = useSelector((state) => state.order);
-  const payment = useSelector((state) => state.payment);
-  console.log("order", order);
-  console.log("payment", payment);
+  const [currentStep, setCurrentStep] = useState(0);
 
-  const handleNexts = () => {
-    dispatch(createPayment({ orderDetails: order }));
-  };
-  const currentStep = payment.currentStep;
   const handleNext = () => {
-    dispatch(createPayment({ currentStep: currentStep + 1 }));
+    setCurrentStep(currentStep + 1);
   };
+
   const handlePrev = () => {
-    dispatch(createPayment({ currentStep: currentStep - 1 }));
+    setCurrentStep(currentStep - 1);
   };
-  const steps = [
-    {
-      title: "Confirm Order",
-      content: <ConfirmOrder />,
-      description: "This is a description.",
-    },
-    {
-      title: "Payment Details",
-      content: <PaymentDetails />,
-    },
-    {
-      title: "Order Confirmation",
-      content: <OrderConfirmation />,
-    },
-    {
-      title: "In Transit",
-      content: <InTransit />,
-    },
-  ];
+
+  const items = steps.map((item) => ({
+    key: item.title,
+    title: item.title,
+  }));
+
+  const contentStyle = {
+    lineHeight: "260px",
+    textAlign: "center",
+    marginTop: 16,
+  };
+
   return (
     <>
-      <button onClick={handleNexts}>update</button>
-      <div>
-        <Steps current={currentStep} items={steps} />
-        {currentStep === 0 && <ConfirmOrder />}
-        {currentStep === 1 && <PaymentDetails />}
-        {currentStep === 2 && <OrderConfirmation />}
-        {currentStep === 3 && <InTransit />}
-        <div style={{ marginTop: "24px" }}>
-          {currentStep > 0 && (
-            <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
-              Previous
-            </Button>
-          )}
-          {currentStep < 3 ? (
-            <Button type="primary" onClick={handleNext}>
-              Next
-            </Button>
-          ) : (
-            <Button type="primary" disabled>
-              Finish
-            </Button>
-          )}
-        </div>
+      <Steps current={currentStep} items={items} />
+      <div style={contentStyle}>{steps[currentStep].content}</div>
+      <div style={{ marginTop: "24px" }}>
+        {currentStep > 0 && (
+          <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
+            Previous
+          </Button>
+        )}
+        {currentStep < steps.length - 1 ? (
+          <Button type="primary" onClick={handleNext}>
+            Next
+          </Button>
+        ) : (
+          <Button
+            type="primary"
+            onClick={() => console.log("Processing complete!")}
+          >
+            Done
+          </Button>
+        )}
       </div>
     </>
   );

@@ -96,7 +96,7 @@ const DefaultLayout = ({ children }) => {
             </button>
 
             <div className="breadcrumb">
-              <BreadC />
+              {/* <BreadC /> */}
             </div>
             {/* <Search /> */}
             {/* <Dropdown  trigger={["click"]}> */}
