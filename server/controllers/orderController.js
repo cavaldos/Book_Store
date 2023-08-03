@@ -1,4 +1,5 @@
 const Order = require('../models/order')
+
 const orderController = {
     addOrder: async (req, res) => {
       try {
@@ -52,6 +53,43 @@ const orderController = {
                   }
                 }, {
                   '$limit': 18
+                }
+              ])
+            res.status(200).json(revenues);
+        } catch (err) {
+            res.status(500).json({
+            message: err.message,
+            });
+        }
+    },
+    getReport: async (req, res) => {
+        try {
+            const revenues = await Order.aggregate([
+                // Match documents where the orderDate field is within the last month
+                {
+                  $match: {
+                    orderDate: {
+                      $gte: new Date(new Date().setMonth(new Date().getMonth() - 1)),
+                      $lte: new Date()
+                    }
+                  }
+                },
+                // Group by user ID and count the number of orders and total sum
+                {
+                  $group: {
+                    _id: '$userId',
+                    numOrders: { $sum: 1 },
+                    totalSum: { $sum: '$orderTotal' }
+                  }
+                },
+                // Group by null to get the total number of users, total number of orders, and overall total sum
+                {
+                  $group: {
+                    _id: null,
+                    numUsers: { $sum: 1 },
+                    numOrders: { $sum: '$numOrders' },
+                    totalSum: { $sum: '$totalSum' }
+                  }
                 }
               ])
             res.status(200).json(revenues);
