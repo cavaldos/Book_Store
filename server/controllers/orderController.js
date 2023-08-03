@@ -1,5 +1,4 @@
 const Order = require('../models/order')
-
 const orderController = {
     addOrder: async (req, res) => {
       try {
@@ -114,4 +113,5 @@ const orderController = {
       }
     },
 };
+
 module.exports = orderController;

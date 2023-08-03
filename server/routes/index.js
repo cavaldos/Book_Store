@@ -32,5 +32,4 @@ router.get("/getallorders", orderController.getAllOrders); // da xong
 router.delete("/deleteorder", orderController.deleteOrder); // da xong
 router.get("/getrevenues", orderController.getRevenueByMonth); // da xong
 
-
 module.exports = router;

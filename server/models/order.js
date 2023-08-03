@@ -56,6 +56,5 @@ const orderSchema = new mongoose.Schema({
         default: false,
         required: true,
     }
-
 });
 module.exports = mongoose.model("Order", orderSchema);
