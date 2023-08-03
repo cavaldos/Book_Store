@@ -86,7 +86,7 @@ const userSchema = new mongoose.Schema({
       }),
     ],
   },
-  photoUrl: {
+  avatarUrl: {
     type: String,
     required: false,
   }

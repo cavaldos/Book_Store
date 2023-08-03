@@ -40,7 +40,7 @@ const avatarController = {
       }
 
       // Update the user's photoUrl field with the new image URL
-      user.photoUrl = imageUrl;
+      user.avatarUrl = imageUrl;
       await user.save();
 
 
@@ -56,12 +56,12 @@ const avatarController = {
 
       // Find the user in the database using the email
       const user = await User.findOne({ email });
-      if (!user || !user.photoUrl) {
+      if (!user || !user.avatarUrl) {
         return res.status(404).json({ error: "User avatar not found" });
       }
 
       // Return the user's avatar URL
-      res.status(200).json({ photoUrl: user.photoUrl });
+      res.status(200).json({ photoUrl: user.avatarUrl });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: "Server error" });
