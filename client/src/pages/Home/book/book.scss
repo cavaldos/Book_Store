@@ -1,0 +1,109 @@
+.product-container {
+  border-radius: 4px;
+  margin: 10px;
+  width: 260px;
+  height: 320px;
+  background-image: linear-gradient(
+    to bottom,
+    var(--light-grey),
+    rgba(248, 246, 246, 0.1)
+  );
+  border: 0.1px solid rgba(85, 83, 83, 0.501);
+  box-shadow: 0 0 1px 0 rgba(100, 97, 97, 0.2);
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #f7f6f6d5;
+
+  .image {
+    color: red;
+    background-color: rgba(214, 213, 213, 0.473);
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 248px;
+      height: 180px;
+      border-radius: 4px;
+    }
+  }
+  .title {
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    color: var(--text-dark);
+    margin: 10px 0 0 10px;
+    text-align: left;
+    max-width: 200px; /* Set the maximum width */
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide the overflow */
+    text-overflow: ellipsis; /* Show ellipsis (...) */
+  }
+  .author {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 10px 0 0 10px;
+    text-align: left;
+    max-width: 200px; /* Set the maximum width */
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide the overflow */
+    text-overflow: ellipsis; /* Show ellipsis (...) */
+  }
+  .price {
+  }
+  .rating {
+    position: relative;
+    bottom: 4px;
+    margin: 0px 0 0 10px;
+    text-align: left;
+  }
+  .btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    border: none;
+    border-radius: 0 0 4px 4px;
+    background-color: transparent;
+    color: transparent;
+
+    &:hover {
+      transition: all 0.5s ease-in-out;
+      background-color: rgba(26, 26, 28, 0.983);
+      color: var(--text-light);
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &:active {
+      transition: all 0.2s ease-in-out;
+      transform: scale(1.1);
+    }
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-default);
+  }
+}
+
+.button-info {
+  color:transparent;
+  padding: 90px 120px 90px  120px;
+  background-color: transparent;
+  &:hover {
+    background-color: transparent
+  }
+}

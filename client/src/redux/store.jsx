@@ -1,25 +1,47 @@
-// import { createStore } from 'redux'
-// import combineReducers from "redux";
-import { configureStore } from '@reduxjs/toolkit';
-import bookSlice from './features/bookSlice';
-import userSlice from './features/userSilce';
-import walletSlice from './features/walletSlice';
-import themeSlice from './features/themeSlice';
-import paymentSlice from './features/paymentSlice';
+import bookSlice from "./features/bookSlice";
+import userSlice from "./features/userSilce";
+import roleSlice from "./features/roleSlice";
+import themeSlice from "./features/themeSlice";
+import paymentSlice from "./features/paymentSlice";
+import oderSlice from "./features/oderSlice";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+  whitelist: ["role","theme","oder"],
+};
+const rootReducer = combineReducers({
+  role: roleSlice,
+  theme: themeSlice,
+  payment: paymentSlice,
+  book: bookSlice,
+  user: userSlice,
+  oder: oderSlice,
+});
 
-const store = configureStore(
-    {
-        reducer: {
-            book: bookSlice,
-            user: userSlice,
-            wallet: walletSlice,
-            theme: themeSlice,
-            payment: paymentSlice,
-        },
-    },
-    {},
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+export let persistor = persistStore(store);
 
 export default store;

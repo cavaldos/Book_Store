@@ -1,0 +1,160 @@
+[{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d56327c"
+  },
+  "id": 1,
+  "username": "khanhnguyen",
+  "firstname": "khanh",
+  "lastname": "nguyen",
+  "email": "khanh@gmail.com",
+  "password": "khanh",
+  "phonenumber": "32940239402",
+  "confirmationCode": "",
+  "role": "admin",
+  "id_card": "12345687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d56327d"
+  },
+  "id": 2,
+  "username": "randomname",
+  "firstname": "mlgmr",
+  "lastname": "grgkre",
+  "email": "mrkw4mek@gmail.com",
+  "password": "efnkeswmfk",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "92345687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d56327e"
+  },
+  "id": 3,
+  "username": "randomname",
+  "firstname": "femlm",
+  "lastname": "esfew",
+  "email": "krgmk@gmail.com",
+  "password": "nkgsnkfs",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "82345687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d56327f"
+  },
+  "id": 4,
+  "username": "randomname",
+  "firstname": "lr",
+  "lastname": "segmkesmf",
+  "email": "mekfmgsw@gmail.com",
+  "password": "megkesmgk",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "7345687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d563280"
+  },
+  "id": 5,
+  "username": "randomname",
+  "firstname": "efmk",
+  "lastname": "fekfmk",
+  "email": "fskem@gmail.com",
+  "password": "mkfesmkse",
+  "phonenumber": "344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "8345687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d563281"
+  },
+  "id": 6,
+  "username": "randomname",
+  "firstname": "efs",
+  "lastname": "efses",
+  "email": "sfglsfg@gmail.com",
+  "password": "mefksmfke",
+  "phonenumber": "84344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "645687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d563282"
+  },
+  "id": 7,
+  "username": "randomname",
+  "firstname": "emk",
+  "lastname": "xekm",
+  "email": "dmkm@gmail.com",
+  "password": "4ddkmk",
+  "phonenumber": "84344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "5687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d563283"
+  },
+  "id": 8,
+  "username": "randomname",
+  "firstname": "kesfm",
+  "lastname": "fsefm ",
+  "email": "lamnguyenvu1612@gmail.com",
+  "password": "VuHung309",
+  "phonenumber": "0344805188",
+  "confirmationCode": "970792",
+  "role": "user",
+  "id_card": "45687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba47eb8cf1934a7d563284"
+  },
+  "id": 9,
+  "username": "randomname",
+  "firstname": "kfnkw",
+  "lastname": "wefkme",
+  "email": "wsefmk@gmail.com",
+  "password": "wfmkwe",
+  "phonenumber": "0344805188",
+  "confirmationCode": "",
+  "role": "user",
+  "id_card": "15687",
+  "account_balance": "10"
+},
+{
+  "_id": {
+    "$oid": "64ba6c0710dd3cbc43694f49"
+  },
+  "id": 1004,
+  "username": "thi2dfsg35e2nly",
+  "password": "$2b$10$puZQH5mPR/pYPDR91wD51eyebwa5iNFL4TwYwAJizREL2jzhW2kWW",
+  "email": "l3df45324g3425y@gmal.com",
+  "firstname": "l2sg34a444fd52y",
+  "lastname": "v32gdf5u2",
+  "phonenumber": null,
+  "role": "user",
+  "id_card": null,
+  "account_balance": 0,
+  "__v": 0
+}]

@@ -1,4 +1,8 @@
 /test/
 /server/node_modules/
 /client/node_modules/
+/server/.env
 
+/server/controllers/aiController.js
+/server/routes/aiRoute.js
+# mongodb+srv://bookstore:<password>@borbon.gmpunex.mongodb.net/?retryWrites=true&w=majority
