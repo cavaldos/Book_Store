@@ -42,9 +42,7 @@ const orderSchema = new mongoose.Schema({
   state: {
     type: Number,
     required: true,
-    minlength: 1,
-    maxlength: 100,
-    default: 0,
+    enum: [0, 1, 2, 3],
   },
   date: {
     type: Date,

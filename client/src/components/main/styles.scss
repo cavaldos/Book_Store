@@ -470,6 +470,8 @@
     .sidebar {
       transition: all 0.35s;
       width: 12rem; //
+
+
     }
     .header {
       left: 200px;
@@ -487,7 +489,7 @@
   }
   .close {
     .sidebar {
-      transition: all 0.35s;
+      transition: all 0.35s; 
       width: 5rem;
       left: -100px;
       #logo {

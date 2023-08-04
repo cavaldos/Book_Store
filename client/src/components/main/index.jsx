@@ -20,7 +20,7 @@ import { useDispatch } from "react-redux";
 import { updateRole } from "../../redux/features/roleSlice";
 import { useNavigate } from "react-router-dom";
 const DefaultLayout = ({ children }) => {
-  const [toggle, setToggle] = useState("open");
+  const [toggle, setToggle] = useState("close");
   const [scroll, setScroll] = useState("up");
   const navigate = useNavigate();
   window.addEventListener("scroll", function () {
@@ -28,7 +28,7 @@ const DefaultLayout = ({ children }) => {
     scrollPosition > 50 ? setScroll("down") : setScroll("up");
   });
   const handleHeader = () => {
-    toggle === "open" ? setToggle("close") : setToggle("open");
+    toggle === "close" ? setToggle("open") : setToggle("close");
   };
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);

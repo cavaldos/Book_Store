@@ -11,6 +11,7 @@ import OnlineLayout from "../components/onlineLayout";
 import ChatBot from "../util/chat";
 import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
+import  MyOder from "../pages/User/myorder/myorder";
 // public routes
 const publicRoutes = [
   {
@@ -74,6 +75,10 @@ const userRoutes = [
   {
     path: "/user/cart/payment",
     component: Payment,
+  },
+  {
+    path: "/user/myorder",
+    component: MyOder,
   },
 ];
 

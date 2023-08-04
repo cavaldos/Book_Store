@@ -38,6 +38,12 @@ function UserSidebar(props) {
       text: "Profile",
       path: "/user/profile",
     },
+    {
+      key: "MyOrder",
+      icon: <MenuFoldOutlined />,
+      text: "MyOrder",
+      path: "/user/myorder",
+    },
   ];
 
   return (

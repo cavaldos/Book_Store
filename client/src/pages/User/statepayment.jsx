@@ -1,13 +1,17 @@
 import React from "react";
 import { Table } from "antd";
 
-import { Steps } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { Alert, Space, Spin } from "antd";
+import { Steps, Button, message } from "antd";
+import {
+  createPayment,
+  updateCurrentStep,
+} from "../../redux/features/paymentSlice";
 const { Step } = Steps;
 ///
 export const fetchOrder = () => async (dispatch) => {};
-
 const ConfirmOrder = () => {
   const columns = [
     {
@@ -15,7 +19,6 @@ const ConfirmOrder = () => {
       dataIndex: "title",
       key: "title",
     },
-
     {
       title: "Price $",
       dataIndex: "price",
@@ -27,32 +30,58 @@ const ConfirmOrder = () => {
       key: "quantity",
     },
   ];
-
   const order = useSelector((state) => state.order);
+  const dispatch = useDispatch();
+  const payment = useSelector((state) => state.payment);
+  const currentStep = payment.currentStep;
+  const handleNext = () => {
+    dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
+  };
+
   console.log("orderk", order);
   const { title, price, quantity } = order;
   return (
     <>
       <div>
         <Table
-          // style={{ margin: "0 100px 0 100px" }}
           columns={columns}
           dataSource={order}
-          // loading={true}
-          // rowKey={(products) => products}
+          rowKey={(record) => record.id} // add a unique key prop to each row
           pagination={{ pageSize: 10 }}
-          bordered
         />
+
+        <Button type="primary " onClick={handleNext}>
+          Next
+        </Button>
       </div>
     </>
   );
 };
 
 const PaymentDetails = () => {
+
+
+  //luu don hang
+  const dispatch = useDispatch();
+  const payment = useSelector((state) => state.payment);
+  const currentStep = payment.currentStep;
+  const handleNext = () => {
+    dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
+  };
+  const handlePrev = () => {
+    dispatch(createPayment({ currentStep: currentStep - 1 }));
+  };
   return (
     <div>
       <h2>Payment Details</h2>
       <p> xacs nhan xanhtoans </p>
+      <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
+        {" "}
+        Previous{" "}
+      </Button>
+      <Button type="primary" onClick={handleNext}>
+        Next
+      </Button>
     </div>
   );
 };
@@ -60,8 +89,15 @@ const PaymentDetails = () => {
 const OrderConfirmation = () => {
   return (
     <div>
+      <Spin tip="Loading...">
+        <Alert
+          style={{ margin: "0 100px 0 100px" }}
+          message="Alert message title"
+          description="Further details about the context of this alert."
+          type="info"
+        />
+      </Spin>
       <h2>Order Confirmation</h2>
-      <p> cho user xac nhan down hang</p>
     </div>
   );
 };
@@ -70,9 +106,44 @@ const InTransit = () => {
   return (
     <div>
       <h2>In Transit</h2>
+      <Spin />
       <p> don hang dang duoc giao toi ban </p>
+      <Button
+        type="primary"
+        onClick={() => message.success("Processing complete!")}
+      >
+        Done
+      </Button>
     </div>
   );
 };
 
 export { ConfirmOrder, PaymentDetails, OrderConfirmation, InTransit };
+//  {
+//    currentStep > 0 && currentStep !== 3 && (
+//      <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
+//        Previous
+//      </Button>
+//    );
+//  }
+//  {
+//    currentStep < 3 && currentStep !== 2 ? (
+//      <Button type="primary" onClick={handleNext}>
+//        Next
+//      </Button>
+//    ) : currentStep !== 2 ? (
+//      <Button
+//        type="primary"
+//        onClick={() => message.success("Processing complete!")}
+//      >
+//        Done
+//      </Button>
+//    ) : currentStep === 3 ? (
+//      <Button
+//        type="primary"
+//        onClick={() => message.success("Processing complete!")}
+//      >
+//        Done
+//      </Button>
+//    ) : null;
+//  }

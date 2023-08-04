@@ -73,8 +73,12 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: 0,
   },
- 
-
+  id_oder: {
+    type: [String], 
+    required: false,
+    default: ["..."],
+    unique: true,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
