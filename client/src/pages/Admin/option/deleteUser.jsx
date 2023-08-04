@@ -19,7 +19,7 @@ const DeleteUser = (user) => {
     }
     try {
       await axios
-        .post("http://localhost:8001/deleteuser", {
+        .post("http://localhost:8000/deleteuser", {
           email,
         })
         .then((res) => {

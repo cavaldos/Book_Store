@@ -83,6 +83,7 @@ function AccountSettings() {
         setOriginalUserData(JSON.parse(JSON.stringify(userData)));
         setIsProfileUpdated(false); // Reset trạng thái khi cập nhật thành công
         alert('Change Profile Successfully');
+        window.location.reload()
       } else {
         console.error('Failed to update profile:', response.statusText);
         alert('An error occurred while updating profile.');
