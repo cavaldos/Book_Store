@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Steps } from "antd";
 import axios from "axios";
 import { LoadingOutlined, SolutionOutlined } from "@ant-design/icons";
-
+import CopyText from "./myorder/copytext";
 import "./user.scss";
 import {
   ConfirmOrder,
@@ -44,7 +44,6 @@ const Payment = () => {
   // console.log("getAllOrder", getAllOrder);
   // console.log("getAllOrder", getAllOrder[0]);
 
- 
   const steps = [
     {
       title: "Confirm Order",
@@ -84,17 +83,16 @@ const Payment = () => {
   };
   return (
     <>
-      <div className="payment">
-        <p>id{payment.id_payment}</p>
-        <h1>My order</h1>
-        <Steps className="steps" current={currentStep} items={items} />
-
-        <div style={contentStyle}>{steps[currentStep].content}</div>
-
-        <div style={{ marginTop: "24px" }}>
-         
-        </div>
+      <div
+        className="payment"
+        style={{ display: "flex", alignItems: "center" }}
+      >
+        <h1 style={{ marginRight: "16px" }}>My order</h1>
+        <CopyText text={payment.id_payment} />
       </div>
+      <Steps className="steps" current={currentStep} items={items} />
+      <div style={contentStyle}>{steps[currentStep].content}</div>
+      <div style={{ marginTop: "24px" }}></div>
     </>
   );
 };
