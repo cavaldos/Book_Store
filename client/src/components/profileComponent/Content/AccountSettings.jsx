@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FormControl, FormLabel, Grid, Input, Select, Box, Button, IconButton, Flex } from '@chakra-ui/react';
 import { EditIcon } from '@chakra-ui/icons';
 import { useSelector } from 'react-redux';
+import { message } from "antd"
 
 function AccountSettings() {
   const [userData, setUserData] = useState({
@@ -82,15 +83,15 @@ function AccountSettings() {
       if (response.ok) {
         setOriginalUserData(JSON.parse(JSON.stringify(userData)));
         setIsProfileUpdated(false); // Reset trạng thái khi cập nhật thành công
-        alert('Change Profile Successfully');
+        message.success('Change Profile Successfully');
         window.location.reload()
       } else {
         console.error('Failed to update profile:', response.statusText);
-        alert('An error occurred while updating profile.');
+        message.error('An error occurred while updating profile.');
       }
     } catch (error) {
       console.error('Error updating profile:', error);
-      alert('An error occurred while updating profile.');
+      message.error('An error occurred while updating profile.');
     }
   };
 

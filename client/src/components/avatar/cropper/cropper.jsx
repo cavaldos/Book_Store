@@ -12,6 +12,7 @@ import { SnackbarContext } from "../snackbar/snackbar";
 import { BackdropContext } from "../backdrop/backdrop";
 import { dataURLtoFile } from "../../../util/dataURLtoFile.js";
 import { useSelector } from 'react-redux'
+import { message } from "antd"
 
 const useStyles = makeStyles({
   iconButton: {
@@ -113,6 +114,7 @@ export default function RenderCropper({ handleCropper, setAvatar }) {
 
       closeBackdrop();
       setAvatar(res2.data);
+      message.success("Change Avatar Succesfully")
     } catch (err) {
       closeBackdrop();
       console.warn(err);

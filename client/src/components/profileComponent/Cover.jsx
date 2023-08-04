@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { message } from "antd";
 
 
 
@@ -54,9 +55,10 @@ export default function Cover() {
 
         if (response.data.success) {
           console.log('Cover image uploaded successfully');
-          // Optionally, you can perform additional actions after a successful upload
+          message.success("Change Cover Image Successfully");
         } else {
           console.error('Failed to upload cover image');
+          message.error("Failed to upload cover image");
         }
       } catch (error) {
         console.error('Error uploading cover image:', error);
