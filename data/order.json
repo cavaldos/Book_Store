@@ -1,0 +1,45 @@
+[
+  {
+    "order_code": "2018010sdf10001",
+    "adress": "北京市朝阳区",
+    "price_total": "100",
+    "state": "1"
+  },
+  {
+    "order_code": "20180sdf1010001",
+    "voucher_code": "201801010001",
+    "adress": "北京市朝阳区",
+    "price_total": "100",
+    "state": "1"
+  },
+  {
+    "order_code": "20180ksdal1010001",
+    "voucher_code": "201801010001",
+    "adress": "北京市朝阳区",
+    "price_total": "100",
+    "state": "1"
+  },
+
+  {
+    "order_volume": [
+      {
+        "id": 0,
+        "quantity": 0
+      },
+      {
+        "id": 0,
+        "quantity": 0
+      },
+      {
+        "id": 3,
+        "quantity": 5
+      }
+    ],
+
+    "order_code": "555",
+    "voucher_code": "201801010ds001",
+    "adress": "北京市朝阳区",
+    "price_total": 100,
+    "state": 3
+  }
+]

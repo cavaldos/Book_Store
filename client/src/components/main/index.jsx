@@ -19,11 +19,11 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 // import SidebarRespon from "./custom/sidebarrespon";
 import { useDispatch } from "react-redux";
 import { updateRole } from "../../redux/features/roleSlice";
-
+import { useNavigate } from "react-router-dom";
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("open");
   const [scroll, setScroll] = useState("up");
-
+  const navigate = useNavigate();
   window.addEventListener("scroll", function () {
     const scrollPosition = window.scrollY;
     scrollPosition > 50 ? setScroll("down") : setScroll("up");
@@ -63,13 +63,27 @@ const DefaultLayout = ({ children }) => {
       </Menu.Item>
     </Menu>
   );
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(
+      updateRole({
+        role: "public",
+        roleRouter: "public",
+        email: "...",
+        password: "...",
+      })
+    );
+    navigate("/");
+    
+  };
+
   return (
     <>
       <div className={toggle}>
         {/*  */}
         <div className="header">
           <div className={scroll}>
-            <div
+            <button
               className="button"
               onClick={() => {
                 handleHeader();
@@ -80,19 +94,22 @@ const DefaultLayout = ({ children }) => {
               ) : (
                 <MenuUnfoldOutlined className="button-icon" />
               )}
-            </div>
+            </button>
 
             <div className="breadcrumb">
-              <BreadC />
+              {/* <BreadC /> */}
             </div>
-            <Search />
-            <Dropdown trigger={["click"]}>
-              <Avatar
-                className="avatar"
-                alt={roleemail}
-                src="/static/images/avatar/1.jpg"
-              />
-            </Dropdown>
+            {/* <Search /> */}
+            {/* <Dropdown  trigger={["click"]}> */}
+            <Avatar
+              className="avatar"
+              alt={roleemail}
+              src="/static/images/avatar/1.jpg"
+              onClick={() => {
+                logout();
+              }}
+            />
+            {/* </Dropdown> */}
 
             <Notify />
           </div>

@@ -108,35 +108,17 @@
 }
 
 
-@keyframes change{
-  0%  {
-    background-image: url('../../../public/Promote_1.jpg');
-  }
-  15% {
-      background-image: url('../../../public/Promote_2.png');
-  }
-  30% {
-    background-image: url('../../../public/Promote_3.png');
-  }
-  45% {
-    background-image: url('../../../public/Promote_4.png');
-  }
-  60% {
-    background-image: url('../../../public/Promote_5.png');
-  }
-  75% {
-    background-image: url('../../../public/Promote_6.png');
-  }
-  90% {
-    background-image: url('../../../public/Promote_7.png');
-  }
+//middle
+@media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  // máy tính màn hinh nhỏ
 }
-/////////////
-#rs_bg
-{
-  margin-top: 100px;
+
+// ipad air
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  // ipad
 }
-#su_bg
-{
-  margin-top: 15px;
+
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
+  // iphone 5/SE/12 pro
 }

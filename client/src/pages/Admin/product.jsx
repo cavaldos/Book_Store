@@ -5,7 +5,6 @@ import axios, { all } from "axios";
 import { Table, Input, Button, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
-import { set } from "react-hook-form";
 import { Modal } from "antd";
 function ManagerProduct() {
   const [book, setBook] = useState([]);
@@ -14,7 +13,7 @@ function ManagerProduct() {
   //http:localhost:8000/getallbooks
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallbooks")
+      .get("http://localhost:8001/getallbookmanage")
       .then((response) => {
         setBook(response.data);
       })
@@ -22,7 +21,6 @@ function ManagerProduct() {
         console.log(error);
       });
   }, []);
-
   const bookInfos = book.map((book) => {
     return {
       key: book.ID,
@@ -68,7 +66,11 @@ function ManagerProduct() {
               Search
             </Button>
             <Button
-              onClick={() => handleReset(clearFilters)}
+              onClick={() => {
+                clearFilters();
+                setSelectedKeys([]);
+                confirm();
+              }}
               size="small"
               style={{ width: 90 }}
             >
@@ -169,7 +171,6 @@ function ManagerProduct() {
   const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
-    window.location.reload();
   };
 
   return (

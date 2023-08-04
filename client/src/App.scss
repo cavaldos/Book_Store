@@ -1,115 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Marko+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Marko+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,500&display=swap");
 
-@import 'normalize.css';
+@import "normalize.css";
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
 }
 :root {
-    --light-bg: rgb(255, 254, 254);
-    --white-grey: #eee;
-    --white: rgb(251, 253, 250);
-    --dark-bg: rgb(65, 64, 73);
-    --dark-bg-top: rgb(65, 64, 73);
-    --dark-bg-bot: rgb(26, 26, 28);
-    --dark-click: rgb(86, 86, 95);
-    --text-dark: rgb(32, 43, 55);
-    --text-light: rgb(255, 254, 254);
-
-    --border: 0.1rem solid rgba(0, 0, 0, 0.2);
-    --distance-left: 13%;
-    --test-color: #c40000;
-    --shadow-default: 0px 10px 20px 0.5px rgba(99, 88, 88, 0.3);
+  --light-bg: rgb(255, 254, 254);
+  --white-grey: #eee;
+  --white: rgb(251, 253, 250);
+  --dark-bg: rgb(65, 64, 73);
+  --dark-bg-top: rgb(65, 64, 73);
+  --dark-bg-bot: rgb(26, 26, 28);
+  --dbt: rgb(53, 53, 58);
+  --dbb: rgb(41, 41, 44);
+  --dark-click: rgb(86, 86, 95);
+  --text-dark: rgb(32, 43, 55);
+  --text-light: rgb(255, 254, 254);
+  --sidebar-button: rgb(65, 64, 73);
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  --distance-left: 13%;
+  --test-color: #c40000;
+  --shadow-default: 0px 10px 20px 0.5px rgba(99, 88, 88, 0.3);
 }
 
-@media only screen and (min-width: 1180px) and (max-width: 1929px) {
-  .header {
-    .up {
-      background-color: rgb(157, 255, 0);
-    }
-  }
+//middle
+@media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  // máy tính màn hinh nhỏ
 }
+
 // ipad air
 @media only screen and (min-width: 650px) and (max-width: 1180px) {
-  .header {
-    .up {
-      background-color: red;
-    }
-  }
+  // ipad
 }
 
-//iphone 12pro doc
-@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-  .header {
-    .up {
-      background-color: rgb(90, 54, 54);
-    }
-  }
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
+  // iphone 5/SE/12 pro
 }
-
-//iphone 12pro ngang
-@media only screen and (device-width: 844px) and (device-height: 390px) and (-webkit-device-pixel-ratio: 3) {
-  .header {
-    .up {
-      background-color: rgb(90, 54, 54);
-    }
-  }
-}
-
-//respoo auto
-@media only screen and (min-device-width: 375px) and (max-device-width: 649px) {
-  .header {
-    .up {
-      background-color: rgb(60, 10, 177);
-    }
-  }
-}
-
-//respoo auto
-@media only screen and (min-device-width: 300px) and (max-device-width: 399px) {
-  .header {
-    .up {
-      background-color: rgb(109, 25, 53);
-    }
-  }
-}
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////
-// :root {
-//   --main-color: #8e44ad;
-//   --red: #e74c3c;
-//   --orange: #f39c12;
-//   --light-color: #888;
-//   --light-background: #eee;
-//   --black: #2c3e50;
-//   --white: #fff;
-//   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
-//   --distance-left:13%;
-//   --background-wrraper: #f5f5f5;
-//   --test-color: #c40000;
-
-// }
-
-// :root {
-//   --main-color: #8e44ad;
-//   --red: #e74c3c;
-//   --orange: #f39c12;
-//   --light-color: #211818;
-//   --light-background: #191414;
-//   --black: #ffffff;
-//   --white: #272121;
-//   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
-//   --distance-left: 14%;
-//   --background-wrraper: #231a1a;
-//   --test-color: #c40000;
-// }
-///

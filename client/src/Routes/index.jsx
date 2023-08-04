@@ -10,6 +10,7 @@ import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import ChatBot from "../util/chat";
 import Profile from "../pages/Profile/profile";
+import Payment from "../pages/User/payment";
 // public routes
 const publicRoutes = [
   {
@@ -70,11 +71,19 @@ const userRoutes = [
     path: "/user/profile",
     component: Profile,
   },
+  {
+    path: "/user/cart/payment",
+    component: Payment,
+  },
 ];
 
 const employeeRoutes = [
   {
     path: "/",
+    component: Home,
+  },
+  {
+    path: "/employee",
     component: Home,
   },
 ];

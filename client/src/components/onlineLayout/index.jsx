@@ -29,29 +29,12 @@ const OnlineLayout = () => {
   return (
     <>
       <div className="header_online">
-        <div className={scroll}>
-          <Button
-            className="button-signin"
-            variant="contained"
-            onClick={() => handle("/signin")}
-          >
-            Sign in
-          </Button>
-          <Button
-            className="button-signup"
-            variant="contained"
-            onClick={() => handle("/signup")}
-          >
-            Sign Up
-          </Button>
-          <Search />
-        </div>
+        <div className={scroll}>uiouu</div>
       </div>
-
       {/* main */}
       <div className="main_online">
         <div className="containers_online">
-          <Home />
+          <Home />{" "}
         </div>
         <Footer />
       </div>

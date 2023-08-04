@@ -11,9 +11,14 @@
     right: 10px;
     left: 10px;
     top: 10px;
-    min-width: 95vw;
+    min-width: 90vw;
     height: 70px;
-    background-color: var(--white-grey);
+    // background-color: var(--white-grey);
+    background-image: linear-gradient(
+      to bottom,
+      var(--dbt),
+      var(--dbb)
+    );
     border-radius: 5px;
     transition: all 0.35s;
     .search-wrapper {
@@ -22,24 +27,24 @@
     }
   }
   .down_online {
-    transition: 0.6s;
+     background-image: linear-gradient(
+      to top,
+      var(--dbt),
+      var(--dbb)
+    );
+    transition: 0.9s;
     padding: 10px;
     position: fixed;
     right: 30px;
     left: 30px;
     top: 10px;
-    min-width: 95vw;
+    min-width: 92vw;
     height: 70px;
     background-color: var(--white-grey);
     border-radius: 5px;
     transition: all 0.35s;
     opacity: 0.94;
     box-shadow: 0px 5px 20px 0.3px rgba(59, 59, 59, 0.5);
-    .search-wrapper {
-      left: 100px;
-
-      top: 13px;
-    }
   }
 }
 
@@ -75,16 +80,65 @@
   }
 }
 
-.button-signup {
-  position: absolute;
-  right: 10px;
-  left: 90%;
-  margin: 10px;
-  color: red;
+//middle
+@media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  // máy tính màn hinh nhỏ
+  .header_online {
+    .up_online {
+      left: 16px;
+    }
+    .down_online {
+      right: 25px;
+    }
+  }
+  .main_online {
+    flex-direction: column;
+    right: -10px;
+    left: -10px;
+    padding: 90px 12px 10px 15px;
+    z-index: 1;
+  }
 }
-.button-signin {
-  position: absolute;
-  right: 10px;
-  left: 89%;
-  margin: 10px;
+
+// ipad air
+@media only screen and (min-width: 650px) and (max-width: 1179px) {
+  // ipad
+  .header_online {
+    .up_online {
+      left: 16px;
+    }
+    .down_online {
+      height: 65px;
+    }
+  }
+  .main_online {
+    flex-direction: column;
+    right: -10px;
+    left: -10px;
+    padding: 90px 12px 10px 15px;
+    z-index: 1;
+  }
+}
+
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
+  // iphone 5/SE/12 pro
+  .header_online {
+    .up_online {
+      left: 10px;
+    }
+    .down_online {
+      height: 65px;
+      min-width: 80vw;
+      right: 23px;
+      left: 27px;
+    }
+  }
+  .main_online {
+    flex-direction: column;
+    right: -10px;
+    left: -10px;
+    padding: 90px 12px 10px 15px;
+    z-index: 1;
+  }
 }

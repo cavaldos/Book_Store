@@ -11,10 +11,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Product(props) {
   const { id, image, description, price } = props;
-  const [new_quantity, setNew_quantity] = useState(1);
-  const [total, setTotal] = useState(price * new_quantity);
+  const quantity = useSelector((state) => {
+    const order = state.order.find((item) => item.id === id);
+    return order ? order.quantity : 0;
+  });
+  const [totalPrice, setTotalPrice] = useState(0);
 
-
+  const total = price * quantity;
+  useEffect(() => {
+    setTotalPrice(price * quantity);
+  }, [price, quantity]);
+  const dispatch = useDispatch();
 
   const handleAddproduct = () => {
     setNew_quantity(new_quantity + 1);
