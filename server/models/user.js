@@ -89,6 +89,10 @@ const userSchema = new mongoose.Schema({
   avatarUrl: {
     type: String,
     required: false,
+  },
+  coverUrl: {
+    type: String,
+    required: false,
   }
 });
 

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import {
   Badge,
   Box,
@@ -15,11 +15,17 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react'
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+
+
 
 export default function Cover() {
   const [coverImage, setCoverImage] = useState(null)
   const inputRef = useRef(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const email = useSelector((state) => state.role.email);
+
 
   const openChooseFile = () => {
     inputRef.current.click()
@@ -37,6 +43,59 @@ export default function Cover() {
 
     onOpen()
   }
+  // const handleChangeCover = async (event) => {
+  //   const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
+  //   const selected = event.target.files[0];
+
+  //   if (selected && ALLOWED_TYPES.includes(selected.type)) {
+  //     let reader = new FileReader();
+  //     reader.onloadend = () => setCoverImage(reader.result);
+  //     reader.readAsDataURL(selected);
+
+  //     // Upload cover image to backend and update user's coverUrl in MongoDB
+  //     const formData = new FormData();
+  //     formData.append('coverImage', selected);
+  //     formData.append('email', email);
+
+  //     try {
+  //       const response = await axios.post('http://localhost:8000/setcoverImage', formData, {
+  //         headers: {
+  //           'Content-Type': 'multipart/form-data',
+  //         },
+  //       });
+
+  //       if (response.data.success) {
+  //         console.log('Cover image uploaded successfully');
+  //         // Optionally, you can perform additional actions after a successful upload
+  //       } else {
+  //         console.error('Failed to upload cover image');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error uploading cover image:', error);
+  //     }
+  //   } else {
+  //     onOpen();
+  //   }
+  // };
+
+  useEffect(() => {
+    // Call the backend API to get the coverUrl for the user
+    async function fetchCoverUrl() {
+      try {
+        const response = await axios.post('http://localhost:8000/getcoverImage', { email });
+
+        if (response.data.success) {
+          setCoverImage(response.data.coverUrl);
+        } else {
+          console.error('Failed to get cover image');
+        }
+      } catch (error) {
+        console.error('Error getting cover image:', error);
+      }
+    }
+
+    fetchCoverUrl();
+  }, [email]);
 
   return (
     <Box h={60} overflow="hidden">

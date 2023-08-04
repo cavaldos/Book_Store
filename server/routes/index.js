@@ -5,6 +5,7 @@ const bookController = require("../controllers/bookController");
 const avatarController = require("../controllers/avatarController");
 const paymentController = require("../controllers/paymentController");
 const editprofileController = require("../controllers/editprofileController");
+const coverController = require("../controllers/coverController");
 
 
 //AUTHENTICATION
@@ -35,6 +36,9 @@ router.post("/setProfilePic", avatarController.setProfilePic);
 router.get("/getAvatar", avatarController.getAvatar);
 router.post("/getProfile", editprofileController.getProfile);
 router.post("/editProfile", editprofileController.editProfile);
+router.post("/setcoverImage", coverController.setCoverPic);
+router.post("/getcoverImage", coverController.getCoverPic);
+
 
 //STRIPE
 router.get("/sendAPIStripe",paymentController.sendStripApi);
