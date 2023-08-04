@@ -30,6 +30,6 @@ router.post("/findbooks", bookController.findBook);// da xong, da test
 router.post("/addorder", orderController.addOrder); //  da xong
 router.get("/getallorders", orderController.getAllOrders); // da xong
 router.delete("/deleteorder", orderController.deleteOrder); // da xong
-router.get("/getrevenues", orderController.getRevenueByMonth); // da xong
+router.get("/getrevenues", orderController.getReport); // da xong
 
 module.exports = router;

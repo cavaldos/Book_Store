@@ -29,7 +29,7 @@ const orderController = {
             });
         }
     },
-    getRevenueByMonth: async (req, res) => {
+    getReport: async (req, res) => {
         try {
             const revenues = await Order.aggregate([
                 {
@@ -37,33 +37,26 @@ const orderController = {
                     'isPaid': true
                   }
                 }, {
+                  '$sort': {
+                    'dateCreated': 1
+                  }
+                }, {
                   '$group': {
                     '_id': {
-                      'year': {
-                        '$year': '$dateCreated'
-                      }, 
-                      'month': {
-                        '$month': '$dateCreated'
+                      '$dateToString': {
+                        'format': '%m/%Y', 
+                        'date': '$dateCreated'
                       }
                     }, 
-                    'total_income': {
+                    'totalIncome': {
                       '$sum': '$totalPrice'
                     }
                   }
                 }, {
-                  '$limit': 18
+                  '$limit': 12
                 }
-              ])
-            res.status(200).json(revenues);
-        } catch (err) {
-            res.status(500).json({
-            message: err.message,
-            });
-        }
-    },
-    getReport: async (req, res) => {
-        try {
-            const revenues = await Order.aggregate([
+              ]);
+            const overview = await Order.aggregate([
                 // Match documents where the orderDate field is within the last month
                 {
                   $match: {
@@ -91,7 +84,64 @@ const orderController = {
                   }
                 }
               ])
-            res.status(200).json(revenues);
+            const genreData = await Order.aggregate([
+                {
+                  '$match': {
+                    'isPaid': true
+                  }
+                }, {
+                  '$group': {
+                    '_id': '$books.book', 
+                    'nSold': {
+                      '$sum': '$books.quantity'
+                    }
+                  }
+                }, {
+                  '$lookup': {
+                    'from': 'books', 
+                    'localField': '_id', 
+                    'foreignField': '_id', 
+                    'as': 'book_info'
+                  }
+                }, {
+                  '$group': {
+                    '_id': {
+                      '$first': '$book_info.Genre'
+                    }, 
+                    'nSold': {
+                      '$sum': '$nSold'
+                    }
+                  }
+                }
+              ]);
+            const bestSellers = await Order.aggregate([
+                {
+                  '$match': {
+                    'isPaid': true
+                  }
+                }, {
+                  '$group': {
+                    '_id': '$books.book', 
+                    'nSold': {
+                      '$sum': '$books.quantity'
+                    }
+                  }
+                }, {
+                  '$lookup': {
+                    'from': 'books', 
+                    'localField': '_id', 
+                    'foreignField': '_id', 
+                    'as': 'book_info'
+                  }
+                }, {
+                  '$sort': {
+                    'nSold': -1
+                  }
+                }, {
+                  '$limit': 10
+                }
+              ]);
+            res.status(200).json({overview, revenues, genreData, bestSellers});
         } catch (err) {
             res.status(500).json({
             message: err.message,
