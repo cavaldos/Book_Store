@@ -73,23 +73,8 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: 0,
   },
-  Notification: {
-    type: Array,
-    required: false,
-    default: [
-      Notification({
-        id: 0,
-        content: "Welcome to Bookstore",
-        time: Date.now(),
-        statusbar: false,
-      }),
-    ],
-  },
-  list_order_code: {
-    type: Array,
-    required: false,
-    default: ["odc1","ocd2"],
-  },
+ 
+
 });
 
 const User = mongoose.model("User", userSchema);

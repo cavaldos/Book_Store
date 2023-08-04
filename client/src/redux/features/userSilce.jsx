@@ -5,16 +5,27 @@ import { useEffect } from "react";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    id: null,
-    name: "",
+    id: "",
+    username: "",
     email: "",
-    password: "",
+    firstname: "",
+    lastname: "",
+    phonenumber: "",
+    role: "",
+    id_card: "",
+    account_balance: "",
     Notification: [
       {
         id: 1,
-        title: "Thông báo 1",
+        title: "Thông báo",
+
+      },
+      {
+        id: 1,
+        title: "Thông báo",
       },
     ],
+    hiden: false,
     number_notification: Notification.length,
   },
   reducers: {

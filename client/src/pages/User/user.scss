@@ -1,11 +1,12 @@
 .payment {
-  margin: 100px 20px;
+  // margin: 100px 20px;
   .step {
     color: red;
     margin-top: 20px;
     background-color: rgb(162, 184, 184);
   }
 }
+
 //middle
 @media only screen and (min-width: 1180px) and (max-width: 1900px) {
   // máy tính màn hinh nhỏ
@@ -19,4 +20,13 @@
 //ihone 5/SE
 @media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
   // iphone 5/SE/12 pro
+
+  .payment {
+    margin: 0;
+    .step {
+      color: red;
+      margin-top: 20px;
+      background-color: rgb(162, 184, 184);
+    }
+  }
 }

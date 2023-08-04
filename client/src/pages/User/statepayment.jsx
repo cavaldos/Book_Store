@@ -1,14 +1,50 @@
 import React from "react";
-import { Steps } from "antd";
+import { Table } from "antd";
 
+import { Steps } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 const { Step } = Steps;
+///
+export const fetchOrder = () => async (dispatch) => {};
 
 const ConfirmOrder = () => {
+  const columns = [
+    {
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+    },
+
+    {
+      title: "Price $",
+      dataIndex: "price",
+      key: "price",
+    },
+    {
+      title: "Quantity",
+      dataIndex: "quantity",
+      key: "quantity",
+    },
+  ];
+
+  const order = useSelector((state) => state.order);
+  console.log("orderk", order);
+  const { title, price, quantity } = order;
   return (
-    <div>
-      <h2>Confirm Orderl</h2>
-      <p>  hien thi don dan </p>
-    </div>
+    <>
+      <div>
+        <Table
+          // style={{ margin: "0 100px 0 100px" }}
+          columns={columns}
+          dataSource={order}
+          // loading={true}
+          // rowKey={(products) => products}
+          pagination={{ pageSize: 10 }}
+          bordered
+        />
+      </div>
+    </>
   );
 };
 
@@ -35,7 +71,6 @@ const InTransit = () => {
     <div>
       <h2>In Transit</h2>
       <p> don hang dang duoc giao toi ban </p>
-
     </div>
   );
 };
