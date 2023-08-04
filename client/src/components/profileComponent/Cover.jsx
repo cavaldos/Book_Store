@@ -31,52 +31,40 @@ export default function Cover() {
     inputRef.current.click()
   }
 
-  const handleChangeCover = event => {
-    const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg']
-    const selected = event.target.files[0]
+  const handleChangeCover = async (event) => {
+    const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
+    const selected = event.target.files[0];
 
     if (selected && ALLOWED_TYPES.includes(selected.type)) {
-      let reader = new FileReader()
-      reader.onloadend = () => setCoverImage(reader.result)
-      return reader.readAsDataURL(selected)
+      let reader = new FileReader();
+      reader.onloadend = () => setCoverImage(reader.result);
+      reader.readAsDataURL(selected);
+
+      // Upload cover image to backend and update user's coverUrl in MongoDB
+      const formData = new FormData();
+      formData.append('coverImage', selected);
+      formData.append('email', email);
+
+      try {
+        const response = await axios.post('http://localhost:8000/setcoverImage', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        if (response.data.success) {
+          console.log('Cover image uploaded successfully');
+          // Optionally, you can perform additional actions after a successful upload
+        } else {
+          console.error('Failed to upload cover image');
+        }
+      } catch (error) {
+        console.error('Error uploading cover image:', error);
+      }
+    } else {
+      onOpen();
     }
-
-    onOpen()
-  }
-  // const handleChangeCover = async (event) => {
-  //   const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
-  //   const selected = event.target.files[0];
-
-  //   if (selected && ALLOWED_TYPES.includes(selected.type)) {
-  //     let reader = new FileReader();
-  //     reader.onloadend = () => setCoverImage(reader.result);
-  //     reader.readAsDataURL(selected);
-
-  //     // Upload cover image to backend and update user's coverUrl in MongoDB
-  //     const formData = new FormData();
-  //     formData.append('coverImage', selected);
-  //     formData.append('email', email);
-
-  //     try {
-  //       const response = await axios.post('http://localhost:8000/setcoverImage', formData, {
-  //         headers: {
-  //           'Content-Type': 'multipart/form-data',
-  //         },
-  //       });
-
-  //       if (response.data.success) {
-  //         console.log('Cover image uploaded successfully');
-  //         // Optionally, you can perform additional actions after a successful upload
-  //       } else {
-  //         console.error('Failed to upload cover image');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error uploading cover image:', error);
-  //     }
-  //   } else {
-  //     onOpen();
-  //   }
-  // };
+  };
 
   useEffect(() => {
     // Call the backend API to get the coverUrl for the user
