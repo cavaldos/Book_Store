@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./sidebar.scss";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
@@ -6,7 +6,37 @@ import { useSelector } from "react-redux";
 import { Tooltip } from "antd";
 function Logo() {
   const role = useSelector((state) => state.role);
+  const email = useSelector((state) => state.role.email);
   const [avatar, setAvatar] = React.useState("");
+  const [userData, setUserData] = useState({
+    username: '',
+  });
+
+  useEffect(() => {
+    // Fetch user data from the backend based on the email
+    fetchUserData();
+  }, [email]);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch(`http://localhost:8000/getProfile`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUserData(data);
+      } else {
+        console.error('Failed to fetch user data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
 
 
   useEffect(() => {
@@ -36,8 +66,8 @@ function Logo() {
             src={avatar || "img/unknown.png"}
           />
         </Space>
-        <Tooltip placement="rightBottom" title={role.email}>
-          <h5 className="name-sidebar">{role.email}</h5>
+        <Tooltip placement="rightBottom" title={userData.username}>
+          <h5 className="name-sidebar">{userData.username}</h5>
         </Tooltip>
         <p className="role-sidebar">{role.role}</p>
       </div>
