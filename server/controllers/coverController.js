@@ -23,13 +23,13 @@ const coverController = {
     }
 
     try {
-    //   const tempDir = "temp/"; // Create a "temp" directory in your project
-    //   fs.mkdirSync(tempDir, { recursive: true }); // Create the "temp" directory if it doesn't exist
-    //   const tempFilePath = path.join(tempDir, req.files.coverImage.name);
-    //   console.log(tempFilePath);
+      const tempDir = "temp/"; // Create a "temp" directory in your project
+      fs.mkdirSync(tempDir, { recursive: true }); // Create the "temp" directory if it doesn't exist
+      const tempFilePath = path.join(tempDir, req.files.coverImage.name);
+      console.log(tempFilePath);
 
-    //   // Save the data from req.files.croppedImage.data into the temporary file
-    //   fs.writeFileSync(tempFilePath, req.files.coverImage.data);
+      // Save the data from req.files.croppedImage.data into the temporary file
+      fs.writeFileSync(tempFilePath, req.files.coverImage.data);
 
       const result = await cloudinary.uploader.upload(tempFilePath, {
         folder: "cover_images",
