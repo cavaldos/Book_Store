@@ -55,7 +55,7 @@ const AddUser = (props) => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8001/adduser", {
+      const response = await axios.post("http://localhost:8000/adduser", {
         email: user.email,
         password: user.password,
         username: user.username,
