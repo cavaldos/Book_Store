@@ -16,33 +16,34 @@ function Search() {
   };
 
   return (
-    <Tippy
-      visible={value.length > 0}
-      interactive={true}
-      render={(attrs) => <div className="search-result">{value}</div>}
-      placement="bottom"
-    >
-      <div className="search-wrapper">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="search-input"
-          value={value}
-          onChange={handleChange}
-        />
-        {value.length > 0 && (
-          <button>
-            <CloseCircleOutlined
-              className="search-icon-close"
-              onClick={handleClear}
-            />
-          </button>
-        )}
-        <Tippy content="Search" placement="right">
-          <SearchOutlined className="search-icon-search" />
-        </Tippy>
-      </div>
-    </Tippy>
+    // <Tippy
+    //   visible={value.length > 0}
+    //   interactive={true}
+    //   render={(attrs) => <div className="search-result">{value}</div>}
+    //   placement="bottom"
+    // >
+    //   <div className="search-wrapper">
+    //     <input
+    //       className="search-input"
+    //       type="text"
+    //       placeholder="search-input"
+    //       value={value}
+    //       onChange={handleChange}
+    //     />
+    //     {value.length > 0 && (
+    //       <button>
+    //         <CloseCircleOutlined
+    //           className="search-icon-close"
+    //           onClick={handleClear}
+    //         />
+    //       </button>
+    //     )}
+    //     <Tippy content="Search" placement="right">
+    //       <SearchOutlined className="search-icon-search" />
+    //     </Tippy>
+    //   </div>
+    // </Tippy>
+    <></>
   );
 }
 

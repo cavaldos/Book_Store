@@ -27,7 +27,7 @@ import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
 
 import { useDispatch, useSelector } from "react-redux";
-
+import LoadingCustom from "./custom/loading";
 import { updateRole } from "../../redux/features/roleSlice";
 
 function SignIn() {
@@ -46,8 +46,8 @@ function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
   };
- 
-  console.log("sign in",role);
+
+  console.log("sign in", role);
   const newdata = { role, email, password };
   async function submit(e) {
     e.preventDefault();
@@ -227,6 +227,7 @@ function SignIn() {
               </Box>
             </Box>
           </Container>
+          <LoadingCustom />
         </div>
       </div>
     </>

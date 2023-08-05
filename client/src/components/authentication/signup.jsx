@@ -341,6 +341,7 @@ export default function SignUp() {
               </Box>
             </Box>
           </Container>
+    
         </div>
       </div>
     </>

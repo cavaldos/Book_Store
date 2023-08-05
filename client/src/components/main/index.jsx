@@ -3,22 +3,19 @@ import "./styles.scss";
 import AdminSidebar from "../layout/sidebar/adminSidebar";
 import UserSidebar from "../layout/sidebar/userSidebar";
 import EmployeeSidebar from "../layout/sidebar/employeeSidebar";
-import BreadC from "../layout/header/breadcrumb";
 import Footer from "../layout/footer";
-import Search from "../layout/header/search";
-import Notify from "./custom/notify";
-
+import Notify from "../layout/header/custom/notify";
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-
-import Avatar from "@mui/material/Avatar";
-import { Menu, Dropdown } from "antd";
-
+import { Space } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { updateRole } from "../../redux/features/roleSlice";
 import { useNavigate } from "react-router-dom";
+import Search from "../layout/header/search";
+import BreadC from "../layout/header/breadcrumb";
+import AvartarUser from "../layout/header/custom/avatar";
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("close");
   const [scroll, setScroll] = useState("up");
@@ -35,33 +32,6 @@ const DefaultLayout = ({ children }) => {
   };
   const role = useSelector((state) => state.role.role);
   const roleemail = useSelector((state) => state.role.email);
-
-  const menu = (
-    <Menu style={{ borderRadius: "5px" }}>
-      <Menu.Item>
-        <button style={{ border: "none", backgroundColor: "transparent" }}>
-          Home
-        </button>
-      </Menu.Item>
-      <Menu.Item>
-        <button style={{ border: "none", backgroundColor: "transparent" }}>
-          Profile
-        </button>
-      </Menu.Item>
-      <Menu.Item>
-        <button
-          style={{
-            border: "none",
-            backgroundColor: "transparent",
-            fontWeight: "bold",
-            color: "red",
-          }}
-        >
-          Logout
-        </button>
-      </Menu.Item>
-    </Menu>
-  );
   const dispatch = useDispatch();
   const logout = () => {
     dispatch(
@@ -73,15 +43,13 @@ const DefaultLayout = ({ children }) => {
       })
     );
     navigate("/");
-    
   };
 
   return (
     <>
       <div className={toggle}>
-        {/*  */}
         <div className="header">
-          <div className={scroll}>
+          <Space className={scroll}>
             <button
               className="button"
               onClick={() => {
@@ -94,24 +62,15 @@ const DefaultLayout = ({ children }) => {
                 <MenuUnfoldOutlined className="button-icon" />
               )}
             </button>
-
-            <div className="breadcrumb">
-              {/* <BreadC /> */}
-            </div>
-            {/* <Search /> */}
-            {/* <Dropdown  trigger={["click"]}> */}
-            <Avatar
-              className="avatar"
-              alt={roleemail}
-              src="/static/images/avatar/1.jpg"
-              onClick={() => {
-                logout();
-              }}
-            />
-            {/* </Dropdown> */}
-
-            <Notify />
-          </div>
+            <Space id="brc">
+              <BreadC />
+              <Search />
+            </Space>
+            <Space id="space-h">
+              <AvartarUser />
+              <Notify />
+            </Space>
+          </Space>
         </div>
 
         {role === "admin" ? (
