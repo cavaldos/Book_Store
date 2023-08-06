@@ -2,6 +2,7 @@ import Wallet from "../pages/Wallet";
 import ManagerUser from "../pages/Admin/user";
 import ManagerProduct from "../pages/Admin/product";
 import Home from "../pages/Home";
+import Revenue from "../pages/Revenue";
 
 const adminRoutes = [
   {
@@ -36,7 +37,7 @@ const adminRoutes = [
   },
   {
     path: "/admin/revenue",
-    component: Wallet,
+    component: Revenue,
   },
   {
     path: "/admin/advertising",
