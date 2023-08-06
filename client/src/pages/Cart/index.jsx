@@ -31,7 +31,7 @@ function Cart() {
     }
     const orderDetails = cart.map((item) => {
       return {
-        id: item.id,
+        id_book: item.id,
         quantity: item.quantity,
       };
     });

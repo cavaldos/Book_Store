@@ -12,13 +12,13 @@ export const userSlice = createSlice({
     lastname: "",
     phonenumber: "",
     role: "",
+    id_order: ["2", "khanh"],
     id_card: "",
     account_balance: "",
     Notification: [
       {
         id: 1,
         title: "Thông báo",
-
       },
       {
         id: 1,

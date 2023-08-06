@@ -47,6 +47,15 @@ function Order(props) {
     <div
       style={{ margin: "10px", border: "2px solid black", borderRadius: "8px" }}
     >
+      {current === 0 ? (
+        <h2 style={{ color: "red" }}>Confirm Order</h2>
+      ) : current === 1 ? (
+        <h2 style={{ color: "red" }}>Payment Details</h2>
+      ) : current === 2 ? (
+        <h2 style={{ color: "red" }}>Order Confirmation</h2>
+      ) : (
+        <h2 style={{ color: "red" }}>In Transit</h2>
+      )}
       <Copy text={id_order}></Copy>
       <Steps className="steps" current={current} items={items} />
     </div>

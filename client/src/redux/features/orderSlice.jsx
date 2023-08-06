@@ -38,10 +38,18 @@ export const orderSlice = createSlice({
         orderToUpdate.quantity -= 1;
       }
     },
+    resetOrder: (state) => {
+      return [];
+    },
   },
 });
 
-export const { addToCart, removeOrder, increaseQuantity, decreaseQuantity } =
-  orderSlice.actions;
+export const {
+  addToCart,
+  removeOrder,
+  increaseQuantity,
+  decreaseQuantity,
+  resetOrder,
+} = orderSlice.actions;
 
 export default orderSlice.reducer;

@@ -37,10 +37,17 @@ export const paymentSlice = createSlice({
       state.currentStep = 0;
       state.total = 0;
     },
+    resetPayment: (state) => {
+      state.id_payment = 0;
+      state.orderDetails = [];
+      state.email_user = "";
+      state.currentStep = 0;
+      state.total = 0;
+    }
   },
 });
 
-export const { createPayment, updateTotal, updateCurrentStep, removePayment } =
+export const { createPayment, updateTotal, updateCurrentStep, removePayment,resetPayment } =
   paymentSlice.actions;
 
 export default paymentSlice.reducer;

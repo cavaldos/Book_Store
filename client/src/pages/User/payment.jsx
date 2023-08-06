@@ -21,11 +21,8 @@ const { Step } = Steps;
 const Payment = () => {
   const [getAllOrder, setGetAllOrder] = useState([]);
   const dispatch = useDispatch();
-  const order = useSelector((state) => state.order);
-  const payment = useSelector((state) => state.payment);
 
-  // console.log("order", order);
-  // console.log("payment", payment);
+  const payment = useSelector((state) => state.payment);
 
   const currentStep = payment.currentStep;
   console.log("currentStep", currentStep);
@@ -41,7 +38,7 @@ const Payment = () => {
       });
   }, []);
 
-  // console.log("getAllOrder", getAllOrder);
+  console.log("getAllOrder", getAllOrder);
   // console.log("getAllOrder", getAllOrder[0]);
 
   const steps = [

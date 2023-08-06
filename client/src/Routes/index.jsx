@@ -8,6 +8,7 @@ import ChatBot from "../util/chat";
 import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
 import MyOder from "../pages/User/myorder/myorder";
+import ConfirmOrder from "../pages/employee/confirmOrder";
 // public routes
 const publicRoutes = [
   {
@@ -79,6 +80,14 @@ const employeeRoutes = [
   {
     path: "/employee",
     component: Home,
+  },
+  {
+    path: "/employee/profile",
+    component: Profile,
+  },
+  {
+    path: "/employee/confirm-order",
+    component: ConfirmOrder,
   },
 ];
 

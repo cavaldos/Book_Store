@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import { Drawer } from "antd";
 import { BellOutlined } from "@ant-design/icons";
 import { Badge, Space } from "antd";
+import { useSelector } from "react-redux";
 const Notify = () => {
+  const user = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
@@ -26,7 +28,7 @@ const Notify = () => {
         }}
       >
         <Space>
-          <Badge size="small" count={58}>
+          <Badge size="small" count={user.number_notification}>
             <BellOutlined style={{ fontSize: "29px" }} onClick={showDrawer} />
           </Badge>
         </Space>

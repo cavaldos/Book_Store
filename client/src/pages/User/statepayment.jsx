@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { Alert, Space, Spin } from "antd";
 import { Steps, Button, message } from "antd";
+import { resetOrder } from "../../redux/features/orderSlice";
+
 import {
   createPayment,
   updateCurrentStep,
@@ -34,11 +36,12 @@ const ConfirmOrder = () => {
   const dispatch = useDispatch();
   const payment = useSelector((state) => state.payment);
   const currentStep = payment.currentStep;
+
   const handleNext = () => {
     dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
   };
 
-  console.log("orderk", order);
+  // console.log("orderk", order);
   const { title, price, quantity } = order;
   return (
     <>
@@ -59,14 +62,36 @@ const ConfirmOrder = () => {
 };
 
 const PaymentDetails = () => {
-
-
+  //http://localhost:8001/createorder
   //luu don hang
   const dispatch = useDispatch();
   const payment = useSelector((state) => state.payment);
   const currentStep = payment.currentStep;
+  console.log("detail", payment.orderDetails);
   const handleNext = () => {
     dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
+    axios
+      .post("http://localhost:8001/createorder", {
+        state: 2,
+        address: "hcm",
+        price_total: payment.total,
+        order_code: payment.id_payment,
+        order_volume: payment.orderDetails,
+      })
+      .then((res) => {
+        if(res.data === "success"){
+          message.success("Processing complete!");
+        }
+        else{
+          message.error("Processing fail!");
+        }
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      dispatch(resetOrder());
+
   };
   const handlePrev = () => {
     dispatch(createPayment({ currentStep: currentStep - 1 }));
