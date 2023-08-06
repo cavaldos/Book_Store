@@ -12,7 +12,7 @@ export const userSlice = createSlice({
     lastname: "",
     phonenumber: "",
     role: "",
-    id_order: ["2", "khanh"],
+    id_order: [],
     id_card: "",
     account_balance: "",
     Notification: [
