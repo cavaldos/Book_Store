@@ -7,22 +7,16 @@ import Logo from "./logo";
   const menuItems = [
     { key: "home", icon: <MenuUnfoldOutlined />, text: "Home", path: "/" },
     {
-      key: "manager-user",
+      key: "profile",
       icon: <MenuUnfoldOutlined />,
-      text: "Manager-user",
-      path: "/admin/user",
+      text: "Profile",
+      path: "/employee/profile",
     },
     {
-      key: "manager-product",
+      key: "confirm-order",
       icon: <MenuFoldOutlined />,
-      text: "Manager-product",
-      path: "/admin/product",
-    },
-    {
-      key: "manager-revenue",
-      icon: <MenuFoldOutlined />,
-      text: "Manager-revenue",
-      path: "/admin/revenue",
+      text: "Manager Order",
+      path: "/employee/confirm-order",
     },
   ];
 

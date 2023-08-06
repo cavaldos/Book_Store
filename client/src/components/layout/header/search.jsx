@@ -43,36 +43,34 @@ function Search() {
   };
 
   return (
-    <Tippy
-      render={() => (
-        <div className="search-result">
-          <ul>
-            {matchedBooks.map((book, index) => (
-              <li key={index}>{book.Tittle}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      placement="bottom-start"
-      interactive={true}
-      visible={value.length > 0 && matchedBooks.length > 0}
-    >
-      <div className="search-wrapper">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Search for books"
-          value={value}
-          onChange={handleChange}
-        />
-        {value.length > 0 && (
-          <button onClick={handleClear}>
-            <CloseCircleOutlined className="search-icon-close" />
-          </button>
-        )}
-        <SearchOutlined className="search-icon-search"/>
-      </div>
-    </Tippy>
+    // <Tippy
+    //   visible={value.length > 0}
+    //   interactive={true}
+    //   render={(attrs) => <div className="search-result">{value}</div>}
+    //   placement="bottom"
+    // >
+    //   <div className="search-wrapper">
+    //     <input
+    //       className="search-input"
+    //       type="text"
+    //       placeholder="search-input"
+    //       value={value}
+    //       onChange={handleChange}
+    //     />
+    //     {value.length > 0 && (
+    //       <button>
+    //         <CloseCircleOutlined
+    //           className="search-icon-close"
+    //           onClick={handleClear}
+    //         />
+    //       </button>
+    //     )}
+    //     <Tippy content="Search" placement="right">
+    //       <SearchOutlined className="search-icon-search" />
+    //     </Tippy>
+    //   </div>
+    // </Tippy>
+    <></>
   );
 }
 

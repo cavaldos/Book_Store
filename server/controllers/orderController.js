@@ -43,13 +43,13 @@ const orderController = {
   findOrder: async (req, res) => {
     try {
       const { order_code } = req.body;
-      const order = await Order.findOne({ order_code: order_code });
-      if (order) {
-        res.json(order);
-      } else if (!order) {
+      const orders = await Order.find({ order_code: { $in: order_code } });
+      if (orders.length > 0) {
+        res.json(orders);
+      } else {
         res.json("fail");
       }
-    } catch {
+    } catch (error) {
       res.json("fail");
     }
   },

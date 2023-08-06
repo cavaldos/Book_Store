@@ -2,15 +2,13 @@ import SignIn from "../components/authentication/signin";
 import SignUp from "../components/authentication/signup";
 import Cart from "../pages/Cart";
 import Home from "../pages/Home";
-import Author from "../pages/Manager/Author";
-import User from "../pages/Manager/User";
-import Revenue from "../pages/Revenue";
-import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import ChatBot from "../util/chat";
 import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
+import MyOder from "../pages/User/myorder/myorder";
+import ConfirmOrder from "../pages/employee/confirmOrder";
 // public routes
 const publicRoutes = [
   {
@@ -37,10 +35,7 @@ const publicRoutes = [
     path: "/profile",
     component: Profile,
   },
-  {
-    path: "/manager-author",
-    component: Author,
-  },
+
   {
     path: "/reset-password",
     component: ResetPassword,
@@ -64,16 +59,16 @@ const userRoutes = [
     component: Cart,
   },
   {
-    path: "/user/wallet",
-    component: Wallet,
-  },
-  {
     path: "/user/profile",
     component: Profile,
   },
   {
     path: "/user/cart/payment",
     component: Payment,
+  },
+  {
+    path: "/user/myorder",
+    component: MyOder,
   },
 ];
 
@@ -85,6 +80,14 @@ const employeeRoutes = [
   {
     path: "/employee",
     component: Home,
+  },
+  {
+    path: "/employee/profile",
+    component: Profile,
+  },
+  {
+    path: "/employee/confirm-order",
+    component: ConfirmOrder,
   },
 ];
 

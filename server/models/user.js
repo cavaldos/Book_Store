@@ -73,22 +73,11 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: 0,
   },
-  Notification: {
-    type: Array,
+  id_oder: {
+    type: [String], 
     required: false,
-    default: [
-      Notification({
-        id: 0,
-        content: "Welcome to Bookstore",
-        time: Date.now(),
-        statusbar: false,
-      }),
-    ],
-  },
-  list_order_code: {
-    type: Array,
-    required: false,
-    default: ["odc1","ocd2"],
+    default: ["..."],
+    unique: true,
   },
 });
 

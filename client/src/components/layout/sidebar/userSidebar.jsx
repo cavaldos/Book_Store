@@ -26,17 +26,18 @@ function UserSidebar(props) {
       text: "Payment",
       path: "/user/cart/payment",
     },
-    {
-      key: "wallet",
-      icon: <MenuFoldOutlined />,
-      text: "Wallet",
-      path: "/user/wallet",
-    },
+
     {
       key: "Profile",
       icon: <MenuFoldOutlined />,
       text: "Profile",
       path: "/user/profile",
+    },
+    {
+      key: "MyOrder",
+      icon: <MenuFoldOutlined />,
+      text: "MyOrder",
+      path: "/user/myorder",
     },
   ];
 

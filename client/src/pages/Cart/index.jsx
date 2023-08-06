@@ -5,14 +5,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { createPayment } from "../../redux/features/paymentSlice";
 import { message } from "antd";
 import { v4 as uuidv4 } from "uuid";
-
+import { useNavigate } from "react-router-dom";
 function Cart() {
   const [cart, setCart] = useState([]);
   const orders = useSelector((state) => state.order);
   const payment = useSelector((state) => state.payment);
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const orderCode=uuidv4();
+  const orderCode = uuidv4();
   useEffect(() => {
     setCart(orders);
   }, [orders]);
@@ -30,19 +31,21 @@ function Cart() {
     }
     const orderDetails = cart.map((item) => {
       return {
-        id: item.id,
+        id_book: item.id,
         quantity: item.quantity,
       };
     });
     const payload = {
       orderDetails,
-      email_user:user.email,
+      email_user: user.email,
       currentStep: 0,
-      id_payment:  orderCode,
+      id_payment: orderCode,
       total: totalPrice,
     };
     dispatch(createPayment(payload));
-  
+    setTimeout(() => {
+      navigate("/user/cart/payment");
+    }, 800);
   };
   return (
     <>

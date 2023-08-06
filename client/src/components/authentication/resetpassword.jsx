@@ -20,7 +20,6 @@ import IconButton from "@mui/material/IconButton";
 
 import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
-import Role from "./custom/setrole";
 import { message } from "antd";
 
 //----------------------------------------------------------------
@@ -120,7 +119,7 @@ function ResetPassword() {
               <Typography component="h1" variant="5">
                 Reset Password
               </Typography>
-              <Role />
+
               <Box
                 component="form"
                 onSubmit={handleSubmit}
