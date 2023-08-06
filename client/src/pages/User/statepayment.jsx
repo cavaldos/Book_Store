@@ -6,7 +6,8 @@ import axios from "axios";
 import { Alert, Space, Spin } from "antd";
 import { Steps, Button, message } from "antd";
 import { resetOrder } from "../../redux/features/orderSlice";
-
+import { resetPayment } from "../../redux/features/paymentSlice";
+import { useNavigate } from "react-router-dom";
 import {
   createPayment,
   updateCurrentStep,
@@ -62,6 +63,7 @@ const ConfirmOrder = () => {
 };
 
 const PaymentDetails = () => {
+  const navigate = useNavigate();
   //http://localhost:8001/createorder
   //luu don hang
   const dispatch = useDispatch();
@@ -79,19 +81,18 @@ const PaymentDetails = () => {
         order_volume: payment.orderDetails,
       })
       .then((res) => {
-        if(res.data === "success"){
+        if (res.data === "success") {
           message.success("Processing complete!");
-        }
-        else{
+        } else {
           message.error("Processing fail!");
         }
-
       })
       .catch((err) => {
         console.log(err);
       });
-      dispatch(resetOrder());
-
+    dispatch(resetOrder());
+    dispatch(resetPayment());
+    navigate("/");
   };
   const handlePrev = () => {
     dispatch(createPayment({ currentStep: currentStep - 1 }));
