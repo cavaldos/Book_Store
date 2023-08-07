@@ -9,6 +9,7 @@ import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
 import MyOder from "../pages/User/myorder/myorder";
 import ConfirmOrder from "../pages/employee/confirmOrder";
+import Paypal from "../components/paypal";
 // public routes
 const publicRoutes = [
   {
@@ -69,6 +70,10 @@ const userRoutes = [
   {
     path: "/user/myorder",
     component: MyOder,
+  },
+  {
+    path: "/user/payment-paypal",
+    component: Paypal,
   },
 ];
 

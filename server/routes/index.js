@@ -3,7 +3,7 @@ const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 const orderController = require("../controllers/orderController");
-
+const revenueController = require("../controllers/revenueController");
 //AUTHENTICATION
 router.post("/signin", authController.signin); // đã viết xong
 router.post("/register", authController.register); // đã viết xong
@@ -35,4 +35,10 @@ router.get("/getallorder", orderController.getAllOrder); // da xong, da test
 router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
 router.post("/findorder", orderController.findOrder); // da xong, da test
 router.post("/removeorder", orderController.removeOrder); // da xong, da test
+
+//revenue
+router.get("/getrevenue", revenueController.getRevenue); // da xong, da test
+router.post("/findrevenue", revenueController.findRevenue); // da xong, da test
+router.post("/findrevenuebydate", revenueController.findRevenue); // da xong, da test
+router.post("/findrevenuebyyear", revenueController.findByYear); // da xong, da test
 module.exports = router;
