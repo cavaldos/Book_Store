@@ -1,7 +1,7 @@
 import ManagerUser from "../pages/Admin/user";
 import ManagerProduct from "../pages/Admin/product";
 import Home from "../pages/Home";
-
+import Revenue from "../pages/Admin/Revenue";
 const adminRoutes = [
   {
     path: "/",
@@ -24,7 +24,11 @@ const adminRoutes = [
 
     component: ManagerProduct,
   },
-  
+  {
+    path: "admin/revenue",
+
+    component: Revenue,
+  },
 ];
 
 export default adminRoutes;
