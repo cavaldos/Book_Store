@@ -9,6 +9,7 @@ import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
 import MyOder from "../pages/User/myorder/myorder";
 import ConfirmOrder from "../pages/employee/confirmOrder";
+import Book from "../components/Book/book"
 // public routes
 const publicRoutes = [
   {
@@ -41,6 +42,11 @@ const publicRoutes = [
     component: ResetPassword,
     layout: null,
   },
+  {
+    path: "/book/:bookId",
+    component: Book,
+    layout: null,
+  },
 ];
 
 const userRoutes = [
@@ -70,6 +76,10 @@ const userRoutes = [
     path: "/user/myorder",
     component: MyOder,
   },
+  // {
+  //   path: "/user/book/:bookId",
+  //   component: Book,
+  // },
 ];
 
 const employeeRoutes = [

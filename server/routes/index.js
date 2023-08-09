@@ -27,6 +27,7 @@ router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // d
 router.delete("/deletebook", bookController.deleteBook); // da xong, da test
 router.post("/findbooks", bookController.findBook); // da xong, da test
 router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da test
+router.post("/getfilterbook", bookController.getFilterbook); // da xong, da test
 
 
 

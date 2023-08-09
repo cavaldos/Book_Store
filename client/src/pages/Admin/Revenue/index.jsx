@@ -427,7 +427,6 @@ const TimelineChart = () => {
     </>
   );
 };
-
 const Revenue = () => {
   const [genreData, setGenreData] = useState(null);
   const [bestSellers, setBestSelleres] = useState(null);

@@ -1,7 +1,7 @@
 import "../home.scss";
 import "./book.scss";
 import React from "react";
-import InfoBook from "./infobook";
+import BookButton from "./infobook";
 import { message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
@@ -11,7 +11,7 @@ import { addToCart } from "../../../redux/features/orderSlice";
 function Book(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { id, image, title, author, rate, price, description } = props;
+  const { id, image, title, author, rate, price, description, isbn, genre, publish_year, publisher } = props;
   const role = useSelector((state) => state.role);
   const orders = useSelector((state) => state.order);
 
@@ -40,7 +40,7 @@ function Book(props) {
       <div className="product-container">
         <div className="image">
           <img className="imag" src={image} alt="" />
-          <InfoBook />
+          <BookButton bookInfo={{ id,image,title, author, price, rate, description, isbn,  genre, publish_year, publisher }}/>
         </div>
         <h3 className="title">{title}</h3>
         <p className="author">Author: {author}</p>

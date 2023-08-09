@@ -1,5 +1,7 @@
 const Book = require("../models/book");
 const Cart = require("../models/cart");
+const Filter = require("../models/filter")
+
 
 const bookController = {
   addBook: async (req, res) => {
@@ -89,26 +91,30 @@ const bookController = {
 
   getAllBooks: async (req, res) => {
     try {
-      // const { page = 1, pageSize = 12 } = req.query;
-      // const pageNumber = parseInt(page);
-      // const pageSizeNumber = parseInt(pageSize);
-      // // Calculate the number of documents to skip based on the page number and page size.
-      // const skipDocuments = pageSizeNumber * (pageNumber - 1);
-      // // Fetch books with pagination from the database.
-      // const totalBooks = await Book.countDocuments();
-      // const totalPages = Math.ceil(totalBooks / pageSizeNumber);
-      // const books = await Book.find().skip(skipDocuments).limit(pageSizeNumber);
-      // // Generate an array of page numbers [1, 2, 3, ...]
-      // const pageNumbersArray = Array.from(
-      //   { length: totalPages },
-      //   (_, i) => i + 1
-      // );
-      // res.status(200).json({
-      //   books,
-      //   totalPages,
-      //   currentPage: pageNumber,
-      //   pageNumbers: pageNumbersArray,
-      // });
+      // const getfilter = await Filter.find({ID: 1});
+      // var genrecheck = Filter.Genre;
+      // var pricecheck = Filter.Price;
+      // var ratecheck = Filter.Rate;
+      const { page = 1, pageSize = 12 } = req.query;
+      const pageNumber = parseInt(page);
+      const pageSizeNumber = parseInt(pageSize);
+      // Calculate the number of documents to skip based on the page number and page size.
+      const skipDocuments = pageSizeNumber * (pageNumber - 1);
+      // Fetch books with pagination from the database.
+      const totalBooks = await Book.countDocuments();
+      const totalPages = Math.ceil(totalBooks / pageSizeNumber);
+      const books = await Book.find().skip(skipDocuments).limit(pageSizeNumber);
+      // Generate an array of page numbers [1, 2, 3, ...]
+      const pageNumbersArray = Array.from(
+        { length: totalPages },
+        (_, i) => i + 1
+      );
+      res.status(200).json({
+        books,
+        totalPages,
+        currentPage: pageNumber,
+        pageNumbers: pageNumbersArray,
+      });
     } catch (err) {
       res.status(500).json({
         message: err.message,
@@ -120,6 +126,28 @@ const bookController = {
       const users = await Book.find({ Rating: { $gte: 4.5 } }).limit(10);
       res.status(200).json(users);
       // res.json(dataToSend);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  getFilterbook: async (req, res) => {
+    try {
+      const options = { upsert: true };
+      const data = req.body;
+      const result = await Filter.updateOne(
+        { ID: data.ID },
+        {
+          $set: {
+            ID: data.ID,
+            Genre: data.Genre,
+            Rate: data.Rate,
+            Price: data.Price,
+          },
+        },options
+      );
+      res.status(200).json(result);
     } catch (err) {
       res.status(500).json({
         message: err.message,
