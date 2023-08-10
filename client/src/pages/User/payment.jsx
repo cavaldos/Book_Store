@@ -81,7 +81,7 @@ const Payment = () => {
     <>
       <div
         className="payment"
-        style={{ display: "flex", alignItems: "center" }}
+        style={{ display: "flex", alignItems: "center" ,margin:"10px"}}
       >
         <h1 style={{ marginRight: "16px" }}>My order</h1>
         <CopyText text={payment.id_payment} />

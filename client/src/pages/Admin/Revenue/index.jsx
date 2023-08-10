@@ -12,6 +12,7 @@ function Revenue() {
           display: "flex",
           justifyContent: "cencer",
           flexDirection: "column",
+          padding: "0 20px",
         }}
       >
         <Price />

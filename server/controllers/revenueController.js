@@ -25,7 +25,8 @@ const revenueController = {
   },
   findByYear: async (req, res) => {
     try {
-      const { year } = req.body;
+      const year = req.params.year;
+       
       console.log("year", year);
       const foundRevenue = await Revenue.find({
         "time.year": year,

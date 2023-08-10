@@ -10,6 +10,8 @@ import Payment from "../pages/User/payment";
 import MyOder from "../pages/User/myorder/myorder";
 import ConfirmOrder from "../pages/employee/confirmOrder";
 import Paypal from "../components/paypal";
+import Detailbook from "../components/Product/detail";
+
 // public routes
 const publicRoutes = [
   {
@@ -41,6 +43,10 @@ const publicRoutes = [
     path: "/reset-password",
     component: ResetPassword,
     layout: null,
+  },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
   },
 ];
 
@@ -75,6 +81,10 @@ const userRoutes = [
     path: "/user/payment-paypal",
     component: Paypal,
   },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
+  },
 ];
 
 const employeeRoutes = [
@@ -93,6 +103,10 @@ const employeeRoutes = [
   {
     path: "/employee/confirm-order",
     component: ConfirmOrder,
+  },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
   },
 ];
 

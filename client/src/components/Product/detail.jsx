@@ -12,7 +12,6 @@ function Detailbook(props) {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-
       .get(`http://localhost:8001/${id}`)
       .then((res) => {
         setData(res.data.data);

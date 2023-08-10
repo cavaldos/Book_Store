@@ -5,7 +5,6 @@ import { updateCurrentStep } from "../../../redux/features/paymentSlice";
 
 import { useNavigate } from "react-router-dom";
 
-
 const ConfirmOrder = () => {
   const columns = [
     {
@@ -38,13 +37,13 @@ const ConfirmOrder = () => {
   return (
     <>
       <div>
+        mai efit lại đây
         <Table
           columns={columns}
           dataSource={order}
           rowKey={(record) => record.id} // add a unique key prop to each row
           pagination={{ pageSize: 10 }}
         />
-
         <Button type="primary " onClick={handleNext}>
           Next
         </Button>

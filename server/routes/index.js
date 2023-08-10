@@ -30,9 +30,11 @@ router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da
 router.get("/getrating", bookController.getRatingBook); // da xong, da test
 router.get("/getgenre", bookController.getGenreBook); // da xong, da test
 router.get("/:id", bookController.getBookById); // da xong, da test
+router.get("/search/:query", bookController.searchBook); // da xong, da test
 //order
 router.post("/createorder", orderController.createOrder); // da xong, da test
-router.get("/getallorder", orderController.getAllOrder); // da xong, da test
+// get all orders
+router.get("/getallorders", orderController.getAllOrder); // da xong, da test
 router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
 router.post("/findorder", orderController.findOrder); // da xong, da test
 router.post("/removeorder", orderController.removeOrder); // da xong, da test
@@ -40,5 +42,5 @@ router.post("/removeorder", orderController.removeOrder); // da xong, da test
 //revenue
 router.post("/findrevenue", revenueController.findRevenue); // da xong, da test
 router.post("/findrevenuebydate", revenueController.findRevenue); // da xong, da test
-router.post("/findrevenuebyyear", revenueController.findByYear); // da xong, da test
+router.get("/findyear/:year", revenueController.findByYear); // da xong, da test
 module.exports = router;

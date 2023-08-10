@@ -23,27 +23,27 @@ const PaymentDetails = () => {
   const [receivedMessages, setReceivedMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
 
-  useEffect(() => {
-    const newSocket = connectWebSocket(
-      YOUR_CLIENT_ID,
-      RECEIVER_ID,
-      onMessageReceived
-    );
-    setSocket(newSocket);
-    //Làm sạch kết nối WebSocket trên thành phần không ngừng
-    return () => {
-      if (newSocket) {
-        newSocket.close();
-      }
-    };
-  }, []);
-   const onMessageReceived = (message) => {
-     setReceivedMessages((prevMessages) => [...prevMessages, message]);
-   };
- const handleSendMessage = () => {
-   sendMessage(socket, YOUR_CLIENT_ID, RECEIVER_ID, inputMessage);
-   setInputMessage(5);
- };
+  // useEffect(() => {
+  //   const newSocket = connectWebSocket(
+  //     YOUR_CLIENT_ID,
+  //     RECEIVER_ID,
+  //     onMessageReceived
+  //   );
+  //   setSocket(newSocket);
+  //   //Làm sạch kết nối WebSocket trên thành phần không ngừng
+  //   return () => {
+  //     if (newSocket) {
+  //       newSocket.close();
+  //     }
+  //   };
+  // }, []);
+  //  const onMessageReceived = (message) => {
+  //    setReceivedMessages((prevMessages) => [...prevMessages, message]);
+  //  };
+//  const handleSendMessage = () => {
+//    sendMessage(socket, YOUR_CLIENT_ID, RECEIVER_ID, inputMessage);
+//    setInputMessage(5);
+//  };
   ////////////////////////////////
   const navigate = useNavigate();
   //http://localhost:8001/createorder
@@ -72,19 +72,28 @@ const PaymentDetails = () => {
       .catch((err) => {
         console.log(err);
       });
-    dispatch(resetOrder());
-    dispatch(resetPayment());
-    navigate("/");
   };
   const handlePrev = () => {
-    dispatch(createPayment({ currentStep: currentStep - 1 }));
+     dispatch(updateCurrentStep({ currentStep: currentStep - 1 }));
   };
   return (
     <div>
-      <h2>Payment Details
+      {/* <h2>Payment Details
       <button onClick={handleSendMessage}>Send</button>
-      </h2>
-      <p> xacs nhan xanhtoans </p>
+      </h2> */}
+      <p> xacs nhan xanhtoans
+      
+      
+      asd
+      
+      sad
+      f
+      sadf
+      asd
+      fads
+      f
+      asd
+      fads </p>
       <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
         {" "}
         Previous{" "}

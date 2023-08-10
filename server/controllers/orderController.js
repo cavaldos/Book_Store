@@ -22,12 +22,13 @@ const orderController = {
   },
   getAllOrder: async (req, res) => {
     try {
-      const order = await Order.find();
-      res.json(order);
+      const orders = await Order.find();
+      res.json(orders);
     } catch {
       res.json("fail");
     }
   },
+
   setStateOrder: async (req, res) => {
     try {
       const { order_code, state } = req.body;

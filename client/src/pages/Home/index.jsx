@@ -1,8 +1,10 @@
+
+
 import "./home.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Book from "./book/book";
-import { Spin } from "antd";
+import { Spin, Pagination } from "antd";
 import { Select } from "antd";
 import Fillter from "./fillter/fillter";
 import Product from "../Cart/Product";
@@ -93,6 +95,7 @@ function Home() {
                 title={Tittle}
                 author={Author}
                 price={Price}
+         
                 rate={Rating}
                 description={Description}
                 _id={_id}
@@ -100,32 +103,12 @@ function Home() {
             )
           )}
           <div className="pagination-container">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="control"
-            >
-              {"<"}
-            </button>
-            <div className="page-number-container">
-              {pageNumbers.map((pageNumber) => (
-                <button
-                  key={pageNumber}
-                  onClick={() => handlePageChange(pageNumber)}
-                  disabled={currentPage === pageNumber}
-                  className={currentPage === pageNumber ? "active" : ""}
-                >
-                  {pageNumber}
-                </button>
-              ))}
-            </div>
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="control"
-            >
-              {">"}
-            </button>
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={totalPages * pageSize}
+              onChange={handlePageChange}
+            />
           </div>
         </div>
       </div>

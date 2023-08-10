@@ -53,21 +53,19 @@ const bookController = {
     }
   },
 
-  // searchBook: async (req, res) => {
-  //   try {
-  //     const data = req.body;
-  //     console.log(data);
-  //     const foundBooks = await Book.find(data);
+  searchBook: async (req, res) => {
+    const query = req.params.query;
 
-  //     res.json(foundBooks);
-  //   }
-  //   catch (err) {
-  //     res.status(500).json({
-  //       message: err.message,
-  //     });
-  //   }
-  // },
-
+    try {
+      const regex = new RegExp(query, "i");
+      const books = await Book.find({ Tittle: { $regex: regex } });
+      res.status(200).json(books);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
   editBook: async (req, res) => {
     try {
       const data = req.body;
