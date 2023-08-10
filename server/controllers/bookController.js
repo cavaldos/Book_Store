@@ -86,7 +86,7 @@ const bookController = {
       });
     }
   },
-  getTopBooks: async (req, res) => {
+  getAllBooks: async (req, res) => {
     try {
       const { page = 1, pageSize = 12 } = req.query;
       const pageNumber = parseInt(page);

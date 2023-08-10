@@ -4,7 +4,7 @@ import { Dropdown, Space, Avatar, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {logout} from "../../../../redux/features/roleSlice";
+//import {logout} from "../../../../redux/features/roleSlice";
 const items = [
   {
     key: "1",
@@ -28,7 +28,7 @@ const App = () => {
       } else if (key === "2") {
         message.success("Logout Success");
         setTimeout(() => {
-        dispatch(logout());
+        //dispatch(logout());
         navigate("/");
         }, 1000);
         
