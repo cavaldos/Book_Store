@@ -1,0 +1,94 @@
+.wrapper-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(12, 63, 63);
+  height: 220px;
+  margin: 1px;
+  border-radius: 5px;
+}
+
+.profile-infor {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 110px;
+  width: 1290px;
+  min-height: 300px;
+  .profile-infor-detail {
+    flex: 1.2;
+    background-color: rgb(245, 245, 245);
+    margin: 0 10px 0 0;
+    border-radius: 7px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset;
+  }
+  .profile-content {
+    flex: 3;
+    min-height: 400px;
+  }
+}
+
+//middle
+@media only screen and (min-width: 1300px) and (max-width: 1600px) {
+  // máy tính màn hinh nhỏ
+  .profile-background {
+    background-color: rgb(46, 9, 49);
+  }
+  .profile-infor {
+    max-width: 1000px;
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 1290px) {
+  // máy tính màn hinh nhỏ
+  .profile-background {
+    background-color: rgb(41, 35, 35);
+  }
+  .profile-infor {
+    top:150px;
+    width: 95%;
+    margin: 0 0 20px 0;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    .profile-infor-detail {
+      flex: 1.2;
+      margin: 0 0 20px 0;
+    }
+    .profile-content {
+      flex: 3;
+    }
+  }
+}
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 300px) {
+  // iphone 5/SE/12 pro
+  .profile-background {
+    background-color: rgb(41, 35, 35);
+  }
+  .profile-infor {
+    top: 200px;
+    width: 99%;
+    margin: 0 0 20px 0;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    .profile-infor-detail {
+      flex: 1.2;
+      margin: 0 0 20px 0;
+    }
+    .profile-content {
+      flex: 3;
+    }
+  }
+}

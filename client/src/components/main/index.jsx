@@ -1,135 +1,94 @@
-import '../layout/menu/menu.scss';
-import './styles.scss';
-
-import React from 'react';
-import { useState } from 'react';
-import MenuItem from '../layout/menu';
-import BreadC from '../layout/header/breadcrumb';
-import Button from '@mui/material/Button';
-
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router';
+import "../layout/menu/menu.scss";
+import "./styles.scss";
+import AdminSidebar from "../layout/sidebar/adminSidebar";
+import UserSidebar from "../layout/sidebar/userSidebar";
+import EmployeeSidebar from "../layout/sidebar/employeeSidebar";
+import Footer from "../layout/footer";
+import Notify from "../layout/header/custom/notify";
+import React from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { Space } from "antd";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { updateRole } from "../../redux/features/roleSlice";
+import { useNavigate } from "react-router-dom";
+import Search from "../layout/header/search";
+import BreadC from "../layout/header/breadcrumb";
+import AvartarUser from "../layout/header/custom/avatar";
 const DefaultLayout = ({ children }) => {
-    const [toggle, setToggle] = useState('open');
-    const [scroll, setScroll] = useState('up');
-
-    window.addEventListener('scroll', function () {
-        const scrollPosition = window.scrollY;
-        scrollPosition > 50 ? setScroll('down') : setScroll('up');
-    });
-    const handleHeader = () => {
-        toggle === 'open' ? setToggle('close') : setToggle('open');
-    };
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-    };
-
-    const navigate = useNavigate();
-    const handleLogin = () => {
-        navigate('/signin');
-    };
-    return (
-        <>
-            <div className={toggle}>
-                {/*  */}
-                <div className="header">
-                    <div className={scroll}>
-                        {' '}
-                        <Button
-                            style={{
-                                position: 'absolute',
-                                width: '100px',
-                                right: '10px',
-                                backgroundColor: 'white',
-                                color: 'black',
-                            }}
-                            className="button-signin"
-                            variant="contained"
-                        >
-                            Log out
-                        </Button>
-                        <div
-                            className="button"
-                            onClick={() => {
-                                handleHeader();
-                            }}
-                        >
-                            {toggle === 'open' ? (
-                                <MenuFoldOutlined className="button-icon" />
-                            ) : (
-                                <MenuUnfoldOutlined className="button-icon" />
-                            )}
-                        </div>
-                        <div className="breadcrumb">
-                            <BreadC />
-                        </div>
-                        {/* <div className="control"></div> */}
-                    </div>
-                </div>
-
-                <div className="sidebar">
-                    <div className="logo"></div>
-                    <div className="menu_list">
-                        <div className="menu_item">
-                            <MenuItem
-                                name="Home"
-                                icon=<MenuUnfoldOutlined />
-                                toggle={toggle}
-                                path="/"
-                            />
-                        </div>
-                        <div className="menu_item">
-                            <MenuItem
-                                name="Cart"
-                                icon=<MenuUnfoldOutlined />
-                                toggle={toggle}
-                                path="/cart"
-                            />
-                        </div>
-                        <div className="menu_item">
-                            <MenuItem
-                                name="Author"
-                                icon=<MenuUnfoldOutlined />
-                                toggle={toggle}
-                                path="/manager-author"
-                            />
-                        </div>{' '}
-                        <div className="menu_item">
-                            <MenuItem
-                                name="User"
-                                icon=<MenuUnfoldOutlined />
-                                toggle={toggle}
-                                path="/manager-user"
-                            />
-                        </div>{' '}
-                        <div className="menu_item">
-                            <MenuItem
-                                name="Revenue"
-                                icon=<MenuUnfoldOutlined />
-                                toggle={toggle}
-                                path="/revenue"
-                            />
-                        </div>
-                        <div className="menu_item">
-                            <MenuItem
-                                name="Wallet"
-                                icon=<MenuUnfoldOutlined />
-                                toggle={toggle}
-                                path="/wallet"
-                            />
-                        </div>
-                    </div>
-                </div>
-                {/* main */}
-                <div className="main">
-                    <div className="containers">{children}</div>
-                    <div className="footer">
-                        <h1>footer</h1>
-                    </div>
-                </div>
-            </div>
-        </>
+  const [toggle, setToggle] = useState("close");
+  const [scroll, setScroll] = useState("up");
+  const navigate = useNavigate();
+  window.addEventListener("scroll", function () {
+    const scrollPosition = window.scrollY;
+    scrollPosition > 50 ? setScroll("down") : setScroll("up");
+  });
+  const handleHeader = () => {
+    toggle === "close" ? setToggle("open") : setToggle("close");
+  };
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+  const role = useSelector((state) => state.role.role);
+  const roleemail = useSelector((state) => state.role.email);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(
+      updateRole({
+        role: "public",
+        roleRouter: "public",
+        email: "...",
+        password: "...",
+      })
     );
+    navigate("/");
+  };
+
+  return (
+    <>
+      <div className={toggle}>
+        <div className="header">
+          <Space className={scroll}>
+            <button
+              className="button"
+              onClick={() => {
+                handleHeader();
+              }}
+            >
+              {toggle === "open" ? (
+                <MenuFoldOutlined className="button-icon" />
+              ) : (
+                <MenuUnfoldOutlined className="button-icon" />
+              )}
+            </button>
+            <Space id="brc">
+              <BreadC />
+              <Search />
+            </Space>
+            <Space id="space-h">
+              <AvartarUser />
+              <Notify />
+            </Space>
+          </Space>
+        </div>
+
+        {role === "admin" ? (
+          <AdminSidebar toggle={toggle} />
+        ) : role === "employee" ? (
+          <EmployeeSidebar toggle={toggle} />
+        ) : (
+          <UserSidebar toggle={toggle} />
+        )}
+
+        {/*  dsf*/}
+        <div className="main">
+          <div className="containers">{children}</div>
+          <Footer />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default DefaultLayout;
