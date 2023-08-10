@@ -1,74 +1,66 @@
-import './index.scss';
-import style from './styles';
-import React from 'react';
-import Button from '@mui/material/Button';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import Rating from '@mui/material/Rating';
-import { message } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { addQuantity, updatePrice } from '../../../redux/features/paymentSlice';
-import Edit from './edit';
+import "../home.scss";
+import "./book.scss";
+import React from "react";
+import InfoBook from "./infobook";
+import { message } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Rate } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../../redux/features/orderSlice";
 function Book(props) {
-    const { id, title, price, description, image, rate, quantity } = props;
-    const product = { id, title, price, description, image, rate, quantity };
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { id, image, title, author, rate, price, description, _id } = props;
 
-    const dispatch = useDispatch();
+  const role = useSelector((state) => state.role);
+  const orders = useSelector((state) => state.order);
 
-    const handleClick = () => {
-        const storedProducts =
-            JSON.parse(localStorage.getItem('products')) || [];
-        const existingProduct = storedProducts.find(
-            (productInCart) => productInCart.id === product.id,
-        );
+  const handleAddToCart = () => {
+    const existingOrder = orders.find((order) => order.id === id);
+    if (existingOrder) {
+      message.warning("Product already exists");
+      return;
+    } else {
+      let newOrder = {
+        id,
+        image,
+        title,
+        author,
+        rate,
+        price,
+        description,
+        _id,
+      };
+      dispatch(addToCart(newOrder));
+      message.success("Product added to cart successfully");
+    }
+  };
 
-        if (existingProduct) {
-            message.warning('Products already in the cart');
-        } else {
-            const updatedProducts = [...storedProducts, product];
-            localStorage.setItem('products', JSON.stringify(updatedProducts));
-            message.success('Product added to cart');
-            dispatch(
-                addQuantity({
-                    product: {
-                        id: id,
-                        quantity: 1,
-                        price: price,
-                    },
-                }),
-            );
-        }
-    };
-
-    return (
-        <>
-            <div className="book-container">
-                <div className="image">
-                    <img className="img" src={image} alt="" />
-                </div>
-                <div className="content">
-                    <h3 className="title" style={style.title}>
-                        {title}
-                    </h3>
-                    <div className="price" style={style.price}>
-                        <h3 style={style.h}>
-                            {' '}
-                            ${price}:id{id}
-                        </h3>
-                    </div>
-                    <div className="description">{description}</div>
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        style={style.icon}
-                        onClick={handleClick}
-                    >
-                        <AddShoppingCartIcon />
-                    </Button>
-
-                    <Rating style={style.rate} value={rate} readOnly />
-                </div>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="product-container">
+        <div className="image">
+          <img className="imag" src={image} alt="" />
+          <InfoBook id={_id} />
+        </div>
+        <h3 className="title">{title}</h3>
+        <p className="author">Author: {author}</p>
+        <h4 className="price">Price :$ {price}</h4>
+        <Rate className="rating" disabled defaultValue={rate} />
+        {/* <button className="btn" onClick={handleAddToCart}>
+          <ShoppingCartOutlined />
+        </button> */}
+        {role.role === "user" ? (
+          <button className="btn" onClick={handleAddToCart}>
+            <ShoppingCartOutlined />
+          </button>
+        ) : (
+          <button style={{ display: "none" }}></button>
+        )}
+      </div>
+    </>
+  );
 }
+
 export default Book;

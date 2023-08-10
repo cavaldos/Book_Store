@@ -1,22 +1,101 @@
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const authRoutes = require('./routes/auth');
-const connectDB = require('./config/connectdb');
-
-const dotenv = require('dotenv');
-dotenv.config();
-
+const express = require("express");
 const app = express();
+const dotenv = require("dotenv");
+const MongoDB = require("./config/connectdb");
+const cors = require("cors");
+const morgan = require("morgan");
+const allRouter = require("./routes");
+const startWebSocketServer = require("./util/socket");
 
-app.use('/v1/auth', authRoutes);
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+
 app.use(express.json());
+dotenv.config();
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+MongoDB.connect();
+app.use(morgan("tiny"));
 
-app.listen(process.env.PORT, () => {
-    console.log('Server is running on port', process.env.PORT);
+//ROUTES
+app.use(allRouter);
+
+
+//listen
+
+// app.listen(process.env.PORT, () => {
+//   console.log("Server is running on port", process.env.PORT);
+// });
+const server = app.listen(process.env.PORT, () => {
+  console.log("Server is running on port", process.env.PORT);
 });
+startWebSocketServer(server);
 
-// mongoose
-//     .connect(process.env.MONGODB_URL1)
-//     .then(() => console.log('Connected to MongoDB'))
-//     .catch((err) => console.log('connect false \n', err));
+
+
+
+
+
+
+
+
+// const express = require("express");
+// const app = express();
+// const dotenv = require("dotenv");
+// const MongoDB = require("./config/connectdb");
+// const cors = require("cors");
+// const morgan = require("morgan");
+// const allRouter = require("./routes");
+// const WebSocket = require("ws");
+
+// const bodyParser = require("body-parser");
+// app.use(bodyParser.json());
+
+// app.use(express.json());
+// dotenv.config();
+// app.use(cors());
+// app.use(express.urlencoded({ extended: true }));
+// MongoDB.connect();
+// app.use(morgan("tiny"));
+
+// //ROUTES
+// app.use(allRouter);
+
+// const server = app.listen(process.env.PORT, () => {
+//   console.log("Server is running on port", process.env.PORT);
+// });
+
+// // WebSocket Server
+// const wss = new WebSocket.Server({ server });
+
+// const connections = new Set();
+
+// wss.on("connection", (socket) => {
+//   console.log("Client connected");
+
+//   // Thêm kết nối mới vào danh sách
+//   connections.add(socket);
+//   console.log("Number of connections:", connections.size);
+
+//   socket.on("message", (message) => {
+//     const decodedMessage = message.toString();
+//     console.log("Received message:", decodedMessage);
+//     // Xử lý tin nhắn từ client
+
+//     // Gửi tin nhắn đến tất cả các kết nối khác
+//     connections.forEach((connection) => {
+//       if (connection !== socket) {
+//         connection.send(decodedMessage);
+//       }
+//     });
+
+//     // Gửi tin nhắn vừa nhận về client gốc
+//     socket.send(decodedMessage);
+//   });
+
+//   socket.on("close", () => {
+//     console.log("Client disconnected");
+//     // Xóa kết nối khỏi danh sách
+//     connections.delete(socket);
+//   });
+// });

@@ -1,0 +1,11 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.adverstising {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
