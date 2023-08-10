@@ -2,7 +2,7 @@ import ManagerUser from "../pages/Admin/user";
 import ManagerProduct from "../pages/Admin/product";
 import Home from "../pages/Home";
 import Revenue from "../pages/Admin/Revenue";
-import Detailbook from "../components/bookProduct/detailBook";
+import Detailbook from "../components/Product/detail";
 const adminRoutes = [
   {
     path: "/",

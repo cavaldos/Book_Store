@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Typography } from "antd";
 
-import "./detailbook.scss";
+import "./detail.scss";
 import { Space, Card, Rate } from "antd";
 const { Text, Title, H } = Typography;
 
