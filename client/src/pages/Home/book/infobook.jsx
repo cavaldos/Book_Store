@@ -1,18 +1,16 @@
 import './book.scss';
 import React from 'react';
 
-const InfoBook = ({ bookInfo }) => {
-  const handleButtonClick = () => {
-    // Open a new tab with the bookInfo as a query parameter
-    const queryString = new URLSearchParams({ bookInfo: JSON.stringify(bookInfo) }).toString();
-    window.open(`/book/${bookInfo.id}?${queryString}`, '_blank');
-  };
+
+const BookButton = ({ bookInfo }) => {
+  const queryString = new URLSearchParams({ bookInfo: JSON.stringify(bookInfo) }).toString();
+  const url = `/book/${bookInfo.id}?${queryString}`;
 
   return (
-    <button className="btn" onClick={handleButtonClick}>
-      More Information
-    </button>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <button className="btn">More Information</button>
+    </a>
   );
 };
 
-export default InfoBook;
+export default BookButton;
