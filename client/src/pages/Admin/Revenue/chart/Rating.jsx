@@ -92,6 +92,7 @@ function Rating() {
             label={{
               position: "top",
               style: {
+                
                 fill: "#aaa",
               },
             }}
