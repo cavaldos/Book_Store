@@ -4,7 +4,7 @@ import Cart from "../pages/Cart";
 import Home from "../pages/Home";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
-import ChatBot from "../util/chat";
+import ChatBot from "../utils/chat";
 import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
 import MyOder from "../pages/User/myorder/myorder";

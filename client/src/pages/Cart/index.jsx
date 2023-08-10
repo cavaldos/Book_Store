@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 function Cart() {
   const [cart, setCart] = useState([]);
   const orders = useSelector((state) => state.order);
+
   const payment = useSelector((state) => state.payment);
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -32,6 +33,11 @@ function Cart() {
     const orderDetails = cart.map((item) => {
       return {
         id_book: item.id,
+        _id: item._id,
+        title: item.title,
+        price: item.price,
+        image: item.image,
+        description: item.description,
         quantity: item.quantity,
       };
     });
@@ -45,7 +51,7 @@ function Cart() {
     dispatch(createPayment(payload));
     setTimeout(() => {
       navigate("/user/cart/payment");
-    }, 800);
+    }, 400);
   };
   return (
     <>

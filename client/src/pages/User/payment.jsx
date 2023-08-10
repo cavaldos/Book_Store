@@ -4,12 +4,11 @@ import axios from "axios";
 import { LoadingOutlined, SolutionOutlined } from "@ant-design/icons";
 import CopyText from "./myorder/copytext";
 import "./user.scss";
-import {
-  ConfirmOrder,
-  PaymentDetails,
-  OrderConfirmation,
-  InTransit,
-} from "./statepayment";
+import ConfirmOrder from "./statepayment/confirmOrder";
+import PaymentDetails from "./statepayment/paymentDetail";
+import OrderConfirmation from "./statepayment/orderConfirmation";
+import InTransit from "./statepayment/inTransit";
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   createPayment,

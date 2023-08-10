@@ -2,17 +2,7 @@ const Revenue = require("../models/revenue");
 const mongoose = require("mongoose");
 
 const revenueController = {
-  getRevenue: async (req, res) => {
-    try {
-      const data = req.body;
-      const foundRevenue = await Revenue.find(data);
-      res.json(foundRevenue);
-    } catch (err) {
-      res.status(500).json({
-        message: err.message,
-      });
-    }
-  },
+  
   findRevenue: async (req, res) => {
     try {
       const { year, month } = req.body;
@@ -49,7 +39,6 @@ const revenueController = {
       res.json("yearnotfound");
     }
   },
-  
 };
 
 module.exports = revenueController;

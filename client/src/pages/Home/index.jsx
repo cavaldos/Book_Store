@@ -47,7 +47,6 @@ function Home() {
       .catch((error) => console.log(error));
   }, []);
   console.log(topRatedProducts);
-
   // Add the pagination controls
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -86,7 +85,7 @@ function Home() {
         <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
           {products.map(
-            ({ ID, Image, Tittle, Author, Rating, Price, Description }) => (
+            ({ ID, Image, Tittle, Author, Rating, Price, Description,_id }) => (
               <Book
                 key={ID}
                 id={ID}
@@ -96,6 +95,7 @@ function Home() {
                 price={Price}
                 rate={Rating}
                 description={Description}
+                _id={_id}
               />
             )
           )}

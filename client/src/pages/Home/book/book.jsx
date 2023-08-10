@@ -11,7 +11,8 @@ import { addToCart } from "../../../redux/features/orderSlice";
 function Book(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { id, image, title, author, rate, price, description } = props;
+  const { id, image, title, author, rate, price, description, _id } = props;
+
   const role = useSelector((state) => state.role);
   const orders = useSelector((state) => state.order);
 
@@ -29,6 +30,7 @@ function Book(props) {
         rate,
         price,
         description,
+        _id,
       };
       dispatch(addToCart(newOrder));
       message.success("Product added to cart successfully");
@@ -40,7 +42,7 @@ function Book(props) {
       <div className="product-container">
         <div className="image">
           <img className="imag" src={image} alt="" />
-          <InfoBook />
+          <InfoBook id={_id} />
         </div>
         <h3 className="title">{title}</h3>
         <p className="author">Author: {author}</p>

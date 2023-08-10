@@ -2,6 +2,7 @@ import ManagerUser from "../pages/Admin/user";
 import ManagerProduct from "../pages/Admin/product";
 import Home from "../pages/Home";
 import Revenue from "../pages/Admin/Revenue";
+import Detailbook from "../components/bookProduct/detailBook";
 const adminRoutes = [
   {
     path: "/",
@@ -29,6 +30,11 @@ const adminRoutes = [
 
     component: Revenue,
   },
+
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
+  }
 ];
 
 export default adminRoutes;
