@@ -1,18 +1,27 @@
 import React from "react";
-import { Spin, Alert } from "antd";
+import { Spin, Alert, Result, Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const OrderConfirmation = () => {
+  const navigate = useNavigate();
   return (
     <div>
-      <Spin tip="Loading...">
-        <Alert
-          style={{ margin: "0 100px 0 100px" }}
-          message="Alert message title"
-          description="Further details about the context of this alert."
-          type="info"
-        />
-      </Spin>
-      <h2>Order Confirmation</h2>
+      <Result
+        status="success"
+        title="Payment success !"
+        subTitle="We are working diligently to deliver your order to you as soon as possible"
+        extra={[
+          <Button
+            type="primary"
+            key="console"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Keep Shopping
+          </Button>,
+        ]}
+      />
     </div>
   );
 };

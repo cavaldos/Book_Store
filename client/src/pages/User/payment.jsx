@@ -18,27 +18,13 @@ import {
 const { Step } = Steps;
 
 const Payment = () => {
-  const [getAllOrder, setGetAllOrder] = useState([]);
-  const dispatch = useDispatch();
 
   const payment = useSelector((state) => state.payment);
 
   const currentStep = payment.currentStep;
   console.log("currentStep", currentStep);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8001/getallorder")
-      .then((res) => {
-        setGetAllOrder(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
-  console.log("getAllOrder", getAllOrder);
-  // console.log("getAllOrder", getAllOrder[0]);
 
   const steps = [
     {

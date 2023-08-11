@@ -32,12 +32,11 @@ router.get("/getgenre", bookController.getGenreBook); // da xong, da test
 router.get("/:id", bookController.getBookById); // da xong, da test
 router.get("/search/:query", bookController.searchBook); // da xong, da test
 //order
-router.post("/createorder", orderController.createOrder); // da xong, da test
-// get all orders
 router.get("/getallorders", orderController.getAllOrder); // da xong, da test
-router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
-router.post("/findorder", orderController.findOrder); // da xong, da test
-router.post("/removeorder", orderController.removeOrder); // da xong, da test
+router.post("/createorder", orderController.createOrder); // da xong, da test
+// router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
+// router.post("/findorder", orderController.findOrder); // da xong, da test
+// router.post("/removeorder", orderController.removeOrder); // da xong, da test
 
 //revenue
 router.post("/findrevenue", revenueController.findRevenue); // da xong, da test

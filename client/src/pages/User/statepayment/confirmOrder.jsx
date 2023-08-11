@@ -26,8 +26,8 @@ const ConfirmOrder = () => {
   const order = useSelector((state) => state.order);
   const dispatch = useDispatch();
   const payment = useSelector((state) => state.payment);
+  console.log("payment", payment);
   const currentStep = payment.currentStep;
-
   const handleNext = () => {
     dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
   };
@@ -40,7 +40,8 @@ const ConfirmOrder = () => {
         mai efit lại đây
         <Table
           columns={columns}
-          dataSource={order}
+          key={columns.key}
+          dataSource={payment.orderDetails}
           rowKey={(record) => record.id} // add a unique key prop to each row
           pagination={{ pageSize: 10 }}
         />

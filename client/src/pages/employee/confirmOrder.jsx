@@ -19,7 +19,7 @@ function ConfirmOrderEmployee() {
         console.log(err);
       });
   }, []);
-  console.log("getAllOrder", getAllOrder);
+  // console.log("getAllOrder", getAllOrder);
 
   return (
     <>

@@ -48,7 +48,7 @@ function Home() {
       })
       .catch((error) => console.log(error));
   }, []);
-  console.log(topRatedProducts);
+  // console.log(topRatedProducts);
   // Add the pagination controls
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {

@@ -32,8 +32,8 @@ function Cart() {
     }
     const orderDetails = cart.map((item) => {
       return {
-        id_book: item.id,
         _id: item._id,
+        id_book: item.id,
         title: item.title,
         price: item.price,
         image: item.image,
@@ -43,7 +43,7 @@ function Cart() {
     });
     const payload = {
       orderDetails,
-      email_user: user.email,
+      email: "khanh",
       currentStep: 0,
       id_payment: orderCode,
       total: totalPrice,
