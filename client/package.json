@@ -14,6 +14,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.5",
+    "@paypal/react-paypal-js": "^8.1.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@stripe/react-stripe-js": "^2.1.1",
     "@stripe/stripe-js": "^1.54.2",

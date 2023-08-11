@@ -15,6 +15,7 @@ import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 import Payment from "../pages/Payment/Payment";
 import UserProfile from "../components/profileComponent/UserProfile";
 import Profile from "../pages/Profile/profile";
+import PayPalButton from "../pages/PayPalPaymentTest/PayPalTest";
 
 // public routes
 const publicRoutes = [
@@ -128,6 +129,11 @@ const userRoutes = [
   //   component: RenderAvatar,
   //   layout: null,
   // },
+  {
+    path: 'user/paypal',
+    component: PayPalButton,
+    layout: null,
+  },
 ];
 
 const employeeRoutes = [
