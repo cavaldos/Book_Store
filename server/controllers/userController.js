@@ -1,8 +1,6 @@
 const User = require("../models/user");
 const mongoose = require("mongoose");
 
-
-
 const userController = {
   deleteUser: async (req, res) => {
     try {
@@ -43,17 +41,12 @@ const userController = {
       // Generate id if it doesn't exist
       console.log("usernew", newUser);
       const result = await newUser.save();
-      res.status(201).json("added")
-
+      res.status(201).json("added");
     } catch (err) {
-      res.status(500).json(
-        "addfail"
-
-
-      );
-
+      res.status(500).json("addfail");
     }
   },
+ 
 
   getNumberOfUsers: async (req, res) => {
     try {

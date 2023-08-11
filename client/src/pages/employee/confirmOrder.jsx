@@ -10,7 +10,7 @@ function ConfirmOrderEmployee() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallorder")
+      .post("http://localhost:8001/getallorder")
       .then((res) => {
         const filteredData = res.data.filter((order) => order.state === 2);
         setGetAllOrder(filteredData);
