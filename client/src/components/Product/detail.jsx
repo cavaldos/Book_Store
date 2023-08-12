@@ -27,24 +27,32 @@ function Detailbook(props) {
   return (
     <>
       <div class="grid-container">
-      <form id="f1"><div><img src={data.Image} alt={data.Tittle} /></div></form>
-      <form id="f2">
-      <Rating value={parseFloat(data.Rating)} precision={0.5} readOnly />
-      <h1>{data.Tittle}</h1>
-      <p id="price_info">$ {data.Price}</p>
-      <p id="auth">By: {data.Author}</p>
-      <br />
-      <p><span id="cate">Description:</span> {data.Description}</p>
-      <br /><hr /><br />
-      <div id="more_info">
-        <p id="lineinfo"><span id="cate">ISBN:</span> {data.ISBN}</p>
-        <p id="lineinfo"><span id="cate">Genre:</span> {data.Genre}</p>
-        <p id="lineinfo"><span id="cate">Publish Year:</span> {data.Publish_Year}</p>
-        <p id="lineinfo"><span id="cate">Publisher:</span> {data.Publisher}</p>
+        <form id="f1"><div><img src={data.Image} alt={data.Tittle} /></div></form>
+        <form id="f2">
+          <Rating value={parseFloat(data.Rating)} precision={0.5} readOnly />
+          <h1>{data.Tittle}</h1>
+          <p id="price_info">$ {data.Price}</p>
+          <p id="auth">By: {data.Author}</p>
+          <br />
+          <p><span id="cate">Description:</span> {data.Description}</p>
+          <br /><hr /><br />
+          <div id="more_info">
+            <p id="lineinfo"><span id="cate">ISBN:</span> {data.ISBN}</p>
+            <p id="lineinfo"><span id="cate">Genre:</span> {data.Genre}</p>
+            <p id="lineinfo"><span id="cate">Publish Year:</span> {data.Publish_Year}</p>
+            <p id="lineinfo"><span id="cate">Publisher:</span> {data.Publisher}</p>
+          </div>
+          <div id="add-cart">
+            <button id="button_info">Add to Cart</button>
+            <hr id="line_add"/>
+            <div id="img_truck">
+              <img id="truckicon" src="/truckicon.jpg" alt="Truck Icon" />
+              <span id="ship_text">Arrived in 2 days</span>
+            </div>
+            <hr id="line_add"/>
+          </div>
+        </form>
       </div>
-      <button id="button_info">Add to Cart</button>
-      </form>
-    </div>
     </>
   );
 }
