@@ -10,16 +10,14 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Space } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
 import { updateRole } from "../../redux/features/roleSlice";
-import { useNavigate } from "react-router-dom";
 import Search from "../layout/header/search";
 import BreadC from "../layout/header/breadcrumb";
 import AvartarUser from "../layout/header/custom/avatar";
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("close");
   const [scroll, setScroll] = useState("up");
-  const navigate = useNavigate();
+
   window.addEventListener("scroll", function () {
     const scrollPosition = window.scrollY;
     scrollPosition > 50 ? setScroll("down") : setScroll("up");
@@ -32,19 +30,8 @@ const DefaultLayout = ({ children }) => {
   };
   const role = useSelector((state) => state.role.role);
   const roleemail = useSelector((state) => state.role.email);
-  const dispatch = useDispatch();
-  const logout = () => {
-    dispatch(
-      updateRole({
-        role: "public",
-        roleRouter: "public",
-        email: "...",
-        password: "...",
-      })
-    );
-    navigate("/");
-  };
 
+  
   return (
     <>
       <div className={toggle}>

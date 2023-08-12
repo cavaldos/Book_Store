@@ -1,54 +1,155 @@
+// import "./header.scss";
+// import React from "react";
+// import { useState } from "react";
+// import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
+// import Tippy from "@tippyjs/react/headless";
+// import "tippy.js/dist/tippy.css";
+// import axios from "axios";
+// function Search() {
+//   //http://localhost:8001/search/code
+//   const [value, setValue] = useState("");
+//   const handleChange = (event) => {
+//     setValue(event.target.value);
+//   };
+
+//   const handleClear = () => {
+//     setValue("");
+//   };
+
+//   return (
+//     <>
+//       <Tippy
+//         visible={value.length > 0}
+//         interactive={true}
+//         render={(attrs) => <div className="search-result">{value}</div>}
+//         placement="bottom"
+//       >
+//         <div className="search-wrapper">
+//           <input
+//             className="search-input"
+//             type="text"
+//             placeholder="search-input"
+//             value={value}
+//             onChange={handleChange}
+//           />
+//           {value.length > 0 && (
+//             <button>
+//               <CloseCircleOutlined
+//                 className="search-icon-close"
+//                 onClick={handleClear}
+//               />
+//             </button>
+//           )}
+//           <Tippy content="Search" placement="right">
+//             <SearchOutlined className="search-icon-search" />
+//           </Tippy>
+//         </div>
+//       </Tippy>
+//     </>
+//   );
+// }
+
+// export default Search;
+
+
+
 import "./header.scss";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
+import axios from "axios";
 
 function Search() {
   const [value, setValue] = useState("");
+  const [tooltipContent, setTooltipContent] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  let typingTimeout = null;
+
   const handleChange = (event) => {
-    setValue(event.target.value);
+    const searchValue = event.target.value;
+    setValue(searchValue);
+    clearTimeout(typingTimeout);
+
+    typingTimeout = setTimeout(() => {
+      fetchTooltipContent(searchValue);
+    }, 1000);
   };
 
   const handleClear = () => {
     setValue("");
+    setSuggestions([]);
+  };
+
+  const fetchTooltipContent = (searchValue) => {
+    const apiUrl = `http://localhost:8001/search/${searchValue}`;
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        const titles = response.data.map((item) => item.Tittle);
+        setTooltipContent(titles.join(", "));
+        setSuggestions(titles);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setValue(suggestion);
+    setSuggestions([]);
+    fetchTooltipContent(suggestion);
   };
 
   return (
-    // <Tippy
-    //   visible={value.length > 0}
-    //   interactive={true}
-    //   render={(attrs) => <div className="search-result">{value}</div>}
-    //   placement="bottom"
-    // >
-    //   <div className="search-wrapper">
-    //     <input
-    //       className="search-input"
-    //       type="text"
-    //       placeholder="search-input"
-    //       value={value}
-    //       onChange={handleChange}
-    //     />
-    //     {value.length > 0 && (
-    //       <button>
-    //         <CloseCircleOutlined
-    //           className="search-icon-close"
-    //           onClick={handleClear}
-    //         />
-    //       </button>
-    //     )}
-    //     <Tippy content="Search" placement="right">
-    //       <SearchOutlined className="search-icon-search" />
-    //     </Tippy>
-    //   </div>
-    // </Tippy>
-    <></>
+    <>
+      <Tippy
+        visible={value.length > 0}
+        interactive={true}
+        render={(attrs) => (
+          <div className="search-result">{tooltipContent}</div>
+          
+        )}
+        placement="bottom"
+      >
+        <div className="search-wrapper">
+          <input
+            className="search-input"
+            type="text"
+            placeholder="search-input"
+            value={value}
+            onChange={handleChange}
+          />
+          {value.length > 0 && (
+            <button>
+              <CloseCircleOutlined
+                className="search-icon-close"
+                onClick={handleClear}
+              />
+            </button>
+          )}
+          <Tippy content="Search" placement="right">
+            <SearchOutlined className="search-icon-search" />
+          </Tippy>
+        </div>
+      </Tippy>
+      {suggestions.length > 0 && (
+        <ul className="suggestion-list">
+          {suggestions.map((suggestion, index) => (
+            <li
+              key={index}
+              className="suggestion-item"
+              onClick={() => handleSuggestionClick(suggestion)}
+            >
+              {suggestion}
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 }
 
 export default Search;
-
 /*
 import "./header.scss";
 import React, { useState } from "react";

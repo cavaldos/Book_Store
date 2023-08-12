@@ -1,5 +1,3 @@
-
-
 import "./home.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -9,8 +7,7 @@ import { Select } from "antd";
 import Fillter from "./fillter/fillter";
 import Product from "../User/Cart/Product";
 import { Carousel } from "antd";
-
-// import PayPalCheckoutButton from "../../util/payment/payment";
+import { Col, Row } from "antd";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -59,7 +56,23 @@ function Home() {
   return (
     <>
       <div className="home">
-        <div className="home-container_2 con">
+        <div className="poster one">
+          <Carousel className="carousel" autoplay>
+            <img></img>
+          </Carousel>
+        </div>
+        <div className="fillter one">sdf</div>
+        <div className="content one">dsf</div>
+      </div>
+    </>
+  );
+}
+
+export default Home;
+
+/*
+<div className="home">
+<div className="home-container_2 con">
           <Carousel className="carousel" autoplay>
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
               <div key={ID} className="car-contens">
@@ -81,7 +94,7 @@ function Home() {
         </div>
         <div className="home-container_3 con">
           fillter
-          {/* <PayPalCheckoutButton /> */}
+    
         </div>
         <div className="home-container_6 con">Sort</div>
         <div className="home-container_4 con"></div>
@@ -111,9 +124,7 @@ function Home() {
             />
           </div>
         </div>
-      </div>
-    </>
-  );
-}
+</div>
 
-export default Home;
+
+*/
