@@ -1,3 +1,49 @@
+import { w3cwebsocket as WebSocket } from "websocket";
+
+function connectWebSocket(YOUR_CLIENT_ID, RECEIVER_ID, onMessageReceived) {
+  const socket = new WebSocket("ws://localhost:8001/");
+
+  socket.onopen = () => {
+    console.log("Connected to server");
+  };
+
+  socket.onmessage = (message) => {
+    const decodedMessage = JSON.parse(message.data);
+    console.log("Received message:", decodedMessage);
+    onMessageReceived(decodedMessage);
+  };
+
+  socket.onclose = () => {
+    console.log("Disconnected from server");
+  };
+
+  return socket;
+}
+
+function sendMessage(socket, YOUR_CLIENT_ID, RECEIVER_ID, content) {
+  if (socket && socket.readyState === WebSocket.OPEN) {
+    const message = {
+      content: content,
+      senderId: YOUR_CLIENT_ID,
+      receiverId: RECEIVER_ID,
+    };
+    socket.send(JSON.stringify(message));
+    console.log("Sent message:", message);
+  }
+}
+
+export { connectWebSocket, sendMessage };
+
+
+
+
+
+
+
+
+
+
+
 // import { w3cwebsocket as WebSocket } from "websocket";
 
 // function createWebSocketClient(YOUR_CLIENT_ID, RECEIVER_ID) {
@@ -46,39 +92,3 @@
 
 // module.exports = createWebSocketClient;
 
-
-import { w3cwebsocket as WebSocket } from "websocket";
-
-function connectWebSocket(YOUR_CLIENT_ID, RECEIVER_ID, onMessageReceived) {
-  const socket = new WebSocket("ws://localhost:8001/");
-
-  socket.onopen = () => {
-    console.log("Connected to server");
-  };
-
-  socket.onmessage = (message) => {
-    const decodedMessage = JSON.parse(message.data);
-    console.log("Received message:", decodedMessage);
-    onMessageReceived(decodedMessage);
-  };
-
-  socket.onclose = () => {
-    console.log("Disconnected from server");
-  };
-
-  return socket;
-}
-
-function sendMessage(socket, YOUR_CLIENT_ID, RECEIVER_ID, content) {
-  if (socket && socket.readyState === WebSocket.OPEN) {
-    const message = {
-      content: content,
-      senderId: YOUR_CLIENT_ID,
-      receiverId: RECEIVER_ID,
-    };
-    socket.send(JSON.stringify(message));
-    console.log("Sent message:", message);
-  }
-}
-
-export { connectWebSocket, sendMessage };

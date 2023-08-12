@@ -11,7 +11,7 @@ import MyOder from "../pages/User/myorder/myorder";
 import ConfirmOrder from "../pages/employee/confirmOrder";
 import Paypal from "../components/paypal";
 import Detailbook from "../components/Product/detail";
-
+import Chat from "../utils/chat";
 // public routes
 const publicRoutes = [
   {
@@ -85,6 +85,10 @@ const userRoutes = [
     path: `/detail-book/:id`,
     component: Detailbook,
   },
+  {
+    path: "/chat",
+    component: Chat,
+  },
 ];
 
 const employeeRoutes = [
@@ -107,6 +111,10 @@ const employeeRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
+  },
+  {
+    path: "/chat",
+    component: Chat,
   },
 ];
 

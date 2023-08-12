@@ -17,37 +17,36 @@ const { Step } = Steps;
 export const fetchOrder = () => async (dispatch) => {};
 
 const PaymentDetails = () => {
-  const YOUR_CLIENT_ID = "admin";
-  const RECEIVER_ID = "user";
+  const user = useSelector((state) => state.user);
+  const YOUR_CLIENT_ID = user.email;
+  const RECEIVER_ID = "employee";
   const [socket, setSocket] = useState(null);
   const [receivedMessages, setReceivedMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
 
-  // useEffect(() => {
-  //   const newSocket = connectWebSocket(
-  //     YOUR_CLIENT_ID,
-  //     RECEIVER_ID,
-  //     onMessageReceived
-  //   );
-  //   setSocket(newSocket);
-  //   //Làm sạch kết nối WebSocket trên thành phần không ngừng
-  //   return () => {
-  //     if (newSocket) {
-  //       newSocket.close();
-  //     }
-  //   };
-  // }, []);
-  //  const onMessageReceived = (message) => {
-  //    setReceivedMessages((prevMessages) => [...prevMessages, message]);
-  //  };
-  //  const handleSendMessage = () => {
-  //    sendMessage(socket, YOUR_CLIENT_ID, RECEIVER_ID, inputMessage);
-  //    setInputMessage(5);
-  //  };
-  ////////////////////////////////
+  useEffect(() => {
+    const newSocket = connectWebSocket(
+      YOUR_CLIENT_ID,
+      RECEIVER_ID,
+      onMessageReceived
+    );
+    setSocket(newSocket);
+    return () => {
+      if (newSocket) {
+        newSocket.close();
+      }
+    };
+  }, []);
+  const onMessageReceived = (message) => {
+    setReceivedMessages((prevMessages) => [...prevMessages, message]);
+  };
+  const handleSendMessage = () => {
+    sendMessage(socket, YOUR_CLIENT_ID, RECEIVER_ID, inputMessage);
+    setInputMessage("");
+  };
+
+  //////////////////////////////
   const navigate = useNavigate();
-  //http://localhost:8001/createorder
-  //luu don hang
   const dispatch = useDispatch();
   const payment = useSelector((state) => state.payment);
   const currentStep = payment.currentStep;
@@ -72,15 +71,15 @@ const PaymentDetails = () => {
     //     console.log(err);
     //   });
     dispatch(updateCurrentStep({ currentStep: currentStep + 1 }));
+    handleSendMessage();
   }
   const handlePrev = () => {
     dispatch(updateCurrentStep({ currentStep: currentStep - 1 }));
   };
   return (
     <div>
-      {/* <h2>Payment Details
-      <button onClick={handleSendMessage}>Send</button>
-      </h2> */}
+      {/* <button onClick={handleSendMessage}>Send</button> */}
+
       <Space
         style={{
           minHeight: "200px",
@@ -93,7 +92,6 @@ const PaymentDetails = () => {
       </Space>
       <br />
       <Button style={{ margin: "0 8px" }} onClick={handlePrev}>
- 
         Previous
       </Button>
       <Button type="primary" onClick={handlePayment}>

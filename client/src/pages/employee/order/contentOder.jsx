@@ -20,12 +20,12 @@ function OrderDetail(props) {
       key: "quantity",
     },
   ];
-  // http://localhost:8001/findorder
+ 
   const [getAllOrder, setGetAllOrder] = useState([]);
  
   useEffect(() => {
     axios
-      .post("http://localhost:8001/findorder", {
+      .post("http://localhost:8001/findorder", { //tim kiem order va in  vao bang
         order_code: orderid,
       })
       .then((res) => {
@@ -41,12 +41,13 @@ function OrderDetail(props) {
         console.log(error);
       });
   }, [orderid]);
-  console.log("getAllOrdesdfsdfsdr", getAllOrder);
+ 
 
   return (
     <>
       <div>
         <Copytext text={`${orderid}`} />
+        
         <Table
           columns={columns}
           dataSource={getAllOrder}
@@ -57,6 +58,8 @@ function OrderDetail(props) {
     </>
   );
 }
+
+
 
 function ConfirmOrder(props) {
   const { orderid, email } = props;
@@ -81,7 +84,6 @@ function ConfirmOrder(props) {
   };
 
   const handleCancel = () => {
-    //http://localhost:8001/removeorder
     axios
       .post("http://localhost:8001/removeorder", {
         order_code: orderid,
@@ -105,9 +107,9 @@ function ConfirmOrder(props) {
         <Button type="primary" onClick={handleConfirm}>
           Confirm Oder
         </Button>
-        <Button type="dashed" danger onClick={handleCancel}>
+        {/* <Button type="dashed" danger onClick={handleCancel}>
           Cancel Oder
-        </Button>
+        </Button> */}
       </Space>
     </>
   );
