@@ -1,5 +1,5 @@
-import ManagerUser from "../pages/Admin/user";
-import ManagerProduct from "../pages/Admin/product";
+import ManagerUser from "../pages/Admin/userManager/user";
+import ManagerProduct from "../pages/Admin/productManager/product";
 import Home from "../pages/Home";
 import Revenue from "../pages/Admin/Revenue";
 import Detailbook from "../components/Product/detail";
@@ -34,7 +34,7 @@ const adminRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
-  }
+  },
 ];
 
 export default adminRoutes;

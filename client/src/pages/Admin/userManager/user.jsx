@@ -7,7 +7,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import DeleteUser from "./option/deleteUser";
 import { Modal } from "antd";
-import AddUser from "./option/addUser";
+import AddUser from "./addUser";
 import { message } from "antd";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 

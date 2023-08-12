@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import EditUser from "./option/editUser"; // button edit
+import EditUser from "../userManager/option/editUser"; // button edit
 import axios, { all } from "axios";
 import { Table, Input, Button, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
