@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Price from "./chart/Price";
 import Genre from "./chart/Genre";
 import Rating from "./chart/Rating";
-
-function Revenue() {
+import Revenue from "./Charts";
+function Revenues() {
   return (
     <>
       <h1> Revenue </h1>
@@ -15,6 +15,7 @@ function Revenue() {
           padding: "0 20px",
         }}
       >
+        <Revenue />
         <Price />
         <Genre />
         <Rating />
@@ -22,4 +23,4 @@ function Revenue() {
     </>
   );
 }
-export default Revenue;
+export default Revenues;

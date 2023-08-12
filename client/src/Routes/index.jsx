@@ -1,6 +1,6 @@
 import SignIn from "../components/authentication/signin";
 import SignUp from "../components/authentication/signup";
-import Cart from "../pages/Cart";
+import Cart from "../pages/User/Cart";
 import Home from "../pages/Home";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";

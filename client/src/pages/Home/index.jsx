@@ -7,7 +7,7 @@ import Book from "./book/book";
 import { Spin, Pagination } from "antd";
 import { Select } from "antd";
 import Fillter from "./fillter/fillter";
-import Product from "../Cart/Product";
+import Product from "../User/Cart/Product";
 import { Carousel } from "antd";
 
 // import PayPalCheckoutButton from "../../util/payment/payment";

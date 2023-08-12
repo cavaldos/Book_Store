@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const roleSlice = createSlice({
   name: "role",
   initialState: {
-    role: "public",
-    roleRouter: "public",
+    role: "admin",
+    roleRouter: "admin",
     email: "...",
     password: "...",
   },

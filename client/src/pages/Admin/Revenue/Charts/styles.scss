@@ -1,0 +1,19 @@
+
+/* Styling for the card */
+.book-card {
+    margin: 8px;
+    padding: 16px;
+    width: 100%;
+    display:block;
+    text-align: center;
+    /* justify-content: center; */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.book-cover {
+    justify-content: center;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

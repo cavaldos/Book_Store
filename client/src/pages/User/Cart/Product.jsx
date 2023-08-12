@@ -11,7 +11,7 @@ import {
   removeOrder,
   increaseQuantity,
   decreaseQuantity,
-} from "../../redux/features/orderSlice";
+} from "../../../redux/features/orderSlice";
 
 function Product(props) {
   const { id, image, description, price } = props;

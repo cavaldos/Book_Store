@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import Product from "./Product";
 import { useSelector, useDispatch } from "react-redux";
-import { createPayment } from "../../redux/features/paymentSlice";
+import { createPayment } from "../../../redux/features/paymentSlice";
 import { message } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+
 function Cart() {
   const [cart, setCart] = useState([]);
   const orders = useSelector((state) => state.order);
