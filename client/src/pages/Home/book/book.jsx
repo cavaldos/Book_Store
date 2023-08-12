@@ -8,6 +8,7 @@ import { Rate } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../../redux/features/orderSlice";
+import Rating from '@mui/material/Rating';
 function Book(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ function Book(props) {
         <h3 className="title">{title}</h3>
         <p className="author">Author: {author}</p>
         <h4 className="price">Price :$ {price}</h4>
-        <Rate className="rating" disabled defaultValue={rate} />
+        <Rating value={rate} precision={0.5} readOnly />
         {/* <button className="btn" onClick={handleAddToCart}>
           <ShoppingCartOutlined />
         </button> */}

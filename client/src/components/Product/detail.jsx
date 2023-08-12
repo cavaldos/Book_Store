@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Typography } from "antd";
+import Rating from '@mui/material/Rating';
 
 import "./detail.scss";
 import { Space, Card, Rate } from "antd";
@@ -22,32 +23,28 @@ function Detailbook(props) {
       });
   }, [id]);
   console.log(data);
-  const rate = data.Rating;
   const handleAddToCart = () => {};
   return (
     <>
-      <div className="detailbook">
-        <div className="product_image">
-          <img src={data.Image} alt={data.Tittle} />
-        </div>
-        <div className="detailbook_content">
-          <h1 className="title">{data.Tittle}</h1>
-          <p className="price">$ {data.Price}</p>
-          <Text className="author" underline>
-            By: {data.Author}
-          </Text>
-          <p className="description">Description:{data.Description}</p>
-          <Rate disabled defaultValue={4} />
-          <br />
-          <button className="btn">Add to cart</button>
-          <br />
-          <p className="publich_year">Publish_Year:{data.Publish_Year}</p>
-          <br />
-          <p className="genre">Genre:{data.Genre}</p>
-          <br />
-          <p className="publisher">Publisher :{data.Publisher}</p>
-        </div>
+      <div class="grid-container">
+      <form id="f1"><div><img src={data.Image} alt={data.Tittle} /></div></form>
+      <form id="f2">
+      <Rating value={parseFloat(data.Rating)} precision={0.5} readOnly />
+      <h1>{data.Tittle}</h1>
+      <p id="price_info">$ {data.Price}</p>
+      <p id="auth">By: {data.Author}</p>
+      <br />
+      <p><span id="cate">Description:</span> {data.Description}</p>
+      <br /><hr /><br />
+      <div id="more_info">
+        <p id="lineinfo"><span id="cate">ISBN:</span> {data.ISBN}</p>
+        <p id="lineinfo"><span id="cate">Genre:</span> {data.Genre}</p>
+        <p id="lineinfo"><span id="cate">Publish Year:</span> {data.Publish_Year}</p>
+        <p id="lineinfo"><span id="cate">Publisher:</span> {data.Publisher}</p>
       </div>
+      <button id="button_info">Add to Cart</button>
+      </form>
+    </div>
     </>
   );
 }
