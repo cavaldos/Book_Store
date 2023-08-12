@@ -15,7 +15,7 @@ function Revenues() {
           padding: "0 20px",
         }}
       >
-        <Revenue />
+        {/* <Revenue /> */}
         <Price />
         <Genre />
         <Rating />
