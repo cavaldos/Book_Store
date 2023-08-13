@@ -14,7 +14,7 @@ router.post("/verifyemailsignup", authController.verifyEmailSignUp); // chưa xo
 //user
 router.post("/deleteuser", userController.deleteUser); // da xong, test ok roi
 router.post("/adduser", userController.addUser); // da xong, test ok roi
-router.post("/edituser", userController.editUser); // da xong chua test
+router.put("/edituser", userController.editUser); // da xong chua test
 router.get("/getallusers", userController.getAllusers); // đã viết xong
 router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
 //BOOK
