@@ -24,7 +24,11 @@ const App = () => {
     })),
   ];
 
-  return <Breadcrumb items={breadcrumbItems} />;
+  return (
+    <>
+      <Breadcrumb style={{ margin: " 0 0 0 20px" }} items={breadcrumbItems} />
+    </>
+  );
 };
 
 export default App;

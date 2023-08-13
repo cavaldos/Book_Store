@@ -58,7 +58,9 @@ const bookController = {
 
     try {
       const regex = new RegExp(query, "i");
-      const books = await Book.find({ Tittle: { $regex: regex } });
+      const books = await Book.find({ Tittle: { $regex: regex } })
+        .sort({ Tittle: -1 })
+        .limit(5);
       res.status(200).json(books);
     } catch (err) {
       res.status(500).json({

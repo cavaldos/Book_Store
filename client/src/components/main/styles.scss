@@ -140,7 +140,7 @@
     left: 10px;
     box-sizing: border-box;
     min-height: 100vh;
-    margin: 0 0 5px 0;
+    margin: 15px 0 5px 0;
     padding: 0px;
     background-color: var(--light-bg);
     border-radius: 5px;
@@ -211,7 +211,9 @@
   min-width: 190px;
   border: none;
   border-radius: 5px;
+  // background-color: red;
 }
+
 //middle
 @media only screen and (min-width: 1180px) and (max-width: 1900px) {
   .sidebar {

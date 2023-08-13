@@ -14,6 +14,7 @@ import { updateRole } from "../../redux/features/roleSlice";
 import Search from "../layout/header/search";
 import BreadC from "../layout/header/breadcrumb";
 import AvartarUser from "../layout/header/custom/avatar";
+
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("close");
   const [scroll, setScroll] = useState("up");
@@ -31,7 +32,6 @@ const DefaultLayout = ({ children }) => {
   const role = useSelector((state) => state.role.role);
   const roleemail = useSelector((state) => state.role.email);
 
-  
   return (
     <>
       <div className={toggle}>
@@ -50,7 +50,7 @@ const DefaultLayout = ({ children }) => {
               )}
             </button>
             <Space id="brc">
-              <BreadC />
+              {/* <BreadC /> */}
               <Search />
             </Space>
             <Space id="space-h">
@@ -70,6 +70,7 @@ const DefaultLayout = ({ children }) => {
 
         {/*  dsf*/}
         <div className="main">
+          <BreadC />
           <div className="containers">{children}</div>
           <Footer />
         </div>

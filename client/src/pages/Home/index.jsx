@@ -55,7 +55,7 @@ function Home() {
 
   return (
     <>
-      <div className="home">
+      {/* <div className="home">
         <div className="poster one">
           <Carousel className="carousel" autoplay>
             <img></img>
@@ -63,6 +63,65 @@ function Home() {
         </div>
         <div className="fillter one">sdf</div>
         <div className="content one">dsf</div>
+      </div> */}
+      <div className="home">
+        <div className="home-container_2 con">
+          <Carousel className="carousel" autoplay>
+            {topRatedProducts.map(({ ID, Image, Tittle }) => (
+              <div key={ID} className="car-contens">
+                Top Book
+                <img className="pic" src={Image} alt={Tittle} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <div className="home-container_1 con">
+          <Carousel className="carousel" autoplay>
+            {topRatedProducts.map(({ ID, Image, Tittle }) => (
+              <div key={ID} className="car-contens">
+                Daily recommended book
+                <img className="pic" src={Image} alt={Tittle} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <div className="home-container_3 con">fillter</div>
+        <div className="home-container_6 con">Sort</div>
+        <div className="home-container_4 con"></div>
+        <div className="home-container_5 con">
+          {products.map(
+            ({
+              ID,
+              Image,
+              Tittle,
+              Author,
+              Rating,
+              Price,
+              Description,
+              _id,
+            }) => (
+              <Book
+                key={ID}
+                id={ID}
+                image={Image}
+                title={Tittle}
+                author={Author}
+                price={Price}
+                rate={Rating}
+                description={Description}
+                _id={_id}
+              />
+            )
+          )}
+          <div className="pagination-container">
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={totalPages * pageSize}
+              onChange={handlePageChange}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
