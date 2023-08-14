@@ -145,9 +145,7 @@ export default Home;
            
              
                
-              </div>
-            ))}
-          </Carousel>
+             
         </div>
         <div className="home-container_3 con">
           fillter
