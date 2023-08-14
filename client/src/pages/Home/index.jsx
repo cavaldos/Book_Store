@@ -138,7 +138,7 @@ export default Home;
              
                
              
-              </div>
+             
             ))}
           </Carousel>
         </div>
