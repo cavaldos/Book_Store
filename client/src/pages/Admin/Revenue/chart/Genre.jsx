@@ -3,96 +3,61 @@ import { Pie, Column } from "@ant-design/plots";
 import axios from "axios";
 
 function Genre() {
-  const [ratingData, setRatingData] = useState([]);
+  const [genreData, setGenreData] = useState([]);
+  const [config, setConfig] = useState(null);
 
   useEffect(() => {
     // Call API to get the rating data
     axios
       .get("http://localhost:8001/getgenre")
       .then((response) => {
-        setRatingData(response.data);
+        setGenreData(response.data.genre);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  const getPieData = () => {
-    // Calculate the count of each unique rating value
-    const ratingCounts = {};
-    ratingData.forEach((rating) => {
-      if (ratingCounts[rating]) {
-        ratingCounts[rating]++;
-      } else {
-        ratingCounts[rating] = 1;
-      }
-    });
-
-    // Transform the data into the format expected by the Pie component
-    const transformedData = Object.entries(ratingCounts).map(
-      ([rating, count]) => ({
-        type: rating.toString(),
-        value: count,
-      })
-    );
-
-    return transformedData;
-  };
-
-  const getColumnData = () => {
-    // Calculate the count of each unique rating value
-    const ratingCounts = {};
-    ratingData.forEach((rating) => {
-      if (ratingCounts[rating]) {
-        ratingCounts[rating]++;
-      } else {
-        ratingCounts[rating] = 1;
-      }
-    });
-
-    // Transform the data into the format expected by the Column component
-    const transformedData = Object.entries(ratingCounts).map(
-      ([rating, count]) => ({
-        rating: rating.toString(),
-        count,
-      })
-    );
-
-    return transformedData;
-  };
-
-  const parseRatingData = (data) => {
-    try {
-      return JSON.parse(data);
-    } catch (error) {
-      console.log(error);
-      return [];
+  useEffect(() => {
+    if (genreData && genreData.length > 0) {
+      setConfig({
+        forceFit : true , 
+        title : { 
+          visible : true , 
+          text : 'multi-color pie chart' , 
+        } ,
+        description : { 
+          visible : genreData.map(({ _id, nSold }) => ({
+            type: _id,
+            value: nSold,
+          })) , 
+          text :
+            'Specify a color mapping field (colorField)\uFF0C Pie chart slices will be displayed in different colors according to the field data\u3002The specified color needs to be configured as an array\u3002\nWhen the pie chart label type is set to inner\ The uFF0C label will be displayed inside the slice \u3002Set the offset value of the offset control label\u3002' ,
+        } ,
+        radius : 0.8 , 
+        data: genreData ,
+        angleField : 'nSold' , 
+        colorField : '_id' , 
+        label : { 
+          visible : true , 
+          type : 'inner' , 
+        } ,      });
     }
-  };
-
+  }, [genreData]);
+  
   return (
     <>
       <h1 style={{ justifyContent: "center", textAlign: "center" }}>Revenue</h1>
 
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
-          <Pie
-            appendPadding={10}
-            data={getPieData()}
-            angleField="value"
-            colorField="type"
-            radius={0.8}
-            label={{
-              type: "outer",
-            }}
-            interactions={[
-              {
-                type: "element-active",
-              },
-            ]}
-          />
+          {!config && <div>Loading...</div>}
+          {config && <Pie {...config}/>}
         </div>
-        <div style={{ width: "50%" }}>
+
+
+
+        {/* <div style={{ width: "50%" }}>
           <Column
             appendPadding={10}
             data={getColumnData()}
@@ -110,7 +75,7 @@ function Genre() {
               },
             ]}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );
