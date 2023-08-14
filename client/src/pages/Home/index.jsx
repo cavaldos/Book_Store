@@ -141,7 +141,7 @@ export default Home;
          
      
         
-          <Carousel className="carousel" autoplay>
+          
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
               <div key={ID} className="car-contens">
                 Daily recommended book
