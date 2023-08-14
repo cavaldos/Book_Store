@@ -149,7 +149,7 @@ export default Home;
         
        
     
-        </div>
+        
         <div className="home-container_6 con">Sort</div>
         <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
