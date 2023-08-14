@@ -24,12 +24,17 @@ router.post("/editbook", bookController.editBook); // da xong, da test
 router.get("/getallbooks", bookController.getAllBooks); // da xong, da test // da xong, da test
 router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // da xong, da test
 router.delete("/deletebook", bookController.deleteBook); // da xong, da test
-router.post("/findbooks", bookController.findBook);// da xong, da test
-
-//ORDER
-router.post("/addorder", orderController.addOrder); //  da xong
-router.get("/getallorders", orderController.getAllOrders); // da xong
-router.delete("/deleteorder", orderController.deleteOrder); // da xong
-router.get("/getrevenues", orderController.getReport); // da xong
+router.post("/findbooks", bookController.findBook); // da xong, da test
+router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da test
+router.get("/getrating", bookController.getRatingBook); // da xong, da test
+// router.get("/getgenre", bookController.getGenreBook); // da xong, da test
+router.get("/book/:id", bookController.getBookById); // da xong, da test
+//order
+router.post("/createorder", orderController.createOrder); // da xong, da test
+router.get("/getallorder", orderController.getAllOrder); // da xong, da test
+router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
+router.post("/findorder", orderController.findOrder); // da xong, da test
+router.post("/removeorder", orderController.removeOrder); // da xong, da test
+router.get("/getgenre", orderController.genreBreakdown); // da xong, da test
 
 module.exports = router;
