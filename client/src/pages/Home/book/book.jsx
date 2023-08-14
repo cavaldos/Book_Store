@@ -45,10 +45,13 @@ function Book(props) {
           <img className="imag" src={image} alt="" />
           <InfoBook id={_id} />
         </div>
-        <h3 className="title">{title}</h3>
-        <p className="author">Author: {author}</p>
-        <h4 className="price">Price :$ {price}</h4>
-        <Rating value={rate} precision={0.5} readOnly />
+        <div id="below_info">
+          <h3 className="title">{title}</h3>
+          <p className="author">Author: {author}</p>
+          <h4 className="price">Price :$ {price}</h4>
+          <Rating value={rate} precision={0.5} readOnly />
+        </div>
+        
         {/* <button className="btn" onClick={handleAddToCart}>
           <ShoppingCartOutlined />
         </button> */}
