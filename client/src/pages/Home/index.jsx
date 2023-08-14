@@ -138,10 +138,8 @@ export default Home;
              
                
              
-             
-            ))}
-          </Carousel>
-        </div>
+         
+     
         <div className="home-container_1 con">
           <Carousel className="carousel" autoplay>
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
