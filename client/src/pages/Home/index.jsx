@@ -136,7 +136,7 @@ export default Home;
           
            
              
-                Top Book
+               
                 <img className="pic" src={Image} alt={Tittle} />
               </div>
             ))}
