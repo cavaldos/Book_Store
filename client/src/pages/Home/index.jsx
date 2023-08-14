@@ -146,7 +146,7 @@ export default Home;
              
                
              
-        </div>
+        
         <div className="home-container_3 con">
           fillter
     
