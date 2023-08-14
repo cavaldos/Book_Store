@@ -133,7 +133,6 @@ function Home() {
 export default Home;
 
 /*
-<div className="home">
 <div className="home-container_2 con">
           <Carousel className="carousel" autoplay>
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
