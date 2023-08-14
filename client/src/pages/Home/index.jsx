@@ -147,8 +147,7 @@ export default Home;
                
              
         
-        <div className="home-container_3 con">
-          fillter
+       
     
         </div>
         <div className="home-container_6 con">Sort</div>
