@@ -142,7 +142,7 @@ export default Home;
      
         
           
-            {topRatedProducts.map(({ ID, Image, Tittle }) => (
+           
               <div key={ID} className="car-contens">
                 Daily recommended book
                 <img className="pic" src={Image} alt={Tittle} />
