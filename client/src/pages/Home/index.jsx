@@ -144,8 +144,7 @@ export default Home;
           
            
              
-                Daily recommended book
-                <img className="pic" src={Image} alt={Tittle} />
+               
               </div>
             ))}
           </Carousel>
