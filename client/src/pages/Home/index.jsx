@@ -137,7 +137,7 @@ export default Home;
            
              
                
-                <img className="pic" src={Image} alt={Tittle} />
+             
               </div>
             ))}
           </Carousel>
