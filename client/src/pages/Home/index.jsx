@@ -135,7 +135,7 @@ export default Home;
 /*
           
            
-              <div key={ID} className="car-contens">
+             
                 Top Book
                 <img className="pic" src={Image} alt={Tittle} />
               </div>
