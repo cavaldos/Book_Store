@@ -143,7 +143,7 @@ export default Home;
         
           
            
-              <div key={ID} className="car-contens">
+             
                 Daily recommended book
                 <img className="pic" src={Image} alt={Tittle} />
               </div>
