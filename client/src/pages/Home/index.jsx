@@ -26,7 +26,7 @@ const imageArray = [
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const [topRatedProducts, setTopRatedProducts] = useState([]);
+  // const [topRatedProducts, setTopRatedProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(12);
   const [totalPages, setTotalPages] = useState(1);
