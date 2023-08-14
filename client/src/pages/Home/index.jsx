@@ -133,25 +133,6 @@ function Home() {
 export default Home;
 
 /*
-          
-           
-             
-               
-             
-         
-     
-        
-          
-           
-             
-               
-             
-        
-       
-    
-        
-       
-        <div className="home-container_4 con"></div>
         <div className="home-container_5 con">
           {products.map(
             ({ ID, Image, Tittle, Author, Rating, Price, Description,_id }) => (
