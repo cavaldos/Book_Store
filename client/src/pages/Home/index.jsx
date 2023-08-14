@@ -140,7 +140,7 @@ export default Home;
              
          
      
-        <div className="home-container_1 con">
+        
           <Carousel className="carousel" autoplay>
             {topRatedProducts.map(({ ID, Image, Tittle }) => (
               <div key={ID} className="car-contens">
