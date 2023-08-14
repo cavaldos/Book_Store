@@ -158,8 +158,7 @@ export default function SignUp() {
   return (
     <>
       <div className="wrapper">
-        <div id="su_bg"><Background /></div>
-  
+        <Background />
         <div className="wrapper_signup">
           <Container component="main" maxWidth="xs">
             <Closebutton />
@@ -342,6 +341,7 @@ export default function SignUp() {
               </Box>
             </Box>
           </Container>
+    
         </div>
       </div>
     </>

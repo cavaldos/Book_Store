@@ -20,7 +20,6 @@ import IconButton from "@mui/material/IconButton";
 
 import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
-import Role from "./custom/setrole";
 import { message } from "antd";
 
 //----------------------------------------------------------------
@@ -100,7 +99,8 @@ function ResetPassword() {
 
   return (
     <div className="wrapper">
-      <div id="rs_bg"><Background/></div>
+      <Background />
+
       <div className="wrapper_reset">
         <ThemeProvider theme={createTheme()}>
           <Container component="main" maxWidth="xs">
@@ -120,7 +120,7 @@ function ResetPassword() {
               <Typography component="h1" variant="5">
                 Reset Password
               </Typography>
-              <Role />
+
               <Box
                 component="form"
                 onSubmit={handleSubmit}

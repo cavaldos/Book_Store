@@ -1,0 +1,211 @@
+[
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab5530fb"
+    },
+    "ID": 1,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "1984",
+    "Author": "George Orwell",
+    "Rating": 4,
+    "Price": 7.88,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Crime-Thriller",
+    "Publish_Year": 1949,
+    "Publisher": "Secker and Warburg",
+    "Description": "This dystopian novel is set in a totalitarian society where the government has complete control over every aspect of citizens' lives, including their thoughts and beliefs. It follows the story of Winston Smith, a low-ranking member of the ruling party who begins to rebel against the regime's oppressive tactics. It has become a classic in the genre of political fiction and has had a lasting influence on popular culture and political discourse.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab5530fc"
+    },
+    "ID": 2,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "12 Rules for Life",
+    "Author": "Jordan B. Peterson",
+    "Rating": 4,
+    "Price": 18.31,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Medical",
+    "Publish_Year": 2018,
+    "Publisher": "Random House Canada",
+    "Description": "This book presents a set of principles for living a meaningful and fulfilling life, drawing on psychology, philosophy, and the author's own experiences. It has been controversial for its views on topics such as gender and politics.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab5530fd"
+    },
+    "ID": 3,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "A Brief History Of Time",
+    "Author": "Stephen Hawking",
+    "Rating": 4,
+    "Price": 9.12,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Science-Geography",
+    "Publish_Year": 1988,
+    "Publisher": "Bantam Books",
+    "Description": "This book provides an introduction to the concepts of cosmology, including the Big Bang theory, black holes, and the nature of time. It is written for a general audience and has become a best-seller.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab5530fe"
+    },
+    "ID": 4,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Alan Turing: The Enigma",
+    "Author": "Andrew Hodges",
+    "Rating": 4,
+    "Price": 13.41,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Computing",
+    "Publish_Year": 1983,
+    "Publisher": "Burnett Books",
+    "Description": "This biography explores the life and work of Alan Turing, a British mathematician and codebreaker during World War II. It also delves into his personal life, including his homosexuality and the persecution he faced as a result.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab5530ff"
+    },
+    "ID": 5,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Animal Farm",
+    "Author": "George Orwell",
+    "Rating": 4,
+    "Price": 7.98,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Childrens-Books",
+    "Publish_Year": 1945,
+    "Publisher": "Secker and Warburg",
+    "Description": "This allegorical novel tells the story of a group of farm animals who rebel against their human owner and establish their own society. It is a commentary on the Russian Revolution and the rise of Stalinism.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab553100"
+    },
+    "ID": 6,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Astrophysics for People in a Hurry",
+    "Author": "Neil Degrasse Tyson",
+    "Rating": 4,
+    "Price": 13.37,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Science-Geography",
+    "Publish_Year": 2017,
+    "Publisher": "W. W. Norton & Company",
+    "Description": "W. W. Norton & Company",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab553101"
+    },
+    "ID": 7,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Bad Blood",
+    "Author": "John Carreyrou",
+    "Rating": 4.5,
+    "Price": 8.4,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Biography",
+    "Publish_Year": 2018,
+    "Publisher": "Knopf",
+    "Description": "This book is an investigative journalism account of the rise and fall of the health technology company Theranos, founded by Elizabeth Holmes. It exposes the fraud and deception within the company and the executives responsible for it.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab553102"
+    },
+    "ID": 8,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Becoming",
+    "Author": "Michelle Obama",
+    "Rating": 4.5,
+    "Price": 24.21,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Biography",
+    "Publish_Year": 2018,
+    "Publisher": "Crown Publishing Group",
+    "Description": "This memoir chronicles the life and career of Michelle Obama, from her childhood on the South Side of Chicago to her years as First Lady of the United States. It reflects on the challenges and triumphs she faced along the way.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab553103"
+    },
+    "ID": 9,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Behind Closed Doors",
+    "Author": "B. A. Paris",
+    "Rating": 4,
+    "Price": 8.39,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Crime-Thriller",
+    "Publish_Year": 2016,
+    "Publisher": "St. Martin's Press",
+    "Description": "This psychological thriller tells the story of a seemingly perfect couple, but as the story unfolds, it becomes clear that their marriage is not what it seems. It explores themes of domestic abuse and control.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab553104"
+    },
+    "ID": 10,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Being Mortal",
+    "Author": "Atul Gawande",
+    "Rating": 4.5,
+    "Price": 9.03,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Medical",
+    "Publish_Year": 2014,
+    "Publisher": "Metropolitan Books",
+    "Description": "This book explores the challenges of end-of-life care and the ways in which medicine can better serve the needs of the dying. It presents personal stories and research on topics such as hospice care, assisted living, and the medicalization of death.",
+    "quantity": 10
+  },
+  {
+    "_id": {
+      "$oid": "64b4f58469d71d73ab553105"
+    },
+    "ID": 11,
+    "Image": "https://plus.unsplash.com/premium_photo-1689841977056-ad2539873c9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    "Tittle": "Big Little Lies",
+    "Author": "Liane Moriarty",
+    "Rating": 4.5,
+    "Price": 9.55,
+    "ISBN": {
+      "$numberLong": "9780000000000"
+    },
+    "Genre": "Crime-Thriller",
+    "Publish_Year": 2014,
+    "Publisher": "Berkley Books",
+    "Description": "This novel follows the lives of three women in a wealthy suburban community as their seemingly perfect lives begin to unravel. It explores themes of motherhood, domestic violence, and the pressure to conform to societal expectations.",
+    "quantity": 10
+  }
+]

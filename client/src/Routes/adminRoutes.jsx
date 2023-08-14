@@ -1,9 +1,8 @@
-import Wallet from "../pages/Wallet";
 import ManagerUser from "../pages/Admin/user";
 import ManagerProduct from "../pages/Admin/product";
 import Home from "../pages/Home";
-import Revenue from "../pages/Revenue";
-
+import Revenue from "../pages/Admin/Revenue";
+import Detailbook from "../components/Product/detail";
 const adminRoutes = [
   {
     path: "/",
@@ -16,33 +15,26 @@ const adminRoutes = [
     component: Home,
   },
   {
-    path: "/admin/user",
+    path: "/admin/manage-user",
 
     component: ManagerUser,
   },
-  {
-    path: "/admin/employee",
 
-    component: Wallet,
-  },
   {
-    path: "/admin/product",
+    path: "admin/product",
 
     component: ManagerProduct,
   },
   {
-    path: "/admin/wallet",
+    path: "admin/revenue",
 
-    component: Wallet,
-  },
-  {
-    path: "/admin/revenue",
     component: Revenue,
   },
+
   {
-    path: "/admin/advertising",
-    component: Wallet,
-  },
+    path: `/detail-book/:id`,
+    component: Detailbook,
+  }
 ];
 
-export default adminRoutes ;
+export default adminRoutes;

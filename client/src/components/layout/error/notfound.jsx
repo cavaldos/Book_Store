@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export const Notfound = (props) => {
   return (
     <div
@@ -16,8 +17,11 @@ export const Notfound = (props) => {
     >
       <h1>404</h1>
       <h1>Notfound</h1>
-      <h3 style={{color:'blue'}}>
+      <h3 style={{ color: "blue" }}>
         <Link to="/">Go to home</Link>
+      </h3>
+      <h3 style={{ color: "blue" }}>
+       
       </h3>
     </div>
   );

@@ -1,4 +1,4 @@
-import axiosConfig from "./configAPI";
+import axiosConfig from "./axios_config";
 
 const getAllOrder = () => {
   return axiosConfig.get("/getallorder");

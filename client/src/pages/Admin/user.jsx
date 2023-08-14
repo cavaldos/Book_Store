@@ -10,6 +10,7 @@ import { Modal } from "antd";
 import AddUser from "./option/addUser";
 import { message } from "antd";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
+
 function ManagerUser() {
   const [users, setUsers] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -68,7 +69,11 @@ function ManagerUser() {
               Search
             </Button>
             <Button
-              onClick={() => handleReset(clearFilters)}
+              onClick={() => {
+                clearFilters();
+                setSelectedKeys([]);
+                confirm();
+              }}
               size="small"
               style={{ width: 90 }}
             >
@@ -121,7 +126,7 @@ function ManagerUser() {
       dataIndex: "password",
       key: "password",
       sorter: (a, b) => a.password.localeCompare(b.password),
-      ...getColumnSearchProps("password", "Password"),
+      // ...getColumnSearchProps("password", "Password"),
       render: (password) => (
         <div>
           ****
@@ -181,7 +186,6 @@ function ManagerUser() {
   const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
-    // window.location.reload();
   };
 
   return (

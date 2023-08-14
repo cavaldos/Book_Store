@@ -2,26 +2,27 @@
   border-radius: 4px;
   margin: 10px;
   width: 260px;
-  height: 320px;
+  height: 410px;
   background-image: linear-gradient(
     to bottom,
     var(--light-grey),
     rgba(248, 246, 246, 0.1)
   );
-  border: 0.1px solid rgba(85, 83, 83, 0.501);
+  border: 0.1px solid #3333;
   box-shadow: 0 0 1px 0 rgba(100, 97, 97, 0.2);
   padding: 5px;
   box-sizing: border-box;
   background-color: #f7f6f6d5;
 
   .image {
+    
     color: red;
-    background-color: rgba(214, 213, 213, 0.473);
+    background-color: white;
     position: relative;
     top: 0;
     left: 0;
     right: 0;
-    height: 180px;
+    height: 250px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -30,21 +31,30 @@
     box-sizing: border-box;
     img {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 248px;
-      height: 180px;
+      width: 80%;
+      height: 80%;
+      max-width: 80%;
+      max-height: 80%;
       border-radius: 4px;
     }
   }
+  #below_info
+  {
+    height: 140px;
+    margin-top: 10px;
+    background-color: white;
+  }
+  .price
+  {
+    color: rgb(153, 19, 19);
+  }
   .title {
-    font-size: 1.4rem;
+    margin: 5px 0 5px 10px;
+    font-size: 22px;
     font-weight: bold;
+    color: #333333;
+    font-family: "Geometrix 415", sans-serif;
 
-    color: var(--text-dark);
-    margin: 10px 0 0 10px;
     text-align: left;
     max-width: 200px; /* Set the maximum width */
     white-space: nowrap; /* Prevent line breaks */
