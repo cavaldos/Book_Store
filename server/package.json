@@ -22,8 +22,9 @@
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.3.2",
     "nodemailer": "^6.9.4",
-    "ws": "^8.13.0",
-    "openai": "^3.3.0"
+    "openai": "^3.3.0",
+    "uuid": "^9.0.0",
+    "ws": "^8.13.0"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

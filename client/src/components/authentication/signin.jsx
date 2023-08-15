@@ -25,11 +25,10 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
-
 import { useDispatch, useSelector } from "react-redux";
 import LoadingCustom from "./custom/loading";
 import { updateRole } from "../../redux/features/roleSlice";
-
+import { updateUser } from "../../redux/features/userSilce";
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("");
@@ -79,7 +78,9 @@ function SignIn() {
                   password: password,
                 })
               );
+              dispatch(updateUser({ email: email }));
             }, 100);
+
             navigate("/");
           } else if (res.data === "usersuccess") {
             message.success("Sign in success with user role");
@@ -92,6 +93,7 @@ function SignIn() {
                   password: password,
                 })
               );
+              dispatch(updateUser({ email: email }));
             }, 100);
             navigate("/");
           } else if (res.data === "employeesuccess") {
@@ -105,6 +107,7 @@ function SignIn() {
                   password: password,
                 })
               );
+              dispatch(updateUser({ email: email }));
             }, 100);
             navigate("/");
           } else {
