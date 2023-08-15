@@ -20,9 +20,10 @@
 
   .carousel-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-area: 1/1/1/span 4 ;
+    grid-area: 1/1/1/span 4;
     background-color: #f0f0f0;
     position: absolute;
     top:20px

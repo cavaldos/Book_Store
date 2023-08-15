@@ -6,7 +6,6 @@ const avatarController = require("../controllers/avatarController");
 const paymentController = require("../controllers/payment(test)Controller");
 const editprofileController = require("../controllers/editprofileController");
 const coverController = require("../controllers/coverController");
-const paymentpaypalController = require('../controllers/paymentpaypalController');
 const paypalController = require('../controllers/paypalController');
 
 
@@ -45,17 +44,10 @@ router.post("/getcoverImage", coverController.getCoverPic);
 //STRIPE
 router.get("/sendAPIStripe",paymentController.sendStripApi);
 
+
+
+
 //PAYPAL
-router.post('/create-payment', paymentpaypalController.createPayment);
-router.get('/payment/:id', paymentpaypalController.getPaymentById);
-router.put('/payment/:id', paymentpaypalController.updatePaymentStatus);
-router.delete('/payment/:id', paymentpaypalController.deletePayment);
-router.get('/payments', paymentpaypalController.getPayments); // Để lấy tất cả thanh toán
-router.get('/user-payments/:email', paymentpaypalController.getUserPayments); // Để lấy thanh toán của một người dùng
-
-
-
-
 router.post('/paypal/capture', paypalController.capturePayment);
 
 
