@@ -51,15 +51,15 @@ function Home() {
       .catch((error) => console.log(error));
   };
   //get top book
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8000/gettopbooks")
-  //     .then((response) => {
-  //       setProducts(response.data);
-  //       setTopRatedProducts(response.data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/gettopbooks")
+      .then((response) => {
+        setProducts(response.data);
+        setTopRatedProducts(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   
   // Add the pagination controls
   const handlePageChange = (pageNumber) => {
