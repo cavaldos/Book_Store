@@ -176,8 +176,9 @@ function ManagerProduct() {
   return (
     <>
       <h1>Manager Product</h1>
-
-      <Table dataSource={bookInfos} columns={columns} />
+      <div style={{ overflowX: "auto" }}>
+        <Table dataSource={bookInfos} columns={columns} />
+      </div>
     </>
   );
 }

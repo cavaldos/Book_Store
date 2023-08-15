@@ -192,7 +192,10 @@ function ManagerUser() {
     <>
       <h1>Manager User</h1>
 
-      <Table dataSource={userInfos} columns={columns} />
+      <div style={{ overflowX: "auto" }}>
+        <Table dataSource={userInfos} columns={columns} />
+      </div>
+
       <h3>Number of user: {number}</h3>
       <AddUser />
     </>
