@@ -25,6 +25,7 @@ router.get("/getallusers", userController.getAllusers); // đã viết xong
 router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
 
 //BOOK
+//router.get("/:id", bookController.getBookById); // da xong, da test
 router.post("/addbook", bookController.addBook); //  da xong, da test
 router.post("/editbook", bookController.editBook); // da xong, da test
 router.get("/getallbooks", bookController.getAllBooks); // da xong, da test // da xong, da test

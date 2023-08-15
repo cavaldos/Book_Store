@@ -16,6 +16,7 @@ import Payment from "../pages/Payment/Payment";
 import UserProfile from "../components/profileComponent/UserProfile";
 import Profile from "../pages/Profile/profile";
 import PayPalButton from "../pages/PayPalPaymentTest/PayPalTest";
+import Detailbook from "../components/Product/detail";
 
 // public routes
 const publicRoutes = [
@@ -87,6 +88,10 @@ const publicRoutes = [
     component: Payment,
     layout: null,
   },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
+  },
 ];
 
 
@@ -133,6 +138,10 @@ const userRoutes = [
     path: 'user/paypal',
     component: PayPalButton,
     layout: null,
+  },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
   },
 ];
 
