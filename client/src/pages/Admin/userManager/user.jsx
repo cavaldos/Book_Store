@@ -17,7 +17,7 @@ function ManagerUser() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallusers")
+      .get(`${process.env.REACT_APP_API_PORT}/getallusers`)
       .then((response) => {
         setUsers(response.data);
       })
@@ -172,9 +172,9 @@ function ManagerUser() {
 
   const [number, setNumber] = useState(0);
   useEffect(() => {
-    // /http://localhost:8001/getnumberuser
+  
     axios
-      .get("http://localhost:8001/getnumberuser")
+      .get(`${process.env.REACT_APP_API_PORT}/getnumberuser`)
       .then((response) => {
         setNumber(response.data);
       })

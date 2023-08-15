@@ -46,7 +46,7 @@ function SignIn() {
     const data = new FormData(event.currentTarget);
   };
 
-  console.log("sign in", role);
+  // console.log("sign in", role);
   const newdata = { role, email, password };
   async function submit(e) {
     e.preventDefault();
@@ -62,56 +62,33 @@ function SignIn() {
       message.error("Role is required");
       return;
     }
+ 
 
     try {
       await axios
-        .post(`http://localhost:8001/signin`, newdata)
+        .post(`${process.env.REACT_APP_API_PORT}/signin`, newdata)
         .then((res) => {
-          if (res.data === "adminsuccess") {
-            message.success("Sign in success with admin role");
-            setTimeout(() => {
-              dispatch(
-                updateRole({
-                  role: role,
-                  roleRouter: role,
-                  email: email,
-                  password: password,
-                })
-              );
-              dispatch(updateUser({ email: email }));
-            }, 100);
-
-            navigate("/");
-          } else if (res.data === "usersuccess") {
-            message.success("Sign in success with user role");
-            setTimeout(() => {
-              dispatch(
-                updateRole({
-                  role: role,
-                  roleRouter: role,
-                  email: email,
-                  password: password,
-                })
-              );
-              dispatch(updateUser({ email: email }));
-            }, 100);
-            navigate("/");
-          } else if (res.data === "employeesuccess") {
-            message.success("Sign in success with employee role");
-            setTimeout(() => {
-              dispatch(
-                updateRole({
-                  role: role,
-                  roleRouter: role,
-                  email: email,
-                  password: password,
-                })
-              );
-              dispatch(updateUser({ email: email }));
-            }, 100);
-            navigate("/");
+          if (res.data === "signinfail") {
+            message.error("Sign in not success");
+            return;
           } else {
-            message.error("Sign In not success");
+            const verifyEmail = res.data.email;
+            const verifyToken = res.data.accessToken;
+            const verifyRole = res.data.role;
+            message.success(`Sign in success with ${verifyRole} role`);
+            dispatch(
+              updateRole({
+                role: verifyRole,
+                token: verifyToken,
+                email: verifyEmail,
+              })
+            );
+            dispatch(
+              updateUser({
+                email: verifyEmail,
+              })
+            );
+            navigate("/", { replace: true });
           }
         })
         .catch((e) => {

@@ -10,7 +10,7 @@ function MyOrder() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8001/findorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
         order_code: user.order_code,
       })
       .then((res) => {

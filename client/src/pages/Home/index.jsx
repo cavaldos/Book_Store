@@ -22,7 +22,7 @@ function Home() {
   }, [currentPage, pageSize]);
 
   const fetchProducts = () => {
-    const url = `http://localhost:8001/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
+    const url = `${process.env.REACT_APP_API_PORT}/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
     axios
       .get(url)
       .then((response) => {
@@ -38,7 +38,7 @@ function Home() {
   //get top book
   useEffect(() => {
     axios
-      .get("http://localhost:8001/gettopbooks")
+      .get(`${process.env.REACT_APP_API_PORT}/gettopbooks`)
       .then((response) => {
         setProducts(response.data);
         setTopRatedProducts(response.data);

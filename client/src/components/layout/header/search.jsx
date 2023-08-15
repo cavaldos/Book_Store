@@ -39,7 +39,7 @@ function Searchs() {
   }
 
   const fetchTooltipContent = (searchValue) => {
-    const apiUrl = `http://localhost:8001/search/${searchValue}`;
+    const apiUrl = `${process.env.REACT_APP_API_PORT}/search/${searchValue}`;
     setIsLoading(true); // Set loading to true before making the API call
     axios
       .get(apiUrl)

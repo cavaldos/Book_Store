@@ -52,9 +52,9 @@ const OnlineLayout = () => {
               Sign Up
             </Button>
           </Space>
-          <Space id="advertising" className="advertising-text">
+          {/* <Space id="advertising" className="advertising-text">
            WELL COME TO SMART PARKING
-          </Space>
+          </Space> */}
         </div>
       </div>
       {/* main */}

@@ -25,7 +25,8 @@ function OrderDetail(props) {
  
   useEffect(() => {
     axios
-      .post("http://localhost:8001/findorder", { //tim kiem order va in  vao bang
+      .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
+   
         order_code: orderid,
       })
       .then((res) => {

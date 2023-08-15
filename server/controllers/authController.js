@@ -2,9 +2,39 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const Verify = require("../models/verify");
 const { sendEmail1 } = require("../config/email");
-const randomCode = Math.floor(100001 + Math.random() * 900000);
-
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
 const authController = {
+  getgenreAccesstoken: (user) => {
+    const accessToken = jwt.sign(
+      {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+      },
+      process.env.SECRET_KEY,
+      {
+        expiresIn: "2h",
+      }
+    );
+    return accessToken;
+  },
+  getgenreRefreshtoken: (user) => {
+    const refreshToken = jwt.sign(
+      {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+      },
+      process.env.REFRESH_KEY,
+      {
+        expiresIn: "7d",
+      }
+    );
+    return refreshToken;
+  },
+
   signin: async (req, res) => {
     try {
       console.log("body:", req.body, "\n");
@@ -12,16 +42,26 @@ const authController = {
       const user = await User.findOne({ email: email, role: role });
       if (user) {
         const passwordMatches = await bcrypt.compare(password, user.password);
+
         if (passwordMatches) {
           if (user.role === "admin") {
-            res.json("adminsuccess");
+            const accessToken = authController.getgenreAccesstoken(user);
+            const refreshToken = authController.getgenreRefreshtoken(user);
+            const { password, ...info } = user._doc;
+            res.status(200).json({ ...info, accessToken, refreshToken });
           } else if (user.role === "user") {
-            res.json("usersuccess");
+            const accessToken = authController.getgenreAccesstoken(user);
+            const refreshToken = authController.getgenreRefreshtoken(user);
+            const { password, ...info } = user._doc;
+            res.status(200).json({ ...info, accessToken, refreshToken });
           } else if (user.role === "employee") {
-            res.json("employeesuccess");
+            const accessToken = authController.getgenreAccesstoken(user);
+            const refreshToken = authController.getgenreRefreshtoken(user);
+            const { password, ...info } = user._doc;
+            res.status(200).json({ ...info, accessToken, refreshToken });
           }
         } else {
-          res.json("signinfail");
+          res.status(401).json("passwordnotmatch");
         }
       } else {
         res.json("signinfail");
@@ -91,7 +131,7 @@ const authController = {
       const verification = await Verify.findOne({
         email: email,
       });
-      console.log("khanh",verification.confirmationCode);
+      console.log("khanh", verification.confirmationCode);
       if (confirmationCode !== verification.confirmationCode) {
         await res.json("confirmationCodefail");
         return;
@@ -124,7 +164,6 @@ const authController = {
         res.json("RegisterFail");
         console.log("RegisterFail");
       }
-
     } catch (err) {
       res.status(500).json({
         message: err.message,

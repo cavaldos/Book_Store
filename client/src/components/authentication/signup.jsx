@@ -60,7 +60,7 @@ export default function SignUp() {
     try {
       await message.loading("Sending verification code...", 1);
       const response = await axios.post(
-        "http://localhost:8001/verifyemailsignup",
+        `${process.env.REACT_APP_API_PORT}/verifyemailsignup`,
         {
           email,
         }
@@ -128,7 +128,7 @@ export default function SignUp() {
 
     try {
       await axios
-        .post(`http://localhost:8001/register`, newdata)
+        .post(`${process.env.REACT_APP_API_PORT}/register`, newdata)
         .then((res) => {
           if (res.data === "confirmationCodefail") {
             message.error("Confirmation Code is not correct,pelase send again");

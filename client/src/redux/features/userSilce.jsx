@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// post http://localhost:8001/getuserbyemail
+
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async ({ email}, { rejectWithValue }) => {
     try {
       console.log("email", { email});
       const response = await axios.post(
-        "http://localhost:8001/getuserbyemail",
+        `${process.env.REACT_APP_API_PORT}/getuserbyemail`,
         { email }
       );
       console.log("response", response.data);

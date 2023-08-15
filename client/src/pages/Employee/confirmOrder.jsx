@@ -36,7 +36,7 @@ function ConfirmOrderEmployee() {
   const [getAllOrder, setGetAllOrder] = useState([]);
   useEffect(() => {
     axios
-      .post("http://localhost:8001/getallorder")
+      .post(`${process.env.REACT_APP_API_PORT}/getallorder`)
       .then((res) => {
         const filteredData = res.data.filter((order) => order.state === 2);
         setGetAllOrder(filteredData);

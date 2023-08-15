@@ -8,7 +8,7 @@ function Genre() {
   useEffect(() => {
     // Call API to get the rating data
     axios
-      .get("http://localhost:8001/getgenre")
+      .get(`${process.env.REACT_APP_API_PORT}/getgenre`)
       .then((response) => {
         setRatingData(response.data);
       })

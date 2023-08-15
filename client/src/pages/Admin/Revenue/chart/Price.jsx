@@ -11,7 +11,7 @@ function Revenue() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8001/findyear/${selectedYear}`)
+      .get(`${process.env.REACT_APP_API_PORT}/findyear/${selectedYear}`)
       .then((res) => {
         // Transform the fetched data into the required format
         const transformedData = res.data.map((item) => ({

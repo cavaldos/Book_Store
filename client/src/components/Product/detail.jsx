@@ -12,7 +12,7 @@ function Detailbook(props) {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8001/${id}`)
+      .get(`${process.env.REACT_APP_API_PORT}/${id}`)
       .then((res) => {
         setData(res.data.data);
       })

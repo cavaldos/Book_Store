@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 const EditUser = (user) => {
-  // http://localhost:8001/deleteuser
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   // console.log("record",email);
   const showModal = () => {

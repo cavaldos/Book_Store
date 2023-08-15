@@ -8,7 +8,7 @@ function Rating() {
   useEffect(() => {
     // Call API to get the rating data
     axios
-      .get("http://localhost:8001/getrating")
+      .get(`${process.env.REACT_APP_API_PORT}/getrating`)
       .then((response) => {
         setRatingData(response.data);
       })

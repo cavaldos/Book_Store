@@ -2,10 +2,15 @@ const Book = require("../models/book");
 
 const bookController = {
   addBook: async (req, res) => {
+    const maxId = await Book.findOne({}, { ID: 1 })
+      .sort({ ID: -1 })
+      .limit(1)
+      .exec();
+
     try {
       const data = req.body;
       const newBook = new Book({
-        ID: data.ID,
+        ID: maxId.ID + 1,
         Image: data.Image,
         Tittle: data.Tittle,
         Author: data.Author,
@@ -71,10 +76,10 @@ const bookController = {
   editBook: async (req, res) => {
     try {
       const data = req.body;
-       const maxId = await User.findOne({}, { ID: 1 })
-         .sort({ ID: -1 })
-         .limit(1)
-         .exec();
+      const maxId = await User.findOne({}, { ID: 1 })
+        .sort({ ID: -1 })
+        .limit(1)
+        .exec();
       const result = await Book.updateOne(
         { ID: maxId.ID },
         {

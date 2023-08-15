@@ -12,7 +12,10 @@ import axios from "axios";
 import { connectWebSocket, sendMessage } from "../../../utils/websocket";
 import { useEffect, useState } from "react";
 import { Steps } from "antd";
+import PayPalButton from "..//..//..//components/paypal";
+
 const { Step } = Steps;
+
 
 export const fetchOrder = () => async (dispatch) => {};
 
@@ -53,7 +56,7 @@ const PaymentDetails = () => {
   console.log("detail", payment.orderDetails);
   async function handlePayment() {
     // await axios
-    //   .post("http://localhost:8001/createorder", {
+    //   .post(`${process.env.REACT_APP_API_PORT}/createorder`, {
     //     state: 2,
     //     address: "hcm",
     //     price_total: payment.total,
@@ -89,6 +92,7 @@ const PaymentDetails = () => {
         }}
       >
         mai lam phan xac nhan thanh toan tai day
+        <PayPalButton />
       </Space>
       <br />
       <Button style={{ margin: "0 8px" }} onClick={handlePrev}>

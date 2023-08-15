@@ -19,13 +19,13 @@ const DeleteUser = (user) => {
     }
     try {
       await axios
-        .post("http://localhost:8001/deleteuser", {
+        .post(`${process.env.REACT_APP_API_PORT}/deleteuser`, {
           email,
         })
         .then((res) => {
           if (res.data === "deleted") {
             message.success("Delete success");
-            setIsModalOpen(false);      
+            setIsModalOpen(false);
             setTimeout(() => {
               window.location.reload();
             }, 2000);

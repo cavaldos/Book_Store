@@ -10,10 +10,10 @@ function ManagerProduct() {
   const [book, setBook] = useState([]);
   const [data, setData] = useState([]);
   const [searchText, setSearchText] = useState("");
-  //http:localhost:8000/getallbooks
+  
   useEffect(() => {
     axios
-      .get("http://localhost:8001/getallbookmanage")
+      .get(`${process.env.REACT_APP_API_PORT}/getallbookmanage`)
       .then((response) => {
         setBook(response.data);
       })
