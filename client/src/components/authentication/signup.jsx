@@ -140,19 +140,19 @@ export default function SignUp() {
           } else if (res.data === "RegisterUserSuccess") {
             message.success("Register successfully with user role");
             setTimeout(() => {
-              history("/login");
-            }, 2000);
+              history("/signin");
+            }, 1000);
           } else if (res.data === "RegisterEmployeesUccess") {
             message.success("Register successfully with employee role");
             setTimeout(() => {
-              history("/login");
-            }, 2000);
+              history("/signin");
+            }, 1000);
           } else if (res.data === "RegisterFail") {
             message.error("Register failed1");
           }
         })
         .catch((err) => {
-          message.error("Register Failed2");
+          message.error("Register Failed");
           console.log(err);
         });
     } catch (e) {
@@ -347,6 +347,7 @@ export default function SignUp() {
               </Box>
             </Box>
           </Container>
+    
         </div>
       </div>
     </>

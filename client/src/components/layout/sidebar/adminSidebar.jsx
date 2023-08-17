@@ -1,49 +1,54 @@
 import "../../main/styles.scss";
 import Logo from "./logo";
-
 import React from "react";
-import MenuItem from "../menu/index";
+import { Menu } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 function AdminSidebar(props) {
   const { toggle } = props;
+  const navigate = useNavigate();
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
+  const menuItems = [
+    { key: "home", icon: <MenuUnfoldOutlined />, text: "Home", path: "/" },
+    {
+      key: "manager-user  ",
+      icon: <MenuUnfoldOutlined />,
+      text: "Manager-user",
+      path: "/admin/manage-user",
+    },
+    {
+      key: "manager-product",
+      icon: <MenuFoldOutlined />,
+      text: "Manager-product",
+      path: "/admin/product",
+    },
+    {
+      key: "manager-revenue",
+      icon: <MenuFoldOutlined />,
+      text: "Manager-revenue",
+      path: "/admin/revenue",
+    },
+  ];
   return (
     <>
       <div className="sidebar">
         <Logo />
         <div className="menu_list">
-          <div className="menu_item">
-            <MenuItem
-              name="Home"
-              toggle={toggle}
-              path="/"
-              icon={<MenuUnfoldOutlined />}
-            />
-          </div>
-          <div className="menu_item">
-            <MenuItem
-              name="Manager-user"
-              toggle={toggle}
-              path="/admin/user"
-              icon={<MenuUnfoldOutlined />}
-            />
-          </div>
-          <div className="menu_item">
-            <MenuItem
-              name="Manager-product"
-              toggle={toggle}
-              path="/admin/product"
-              icon={<MenuFoldOutlined />}
-            />
-          </div>
-          <div className="menu_item">
-            <MenuItem
-              name="Manager-revenue"
-              toggle={toggle}
-              path="/admin/revenue"
-              icon={<MenuFoldOutlined />}
-            />
-          </div>
+          <Menu theme="dark" mode="inline" className="menu-sidebar">
+            {menuItems.map((item) => (
+              <Menu.Item
+                key={item.key}
+                className="menu-item-sidebar"
+                icon={item.icon}
+                onClick={() => handleNavigate(item.path)}
+              >
+                {item.text}
+              </Menu.Item>
+            ))}
+          </Menu>
         </div>
       </div>
     </>

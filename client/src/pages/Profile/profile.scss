@@ -1,94 +1,104 @@
 .wrapper-profile {
-  position: relative;
-  margin: 20px 20px 0px 20px;
-  height: 300px;
-  border-radius: 20px;
-  border-bottom: 2px solid #979494;
+  display: flex;
+  justify-content: center;
+}
+.custom-form-item {
+  width: 500px;
 
-  .background-profile {
-    padding: 20px;
-    height: 240px;
-    border-radius: 20px 20px 0 0;
-    // background-color: line;
-    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%);
-    .avatar-profile {
-      position: absolute;
-      left: 20px;
-      bottom: 35px;
-      font-size: 60px;
-      min-height: 120px;
-      min-width: 120px;
-    }
-    .name-profile {
-      position: absolute;
-      left: 150px;
-      bottom: 75px;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    .role-profile {
-      position: absolute;
-      left: 150px;
-      bottom: 60px;
-      font-size: 20px;
-    }
+}
+.profile-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  // background-color: rgb(12, 63, 63);
+  background-image: linear-gradient(
+    to right,
+    rgb(207, 0, 197),
+    rgb(0, 88, 170)
+  );
+
+  height: 220px;
+  margin: 1px;
+  border-radius: 3px;
+}
+
+.profile-infor {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 110px;
+  width: 1290px;
+  min-height: 300px;
+  .profile-infor-detail {
+    flex: 1.2;
+    background-color: rgb(245, 245, 245);
+    margin: 0 10px 0 0;
+    border-radius: 4.1px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset;
+  }
+  .profile-content {
+    flex: 3;
+    min-height: 400px;
+    border-radius: 4.1px;
   }
 }
 
-.info {
-  margin: 20px;
-  border-radius: 20px;
-  padding: 10px;
-  background-color: #e6e8ec;
-  display: flex;
-  flex-direction: column;
-  .wallet-profile {
-    position: relative;
-    background-color: rgb(136, 136, 136);
-    padding: 10px;
-    display: flex;
-    width: 900px;
-    flex-direction: row;
-    border: 2px solid #030303;
-    border-radius: 10px;
-    .edit-wallet {
-      border: 2px solid #979494;
-      flex: 3;
-      margin: 0 10px 0 0;
-      .balance {
-        padding: 0 0 0 10px;
-        position: relative;
-        background-color: red;
-        margin: 10px;
-        border-radius: 10px;
-        p {
-          font-size: 20px;
-          font-weight: bold;
-        }
-      }
-      .buttonp{
-        background-color: gray;
-        margin: 4px 10px;
-      }
-
-    }
-    .wrapper-card {
-      flex: 2;
-
-      .flip-card {
-        position: relative;
-      }
-    }
+//middle
+@media only screen and (min-width: 1300px) and (max-width: 1600px) {
+  // máy tính màn hinh nhỏ
+  .profile-background {
+    background-color: rgb(46, 9, 49);
   }
-  .oder-profile {
+  .profile-infor {
+    max-width: 1000px;
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 1300px) {
+  // máy tính màn hinh nhỏ
+  .profile-background {
+    background-color: rgb(41, 35, 35);
+  }
+  .profile-infor {
+    top: 150px;
+    width: 95%;
+    margin: 0 0 20px 0;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
-    .oder {
-      flex: 1;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 20px;
-      background-color: #fbc2eb;
+    .profile-infor-detail {
+      flex: 1.2;
+      margin: 0 0 20px 0;
+    }
+    .profile-content {
+      flex: 3;
+    }
+  }
+}
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 300px) {
+  // iphone 5/SE/12 pro
+  .profile-background {
+    background-color: rgb(41, 35, 35);
+  }
+  .profile-infor {
+    top: 200px;
+    width: 99%;
+    margin: 0 0 20px 0;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    .profile-infor-detail {
+      flex: 1.2;
+      margin: 0 0 20px 0;
+    }
+    .profile-content {
+      flex: 3;
     }
   }
 }

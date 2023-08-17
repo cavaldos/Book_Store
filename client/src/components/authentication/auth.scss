@@ -1,109 +1,120 @@
 .wrapper {
-  // phan bao xung quanh toan bo trang
-  // background-image: url("../../../public/bg2.png");
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(42, 42, 42, 0.8),
-      rgba(204, 199, 199, 0.3)
-    ),
-    url("../../../public/bg2.png");
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  min-height: 100vh;
-  // max-width: 100vw;
   display: flex;
   flex-flow: row wrap;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(248, 248, 249),
+    rgba(253, 252, 252, 0.699)
+  );
   .wrapper_reset {
     flex: 2;
-    padding-bottom: 100px;
     margin: 10px;
+    padding-bottom: 100px;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(26, 25, 25, 0.3);
-    // background-color: var(--white);
+    box-shadow: 0 0 20px rgba(177, 170, 170, 0.3);
     backdrop-filter: blur(30px);
     background-color: whitesmoke;
     margin-right: 100px;
   }
   .wrapper_signin {
     flex: 2;
-    padding-bottom: 100px;
     margin: 10px;
+    padding-bottom: 100px;
     border-radius: 5px;
-    box-shadow: 20px 20px 20px rgba(26, 25, 25, 0.3);
-    // background-color: var(--white);
-    backdrop-filter: blur(100px);
-    background-color: whitesmoke;
-    max-height: 500px;
-    margin-right: 100px;
-    margin-top: 100px;
+    box-shadow: 0 0 20px rgba(177, 170, 170, 0.3);
+    backdrop-filter: blur(30px);
   }
   .wrapper_signup {
     flex: 2;
-    padding-bottom: 0 10px 10px 100px;
     margin: 10px;
+    padding-bottom: 0 10px 10px 100px;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(26, 25, 25, 0.3);
-    // background-color: var(--white);
-    background-color: whitesmoke;
-    margin-right: 100px;
+    box-shadow: 0 0 20px rgba(177, 170, 170, 0.3);
+    backdrop-filter: blur(30px);
   }
 }
 
-.close-auth {
-  position: absolute;
-  padding: 2px;
-  top: 15px;
-  right: 15px;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  border: 2px solid var(--dark-bg);
-  box-sizing: border-box;
-  .close-auth-icon {
-    font-size: 30px;
-    font-weight: bold;
-  }
-}
-
-
-
-/////////////////////////////////////
 .background {
   flex: 3;
   margin: 10px;
+  // background-color: rgba(187, 177, 177, 0.205);
   border-radius: 5px;
-  margin-left: 120px;
-  width: 750px;
-  height: 700px;
-  background-image: url('../../../public/Promote_1.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: change 16s infinite ease-in-out;
-  .public {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+  backdrop-filter: blur(1px);
+}
+.close-auth {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 2px;
+  border: 2px solid var(--dark-bg);
+  border-radius: 6px;
+  .close-auth-icon {
+    font-weight: bold;
+    font-size: 30px;
   }
-  .admin {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+}
+
+//middle
+@media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  // máy tính màn hinh nhỏ
+}
+// ipad air
+@media only screen and (min-width: 650px) and (max-width: 1180px) {
+  // ipad
+
+  .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 100vh;
+
+    .wrapper_reset {
+      flex: 3;
+      margin: 10px;
+      padding-bottom: 100px;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(26, 25, 25, 0.3);
+      // background-color: var(--white);
+      backdrop-filter: blur(30px);
+    }
+    .wrapper_signin {
+      flex: 3;
+      margin: 10px;
+      padding-bottom: 100px;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(26, 25, 25, 0.3);
+      // background-color: var(--white);
+      backdrop-filter: blur(30px);
+    }
+    .wrapper_signup {
+      flex: 3;
+      margin: 10px;
+      padding-bottom: 0 10px 10px 100px;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(26, 25, 25, 0.3);
+      // background-color: var(--white);
+      backdrop-filter: blur(30px);
+    }
   }
-  .user {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+  .background {
+    flex: 3;
   }
-  .employee {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+}
+
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
+  // iphone 5/SE/12 pro
+  .wrapper {
+    .background {
+      display: none;
+    }
   }
 }
 

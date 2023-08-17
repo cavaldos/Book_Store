@@ -1,83 +1,115 @@
 .sidebar {
-  transition: all 0.35s;
   position: fixed;
+  top: 0px;
+  bottom: 10px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 100;
   height: auto;
   margin: 8px 8px 8px 8px;
-  bottom: 10px;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
   padding: 0.5rem;
-  border-radius: 5px;
+  color: var(--light-bg);
   background-image: linear-gradient(
     to bottom,
     var(--dark-bg-top),
     var(--dark-bg-bot)
   );
-  color: var(--light-bg);
-  z-index: 10;
+  border-radius: 5px;
+  transition: all 0.35s;
 }
 .header {
-  transition: all 0.35s;
   position: fixed;
-  top: 13px;
-  height: 70px;
-  right: 18px;
-  width: auto;
-  border-radius: 5px;
-  box-sizing: border-box;
-  padding: 10px;
+  top: 8px;
+  right: 12px;
   z-index: 10;
-  display: flex;
+  box-sizing: border-box;
+  width: auto;
+  height: 70px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.35s;
   transition-duration: all 0.35s;
-  display: inline-block;
-  // .control{
-  //     position: absolute;
-  //     background-color: red;
 
-  // }
   .button {
     position: absolute;
     top: 1px;
-    left: 1px;
     bottom: 1px;
-    border-radius: 5px;
-    width: 50px;
+    left: 1px;
     display: flex;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
     .button-icon {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       height: 100%;
-      background-color: var(--white-grey);
       font-size: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: transparent;
+      transform: translate(-50%, -50%);
       transition: all 0.35s;
     }
     &:hover {
       .button-icon {
-        color: black;
-        scale: 1.1;
+        color: rgb(102, 88, 88);
       }
+    }
+  }
+  .up {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0px;
+    width: auto;
+    margin: 0px;
+    padding: 5px;
+    background-color: var(--white-grey);
+    border-radius: 5px;
+    transition: 0.6s;
+    transition: all 0.35s;
+  }
+  .down {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0px;
+    width: auto;
+    height: 50px;
+    margin: 0 15px 15px 15px;
+    padding: 5px;
+    background-color: var(--white);
+    border-radius: 5px;
+    // box-shadow: 0px 5px 20px 0.3px rgba(59, 59, 59, 0.5);
+    box-shadow: rgba(245, 243, 243, 0.9) 0rem 0rem 0.0625rem 0.0625rem ;
+    backdrop-filter: rgba(255, 255, 255, 0.9) 0rem 0rem 0.0625rem 0.0625rem
+      ;
+    color: rgb(52, 71, 103);
+
+    opacity: 0.94;
+    transition: all 0.4s;
+    animation: alternate;
+    .button-icon {
+      background-color: var(--white);
     }
   }
   .avatar {
     position: absolute;
     top: 7px;
-    bottom: 1px;
     right: 30px;
+    bottom: 1px;
     display: flex;
   }
 
   .badge {
     position: absolute;
     top: 12px;
-    bottom: 1px;
     right: 100px;
+    bottom: 1px;
     display: flex;
     font-size: 30px;
     .bell {
@@ -121,35 +153,36 @@
       background-color: var(--white);
     }
   }
+
 }
 
 .main {
-  transition: all 0.35s;
   position: relative;
-  box-sizing: border-box;
-  background-color: var(--white-grey);
-  min-height: 100vh;
-  min-width: 100vw;
+  right: 15px;
   display: flex;
   flex-direction: column;
-  right: 15px;
+  box-sizing: border-box;
+  min-width: 100vw;
+  min-height: 100vh;
   padding-top: 90px;
   padding-right: 30px;
   padding-bottom: 100px;
+  background-color: var(--white-grey);
+  transition: all 0.35s;
 
   // border shadow
   .containers {
-    box-shadow: 0px 10px 20px 0.5px rgba(99, 88, 88, 0.35);
     position: relative;
-    min-height: 100vh;
-    background-color: var(--light-bg);
-    box-sizing: border-box;
-    border-radius: 5px;
-    padding: 5px;
-    left: 10px;
     top: 0px;
     right: 100px;
-    margin: 0 0 5px 0;
+    left: 10px;
+    box-sizing: border-box;
+    min-height: 150vh;
+    margin: 15px 0 5px 0;
+    padding: 0px;
+    background-color: var(--light-bg);
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 0.4px rgba(133, 126, 126, 0.35);
   }
   .footer {
     border-radius: 5px;
@@ -158,26 +191,27 @@
 
 .open {
   .sidebar {
-    width: 15.5rem;
+    width: 16.5em;
   }
   .header {
     left: 285px;
   }
   .main {
+    padding-right: 20px;
     padding-left: 290px;
   }
 }
 .close {
   .sidebar {
+    justify-content: center;
     width: 5.5rem;
     text-align: center;
-    justify-content: center;
 
     #logo {
       .avatar-sidebar {
-        background-color: transparent;
         width: 20px;
         height: 50px;
+        background-color: transparent;
       }
       .name-sidebar {
         font-size: 0px;
@@ -188,76 +222,360 @@
     }
   }
   .header {
-    left: 125px;
+    left: 112px;
   }
   .main {
-    padding-left: 130px;
+    padding-right: 20px;
+    padding-left: 115px;
   }
 }
-
-.breadcrumb {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  max-width: 300px;
-  width: auto;
-  height: 40px;
-  line-height: 100%;
-  font-size: 15px;
-  left: 200px;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 8px 5px;
+#space-h {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  display: flex;
+  min-width: 200px;
+  border: none;
+  border-radius: 5px;
 }
 
+#brc {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 50px;
+  display: flex;
+  min-width: 190px;
+  border: none;
+  border-radius: 5px;
+  // background-color: red;
+}
+
+//middle
 @media only screen and (min-width: 1180px) and (max-width: 1900px) {
+  .sidebar {
+  }
   .header {
+    .button {
+      .button-icon {
+      }
+      &:hover {
+        .button-icon {
+          color: rgb(102, 88, 88);
+        }
+      }
+    }
     .up {
-      background-color: rgb(157, 255, 0);
+      left: 0px;
+      height: 55px;
+    }
+    .down {
+      .button-icon {
+      }
+    }
+    .avatar {
+    }
+
+    .badge {
+      .bell {
+      }
     }
   }
+
+  .main {
+    right: 0px;
+    .containers {
+    }
+    .footer {
+    }
+  }
+
+  .open {
+    .sidebar {
+    }
+    .header {
+    }
+    .main {
+      margin: 0;
+      padding-top: 75px;
+      padding-left: 275px;
+    }
+  }
+  .close {
+    .sidebar {
+      #logo {
+        .avatar-sidebar {
+        }
+        .name-sidebar {
+        }
+        .role-sidebar {
+        }
+      }
+    }
+    .header {
+    }
+    .main {
+      margin: 0;
+      padding-top: 75px;
+      padding-left: 100px;
+    }
+  }
+  .breadcrumb {
+  }
 }
+
 // ipad air
 @media only screen and (min-width: 650px) and (max-width: 1180px) {
+  .sidebar {
+    position: fixed;
+    top: 0px;
+    bottom: 10px;
+    bottom: 0px;
+    left: 0px;
+    margin: 5px 5px 5px 5px;
+  }
   .header {
+    position: fixed;
+    top: 8px;
+    z-index: 10;
+    height: 65px;
+    transition: all 0.35s;
+    transition-duration: all 0.35s;
+    .button {
+      .button-icon {
+      }
+      &:hover {
+        .button-icon {
+        }
+      }
+    }
+    .avatar {
+      position: absolute;
+      top: 7px;
+      right: 30px;
+      bottom: 1px;
+      display: flex;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 100px;
+      bottom: 1px;
+      display: flex;
+      font-size: 30px;
+      .bell {
+        color: rgb(63, 63, 63);
+      }
+    }
+
     .up {
-      background-color: red;
+      position: absolute;
+    }
+    .down {
+      top: 0;
+      height: 55px;
+      margin: 0 15px 15px 15px;
+      padding: 5px;
+
+      border-radius: 5px;
+      .button-icon {
+        background-color: var(--white);
+      }
+    }
+  }
+  .main {
+    .containers {
+    }
+    .footer {
+    }
+  }
+  .open {
+    .sidebar {
+      width: 15.5rem; //
+      transition: all 0.35s;
+      #logo {
+        .avatar-sidebar {
+        }
+        .name-sidebar {
+          // font-size: 0px;
+        }
+        .role-sidebar {
+          // font-size: 0px;
+        }
+      }
+    }
+    .header {
+      right: 10px;
+      left: 260px; //
+    }
+    .main {
+      position: relative;
+      right: 0;
+      width: 100vw;
+      padding-right: 20px;
+      padding-left: 250px;
+    }
+  }
+  .close {
+    .sidebar {
+      left: -100px;
+      width: 5rem;
+      transition: all 0.35s;
+      #logo {
+        //close
+        .avatar-sidebar {
+        }
+        .name-sidebar {
+        }
+        .role-sidebar {
+        }
+      }
+    }
+    .header {
+      right: 10px;
+      //close
+      left: 10px;
+    }
+    .main {
+      position: relative;
+      right: 0;
+      width: 100vw;
+      padding-right: 20px;
+      padding-left: 0px;
     }
   }
 }
 
-//iphone 12pro doc
-@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-  .header {
-    .up {
-      background-color: rgb(90, 54, 54);
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 650px) {
+  #space-h {
+    position: absolute;
+    display: flex;
+    min-width: 100px;
+    border: none;
+    border-radius: 5px;
+    #bell {
+      left: 12px;
+      color: red;
+    }
+    #avt {
+      left: 63px;
     }
   }
-}
 
-//iphone 12pro ngang
-@media only screen and (device-width: 844px) and (device-height: 390px) and (-webkit-device-pixel-ratio: 3) {
+  .sidebar {
+    position: fixed;
+    top: 0px;
+    bottom: 10px;
+    bottom: 0px;
+    left: 0px;
+    margin: 3px 3px 3px 3px;
+  }
   .header {
+    position: fixed;
+    top: 3.9px;
+    z-index: 10;
+    height: 60px;
+    transition: all 0.35s;
+    transition-duration: all 0.35s;
+    .button {
+      .button-icon {
+      }
+      &:hover {
+        .button-icon {
+          color: black;
+          scale: 1.1;
+        }
+      }
+    }
+    .avatar {
+      position: absolute;
+      top: 7px;
+      right: 30px;
+      bottom: 1px;
+      display: flex;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 100px;
+      bottom: 1px;
+      display: flex;
+      font-size: 30px;
+      .bell {
+        color: rgb(63, 63, 63);
+      }
+    }
+
     .up {
-      background-color: rgb(90, 54, 54);
+    }
+    .down {
+      position: absolute;
+      height: 60px;
+      margin: 2px 5px 5px 5px;
+      padding: 5px;
+      opacity: 0.93;
+      .button-icon {
+        background-color: var(--white);
+      }
     }
   }
-}
-
-//respoo auto
-@media only screen and (min-device-width: 375px) and (max-device-width: 649px) {
-  .header {
-    .up {
-      background-color: rgb(60, 10, 177);
+  .main {
+    top: 10px;
+    .containers {
+      min-height: 200vh;
+    }
+    .footer {
     }
   }
-}
 
-//respoo auto
-@media only screen and (min-device-width: 300px) and (max-device-width: 399px) {
-  .header {
-    .up {
-      background-color: rgb(109, 25, 53);
+  .open {
+    .sidebar {
+      width: 12rem; //
+      transition: all 0.35s;
+    }
+    .header {
+      right: 10px;
+      left: 200px;
+      min-width: 600px;
+    }
+    .main {
+      position: relative;
+      right: 0;
+      width: 100vw;
+      padding-top: 60px;
+      padding-right: 20px;
+      padding-left: 0px;
+    }
+  }
+  .close {
+    .sidebar {
+      left: -100px;
+      width: 5rem;
+      transition: all 0.35s;
+      #logo {
+        .avatar-sidebar {
+        }
+        .name-sidebar {
+        }
+        .role-sidebar {
+        }
+      }
+    }
+    .header {
+      right: 10px;
+      left: 10px;
+    }
+    .main {
+      position: relative;
+      right: 0;
+      width: 100vw;
+      padding-top: 60px;
+      padding-right: 20px;
+      padding-left: 0px;
     }
   }
 }

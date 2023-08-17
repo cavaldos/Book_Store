@@ -13,6 +13,7 @@ function Detailbook(props) {
   useEffect(() => {
     axios
       .get(`http://localhost:8000/${id}`)
+
       .then((res) => {
         setData(res.data.data);
       })
@@ -50,5 +51,6 @@ function Detailbook(props) {
     </>
   );
 }
-
 export default Detailbook;
+
+

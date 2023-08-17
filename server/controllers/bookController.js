@@ -2,10 +2,14 @@ const Book = require("../models/book");
 
 const bookController = {
   addBook: async (req, res) => {
+    const maxId = await Book.findOne({}, { ID: 1 })
+      .sort({ ID: -1 })
+      .limit(1)
+      .exec();
     try {
       const data = req.body;
       const newBook = new Book({
-        ID: data.ID,
+        ID: maxId.ID + 1,
         Image: data.Image,
         Tittle: data.Tittle,
         Author: data.Author,
@@ -60,7 +64,7 @@ const bookController = {
       const regex = new RegExp(query, "i");
       const books = await Book.find({ Tittle: { $regex: regex } })
         .sort({ Tittle: -1 })
-        .limit(5);
+        .limit(10);
       res.status(200).json(books);
     } catch (err) {
       res.status(500).json({
@@ -71,8 +75,12 @@ const bookController = {
   editBook: async (req, res) => {
     try {
       const data = req.body;
+      const maxId = await User.findOne({}, { ID: 1 })
+        .sort({ ID: -1 })
+        .limit(1)
+        .exec();
       const result = await Book.updateOne(
-        { ID: data.ID },
+        { ID: maxId.ID },
         {
           $set: {
             ID: data.ID,

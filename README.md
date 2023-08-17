@@ -5,7 +5,11 @@
 
 ### `run server: nodemon`
 
+# 2 khi thấy user đang chò xác nhận thì tài khoản employee tải lại trang để xem các đơn
+## user@gmai.com
+## user
 
+<<<<<<< HEAD
 #@khanh
 
 
@@ -16,3 +20,10 @@ còn ở file routes/index.js có còn mấy API chưa viết xong hoặc viết
 ### f
 còn phần kết nối với mongodb thì mn vào config.connectdb.js 
 rồi chỉnh data muốn lấy nha. data demo ở trong folder data
+=======
+## employee@gmail.com
+## employee
+
+## admin@gmai.com
+## admin
+>>>>>>> origin/khanh

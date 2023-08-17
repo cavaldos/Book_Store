@@ -7,7 +7,11 @@ import Button from "@mui/material/Button";
 import Footer from "../layout/footer";
 import Home from "../../pages/Home";
 import { useNavigate } from "react-router-dom";
+import LoginIcon from "@mui/icons-material/Login";
 import Search from "../layout/header/search";
+import { Space } from "antd";
+import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
+
 const OnlineLayout = () => {
   const [scroll, setScroll] = useState("up_online");
 
@@ -30,28 +34,33 @@ const OnlineLayout = () => {
     <>
       <div className="header_online">
         <div className={scroll}>
-          <Button
-            className="button-signin"
-            variant="contained"
-            onClick={() => handle("/signin")}
-          >
-            Sign in
-          </Button>
-          <Button
-            className="button-signup"
-            variant="contained"
-            onClick={() => handle("/signup")}
-          >
-            Sign Up
-          </Button>
-          <Search />
+          <Space id="button-header-online">
+            <Button
+              variant="contained"
+              endIcon={<LoginIcon />}
+              sx={{ backgroundColor: "#0277bd", color: "#000000" }}
+              onClick={() => handle("/signin")}
+            >
+              Sign In
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              endIcon={<SensorOccupiedIcon />}
+              onClick={() => handle("/signup")}
+            >
+              Sign Up
+            </Button>
+          </Space>
+          {/* <Space id="advertising" className="advertising-text">
+           WELL COME TO SMART PARKING
+          </Space> */}
         </div>
       </div>
-
       {/* main */}
       <div className="main_online">
         <div className="containers_online">
-          <Home />
+          <Home />{" "}
         </div>
         <Footer />
       </div>

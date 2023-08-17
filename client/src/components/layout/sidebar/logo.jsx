@@ -11,6 +11,7 @@ function Logo() {
   const [userData, setUserData] = useState({
     username: '',
   });
+  console.log(email);
 
   useEffect(() => {
     // Fetch user data from the backend based on the email

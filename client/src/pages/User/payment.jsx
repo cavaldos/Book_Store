@@ -1,0 +1,82 @@
+import React, { useState, useEffect, useRef } from "react";
+import { Steps } from "antd";
+import axios from "axios";
+import { LoadingOutlined, SolutionOutlined } from "@ant-design/icons";
+import CopyText from "./myorder/copytext";
+import "./user.scss";
+import ConfirmOrder from "./statepayment/confirmOrder";
+import PaymentDetails from "./statepayment/paymentDetail";
+import OrderConfirmation from "./statepayment/orderConfirmation";
+import InTransit from "./statepayment/inTransit";
+
+import { useSelector, useDispatch } from "react-redux";
+import {
+  createPayment,
+  updateCurrentStep,
+} from "../../redux/features/paymentSlice";
+
+const { Step } = Steps;
+
+const Payment = () => {
+
+  const payment = useSelector((state) => state.payment);
+
+  const currentStep = payment.currentStep;
+  console.log("currentStep", currentStep);
+
+
+
+  const steps = [
+    {
+      title: "Confirm Order",
+      content: <ConfirmOrder />,
+      description: "This is a description.",
+      key: "confirm",
+    },
+    {
+      title: "Payment Details",
+      content: <PaymentDetails />,
+      icon: <SolutionOutlined />,
+      key: "payment",
+    },
+    {
+      title: "Order Confirmation",
+      content: <OrderConfirmation />,
+      icon: <LoadingOutlined />,
+      key: "order",
+    },
+    {
+      title: "In Transit",
+
+      content: <InTransit />,
+      // icon: <LoadingOutlined />,
+      key: "transit",
+    },
+  ];
+  const items = steps.map((item) => ({
+    key: item.key,
+    title: item.title,
+  }));
+
+  const contentStyle = {
+    lineHeight: "260px",
+    textAlign: "center",
+    marginTop: 16,
+  };
+  return (
+    <>
+      <div
+        className="payment"
+        style={{ display: "flex", alignItems: "center" ,margin:"10px"}}
+      >
+        <h1 style={{ marginRight: "16px" }}>My order</h1>
+        <CopyText text={payment.id_payment} />
+      </div>
+      <Steps className="steps" current={currentStep} items={items} />
+      <div style={contentStyle}>{steps[currentStep].content}</div>
+      <div style={{ marginTop: "24px" }}></div>
+    </>
+  );
+};
+
+export default Payment;

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const bookSchema = new mongoose.Schema({
   ID: {
     type: Number,
@@ -54,5 +54,5 @@ const bookSchema = new mongoose.Schema({
     required: true,
   },
 });
-const Book = mongoose.model('Book', bookSchema);
+const Book = mongoose.model("Book", bookSchema);
 module.exports = Book;

@@ -1,7 +1,8 @@
 /test/
 /server/node_modules/
 /client/node_modules/
-/server/.env
+# /server/.env
+/paymentsv/node_modules/
 
 /server/controllers/aiController.js
 /server/routes/aiRoute.js

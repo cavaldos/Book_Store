@@ -7,6 +7,9 @@ const paymentController = require("../controllers/payment(test)Controller");
 const editprofileController = require("../controllers/editprofileController");
 const coverController = require("../controllers/coverController");
 const paypalController = require('../controllers/paypalController');
+const orderController = require("../controllers/orderController");
+const revenueController = require("../controllers/revenueController");
+const middlewareAuth = require("../middleware/authMiddleware");
 
 
 //AUTHENTICATION
@@ -17,22 +20,6 @@ router.post("/resetpassword", authController.resetpassword); // chưa xong
 router.post("/verify", authController.sendConfirmationCode); // chưa xong
 router.post("/verifyemailsignup", authController.verifyEmailSignUp); // chưa xong
 
-//user
-router.post("/deleteuser", userController.deleteUser); // da xong, test ok roi
-router.post("/adduser", userController.addUser); // da xong, test ok roi
-router.post("/edituser", userController.editUser); // da xong chua test
-router.get("/getallusers", userController.getAllusers); // đã viết xong
-router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
-
-//BOOK
-//router.get("/:id", bookController.getBookById); // da xong, da test
-router.post("/addbook", bookController.addBook); //  da xong, da test
-router.post("/editbook", bookController.editBook); // da xong, da test
-router.get("/getallbooks", bookController.getAllBooks); // da xong, da test // da xong, da test
-router.get("/gettopbooks", bookController.getTopBooks); // da xong, da test // da xong, da test
-router.delete("/deletebook", bookController.deleteBook); // da xong, da test
-router.post("/findbooks", bookController.findBook);// da xong, da test
-
 //SETPROFILE
 router.post("/setProfilePic", avatarController.setProfilePic);
 router.get("/getAvatar", avatarController.getAvatar);
@@ -40,6 +27,43 @@ router.post("/getProfile", editprofileController.getProfile);
 router.post("/editProfile", editprofileController.editProfile);
 router.post("/setcoverImage", coverController.setCoverPic);
 router.post("/getcoverImage", coverController.getCoverPic);
+
+//user
+router.delete(
+  "/deleteuser",
+  middlewareAuth.verifyToken,
+  userController.deleteUser
+); //
+router.post("/adduser", middlewareAuth.verifyToken, userController.addUser); //
+router.put("/edituser",  userController.editUser); //
+router.get("/getallusers", userController.getAllusers); // 
+router.get("/getnumberuser", userController.getNumberOfUsers); // 
+router.post("/getuserbyemail", userController.getUserByemail); // 
+
+//BOOK
+router.post("/addbook", middlewareAuth.verifyToken, bookController.addBook); //
+router.post("/editbook", bookController.editBook); //
+router.get("/getallbooks", bookController.getAllBooks); //
+router.get("/gettopbooks", bookController.getTopBooks); //
+router.delete("/deletebook", bookController.deleteBook); //
+router.post("/findbooks", bookController.findBook); //
+router.get("/getallbookmanage", bookController.getallBookManage); //
+router.get("/getrating", bookController.getRatingBook); //
+router.get("/getgenre", bookController.getGenreBook); //
+router.get("/:id", bookController.getBookById); //
+router.get("/search/:query", bookController.searchBook); //
+//order
+router.post("/getallorder", orderController.getAllOrder); //
+router.post(
+  "/createorder",
+  middlewareAuth.verifyToken,
+  orderController.createOrder
+); //
+router.put("/setstateorder", orderController.setStateOrder); //
+router.post("/findorder", orderController.findOrder); //
+router.delete("/removeorder", orderController.removeOrder); //
+
+
 
 
 //STRIPE
@@ -53,4 +77,9 @@ router.post('/paypal/capture', paypalController.capturePayment);
 
 
 
+
+//revenue
+router.post("/findrevenue", revenueController.findRevenue); //
+router.post("/findrevenuebydate", revenueController.findRevenue); //
+router.get("/findyear/:year", revenueController.findByYear); //
 module.exports = router;

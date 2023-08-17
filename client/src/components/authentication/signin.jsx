@@ -25,11 +25,10 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import Closebutton from "./custom/closebutton";
 import Background from "./custom/background";
-
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import LoadingCustom from "./custom/loading";
 import { updateRole } from "../../redux/features/roleSlice";
-
+import { updateUser } from "../../redux/features/userSilce";
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("");
@@ -46,9 +45,8 @@ function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
   };
-  const handleChange = (event) => {
-    setRole(event.target.value);
-  };
+
+  // console.log("sign in", role);
   const newdata = { role, email, password };
   async function submit(e) {
     e.preventDefault();
@@ -64,52 +62,33 @@ function SignIn() {
       message.error("Role is required");
       return;
     }
+ 
 
     try {
       await axios
         .post(`http://localhost:8000/signin`, newdata)
         .then((res) => {
-          if (res.data === "adminsuccess") {
-            message.success("Sign in success with admin role");
-            setTimeout(() => {
-              dispatch(
-                updateRole({
-                  role: role,
-                  roleRouter: role,
-                  email: email,
-                  password: password,
-                })
-              );
-            }, 100);
-            navigate("/");
-          } else if (res.data === "usersuccess") {
-            message.success("Sign in success with user role");
-             setTimeout(() => {
-               dispatch(
-                 updateRole({
-                   role: role,
-                   roleRouter: role,
-                   email: email,
-                   password: password,
-                 })
-               );
-             }, 100);
-             navigate("/");
-          } else if (res.data === "employeesuccess") {
-            message.success("Sign in success with employee role");
-             setTimeout(() => {
-               dispatch(
-                 updateRole({
-                   role: role,
-                   roleRouter: role,
-                   email: email,
-                   password: password,
-                 })
-               );
-             }, 100);
-             navigate("/");
+          if (res.data === "signinfail") {
+            message.error("Sign in not success");
+            return;
           } else {
-            message.error("Sign In not success");
+            const verifyEmail = res.data.email;
+            const verifyToken = res.data.accessToken;
+            const verifyRole = res.data.role;
+            message.success(`Sign in success with ${verifyRole} role`);
+            dispatch(
+              updateRole({
+                role: verifyRole,
+                token: verifyToken,
+                email: verifyEmail,
+              })
+            );
+            dispatch(
+              updateUser({
+                email: verifyEmail,
+              })
+            );
+            navigate("/", { replace: true });
           }
         })
         .catch((e) => {
@@ -192,7 +171,7 @@ function SignIn() {
                     id="demo-simple-select"
                     value={role}
                     label="Role"
-                    onChange={handleChange}
+                    onChange={(e) => setRole(e.target.value)}
                   >
                     <MenuItem value={"user"}>User</MenuItem>
                     <MenuItem value={"employee"}>Employee</MenuItem>
@@ -228,6 +207,7 @@ function SignIn() {
               </Box>
             </Box>
           </Container>
+          <LoadingCustom />
         </div>
       </div>
     </>

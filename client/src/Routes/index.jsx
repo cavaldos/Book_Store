@@ -1,22 +1,24 @@
 import SignIn from "../components/authentication/signin";
 import SignUp from "../components/authentication/signup";
-import Cart from "../pages/Cart";
+import Cart from "../pages/User/Cart";
 import Home from "../pages/Home";
-import Author from "../pages/Manager/Author";
-import User from "../pages/Manager/User";
-import Revenue from "../pages/Revenue";
-import Wallet from "../pages/Wallet";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
 import VerificationEmail from '../components/authentication/verificationemail';
 import RenderAvatar from "../components/avatar/avatar";
 import ShippingInfo from "../pages/ShippingInfo/ShippingInfo";
-import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
-import Payment from "../pages/Payment/Payment";
 import UserProfile from "../components/profileComponent/UserProfile";
-import Profile from "../pages/Profile/profile";
 import PayPalButton from "../pages/PayPalPaymentTest/PayPalTest";
+
+
+import ChatBot from "../utils/chat";
+import Profile from "../pages/Profile/profile";
+import Payment from "../pages/User/payment";
+import MyOder from "../pages/User/myorder/myorder";
+import ConfirmOrder from "../pages/Employee/confirmOrder";
+import Paypal from "../components/paypal";
 import Detailbook from "../components/Product/detail";
+import Chat from "../utils/chat";
 
 // public routes
 const publicRoutes = [
@@ -29,19 +31,19 @@ const publicRoutes = [
     path: "/t",
     component: Home,
   },
-  {
-    path: "/manager-author",
-    component: Author,
-  },
+  // {
+  //   path: "/manager-author",
+  //   component: Author,
+  // },
   {
     path: "/reset-password",
     component: ResetPassword,
     layout: null,
   },
-  {
-    path: "/manager-user",
-    component: User,
-  },
+  // {
+  //   path: "/manager-user",
+  //   component: User,
+  // },
   {
     path: "/signin",
     component: SignIn,
@@ -52,22 +54,22 @@ const publicRoutes = [
     component: SignUp,
     layout: null,
   },
-  {
-    path: "/revenue",
-    component: Revenue,
-  },
+  // {
+  //   path: "/revenue",
+  //   component: Revenue,
+  // },
   {
     path: "/cart",
     component: Cart,
   },
-  {
-    path: "/wallet",
-    component: Wallet,
-  },
-  {
-    path: "/about",
-    component: Wallet,
-  },
+  // {
+  //   path: "/wallet",
+  //   component: Wallet,
+  // },
+  // {
+  //   path: "/about",
+  //   component: Wallet,
+  // },
   {
     path: '/verification-email',
     component: VerificationEmail,
@@ -86,6 +88,16 @@ const publicRoutes = [
   {
     path: '/payment',
     component: Payment,
+    layout: null,
+  },
+  {
+    path: "/profile",
+    component: Profile,
+  },
+
+  {
+    path: "/reset-password",
+    component: ResetPassword,
     layout: null,
   },
   {
@@ -142,6 +154,28 @@ const userRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
+    path: "/user/profile",
+    component: Profile,
+  },
+  {
+    path: "/user/cart/payment",
+    component: Payment,
+  },
+  {
+    path: "/user/myorder",
+    component: MyOder,
+  },
+  {
+    path: "/user/payment-paypal",
+    component: Paypal,
+  },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
+  },
+  {
+    path: "/chat",
+    component: Chat,
   },
 ];
 
@@ -149,6 +183,26 @@ const employeeRoutes = [
   {
     path: "/",
     component: Home,
+  },
+  {
+    path: "/employee",
+    component: Home,
+  },
+  {
+    path: "/employee/profile",
+    component: Profile,
+  },
+  {
+    path: "/employee/confirm-order",
+    component: ConfirmOrder,
+  },
+  {
+    path: `/detail-book/:id`,
+    component: Detailbook,
+  },
+  {
+    path: "/chat",
+    component: Chat,
   },
 ];
 

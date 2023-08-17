@@ -20,22 +20,11 @@ import SimpleBackdrop from "./components/avatar/backdrop/backdrop";
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
+
+import LoadingError from "./components/layout/error/loading";
+
 const Notfound = React.lazy(() => import("./components/layout/error/notfound"));
 const App = () => {
-  const [stripeApiKey, setStripeApiKey] = useState("empty");
-
-  useEffect(() => {
-
-    async function getStripApiKey() {
-      const { data } = await axios.get('http://localhost:8000/sendAPIStripe');
-
-      setStripeApiKey(data.stripeApiKey)
-    }
-
-    getStripApiKey();
-
-  }, [])
-
 
   const roleRouter = useSelector((state) => state.role.roleRouter);
 
@@ -64,27 +53,31 @@ const App = () => {
               path={route.path}
               element={
                 <Layout>
-                  <Elements stripe={loadStripe(stripeApiKey)}>
                     <RenderSnackbar>
                       <SimpleBackdrop>
                         <Page />
                         <Outlet />
                       </SimpleBackdrop>
                     </RenderSnackbar>
-                  </Elements>
                 </Layout>
               }
             />
           );
         })}
-        <Route path="*" element={<Notfound />} />
+        <Route
+          path="*"
+          element={
+            <React.Suspense fallback={<LoadingError />}>
+              <Notfound />
+            </React.Suspense>
+          }
+        />
       </Routes>
     </Router>
   );
 };
 
 export default App;
-
 /*
 {VerifyRoure().map((route, index) => {
             const Layout = route.layout === null ? Fragment : DefaultLayout;
