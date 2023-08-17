@@ -16,7 +16,6 @@ router.post("/deleteuser", userController.deleteUser); // da xong, test ok roi
 router.post("/adduser", userController.addUser); // da xong, test ok roi
 router.post("/edituser", userController.editUser); // da xong chua test
 router.get("/getallusers", userController.getAllusers); // đã viết xong
-// router.get("/gettopusers", userController.getTopUsers); // đã viết xong
 router.get("/getnumberuser", userController.getNumberOfUsers); // đã viết xong
 
 //BOOK
@@ -28,14 +27,16 @@ router.delete("/deletebook", bookController.deleteBook); // da xong, da test
 router.post("/findbooks", bookController.findBook); // da xong, da test
 router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da test
 router.get("/getrating", bookController.getRatingBook); // da xong, da test
-router.get("/getgenre", bookController.getGenreBook); // da xong, da test
-router.get("/:id", bookController.getBookById); // da xong, da test
+// router.get("/getgenre", bookController.getGenreBook); // da xong, da test
+router.get("/book/:id", bookController.getBookById); // da xong, da test
 //order
 router.post("/createorder", orderController.createOrder); // da xong, da test
 router.get("/getallorder", orderController.getAllOrder); // da xong, da test
 router.post("/setstateorder", orderController.setStateOrder); // da xong, da test
 router.post("/findorder", orderController.findOrder); // da xong, da test
 router.post("/removeorder", orderController.removeOrder); // da xong, da test
+router.get("/getgenre", orderController.genreBreakdown); // da xong, da test
+
 
 //revenue
 router.post("/findrevenue", revenueController.findRevenue); // da xong, da test
