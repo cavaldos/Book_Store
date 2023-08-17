@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import EditUser from "./option/editUser"; // button edit
 import axios, { all } from "axios";
-import { Table, Input, Button, Space } from "antd";
+import { Table, Input, Button, Space, Form } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { Modal } from "antd";
@@ -33,7 +33,78 @@ function ManagerProduct() {
       genre: book.Genre,
     };
   });
+  
+const AddBookPage = () => {
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
 
+  const onFinish = (values) => {
+    setLoading(true);
+    // Make an API call to add the book using the form values
+    // Example: fetch('/api/books', { method: 'POST', body: JSON.stringify(values) })
+    // Replace the API endpoint and method with your own
+
+    // Simulating API call delay
+    setTimeout(() => {
+      setLoading(false);
+      form.resetFields();
+      alert('Book added successfully!');
+    }, 2000);
+  };
+
+  return (
+    <div>
+      <h1>Add Book</h1>
+      <Form form={form} layout="vertical" onFinish={onFinish}>
+        <Form.Item
+          name="title"
+          label="Title"
+          rules={[{ required: true, message: 'Title is required' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="author"
+          label="Author"
+          rules={[{ required: true, message: 'Author is required' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="isbn"
+          label="ISBN"
+          rules={[{ required: true, message: 'ISBN is required' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="genre"
+          label="Genre"
+          rules={[{ required: true, message: 'Genre is required' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="description"
+          label="Description"
+          rules={[{ required: true, message: 'Description is required' }]}
+        >
+          <Input.TextArea />
+        </Form.Item>
+        <Form.Item>
+        <Button
+          type="primary"
+          htmlType="button"
+          loading={loading}
+          onClick={addBook}
+        >
+          Add Book
+        </Button>
+      </Form.Item>
+      </Form>
+    </div>
+  );
+};
   ///search
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
