@@ -40,11 +40,14 @@ const AddBookPage = () => {
 
   const onFinish = (values) => {
     setLoading(true);
-    // Make an API call to add the book using the form values
-    // Example: fetch('/api/books', { method: 'POST', body: JSON.stringify(values) })
-    // Replace the API endpoint and method with your own
+    axios.post('https://api.example.com/books', values)
+      .then(response => {
+        console.log('Adding book request successful:', response.data);
+      })
+      .catch(error => {
+        console.error('Error adding book:', error);
+      });
 
-    // Simulating API call delay
     setTimeout(() => {
       setLoading(false);
       form.resetFields();
@@ -92,15 +95,10 @@ const AddBookPage = () => {
           <Input.TextArea />
         </Form.Item>
         <Form.Item>
-        <Button
-          type="primary"
-          htmlType="button"
-          loading={loading}
-          onClick={addBook}
-        >
-          Add Book
-        </Button>
-      </Form.Item>
+          <Button type="primary" htmlType="submit" loading={loading}>
+            Add Book
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );
