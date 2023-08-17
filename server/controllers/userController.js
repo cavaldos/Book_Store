@@ -92,13 +92,15 @@ const userController = {
 
   editUser: async (req, res) => {
     try {
-      const { id } = req.params;
+      const { _id } = req.body;
       const update = req.body; // Thông tin mới của người dùng
-      const check = await User.findByIdAndUpdate(id, update, { new: true });
+      console.log("update", update);
+    
+      const check = await User.findByIdAndUpdate(_id, update, { new: true });
       if (check) {
-        res.json("updated");
+        res.json("updatedsuccess");
       } else {
-        res.json("notexist");
+        res.json("updatedfail");
       }
     } catch (err) {
       res.status(500).json({
@@ -116,6 +118,9 @@ const userController = {
       });
     }
   },
+
+
+  
 };
 
 module.exports = userController;

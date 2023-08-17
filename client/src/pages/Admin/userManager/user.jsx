@@ -197,7 +197,7 @@ function ManagerUser() {
       </div>
 
       <h3>Number of user: {number}</h3>
-      <AddUser />
+      {/* <AddUser /> */}
     </>
   );
 }

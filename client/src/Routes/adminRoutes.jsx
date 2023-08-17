@@ -3,6 +3,8 @@ import ManagerProduct from "../pages/Admin/productManager/product";
 import Home from "../pages/Home";
 import Revenue from "../pages/Admin/Revenue";
 import Detailbook from "../components/Product/detail";
+import AddUser from "../pages/Admin/userManager/addUser";
+import Profile from "..//pages//Profile//profile";
 const adminRoutes = [
   {
     path: "/",
@@ -35,6 +37,14 @@ const adminRoutes = [
     path: `/detail-book/:id`,
     component: Detailbook,
   },
+  {
+    path: `/admin/adduser`,
+    component: AddUser,
+  },
+  {
+    path: `/admin/profile`,
+    component: Profile,
+  }
 ];
 
 export default adminRoutes;

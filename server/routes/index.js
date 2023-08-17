@@ -19,7 +19,7 @@ router.delete(
   userController.deleteUser
 ); //
 router.post("/adduser", middlewareAuth.verifyToken, userController.addUser); //
-router.put("/edituser", middlewareAuth.verifyToken, userController.editUser); //
+router.put("/edituser",  userController.editUser); //
 router.get("/getallusers", userController.getAllusers); // 
 router.get("/getnumberuser", userController.getNumberOfUsers); // 
 router.post("/getuserbyemail", userController.getUserByemail); // 

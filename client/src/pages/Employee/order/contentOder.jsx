@@ -70,7 +70,7 @@ function ConfirmOrder(props) {
   const dispatch = useDispatch();
   const handleConfirm = () => {
     axios
-      .post("http://localhost:8001/setstateorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/setstateorder`, {
         order_code: orderid,
         state: 3,
       })
@@ -86,7 +86,7 @@ function ConfirmOrder(props) {
 
   const handleCancel = () => {
     axios
-      .post("http://localhost:8001/removeorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/removeorder`, {
         order_code: orderid,
       })
       .then((res) => {

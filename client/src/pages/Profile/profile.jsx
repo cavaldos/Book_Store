@@ -49,13 +49,15 @@ function Profile() {
   return (
     <>
       <div className="wrapper-profile">
-        <div className="profile-background">sfa</div>
+        <div className="profile-background"></div>
         <div className="profile-infor">
           <Space className="profile-infor-detail">
-            <Avatar size={120} icon={<UserOutlined />} />
-            <Title style={{ margin: "5px 0" }}>h1. Antdesign</Title>
-            <h3>role</h3>
-            <Text type="success">Ant Design (success)</Text>
+            <Avatar shape="square"   size={120} icon={<UserOutlined />} />
+            <Title style={{ margin: "5px 0", textAlign: "center" }}>
+              {user.username}
+            </Title>
+            <h3>{user.role}</h3>
+            <Text type="success"> {user.email}</Text>
           </Space>
 
           <Card
