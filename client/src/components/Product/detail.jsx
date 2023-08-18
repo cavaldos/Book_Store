@@ -14,7 +14,7 @@ function Detailbook(props) {
   useEffect(() => {
     axios
 
-      .get(`http://localhost:8001/${id}`)
+      .get(`http://localhost:8001/book/${id}`)
       .then((res) => {
         setData(res.data.data);
       })
