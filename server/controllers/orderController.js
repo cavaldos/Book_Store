@@ -62,6 +62,56 @@ const orderController = {
       res.json("fail");
     }
   },
+  genreBreakdown: async (req, res) => {
+    try{
+      const genre = await Order.aggregate([
+        {
+          '$match': {
+            'state': 2
+          }
+        }, {
+          '$project': {
+            'order_volume': 1
+          }
+        }, {
+          '$unwind': {
+            'path': '$order_volume'
+          }
+        }, {
+          '$group': {
+            '_id': '$order_volume.id_book', 
+            'nSold': {
+              '$sum': '$order_volume.quantity'
+            }
+          }
+        }, {
+          '$lookup': {
+            'from': 'books', 
+            'localField': '_id', 
+            'foreignField': 'ID', 
+            'as': 'book_info'
+          }
+        }, {
+          '$group': {
+            '_id': {
+              '$arrayElemAt': [
+                '$book_info.Genre', 0
+              ]
+            }, 
+            'nSold': {
+              '$sum': '$nSold'
+            }
+          }
+        }
+      ]);
+      res.status(200).json({genre});
+    }
+    catch (err) {
+      res.status(500).json({
+        message: err.message,
+    });
+   }
+  },
 };
 
 module.exports = orderController;

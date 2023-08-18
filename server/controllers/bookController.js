@@ -1,4 +1,5 @@
 const Book = require("../models/book");
+const mongoose = require("mongoose")
 
 const bookController = {
   addBook: async (req, res) => {
@@ -25,6 +26,7 @@ const bookController = {
       res.status(201).json(newBook);
     } catch (err) {
       // Handle errors
+      console.log(err)
       res.status(500).json({
         message: err.message,
       });
