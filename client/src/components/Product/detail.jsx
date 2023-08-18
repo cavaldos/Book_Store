@@ -15,6 +15,7 @@ function Detailbook(props) {
       .get(`${process.env.REACT_APP_API_PORT}/${id}`)
       .then((res) => {
         setData(res.data.data);
+        window.scrollTo(0, 0);
       })
       .catch((err) => {
         console.log(err);

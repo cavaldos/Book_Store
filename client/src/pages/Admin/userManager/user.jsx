@@ -7,8 +7,9 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import DeleteUser from "./option/deleteUser";
 import { Modal } from "antd";
+
 import AddUser from "./addUser";
-import { message } from "antd";
+import { message, Tag } from "antd";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 
 function ManagerUser() {
@@ -35,6 +36,7 @@ function ManagerUser() {
       password: user.password,
       balance: user.account_balance,
       role: user.role,
+      tags: [user.role],
     };
   });
   //api search  http://localhost:8000/user/search?username=abc
@@ -156,7 +158,31 @@ function ManagerUser() {
       title: "Role",
       dataIndex: "role",
       key: "role",
+      
       ...getColumnSearchProps("role", "Role"),
+      render: (_, { tags }) => (
+        <>
+          {tags &&
+            tags.map((tag) => {
+              // Add a check for tags existence
+              let color;
+              if (tag === "user") {
+                color = "green"; 
+              } else if (tag === "admin") {
+                color = "blue"; 
+              } else if (tag === "employee") {
+                color = "orange"; 
+              } else {
+                color = "geekblue";
+              }
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              );
+            })}
+        </>
+      ),
     },
     {
       title: "Edit",

@@ -2,6 +2,7 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid");
+const axios = require("axios");
 const userController = {
   getUserByemail: async (req, res) => {
     try {
@@ -93,7 +94,7 @@ const userController = {
   editUser: async (req, res) => {
     try {
       const { _id } = req.body;
-      const update = req.body; // Thông tin mới của người dùng
+      const update = req.body; 
       console.log("update", update);
     
       const check = await User.findByIdAndUpdate(_id, update, { new: true });

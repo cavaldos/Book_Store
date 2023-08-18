@@ -28,7 +28,7 @@ import Background from "./custom/background";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingCustom from "./custom/loading";
 import { updateRole } from "../../redux/features/roleSlice";
-import { updateUser } from "../../redux/features/userSilce";
+import { updateUser } from "../../redux/features/userSlice";
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("");
@@ -62,7 +62,6 @@ function SignIn() {
       message.error("Role is required");
       return;
     }
- 
 
     try {
       await axios

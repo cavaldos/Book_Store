@@ -48,6 +48,12 @@ const orderSchema = new mongoose.Schema({
     maxlength: 100,
     default: Date.now,
   },
+  address: {
+    type: String,
+    required: false,
+    minlength: 1,
+    maxlength: 100,
+  },
 });
 
 const Order = mongoose.model("Order", orderSchema);

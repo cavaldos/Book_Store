@@ -6,12 +6,12 @@ const orderController = require("../controllers/orderController");
 const revenueController = require("../controllers/revenueController");
 const middlewareAuth = require("../middleware/authMiddleware");
 //AUTHENTICATION
-router.post("/signin", authController.signin); // 
-router.post("/register", authController.register); // 
-router.post("/logout", authController.logout); // 
-router.post("/resetpassword", authController.resetpassword); // 
-router.post("/verify", authController.sendConfirmationCode); // 
-router.post("/verifyemailsignup", authController.verifyEmailSignUp); // 
+router.post("/signin", authController.signin); //
+router.post("/register", authController.register); //
+router.post("/logout", authController.logout); //
+router.post("/resetpassword", authController.resetpassword); //
+router.post("/verify", authController.sendConfirmationCode); //
+router.post("/verifyemailsignup", authController.verifyEmailSignUp); //
 //user
 router.delete(
   "/deleteuser",
@@ -19,10 +19,10 @@ router.delete(
   userController.deleteUser
 ); //
 router.post("/adduser", middlewareAuth.verifyToken, userController.addUser); //
-router.put("/edituser",  userController.editUser); //
-router.get("/getallusers", userController.getAllusers); // 
-router.get("/getnumberuser", userController.getNumberOfUsers); // 
-router.post("/getuserbyemail", userController.getUserByemail); // 
+router.put("/edituser", userController.editUser); //
+router.get("/getallusers", userController.getAllusers); //
+router.get("/getnumberuser", userController.getNumberOfUsers); //
+router.post("/getuserbyemail", userController.getUserByemail); //
 
 //BOOK
 router.post("/addbook", middlewareAuth.verifyToken, bookController.addBook); //
@@ -40,7 +40,7 @@ router.get("/search/:query", bookController.searchBook); //
 router.post("/getallorder", orderController.getAllOrder); //
 router.post(
   "/createorder",
-  middlewareAuth.verifyToken,
+  // middlewareAuth.verifyToken,
   orderController.createOrder
 ); //
 router.put("/setstateorder", orderController.setStateOrder); //

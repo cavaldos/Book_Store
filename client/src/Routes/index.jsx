@@ -12,6 +12,7 @@ import ConfirmOrder from "../pages/Employee/confirmOrder";
 import Paypal from "../components/paypal";
 import Detailbook from "../components/Product/detail";
 import Chat from "../utils/chat";
+import BookPay from "../pages/BookPay";
 // public routes
 const publicRoutes = [
   {
@@ -38,7 +39,6 @@ const publicRoutes = [
     path: "/profile",
     component: Profile,
   },
-
   {
     path: "/reset-password",
     component: ResetPassword,
@@ -47,6 +47,11 @@ const publicRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
+  },
+  {
+    path: `/signup-account-payment`,
+    component: BookPay,
+    layout: null,
   },
 ];
 
@@ -85,9 +90,14 @@ const userRoutes = [
     path: `/detail-book/:id`,
     component: Detailbook,
   },
+  // {
+  //   path: "/chat",
+  //   component: Chat,
+  // },
   {
-    path: "/chat",
-    component: Chat,
+    path: `/signup-account-payment`,
+    component: BookPay,
+      layout: null,
   },
 ];
 
