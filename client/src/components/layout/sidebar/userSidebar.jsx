@@ -2,7 +2,15 @@ import "../../main/styles.scss";
 import Logo from "./logo";
 import React from "react";
 import { Menu } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  ShoppingCartOutlined,
+  HomeOutlined,
+  WalletOutlined,
+  ProfileOutlined,
+} from "@ant-design/icons";
+import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import { useNavigate } from "react-router-dom";
 
 function UserSidebar(props) {
@@ -13,29 +21,29 @@ function UserSidebar(props) {
   };
 
   const menuItems = [
-    { key: "home", icon: <MenuUnfoldOutlined />, text: "Home", path: "/" },
+    { key: "home", icon: <HomeOutlined />, text: "Home", path: "/" },
     {
       key: "cart",
-      icon: <MenuUnfoldOutlined />,
+      icon: <ShoppingCartOutlined />,
       text: "Cart",
       path: "/user/cart",
     },
     {
       key: "Payment",
-      icon: <MenuFoldOutlined />,
+      icon: <WalletOutlined />,
       text: "Payment",
       path: "/user/cart/payment",
     },
 
     {
       key: "Profile",
-      icon: <MenuFoldOutlined />,
+      icon: <ProfileOutlined />,
       text: "Profile",
       path: "/user/profile",
     },
     {
       key: "MyOrder",
-      icon: <MenuFoldOutlined />,
+      icon: <PrecisionManufacturingIcon />,
       text: "MyOrder",
       path: "/user/myorder",
     },
@@ -65,6 +73,3 @@ function UserSidebar(props) {
 }
 
 export default UserSidebar;
-
-//import Notfound from "./components/layout/error/notfound";
-//

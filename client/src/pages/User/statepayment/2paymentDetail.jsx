@@ -68,7 +68,7 @@ const PaymentDetails = () => {
     console.log("data", data);
     console.log("paymentasdfafsd", payment.orderDetails);
     await axios
-      .post(`${REACT_APP_API_PORT}/actions`, data)
+      .post(`${process.env.REACT_APP_API_PORT}/actions`, data)
       .then((res) => {
         console.log("res", res);
         const check = res.data.message;
@@ -89,7 +89,7 @@ const PaymentDetails = () => {
       });
     await axios
 
-      .post(`${REACT_APP_API_PORT_PAYMENT}/createorder`, {
+      .post(`${process.env.REACT_APP_API_PORT}/createorder`, {
         id_order: payment.id_payment,
         order_volume: payment.orderDetails,
         address: address,
@@ -149,15 +149,15 @@ const PaymentDetails = () => {
             }}
           >
             {" "}
-            <h3>Full name: {user.username}</h3>
+            <h3 className="h3">Full name: {user.username}</h3>
             <br />
-            <h3>ID Card: {user.id_card}</h3>
+            <h3 className="h3">ID Card: {user.id_card}</h3>
             <br />
-            <h3>Account balance: {user.id_card}</h3>
+            <h3 className="h3">Account balance: {user.id_card}</h3>
             <br />
-            <h3>Order price: ${payment.total}</h3>
+            <h3 className="h3">Order price: ${payment.total}</h3>
             <br />
-            <h3>Address:{4325}</h3>
+            <h3 className="h3">Address:{4325}</h3>
           </Card>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {/* <TextField
