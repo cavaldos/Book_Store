@@ -2,14 +2,15 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import EditUser from "./option/editUser"; // button edit
 import axios, { all } from "axios";
-import { Table, Input, Button, Space, Form } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Table, Input, Button, Space, Form, Upload, Row, Col } from "antd";
+import { SearchOutlined, UploadOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { Modal } from "antd";
 function ManagerProduct() {
   const [book, setBook] = useState([]);
   const [data, setData] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [state, setState] = useState(0)
   //http:localhost:8000/getallbooks
   useEffect(() => {
     axios
@@ -33,76 +34,143 @@ function ManagerProduct() {
       genre: book.Genre,
     };
   });
-  
-const AddBookPage = () => {
-  const [form] = Form.useForm();
-  const [loading, setLoading] = useState(false);
+  const AddBookForm = () => {
+    const [form] = Form.useForm();
+    const [loading, setLoading] = useState(false);
+    const [imageUrl, setImageUrl] = useState(null);
 
-  const onFinish = (values) => {
-    setLoading(true);
-    axios.post('https://api.example.com/books', values)
-      .then(response => {
-        console.log('Adding book request successful:', response.data);
+    const onFinish = (values) => {
+      // values.Image = imageUrl;
+      console.log(values);
+      setLoading(true);
+      axios.post('http://localhost:8001/addbook', values, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
-      .catch(error => {
-        console.error('Error adding book:', error);
-      });
+        .then(response => {
+          console.log(values)
+          console.log('Adding book successful:', response.data);
+        })
+        .catch(error => {
+          console.error('Error adding book:', error);
+        });
 
-    setTimeout(() => {
-      setLoading(false);
-      form.resetFields();
-      alert('Book added successfully!');
-    }, 2000);
+      setTimeout(() => {
+        setLoading(false);
+        form.resetFields();
+      }, 2000);
+    };
+
+    const beforeUpload = (file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const imageDataUrl = reader.result;
+        form.setFieldsValue({ Image: imageDataUrl });
+      };
+      return false;
+    };
+
+    const validateNumber = (_, value) => {
+      if (value && isNaN(value)) {
+        return Promise.reject('This must be a number');
+      }
+      return Promise.resolve();
+    };
+    
+    return (
+      <div>
+        <h1>Add Book</h1>
+        <Form form={form} layout="vertical" onFinish={onFinish}>
+          {/* <Form.Item name="Image" label="Image">
+            <Upload
+              beforeUpload={beforeUpload}
+              showUploadList={false}
+            >
+              <Button icon={<UploadOutlined />}>Upload Image</Button>
+            </Upload>
+          </Form.Item> */}
+          <Form.Item
+            name="ID"
+            label="ID"
+            rules={[{ required: true, message: 'ID is required' }, { validator: validateNumber }]}
+          >
+            <Input/>
+          </Form.Item>
+          <Form.Item
+            name="Tittle"
+            label="Title"
+            rules={[{ required: true, message: 'Title is required' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Author"
+            label="Author"
+            rules={[{ required: true, message: 'Author is required' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Price"
+            label="Price"
+            rules={[{ required: true, message: 'Price is required' }, { validator: validateNumber }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="ISBN"
+            label="ISBN"
+            rules={[{ required: true, message: 'ISBN is required' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Genre"
+            label="Genre"
+            rules={[{ required: true, message: 'Genre is required' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Publisher"
+            label="Publisher"
+            rules={[{ required: true, message: 'Publisher is required' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Publish_Year"
+            label="Publish Year"
+            rules={[{ required: true, message: 'Publish year is required' }, { validator: validateNumber }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Description"
+            label="Description"
+            rules={[{ required: true, message: 'Description is required' }]}
+          >
+            <Input.TextArea />
+          </Form.Item>
+          <Form.Item
+            name="quantity"
+            label="Quantity"
+            rules={[{ required: true, message: 'Quantity is required' }, { validator: validateNumber }]}
+          >
+            <Input/>
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" loading={loading}>
+              Add Book
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    );
   };
-
-  return (
-    <div>
-      <h1>Add Book</h1>
-      <Form form={form} layout="vertical" onFinish={onFinish}>
-        <Form.Item
-          name="title"
-          label="Title"
-          rules={[{ required: true, message: 'Title is required' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="author"
-          label="Author"
-          rules={[{ required: true, message: 'Author is required' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="isbn"
-          label="ISBN"
-          rules={[{ required: true, message: 'ISBN is required' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="genre"
-          label="Genre"
-          rules={[{ required: true, message: 'Genre is required' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="description"
-          label="Description"
-          rules={[{ required: true, message: 'Description is required' }]}
-        >
-          <Input.TextArea />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit" loading={loading}>
-            Add Book
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
-  );
-};
+  
   ///search
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
@@ -241,12 +309,29 @@ const AddBookPage = () => {
     clearFilters();
     setSearchText("");
   };
-
+  const styleBox = {
+    padding: '40px',
+  };
+  const handleButtonClick = (state) => {
+    setState(state);
+  }
   return (
     <>
-      <h1>Manager Product</h1>
-
-      <Table dataSource={bookInfos} columns={columns} />
+      <div style={styleBox}>
+        <Row gutter={16}>
+          <Col>
+            <Button type="primary" onClick={() => handleButtonClick(1)}>
+              Add Book
+            </Button>
+          </Col>
+          <Col>
+            <Button type="primary" onClick={() => handleButtonClick(0)}>
+              Manage books
+            </Button>
+          </Col>
+        </Row>
+        {state === 1 ? <AddBookForm /> : <><h1>Manager Product</h1><Table dataSource={bookInfos} columns={columns} /></>}
+      </div>
     </>
   );
 }
