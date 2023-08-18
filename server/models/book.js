@@ -51,7 +51,7 @@ const bookSchema = new mongoose.Schema({
   },
   Image: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 const Book = mongoose.model("Book", bookSchema);
