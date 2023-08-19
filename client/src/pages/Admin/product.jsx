@@ -2,10 +2,12 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import EditUser from "./option/editUser"; // button edit
 import axios, { all } from "axios";
-import { Table, Input, Button, Space, Form, Upload, Row, Col } from "antd";
-import { SearchOutlined, UploadOutlined } from "@ant-design/icons";
+import { Table, Input, Button, Space, Form, Upload, Row, Col, message } from "antd";
+import { SearchOutlined, UploadOutlined, PlusOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { Modal } from "antd";
+import * as XLSX from 'xlsx';
+
 function ManagerProduct() {
   const [book, setBook] = useState([]);
   const [data, setData] = useState([]);
@@ -22,6 +24,7 @@ function ManagerProduct() {
         console.log(error);
       });
   }, []);
+
   const bookInfos = book.map((book) => {
     return {
       key: book.ID,
@@ -34,13 +37,15 @@ function ManagerProduct() {
       genre: book.Genre,
     };
   });
+
   const AddBookForm = () => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
-    const [imageUrl, setImageUrl] = useState(null);
+    const [imageFile, setImageFile] = useState(null);
+    const [uploadStatus, setUploadStatus] = useState('');
 
-    const onFinish = (values) => {
-      // values.Image = imageUrl;
+    const onFinish = async (values) => {
+      values.Image = await handleFileUpload(imageFile).imageUrl;
       console.log(values);
       setLoading(true);
       axios.post('http://localhost:8001/addbook', values, {
@@ -55,21 +60,27 @@ function ManagerProduct() {
         .catch(error => {
           console.error('Error adding book:', error);
         });
-
       setTimeout(() => {
         setLoading(false);
         form.resetFields();
       }, 2000);
     };
 
-    const beforeUpload = (file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const imageDataUrl = reader.result;
-        form.setFieldsValue({ Image: imageDataUrl });
-      };
-      return false;
+    const handleFileUpload = async (file) => {
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+  
+        const response = await axios.post('http://localhost:8001/upload-image', formData);
+        const imageUrl = response.data.imageUrl;
+
+        console.log('Uploaded image URL:', imageUrl);
+        
+        setUploadStatus('done');
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        setUploadStatus('error');
+      }
     };
 
     const validateNumber = (_, value) => {
@@ -83,21 +94,17 @@ function ManagerProduct() {
       <div>
         <h1>Add Book</h1>
         <Form form={form} layout="vertical" onFinish={onFinish}>
-          {/* <Form.Item name="Image" label="Image">
-            <Upload
-              beforeUpload={beforeUpload}
-              showUploadList={false}
-            >
-              <Button icon={<UploadOutlined />}>Upload Image</Button>
-            </Upload>
-          </Form.Item> */}
-          <Form.Item
-            name="ID"
-            label="ID"
-            rules={[{ required: true, message: 'ID is required' }, { validator: validateNumber }]}
-          >
-            <Input/>
-          </Form.Item>
+          <Form.Item label="Upload" valuePropName="fileList" getValueFromEvent={(event) => {return [event.fileList[0]]}}>
+              <Upload action={setImageFile} listType="picture-card">
+                <div>
+                  <PlusOutlined />
+                  <div style={{ marginTop: 8 }}>Upload</div>
+                </div>
+              </Upload>
+            </Form.Item>
+          {uploadStatus === 'uploading' && <div>Uploading...</div>}
+          {uploadStatus === 'done' && <div>Upload completed</div>}
+          {uploadStatus === 'error' && <div>Error uploading file</div>}
           <Form.Item
             name="Tittle"
             label="Title"
@@ -170,7 +177,23 @@ function ManagerProduct() {
       </div>
     );
   };
-  
+  const ImportBooks = () => {
+    const handleFileUpload = async (file) => {
+      try {
+        const workbook = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const data = XLSX.utils.sheet_to_json(sheet);
+
+        // Make a POST request to the server to import the books
+        // await axios.post('/import-books', data);
+        console.log(data)
+        message.success('Book import successful');
+      } catch (error) {
+        console.error('Error importing books:', error);
+        message.error('An error occurred while importing books');
+      }
+    }
+  }
   ///search
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
