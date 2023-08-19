@@ -12,6 +12,7 @@ function MyOrder() {
     axios
       .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
         order_code: user.order_code,
+        
       })
       .then((res) => {
         console.log("res", res.data);
