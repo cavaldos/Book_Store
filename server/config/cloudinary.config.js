@@ -1,7 +1,12 @@
-import {v2 as cloudinary} from 'cloudinary';
-          
+const cloudinary = require('cloudinary').v2;
+const dotenv = require("dotenv");
+dotenv.config();
+
 cloudinary.config({ 
-  cloud_name: 'didfj5vwp', 
-  api_key: cloudinary_clientID, 
-  api_secret: cloudinary_clientSecret
+  cloud_name: process.env.CLOUDINARY_CLOUDNAME, 
+  api_key: process.env.CLOUDINARY_CLIENTID, 
+  api_secret: process.env.CLOUDINARY_CLIENTSECRET
 });
+
+
+  
