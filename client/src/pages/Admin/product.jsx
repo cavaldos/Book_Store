@@ -42,7 +42,6 @@ function ManagerProduct() {
     const [loading, setLoading] = useState(false);
     const [imageFile, setImageFile] = useState(null);
     const [uploadStatus, setUploadStatus] = useState('');
-
     const onFinish = async (values) => {
       values.Image = await handleFileUpload(imageFile).imageUrl;
       console.log(values);
@@ -65,7 +64,6 @@ function ManagerProduct() {
         form.resetFields();
       }, 2000);
     };
-
     const handleFileUpload = async (file) => {
       try {
         const formData = new FormData();
@@ -82,14 +80,12 @@ function ManagerProduct() {
         setUploadStatus('error');
       }
     };
-
     const validateNumber = (_, value) => {
       if (value && isNaN(value)) {
         return Promise.reject('This must be a number');
       }
       return Promise.resolve();
     };
-    
     return (
       <div>
         <h1>Add Book</h1>
@@ -159,10 +155,10 @@ function ManagerProduct() {
             label="Description"
             rules={[{ required: true, message: 'Description is required' }]}
           >
+            <Input.TextArea />
+          </Form.Item>
           <Form.Item name="rating" label="Rating">
             <Rate />
-          </Form.Item>
-            <Input.TextArea />
           </Form.Item>
           <Form.Item
             name="quantity"
@@ -189,7 +185,7 @@ function ManagerProduct() {
       data.forEach((book) => {
         editBook(book);
       });
-      
+
       message.success('Book import successful. Please refresh page.');
     } catch (error) {
       console.error('Error importing books:', error);
