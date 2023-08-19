@@ -6,7 +6,6 @@ const bookController = {
     try {
       const data = req.body;
       nbooks = await Book.countDocuments({}).exec();
-      console.log(nbooks);
       const newBook = new Book({
         ID: nbooks+1,
         Image: data.Image,
