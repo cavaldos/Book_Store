@@ -17,7 +17,7 @@ const EditUser = (user) => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Open Modal
+        See details
       </Button>
       <Modal
         title="Basic Modal"
