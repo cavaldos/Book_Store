@@ -2,11 +2,12 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import EditUser from "./option/editUser"; // button edit
 import axios, { all } from "axios";
-import { Table, Input, Button, Space, Form, Upload, Row, Col, message } from "antd";
+import { Table, Input, Button, Space, Form, Upload, Row, Col, Rate, message } from "antd";
 import { SearchOutlined, UploadOutlined, PlusOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { Modal } from "antd";
 import * as XLSX from 'xlsx';
+import { editBook } from "../../api/book_api";
 
 function ManagerProduct() {
   const [book, setBook] = useState([]);
@@ -24,7 +25,6 @@ function ManagerProduct() {
         console.log(error);
       });
   }, []);
-
   const bookInfos = book.map((book) => {
     return {
       key: book.ID,
@@ -37,7 +37,6 @@ function ManagerProduct() {
       genre: book.Genre,
     };
   });
-
   const AddBookForm = () => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
@@ -56,9 +55,10 @@ function ManagerProduct() {
         .then(response => {
           console.log(values)
           console.log('Adding book successful:', response.data);
+          message.success('Adding book successful');
         })
         .catch(error => {
-          console.error('Error adding book:', error);
+          message.error(`An error occurred while importing books: ${error}`);
         });
       setTimeout(() => {
         setLoading(false);
@@ -159,6 +159,9 @@ function ManagerProduct() {
             label="Description"
             rules={[{ required: true, message: 'Description is required' }]}
           >
+          <Form.Item name="rating" label="Rating">
+            <Rate />
+          </Form.Item>
             <Input.TextArea />
           </Form.Item>
           <Form.Item
@@ -177,21 +180,20 @@ function ManagerProduct() {
       </div>
     );
   };
-  const ImportBooks = () => {
-    const handleFileUpload = async (file) => {
-      try {
-        const workbook = XLSX.read(await file.arrayBuffer(), { type: 'array' });
-        const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const data = XLSX.utils.sheet_to_json(sheet);
+  const ImportBooks = async (file) => {
+    try {
+      const workbook = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const data = XLSX.utils.sheet_to_json(sheet);
 
-        // Make a POST request to the server to import the books
-        // await axios.post('/import-books', data);
-        console.log(data)
-        message.success('Book import successful');
-      } catch (error) {
-        console.error('Error importing books:', error);
-        message.error('An error occurred while importing books');
-      }
+      data.forEach((book) => {
+        editBook(book);
+      });
+      
+      message.success('Book import successful. Please refresh page.');
+    } catch (error) {
+      console.error('Error importing books:', error);
+      message.error('An error occurred while importing books');
     }
   }
   ///search
@@ -256,7 +258,6 @@ function ManagerProduct() {
       },
     };
   };
-
   const columns = [
     {
       title: "ID",
@@ -327,7 +328,6 @@ function ManagerProduct() {
     confirm();
     setSearchText(selectedKeys[0]);
   };
-
   const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
@@ -342,6 +342,11 @@ function ManagerProduct() {
     <>
       <div style={styleBox}>
         <Row gutter={16}>
+          <Col>
+          <Upload name="Stock" action={ImportBooks}>
+            <Button icon={<UploadOutlined />}>Upload stocks</Button>
+          </Upload>
+          </Col>
           <Col>
             <Button type="primary" onClick={() => handleButtonClick(1)}>
               Add Book

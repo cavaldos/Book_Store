@@ -78,7 +78,6 @@ const bookController = {
         { ID: data.ID },
         {
           $set: {
-            ID: data.ID,
             Image: data.Image,
             Tittle: data.Tittle,
             Author: data.Author,
