@@ -1,9 +1,12 @@
 const router = require("express").Router();
+
 const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 const orderController = require("../controllers/orderController");
 const revenueController = require("../controllers/revenueController");
+const cloudinaryMiddleware = require("../middleware/cloudinary.middleware")
+
 //AUTHENTICATION
 router.post("/signin", authController.signin); // đã viết xong
 router.post("/register", authController.register); // đã viết xong
@@ -36,10 +39,10 @@ router.post("/setstateorder", orderController.setStateOrder); // da xong, da tes
 router.post("/findorder", orderController.findOrder); // da xong, da test
 router.post("/removeorder", orderController.removeOrder); // da xong, da test
 router.get("/getgenre", orderController.genreBreakdown); // da xong, da test
-
-
 //revenue
 router.post("/findrevenue", revenueController.findRevenue); // da xong, da test
 router.post("/findrevenuebydate", revenueController.findRevenue); // da xong, da test
 router.post("/findrevenuebyyear", revenueController.findByYear); // da xong, da test
+//cloud
+router.post("/upload-image", cloudinaryMiddleware.uploadImage)
 module.exports = router;
