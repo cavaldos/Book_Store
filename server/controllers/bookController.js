@@ -5,8 +5,13 @@ const bookController = {
   addBook: async (req, res) => {
     try {
       const data = req.body;
+      nbooks = await Book.countDocuments({}, (err, count) => {
+        if (err) {
+          console.error('Error:', err);
+        }
+      });
       const newBook = new Book({
-        ID: data.ID,
+        ID: nbooks+1,
         Image: data.Image,
         Tittle: data.Tittle,
         Author: data.Author,
