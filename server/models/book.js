@@ -7,12 +7,11 @@ const bookSchema = new mongoose.Schema({
     minlength: 1,
     maxlength: 25,
   },
-
   Tittle: {
     type: String,
     required: true,
     minlength: 3,
-    maxlength: 25,
+    maxlength: 200,
   },
   Rating: {
     type: Number,
