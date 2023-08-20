@@ -2,6 +2,7 @@ const Book = require("../models/book");
 
 const bookController = {
   addBook: async (req, res) => {
+    nbooks = await Book.countDocuments({}).exec();
     const maxId = await Book.findOne({}, { ID: 1 })
       .sort({ ID: -1 })
       .limit(1)
@@ -10,7 +11,7 @@ const bookController = {
     try {
       const data = req.body;
       const newBook = new Book({
-        ID: maxId.ID + 1,
+        ID: nbooks + 1,
         Image: data.Image,
         Tittle: data.Tittle,
         Author: data.Author,
