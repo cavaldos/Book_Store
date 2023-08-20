@@ -79,7 +79,7 @@ const userRoutes = [
     component: Payment,
   },
   {
-    path: "/user/myorder",
+    path: "/user/mylistorder",
     component: MyOder,
   },
   {
@@ -95,7 +95,7 @@ const userRoutes = [
   //   component: Chat,
   // },
   {
-    path: `/signup-account-payment`,
+    path: `/create-account-payment`,
     component: BookPay,
       layout: null,
   },

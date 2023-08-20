@@ -72,7 +72,7 @@ function Genre() {
 
   return (
     <>
-      <h1 style={{ justifyContent: "center", textAlign: "center" }}>Revenue</h1>
+      <h1 style={{ justifyContent: "center", textAlign: "center" }}>Genre</h1>
 
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>

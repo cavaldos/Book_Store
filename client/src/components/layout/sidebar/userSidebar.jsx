@@ -11,6 +11,8 @@ import {
   ProfileOutlined,
 } from "@ant-design/icons";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+
 import { useNavigate } from "react-router-dom";
 
 function UserSidebar(props) {
@@ -45,7 +47,13 @@ function UserSidebar(props) {
       key: "MyOrder",
       icon: <PrecisionManufacturingIcon />,
       text: "MyOrder",
-      path: "/user/myorder",
+      path: "/user/mylistorder",
+    },
+    {
+      key: "CreateAccountPayment",
+      icon: <AttachMoneyIcon />,
+      text: "Create Account Payment",
+      path: "/create-account-payment",
     },
   ];
 

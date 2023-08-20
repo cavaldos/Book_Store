@@ -184,11 +184,11 @@ function ManagerUser() {
         </>
       ),
     },
-    {
-      title: "Edit",
-      key: "edit",
-      render: (text, record) => <EditUser user={record} />,
-    },
+    // {
+    //   title: "Edit",
+    //   key: "edit",
+    //   render: (text, record) => <EditUser user={record} />,
+    // },
     {
       title: "Delete",
       key: "delete",
@@ -215,7 +215,17 @@ function ManagerUser() {
 
   return (
     <>
-      <h1>Manager User</h1>
+      <h1
+        style={{
+          backgroundColor: "#f0f2f5",
+          textAlign: "center",
+          width: "20%",
+          margin: "10px auto",
+          borderRadius: "10px",
+        }}
+      >
+        Manager User
+      </h1>
 
       <div style={{ overflowX: "auto" }}>
         <Table dataSource={userInfos} columns={columns} />
