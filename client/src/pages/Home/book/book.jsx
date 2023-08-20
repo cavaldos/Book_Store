@@ -48,9 +48,7 @@ function Book(props) {
         <p className="author">Author: {author}</p>
         <h4 className="price">Price :$ {price}</h4>
         <Rate className="rating" disabled defaultValue={rate} />
-        {/* <button className="btn" onClick={handleAddToCart}>
-          <ShoppingCartOutlined />
-        </button> */}
+
         {role.role === "user" ? (
           <button className="btn" onClick={handleAddToCart}>
             <ShoppingCartOutlined />

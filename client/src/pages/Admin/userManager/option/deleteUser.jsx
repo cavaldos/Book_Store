@@ -4,10 +4,9 @@ import axios from "axios";
 import { message } from "antd";
 
 const DeleteUser = (user) => {
-  // http://localhost:8001/deleteuser
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { email } = user.user;
-  // console.log("record", email);
 
   const showModal = () => {
     setIsModalOpen(true);

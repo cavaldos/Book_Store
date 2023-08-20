@@ -2,14 +2,34 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import EditUser from "../userManager/option/editUser"; // button edit
 import axios, { all } from "axios";
-import { Table, Input, Button, Space } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+  Table,
+  Input,
+  Button,
+  Space,
+  Form,
+  Upload,
+  Row,
+  Col,
+  Rate,
+  message,
+} from "antd";
+import {
+  SearchOutlined,
+  UploadOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 import { useRef } from "react";
 import { Modal } from "antd";
+import * as XLSX from "xlsx";
+import { editBook } from "..//..//..//api/book_api";
+
 function ManagerProduct() {
   const [book, setBook] = useState([]);
   const [data, setData] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [state, setState] = useState(0);
+
   
   useEffect(() => {
     axios
@@ -33,7 +53,184 @@ function ManagerProduct() {
       genre: book.Genre,
     };
   });
+  const AddBookForm = () => {
+    const [form] = Form.useForm();
+    const [loading, setLoading] = useState(false);
+    const [imageFile, setImageFile] = useState(null);
+    const [uploadStatus, setUploadStatus] = useState("");
 
+    const onFinish = async (values) => {
+      values.Image = await handleFileUpload(imageFile).imageUrl;
+      console.log(values);
+      setLoading(true);
+      axios
+        .post(`${process.env.REACT_APP_API_PORT}/addbook`, values, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          console.log(values);
+          console.log("Adding book successful:", response.data);
+          message.success("Adding book successful");
+        })
+        .catch((error) => {
+          message.error(`An error occurred while importing books: ${error}`);
+        });
+      setTimeout(() => {
+        setLoading(false);
+        form.resetFields();
+      }, 2000);
+    };
+
+    const handleFileUpload = async (file) => {
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const response = await axios.post(
+          `${process.env.REACT_APP_API_PORT}/upload-image`,
+          formData
+        );
+        const imageUrl = response.data.imageUrl;
+
+        console.log("Uploaded image URL:", imageUrl);
+
+        setUploadStatus("done");
+      } catch (error) {
+        console.error("Error uploading file:", error);
+        setUploadStatus("error");
+      }
+    };
+
+    const validateNumber = (_, value) => {
+      if (value && isNaN(value)) {
+        return Promise.reject("This must be a number");
+      }
+      return Promise.resolve();
+    };
+
+    return (
+      <div>
+        <h1>Add Book</h1>
+        <Form form={form} layout="vertical" onFinish={onFinish}>
+          <Form.Item
+            label="Upload"
+            valuePropName="fileList"
+            getValueFromEvent={(event) => {
+              return [event.fileList[0]];
+            }}
+          >
+            <Upload action={setImageFile} listType="picture-card">
+              <div>
+                <PlusOutlined />
+                <div style={{ marginTop: 8 }}>Upload</div>
+              </div>
+            </Upload>
+          </Form.Item>
+          {uploadStatus === "uploading" && <div>Uploading...</div>}
+          {uploadStatus === "done" && <div>Upload completed</div>}
+          {uploadStatus === "error" && <div>Error uploading file</div>}
+          <Form.Item
+            name="Tittle"
+            label="Title"
+            rules={[{ required: true, message: "Title is required" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Author"
+            label="Author"
+            rules={[{ required: true, message: "Author is required" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Price"
+            label="Price"
+            rules={[
+              { required: true, message: "Price is required" },
+              { validator: validateNumber },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="ISBN"
+            label="ISBN"
+            rules={[{ required: true, message: "ISBN is required" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Genre"
+            label="Genre"
+            rules={[{ required: true, message: "Genre is required" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Publisher"
+            label="Publisher"
+            rules={[{ required: true, message: "Publisher is required" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Publish_Year"
+            label="Publish Year"
+            rules={[
+              { required: true, message: "Publish year is required" },
+              { validator: validateNumber },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="Description"
+            label="Description"
+            rules={[{ required: true, message: "Description is required" }]}
+          >
+            <Form.Item name="rating" label="Rating">
+              <Rate />
+            </Form.Item>
+            <Input.TextArea />
+          </Form.Item>
+          <Form.Item
+            name="quantity"
+            label="Quantity"
+            rules={[
+              { required: true, message: "Quantity is required" },
+              { validator: validateNumber },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" loading={loading}>
+              Add Book
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    );
+  };
+  const ImportBooks = async (file) => {
+    try {
+      const workbook = XLSX.read(await file.arrayBuffer(), { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const data = XLSX.utils.sheet_to_json(sheet);
+
+      data.forEach((book) => {
+        editBook(book);
+      });
+
+      message.success("Book import successful. Please refresh page.");
+    } catch (error) {
+      console.error("Error importing books:", error);
+      message.error("An error occurred while importing books");
+    }
+  };
   ///search
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
@@ -96,7 +293,6 @@ function ManagerProduct() {
       },
     };
   };
-
   const columns = [
     {
       title: "ID",
@@ -167,17 +363,44 @@ function ManagerProduct() {
     confirm();
     setSearchText(selectedKeys[0]);
   };
-
   const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
   };
-
+  const styleBox = {
+    padding: "40px",
+  };
+  const handleButtonClick = (state) => {
+    setState(state);
+  };
   return (
     <>
-      <h1>Manager Product</h1>
-      <div style={{ overflowX: "auto" }}>
-        <Table dataSource={bookInfos} columns={columns} />
+      <div style={styleBox}>
+        <Row gutter={16}>
+          <Col>
+            <Upload name="Stock" action={ImportBooks}>
+              <Button icon={<UploadOutlined />}>Upload stocks</Button>
+            </Upload>
+          </Col>
+          <Col>
+            <Button type="primary" onClick={() => handleButtonClick(1)}>
+              Add Book
+            </Button>
+          </Col>
+          <Col>
+            <Button type="primary" onClick={() => handleButtonClick(0)}>
+              Manage books
+            </Button>
+          </Col>
+        </Row>
+        {state === 1 ? (
+          <AddBookForm />
+        ) : (
+          <>
+            <h1>Manager Product</h1>
+            <Table dataSource={bookInfos} columns={columns} />
+          </>
+        )}
       </div>
     </>
   );

@@ -18,7 +18,7 @@ import AvartarUser from "../layout/header/custom/avatar";
 const DefaultLayout = ({ children }) => {
   const [toggle, setToggle] = useState("close");
   const [scroll, setScroll] = useState("up");
-
+ 
   window.addEventListener("scroll", function () {
     const scrollPosition = window.scrollY;
     scrollPosition > 50 ? setScroll("down") : setScroll("up");

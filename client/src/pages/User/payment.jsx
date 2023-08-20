@@ -4,10 +4,10 @@ import axios from "axios";
 import { LoadingOutlined, SolutionOutlined } from "@ant-design/icons";
 import CopyText from "./myorder/copytext";
 import "./user.scss";
-import ConfirmOrder from "./statepayment/confirmOrder";
-import PaymentDetails from "./statepayment/paymentDetail";
-import OrderConfirmation from "./statepayment/orderConfirmation";
-import InTransit from "./statepayment/inTransit";
+import ConfirmOrder from "./statepayment/1confirmOrder";
+import PaymentDetails from "./statepayment/2paymentDetail";
+import OrderConfirmation from "./statepayment/3orderConfirmation";
+import InTransit from "./statepayment/4inTransit";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -18,13 +18,10 @@ import {
 const { Step } = Steps;
 
 const Payment = () => {
-
   const payment = useSelector((state) => state.payment);
 
   const currentStep = payment.currentStep;
   console.log("currentStep", currentStep);
-
-
 
   const steps = [
     {
@@ -65,16 +62,30 @@ const Payment = () => {
   };
   return (
     <>
-      <div
-        className="payment"
-        style={{ display: "flex", alignItems: "center" ,margin:"10px"}}
-      >
-        <h1 style={{ marginRight: "16px" }}>My order</h1>
-        <CopyText text={payment.id_payment} />
+      <div style={{ overflowX: "auto" }}>
+        <div
+          className="payment"
+          style={{ display: "flex", alignItems: "center", margin: "10px" }}
+        >
+          <h1 style={{ marginRight: "16px" }}></h1>
+          <CopyText text={payment.id_payment} />
+        </div>
+        <Steps
+          style={{
+            margin: "0 20px",
+            width: "80%",
+            textAlign: "center",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+          className="steps"
+          current={currentStep}
+          items={items}
+        />
+        <div style={contentStyle}>{steps[currentStep].content}</div>
+        <div style={{ marginTop: "24px" }}></div>
       </div>
-      <Steps className="steps" current={currentStep} items={items} />
-      <div style={contentStyle}>{steps[currentStep].content}</div>
-      <div style={{ marginTop: "24px" }}></div>
     </>
   );
 };

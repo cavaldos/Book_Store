@@ -7,7 +7,10 @@
     background-color: rgb(162, 184, 184);
   }
 }
-
+.h3 {
+  margin: 0px 0;
+  float: left;
+}
 //middle
 @media only screen and (min-width: 1180px) and (max-width: 1900px) {
   // máy tính màn hinh nhỏ
@@ -25,7 +28,7 @@
   .payment {
     margin: 0;
     .step {
-      color: red;
+      color: #08a80a;
       margin-top: 20px;
       background-color: rgb(162, 184, 184);
     }

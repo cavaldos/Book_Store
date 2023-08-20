@@ -7,8 +7,9 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import DeleteUser from "./option/deleteUser";
 import { Modal } from "antd";
-import AddUser from "./addUser";
-import { message } from "antd";
+
+import AddUser from "./option/addUser";
+import { message, Tag } from "antd";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 
 function ManagerUser() {
@@ -35,9 +36,10 @@ function ManagerUser() {
       password: user.password,
       balance: user.account_balance,
       role: user.role,
+      tags: [user.role],
     };
   });
-  //api search  http://localhost:8000/user/search?username=abc
+  //api search  ${process.env.REACT_APP_API_PORT}/user/search?username=abc
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
     return {
@@ -156,13 +158,37 @@ function ManagerUser() {
       title: "Role",
       dataIndex: "role",
       key: "role",
+
       ...getColumnSearchProps("role", "Role"),
+      render: (_, { tags }) => (
+        <>
+          {tags &&
+            tags.map((tag) => {
+              // Add a check for tags existence
+              let color;
+              if (tag === "user") {
+                color = "green";
+              } else if (tag === "admin") {
+                color = "blue";
+              } else if (tag === "employee") {
+                color = "orange";
+              } else {
+                color = "geekblue";
+              }
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              );
+            })}
+        </>
+      ),
     },
-    {
-      title: "Edit",
-      key: "edit",
-      render: (text, record) => <EditUser user={record} />,
-    },
+    // {
+    //   title: "Edit",
+    //   key: "edit",
+    //   render: (text, record) => <EditUser user={record} />,
+    // },
     {
       title: "Delete",
       key: "delete",
@@ -172,7 +198,6 @@ function ManagerUser() {
 
   const [number, setNumber] = useState(0);
   useEffect(() => {
-  
     axios
       .get(`${process.env.REACT_APP_API_PORT}/getnumberuser`)
       .then((response) => {
@@ -190,14 +215,24 @@ function ManagerUser() {
 
   return (
     <>
-      <h1>Manager User</h1>
+      <h1
+        style={{
+          backgroundColor: "#f0f2f5",
+          textAlign: "center",
+          width: "20%",
+          margin: "10px auto",
+          borderRadius: "10px",
+        }}
+      >
+        Manager User
+      </h1>
 
       <div style={{ overflowX: "auto" }}>
         <Table dataSource={userInfos} columns={columns} />
       </div>
 
       <h3>Number of user: {number}</h3>
-      {/* <AddUser /> */}
+      <AddUser />
     </>
   );
 }

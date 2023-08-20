@@ -1,24 +1,32 @@
 import React from "react";
 import { Menu } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  HomeOutlined,
+  ProfileOutlined,
+} from "@ant-design/icons";
+import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
+
 import { useNavigate } from "react-router-dom";
+
 import Logo from "./logo";
 
-  const menuItems = [
-    { key: "home", icon: <MenuUnfoldOutlined />, text: "Home", path: "/" },
-    {
-      key: "profile",
-      icon: <MenuUnfoldOutlined />,
-      text: "Profile",
-      path: "/employee/profile",
-    },
-    {
-      key: "confirm-order",
-      icon: <MenuFoldOutlined />,
-      text: "Manager Order",
-      path: "/employee/confirm-order",
-    },
-  ];
+const menuItems = [
+  { key: "home", icon: <HomeOutlined />, text: "Home", path: "/" },
+  {
+    key: "profile",
+    icon: <ProfileOutlined />,
+    text: "Profile",
+    path: "/employee/profile",
+  },
+  {
+    key: "confirm-order",
+    icon: <PrecisionManufacturingIcon />,
+    text: "Manager Order",
+    path: "/employee/confirm-order",
+  },
+];
 
 function EmployeeSidebar(props) {
   const navigate = useNavigate();
