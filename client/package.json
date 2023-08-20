@@ -29,7 +29,7 @@
     "react-apexcharts": "^1.4.1",
     "react-credit-cards": "^0.8.3",
     "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.3",
+
     "react-redux": "^8.1.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.13.0",
@@ -42,6 +42,7 @@
     "uuid": "^9.0.0",
     "web-vitals": "^2.1.0",
     "websocket": "^1.0.34",
+    "xlsx": "^0.18.5",
     "yup": "^1.2.0"
   },
   "devDependencies": {

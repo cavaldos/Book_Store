@@ -15,10 +15,15 @@
   min-height: 100px;
   display: flex;
   flex-direction: column;
-  padding: 3px;
+  padding:0;
   .suggestion-item {
-    background-color: var(--white-grey);
-    margin: 0px 0 2px 0;
+    
+    &:hover {
+      background-color: #ccc;
+      margin: 0;
+      cursor: pointer;
+    }
+    
   }
 }
 

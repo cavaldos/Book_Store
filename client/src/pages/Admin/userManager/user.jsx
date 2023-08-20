@@ -8,7 +8,7 @@ import { useRef } from "react";
 import DeleteUser from "./option/deleteUser";
 import { Modal } from "antd";
 
-import AddUser from "./addUser";
+import AddUser from "./option/addUser";
 import { message, Tag } from "antd";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 
@@ -39,7 +39,7 @@ function ManagerUser() {
       tags: [user.role],
     };
   });
-  //api search  http://localhost:8000/user/search?username=abc
+  //api search  ${process.env.REACT_APP_API_PORT}/user/search?username=abc
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
     return {
@@ -158,7 +158,7 @@ function ManagerUser() {
       title: "Role",
       dataIndex: "role",
       key: "role",
-      
+
       ...getColumnSearchProps("role", "Role"),
       render: (_, { tags }) => (
         <>
@@ -167,11 +167,11 @@ function ManagerUser() {
               // Add a check for tags existence
               let color;
               if (tag === "user") {
-                color = "green"; 
+                color = "green";
               } else if (tag === "admin") {
-                color = "blue"; 
+                color = "blue";
               } else if (tag === "employee") {
-                color = "orange"; 
+                color = "orange";
               } else {
                 color = "geekblue";
               }
@@ -198,7 +198,6 @@ function ManagerUser() {
 
   const [number, setNumber] = useState(0);
   useEffect(() => {
-  
     axios
       .get(`${process.env.REACT_APP_API_PORT}/getnumberuser`)
       .then((response) => {
@@ -223,7 +222,7 @@ function ManagerUser() {
       </div>
 
       <h3>Number of user: {number}</h3>
-      {/* <AddUser /> */}
+      <AddUser />
     </>
   );
 }

@@ -8,7 +8,6 @@ import { Spin, Pagination, Carousel } from "antd";
 //import { Col, Row } from "antd";
 import Poster from "./poster";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Home() {
   const [products, setProducts] = useState([]);

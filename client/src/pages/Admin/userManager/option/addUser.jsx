@@ -55,14 +55,17 @@ const AddUser = (props) => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8001/adduser", {
-        email: user.email,
-        password: user.password,
-        username: user.username,
-        phonenumber: user.phonenumber,
-        role: user.role,
-        id_card: user.id_card,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_PORT}/adduser`,
+        {
+          email: user.email,
+          password: user.password,
+          username: user.username,
+          phonenumber: user.phonenumber,
+          role: user.role,
+          id_card: user.id_card,
+        }
+      );
       console.log("response", response);
       if (response.data === "addfail") {
         message.warning("User already exists");
