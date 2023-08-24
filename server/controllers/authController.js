@@ -72,6 +72,25 @@ const authController = {
       });
     }
   },
+  googleSignIn: async (req, res) => {
+    try {
+      const { email, role } = req.body;
+      const user = await User.findOne({ email: email, role: role });
+
+      if (user) {
+        const accessToken = authController.getgenreAccesstoken(user);
+        const refreshToken = authController.getgenreRefreshtoken(user);
+        const { password, ...info } = user._doc;
+        res.status(200).json({ ...info, accessToken, refreshToken });
+      } else {
+        res.status(401).json("signinfail");
+      }
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
   verifyEmailSignUp: async (req, res) => {
     try {
       const { email } = req.body;
@@ -180,7 +199,7 @@ const authController = {
   },
   resetpassword: async (req, res) => {
     try {
-      //res.json({ message: "fogotpassword loadding" });
+      res.json({ message: "fogotpassword loadding" });
       const { email, password, confirmationCode } = req.body;
       console.log(req.body);
       const check = await User.findOne({
@@ -189,6 +208,7 @@ const authController = {
       const check2 = await User.findOne({
         confirmationCode: confirmationCode,
       });
+
       if (check && check2) {
         res.json("resetpasswordsuccess");
       } else {
@@ -200,27 +220,7 @@ const authController = {
       });
     }
   },
-  checkConfirmationcode: async (req, res) => {
-    try {
-      //res.json({ message: "fogotpassword loadding" });
 
-      const { confirmationCode } = req.body;
-      console.log(req.body);
-      const check = await User.findOne({
-        confirmationCode: confirmationCode,
-      });
-
-      if (check) {
-        res.json("success");
-      } else {
-        res.json("notexist-code");
-      }
-    } catch (err) {
-      res.status(500).json({
-        message: err.message,
-      });
-    }
-  },
   sendConfirmationCode: async (req, res) => {
     try {
       const { email } = req.body;
@@ -248,7 +248,5 @@ const authController = {
       });
     }
   },
-
 };
 module.exports = authController;
-

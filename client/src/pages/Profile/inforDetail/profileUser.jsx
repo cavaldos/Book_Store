@@ -8,7 +8,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import bcrypt from "bcryptjs";
-import { updateUser } from "../../../redux/features/userSilce";
+import { updateUser } from "../../../redux/features/userSlice";
 import { message } from "antd";
 function ProfileUser() {
   const [showPassword, setShowPassword] = useState(false);

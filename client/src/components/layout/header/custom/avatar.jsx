@@ -5,7 +5,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {logout} from "../../../../redux/features/roleSlice";
-import {resetUser} from "..//..//..//..//redux//features//userSilce";
+import {resetUser} from "../../../../redux/features/userSlice";
 
 const items = [
   {
