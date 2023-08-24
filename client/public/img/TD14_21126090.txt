@@ -1,0 +1,14 @@
+1) mongod
+2) mongo
+3) show dbs
+4) use vp21db
+5) db.students.insertOne({name: 'Vu Huyen Thien Ly', studentID: '21126028'})
+   db.students.insertOne({name: 'Vu Nguyen Xuan Uyen', studentID: '21126090'})
+6) db.students.find()
+7) db.students.find({studentID:'21126090'})
+8) db.students.deleteOne({studentID: '21126028'})
+9) db.students.find()
+10) db.students.insertMany([{name:'Tran Bao Nguyen', studentID:'21126031',dateOfBirth: new Date('2002-01-20'),class:'21vp'},{name:'Vu Thanh Cong', studentID:'21126054',dateOfBirth: new Date('2003-09-01'),class:'21vp'}])
+11) db.students.updateOne({studentID:'21126090'},{$set:{dateOfBirth: new Date('2002-10-16'),class:'21vp'}})
+12) db.students.find()
+13) db.students.findOne({name:'Vu Nguyen Xuan Uyen'},{name: 1, studentID:1})
