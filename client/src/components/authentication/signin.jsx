@@ -148,7 +148,7 @@ function SignIn() {
             // Navigate to the desired page
             navigate("/", { replace: true });
           } else {
-            console.log("Sign in failed:", backendResponse.status);
+            //console.log("Sign in failed:", backendResponse.status);
             message.error(`User not found`);
           }
         } catch (err) {
