@@ -25,7 +25,7 @@ const cloudinaryMiddleware = {
             } else if (err) {
                 return res.status(500).json({ error: err.message });
             }
-            const imageUrl = req.file.path;
+            const imageUrl = req?.file?.path || "" ;
             return res.status(200).json({ imageUrl });
         });
     }
