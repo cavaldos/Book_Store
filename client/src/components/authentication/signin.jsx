@@ -132,11 +132,13 @@ function SignIn() {
           if (backendResponse.status === 200) {
             message.success(`Sign in success with ${googleRole} role`);
             console.log(profileObj);
-            console.log(tokenId);      
+            //console.log(tokenId);    
+            const verifyToken = backendResponse.data.accessToken;    
+            console.log(verifyToken);  
             dispatch(
               updateRole({
                 role: googleRole,
-                token: tokenId,
+                token: verifyToken,
                 email: googleEmail,
               })
             );
