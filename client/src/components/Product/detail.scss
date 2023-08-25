@@ -118,6 +118,71 @@
   margin-top: 10px;
   color: rgb(157, 157, 157);
 }
+
+///Related Book css
+.related-books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.related-book-card {
+  flex: 0 0 15%; /* Adjust this value to control the width of each book card */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.related-book-card img {
+  background-color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.related-book-card h5 {
+  margin: 5px 0;
+}
+
+.related-book-card p {
+  margin: 0;
+}
+#Related
+{
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 30px;
+}
+#rel {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+#Title_related
+{
+  font-weight: bold;
+  font-size: 15px;
+}
+#Author
+{
+  color: gray;
+  margin-bottom: 20px;
+}
+#Stack
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 //ihone 5/SE
 @media only screen and (min-device-width: 100px) and (max-device-width: 850px) {
   // iphone 5/SE/12 pro

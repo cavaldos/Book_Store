@@ -12,6 +12,7 @@ const InfoBook = (props) => {
   const showModal = () => {
     setIsModalOpen(true);
     navigator(`/detail-book/${id}`);
+    window.location.reload();
   };
 
   return (

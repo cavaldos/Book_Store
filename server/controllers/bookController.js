@@ -117,6 +117,28 @@ const bookController = {
       });
     }
   },
+  getRelatedBookByGenre: async (req, res) => {
+    try {
+      const bookId = req.params.id;
+      console.log(bookId);
+      const book = await Book.findOne({ _id: bookId });
+      if (!book) {
+        return res.status(404).json({
+          message: "Book not found",
+        });}
+      const relatedBooks = await Book.find({
+        Genre: book.Genre,
+        _id: { $ne: bookId }, 
+      }).limit(5);
+      res.status(200).json({
+        message: "Success",
+        data: relatedBooks,
+      });
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });}
+  },
   getallBookManage: async (req, res) => {
     try {
       const users = await Book.find();

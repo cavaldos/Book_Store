@@ -30,6 +30,7 @@ router.get("/getallbookmanage", bookController.getallBookManage); // da xong, da
 router.get("/getrating", bookController.getRatingBook); // da xong, da test
 router.get("/getgenre", bookController.getGenreBook); // da xong, da test
 router.get("/:id", bookController.getBookById); // da xong, da test
+router.get("/relatedbook/:id", bookController.getRelatedBookByGenre); // da xong, da test
 //order
 router.post("/createorder", orderController.createOrder); // da xong, da test
 router.get("/getallorder", orderController.getAllOrder); // da xong, da test

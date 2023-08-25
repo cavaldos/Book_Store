@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Typography } from "antd";
 import Rating from '@mui/material/Rating';
+import InfoBook from "../../pages/Home/book/infobook";
+
 
 import "./detail.scss";
 import { Space, Card, Rate } from "antd";
@@ -11,9 +13,9 @@ const { Text, Title, H } = Typography;
 function Detailbook(props) {
   const id = useParams().id;
   const [data, setData] = useState([]);
+  const [relatedBooks, setRelatedBooks] = useState([]);
   useEffect(() => {
     axios
-
       .get(`http://localhost:8001/${id}`)
       .then((res) => {
         setData(res.data.data);
@@ -22,7 +24,23 @@ function Detailbook(props) {
         console.log(err);
       });
   }, [id]);
+  
   console.log(data);
+
+  useEffect(() => {
+    const fetchRelatedBooks = async () => {
+      try {
+        const bookId = id;
+        const response = await axios.get(`http://localhost:8001/relatedbook/${bookId}`);
+        const data = response.data.data;
+        setRelatedBooks(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchRelatedBooks();
+  }, []);
+
   const handleAddToCart = () => {};
   return (
     <>
@@ -53,6 +71,24 @@ function Detailbook(props) {
           </div>
         </form>
       </div>
+    <hr id="rel" />
+      <div className="related-books-section">
+        <Title level={4} id="Related">RELATED BOOKS</Title>
+        <div className="related-books-grid">
+          {relatedBooks.map((book) => (
+            <Card key={book.id} className="related-book-card">
+              <div id="Stack">
+                <img src={book.Image} alt={book.Title} />
+                {/* <InfoBook id={book._id} /> */}
+              </div><br />
+              <Text id="Title_related">{book.Tittle}</Text>  <br />
+              <Rating value={parseFloat(book.Rating)} precision={0.5} readOnly /> <br />
+              <Text id="Author_related">{book.Author}</Text>
+            </Card>
+          ))}
+        </div>
+      </div>
+
     </>
   );
 }
