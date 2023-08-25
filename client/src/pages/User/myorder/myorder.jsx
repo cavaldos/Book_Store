@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
+
 function MyOrder() {
   const [findOrder, setFindOrder] = useState([]);
   const user = useSelector((state) => state.user);
@@ -10,7 +11,7 @@ function MyOrder() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8001/findorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
         order_code: user.order_code,
       })
       .then((res) => {
@@ -29,9 +30,23 @@ function MyOrder() {
   return (
     <>
       <div style={{ margin: "10px 50px" }}>
-        <h2>List My Order</h2>
+        <h2
+          style={{
+            backgroundColor: "#f0f2f5",
+            textAlign: "center",
+          }}
+        >
+          List My Order
+        </h2>
         {Array.isArray(findOrder) && findOrder.length === 0 ? (
-          <h2>No order</h2>
+          <h2
+            style={{
+              marginTop: "50px",
+              textAlign: "center",
+            }}
+          >
+            No order
+          </h2>
         ) : (
           findOrder.map((order, index) => {
             const {

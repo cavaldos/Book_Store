@@ -1,0 +1,167 @@
+[{
+  "_id": {
+    "$oid": "64cf50b7ae6e24ec4f1bdcfc"
+  },
+  "order_code": "92262ac6-69eb-4b88-9559-db2730b7cc0e",
+  "order_volume": [
+    {
+      "id_book": 7,
+      "quantity": 1
+    },
+    {
+      "id_book": 8,
+      "quantity": 1
+    },
+    {
+      "id_book": 10,
+      "quantity": 1
+    }
+  ],
+  "address": "hcm",
+  "price_total": 41.64,
+  "state": 3,
+  "date": {
+    "$date": "2023-08-06T07:50:15.071Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64cf5223ae6e24ec4f1bdd23"
+  },
+  "order_code": "9b2f4f10-4d4d-4ba2-840d-a7594fa0a61f",
+  "order_volume": [
+    {
+      "id_book": 7,
+      "quantity": 1
+    },
+    {
+      "id_book": 8,
+      "quantity": 1
+    },
+    {
+      "id_book": 10,
+      "quantity": 1
+    },
+    {
+      "id_book": 11,
+      "quantity": 1
+    },
+    {
+      "id_book": 14,
+      "quantity": 1
+    },
+    {
+      "id_book": 16,
+      "quantity": 1
+    },
+    {
+      "id_book": 17,
+      "quantity": 1
+    },
+    {
+      "id_book": 22,
+      "quantity": 1
+    }
+  ],
+  "address": "hcm",
+  "price_total": 124.49000000000001,
+  "state": 3,
+  "date": {
+    "$date": "2023-08-06T07:56:19.748Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64cf52d6ae6e24ec4f1bdd3e"
+  },
+  "order_code": "e5ae1436-5825-477a-b641-924b19ac6f4c",
+  "order_volume": [
+    {
+      "id_book": 7,
+      "quantity": 1
+    },
+    {
+      "id_book": 8,
+      "quantity": 1
+    },
+    {
+      "id_book": 10,
+      "quantity": 1
+    },
+    {
+      "id_book": 11,
+      "quantity": 1
+    },
+    {
+      "id_book": 14,
+      "quantity": 1
+    }
+  ],
+  "address": "hcm",
+  "price_total": 59.489999999999995,
+  "state": 3,
+  "date": {
+    "$date": "2023-08-06T07:59:18.548Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64cf53fcae6e24ec4f1bdd52"
+  },
+  "order_code": "df9d92fe-fee5-4459-bb9a-dc5c0ba47afc",
+  "order_volume": [
+    {
+      "id_book": 7,
+      "quantity": 1
+    },
+    {
+      "id_book": 8,
+      "quantity": 1
+    },
+    {
+      "id_book": 10,
+      "quantity": 1
+    },
+    {
+      "id_book": 11,
+      "quantity": 1
+    }
+  ],
+  "address": "hcm",
+  "price_total": 51.19,
+  "state": 3,
+  "date": {
+    "$date": "2023-08-06T08:04:12.776Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64cf542dae6e24ec4f1bdd61"
+  },
+  "order_code": "98b4cc67-e3ae-4c12-8c63-4ed3a1eeaf89",
+  "order_volume": [
+    {
+      "id_book": 7,
+      "quantity": 2
+    },
+    {
+      "id_book": 8,
+      "quantity": 2
+    },
+    {
+      "id_book": 10,
+      "quantity": 2
+    }
+  ],
+  "address": "hcm",
+  "price_total": 83.28,
+  "state": 3,
+  "date": {
+    "$date": "2023-08-06T08:05:01.664Z"
+  },
+  "__v": 0
+}]

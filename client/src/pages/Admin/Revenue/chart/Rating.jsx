@@ -8,7 +8,7 @@ function Rating() {
   useEffect(() => {
     // Call API to get the rating data
     axios
-      .get("http://localhost:8001/getrating")
+      .get(`${process.env.REACT_APP_API_PORT}/getrating`)
       .then((response) => {
         setRatingData(response.data);
       })
@@ -63,7 +63,7 @@ function Rating() {
 
   return (
     <>
-      <h1 style={{ justifyContent: "center", textAlign: "center" }}>Revenue</h1>
+      <h1 style={{ justifyContent: "center", textAlign: "center" }}>Rating</h1>
 
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
@@ -92,6 +92,7 @@ function Rating() {
             label={{
               position: "top",
               style: {
+                
                 fill: "#aaa",
               },
             }}

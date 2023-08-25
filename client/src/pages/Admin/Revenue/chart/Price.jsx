@@ -11,7 +11,7 @@ function Revenue() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8001/getrevenue?year=${selectedYear}`)
+      .get(`${process.env.REACT_APP_API_PORT}/findyear/${selectedYear}`)
       .then((res) => {
         // Transform the fetched data into the required format
         const transformedData = res.data.map((item) => ({
@@ -60,7 +60,36 @@ function Revenue() {
 
   return (
     <>
-      <h1 style={{ justifyContent: "center", textAlign: "center" }}>Revenue</h1>
+      <h1 style={{ justifyContent: "center", textAlign: "center" }}>
+        Revenue per product
+      </h1>
+      <div
+        style={{ textAlign: "center", display: "flex", flexDirection: "row" }}
+      >
+        <h3
+          style={{
+            backgroundImage: "linear-gradient(to right, #92C840, #0EB394)",
+            textAlign: "center",
+            width: "20%",
+            height: "60px",
+            margin: "10px auto",
+            borderRadius: "5px",
+          }}
+        >
+          Total Revenue: {revenueSum}
+        </h3>
+        <h3
+          style={{
+            backgroundImage: "linear-gradient(to right, #74C4FF, #33AAFF)",
+            textAlign: "center",
+            width: "20%",
+            margin: "10px auto",
+            borderRadius: "5px",
+          }}
+        >
+          Number of Orders: {orderCountSum}
+        </h3>
+      </div>
       <div
         style={{
           display: "flex",
@@ -78,10 +107,7 @@ function Revenue() {
           <Option value={2023}>2023</Option>
         </Select>
       </div>
-      <div style={{ textAlign: "center" }}>
-        <h3>Total Revenue: {revenueSum}</h3>
-        <h3>Number of Orders: {orderCountSum}</h3>
-      </div>
+
       <DualAxes {...config} />
     </>
   );

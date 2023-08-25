@@ -2,23 +2,39 @@ import React, { useEffect, useState } from "react";
 import Price from "./chart/Price";
 import Genre from "./chart/Genre";
 import Rating from "./chart/Rating";
+import Revenue from "./Charts";
 
-function Revenue() {
+function Revenues() {
   return (
     <>
-      <h1> Revenue </h1>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "cencer",
-          flexDirection: "column",
-        }}
-      >
-        <Price />
-        <Genre />
-        <Rating />
+      <div style={{ overflowX: "auto" }}>
+        <h1
+          style={{
+            backgroundColor: "#f0f2f5",
+            textAlign: "center",
+            width: "20%",
+            margin: "10px auto",
+            borderRadius: "10px",
+            textTransform: "uppercase",
+          }}
+        >
+          statistical
+        </h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "cencer",
+            flexDirection: "column",
+            padding: "0 20px",
+          }}
+        >
+          {/* <Revenue /> */}
+          <Price />
+          <Genre />
+          <Rating />
+        </div>
       </div>
     </>
   );
 }
-export default Revenue;
+export default Revenues;

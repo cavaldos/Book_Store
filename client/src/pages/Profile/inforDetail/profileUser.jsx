@@ -1,104 +1,147 @@
-import React from "react";
-import { Form, Input, Button, message } from "antd";
-
+import React, { useState } from "react";
+import { TextField, Button, Typography } from "@mui/material";
 import "./infor.scss"; // Import custom CSS file
 
+import IconButton from "@mui/material/IconButton";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import bcrypt from "bcryptjs";
+import { updateUser } from "../../../redux/features/userSlice";
+import { message } from "antd";
 function ProfileUser() {
-  const onFinish = (values) => {
-    message.success("update succes")
-    console.log("Form values:", values);
-    console.log("dsaf", values.email);
+  const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const values = Object.fromEntries(formData.entries());
 
+    if (values.password !== values["confirm password"]) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(values.password, salt);
+    const data = {
+      _id: user._id,
+      lastname: values.lastName,
+      firstname: values.firstName,
+      username: values.username,
+      password: hashedPassword,
+      email: values.email,
+    };
+    await axios
+      .put(`${process.env.REACT_APP_API_PORT}/edituser`, data)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data === "updatedsuccess") {
+          dispatch(updateUser({ email: data.email }));
+          message.success("Update success");
+          return;
+        } else if (res.data === "updatedfail") {
+          message.error("Update fail");
+          return;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   return (
     <div className="profile-user">
-      <h1>Update User Information</h1>
-      <Form name="profileForm" onFinish={onFinish}>
-        <Form.Item
-          name="lastName"
-          label="Last Name"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your last name",
-            },
-          ]}
-          className="custom-form-item" // Apply custom CSS class to Form.Item
-        >
-          <Input placeholder="input search text" />
-        </Form.Item>
+      <Typography variant="h4" style={{ marginBottom: "40px" }}>
+        Update User Information
+      </Typography>
+      <form name="profileForm" onSubmit={handleSubmit}>
+        <div style={{ overflowX: "auto" }}>
+          <TextField
+            margin="normal"
+            name="lastName"
+            label="Last Name"
+            required
+            placeholder={user.lastname}
+            className="custom-form-item"
+          />
 
-        <Form.Item
-          name="firstName"
-          label="First Name"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your first name",
-            },
-          ]}
-          className="custom-form-item" // Apply custom CSS class to Form.Item
-        >
-          <Input placeholder="input search text" />
-        </Form.Item>
+          <TextField
+            margin="normal"
+            name="firstName"
+            label="First Name"
+            required
+            placeholder={user.firstname}
+            className="custom-form-item"
+          />
 
-        <Form.Item
-          name="username"
-          label="Username"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your username",
-            },
-          ]}
-          className="custom-form-item" // Apply custom CSS class to Form.Item
-        >
-          <Input placeholder="input search text" />
-        </Form.Item>
+          <TextField
+            margin="normal"
+            name="username"
+            label="Username"
+            placeholder={user.username}
+            required
+            className="custom-form-item"
+          />
 
-        <Form.Item
-          name="password"
-          label="Password"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your password",
-            },
-          ]}
-          className="custom-form-item" // Apply custom CSS class to Form.Item
-        >
-          <Input.Password />
-        </Form.Item>
+          <TextField
+            margin="normal"
+            required
+            name="password"
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            id="password"
+            className="custom-form-item"
+            autoComplete="current-password"
+            InputProps={{
+              endAdornment: (
+                <IconButton onClick={toggleShowPassword}>
+                  {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                </IconButton>
+              ),
+            }}
+          />
 
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[
-            {
-              required: true,
-              message: "Please enter your email",
-            },
-            {
-              type: "email",
-              message: "Please enter a valid email",
-            },
-          ]}
-          className="custom-form-item" // Apply custom CSS class to Form.Item
-        >
-          <Input placeholder="input search text" />
-        </Form.Item>
-
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-          
-          >
-            Update
-          </Button>
-        </Form.Item>
-      </Form>
+          <TextField
+            margin="normal"
+            required
+            name="confirm password"
+            label="Confirm Password"
+            type={showPassword ? "text" : "password"}
+            id="confirm-password"
+            className="custom-form-item"
+            autoComplete="current-password"
+            error={passwordError}
+            helperText={passwordError ? "Passwords do not match" : ""}
+            InputProps={{
+              endAdornment: (
+                <IconButton onClick={toggleShowPassword}>
+                  {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                </IconButton>
+              ),
+            }}
+          />
+          <TextField
+            margin="normal"
+            name="email"
+            label="Email"
+            type="email"
+            placeholder={user.email}
+            required
+            className="custom-form-item"
+          />
+        </div>
+        <br />
+        <Button type="submit" variant="contained" color="primary">
+          Update
+        </Button>
+      </form>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import axiosConfig from "./axios_config";
+import axiosConfig from "./configAPI";
 
 const editBook = (data) => {
     axiosConfig.post('/editbook', data, {
