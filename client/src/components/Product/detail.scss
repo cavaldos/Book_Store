@@ -124,12 +124,24 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-top: 25px;
+  margin-left: 80px;
 }
 
 .related-book-card {
+  flex-basis: 15%; /* Adjust this value to control the initial width of each item */
+  flex-grow: 1;
+  flex-shrink: 0.5;
   flex: 0 0 15%; /* Adjust this value to control the width of each book card */
   padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
 }
 
 .related-book-card img {
@@ -139,6 +151,7 @@
   left: 0;
   right: 0;
   height: 250px;
+  max-width: 200px;
   border-radius: 4px;
   display: flex;
   align-items: center;

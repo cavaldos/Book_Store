@@ -79,7 +79,7 @@ function Detailbook(props) {
             <Card key={book.id} className="related-book-card">
               <div id="Stack">
                 <img src={book.Image} alt={book.Title} />
-                {/* <InfoBook id={book._id} /> */}
+                <InfoBook id={book._id} />
               </div><br />
               <Text id="Title_related">{book.Tittle}</Text>  <br />
               <Rating value={parseFloat(book.Rating)} precision={0.5} readOnly /> <br />
