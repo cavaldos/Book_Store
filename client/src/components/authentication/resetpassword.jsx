@@ -47,7 +47,7 @@ function ResetPassword() {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8001/verify", {
+      const response = await axios.post(`${process.env.REACT_APP_API_PORT}/verify`, {
         email,
       });
       if (response.data === "sendCodeSuccess") {
@@ -75,7 +75,7 @@ function ResetPassword() {
     }
     try {
       await axios
-        .post("http://localhost:8001/resetpassword", {
+        .post(`${process.env.REACT_APP_API_PORT}/resetpassword`, {
           email: email,
           password: password,
           confirmationCode: confirmationCode,

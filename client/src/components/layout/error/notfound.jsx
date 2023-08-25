@@ -2,28 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Button, Result } from "antd";
+
 export const Notfound = (props) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "50vh",
-        width: "100vw",
-        lineHeight: "1.5",
-        flexDirection: "column",
-      }}
-    >
-      <h1>404</h1>
-      <h1>Notfound</h1>
-      <h3 style={{ color: "blue" }}>
-        <Link to="/">Go to home</Link>
-      </h3>
-      <h3 style={{ color: "blue" }}>
-       
-      </h3>
-    </div>
+    <>
+      <Result
+        status="404"
+        title="404"
+        subTitle="Sorry, the page you visited does not exist."
+        extra={
+          <Button type="primary">
+            <Link to="/">Back home</Link>
+          </Button>
+        }
+      />
+    </>
   );
 };
 

@@ -60,7 +60,7 @@ export default function SignUp() {
     try {
       await message.loading("Sending verification code...", 1);
       const response = await axios.post(
-        "http://localhost:8001/verifyemailsignup",
+        `${process.env.REACT_APP_API_PORT}/verifyemailsignup`,
         {
           email,
         }
@@ -128,26 +128,26 @@ export default function SignUp() {
 
     try {
       await axios
-        .post(`http://localhost:8001/register`, newdata)
+        .post(`${process.env.REACT_APP_API_PORT}/register`, newdata)
         .then((res) => {
           if (res.data === "confirmationCodefail") {
             message.error("Confirmation Code is not correct,pelase send again");
           } else if (res.data === "RegisterUserSuccess") {
             message.success("Register successfully with user role");
             setTimeout(() => {
-              history("/login");
-            }, 2000);
+              history("/signin");
+            }, 1000);
           } else if (res.data === "RegisterEmployeesUccess") {
             message.success("Register successfully with employee role");
             setTimeout(() => {
-              history("/login");
-            }, 2000);
+              history("/signin");
+            }, 1000);
           } else if (res.data === "RegisterFail") {
             message.error("Register failed1");
           }
         })
         .catch((err) => {
-          message.error("Register Failed2");
+          message.error("Register Failed");
           console.log(err);
         });
     } catch (e) {

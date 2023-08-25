@@ -4,7 +4,9 @@ import { Dropdown, Space, Avatar, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-//import {logout} from "../../../../redux/features/roleSlice";
+import { logout } from "../../../../redux/features/roleSlice";
+import { resetUser } from "../../../../redux/features/userSlice";
+
 const items = [
   {
     key: "1",
@@ -19,21 +21,20 @@ const items = [
   },
 ];
 const App = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const handleMenuClick = (key) => {
-      if (key === "1") {
-        navigate("/user/profile");
-      
-      } else if (key === "2") {
-        message.success("Logout Success");
-        setTimeout(() => {
-        //dispatch(logout());
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleMenuClick = (key) => {
+    if (key === "1") {
+      navigate("/user/profile");
+    } else if (key === "2") {
+      message.success("Logout Success");
+      setTimeout(() => {
+        dispatch(logout());
         navigate("/");
-        }, 1000);
-        
-      }
-    };
+        dispatch(resetUser());
+      }, 1000);
+    }
+  };
   return (
     <>
       <Space
@@ -47,6 +48,12 @@ const App = () => {
         }}
       >
         <Dropdown
+          style={{
+            color: "white",
+            marginTop: "50px",
+            color: "black",
+            minWidth: "100px",
+          }}
           menu={{
             items: items.map((item) => ({
               ...item,

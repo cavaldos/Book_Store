@@ -1,42 +1,22 @@
-import './book.scss'
+import "./book.scss";
 
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
-const InfoBook = () => {
+import { useNavigate } from "react-router-dom";
+const InfoBook = (props) => {
+  const { id } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigator = useNavigate();
   const showModal = () => {
     setIsModalOpen(true);
+    navigator(`/detail-book/${id}`);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+
   return (
     <>
       <Button className="button-info" type="text" onClick={showModal}></Button>
-      <Modal
-        title="Basic Modal"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <div className="product-container">
-          <div className="image">
-            <img className="imag" src="" alt="" />
-            
-          </div>
-          <h3 className="title">khanh</h3>
-          <p className="author">Author:jhanh</p>
-          <h4 className="price">Price :$ </h4>
-          <Rate className="rating" disabled defaultValue={"89"} />
-          <button className="btn">
-          </button>
-        </div>
-      </Modal>
     </>
   );
 };

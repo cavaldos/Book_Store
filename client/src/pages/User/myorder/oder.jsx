@@ -1,4 +1,4 @@
-import { Steps } from "antd";
+import { Button, Steps, Space, Progress } from "antd";
 import Copy from "./copytext";
 import {
   LoadingOutlined,
@@ -43,9 +43,12 @@ function Order(props) {
     description: item.description,
     icon: item.icon,
   }));
+  const handleReceived = () => {
+    // goi api remove san pham theo id
+  };
   return (
     <div
-      style={{ margin: "10px", border: "2px solid black", borderRadius: "8px" }}
+      style={{ margin: "10px", border: "1px solid black", borderRadius: "3px" }}
     >
       {current === 0 ? (
         <h2 style={{ color: "red" }}>Confirm Order</h2>
@@ -58,6 +61,32 @@ function Order(props) {
       )}
       <Copy text={id_order}></Copy>
       <Steps className="steps" current={current} items={items} />
+      <Space
+        style={{
+          position: "relative",
+          right: "0",
+          width: "100%",
+          justifyContent: "right",
+        }}
+      >
+        <Button
+          type="primary"
+          style={{
+            margin: "10px ",
+            position: "relative",
+            borderRadius: "2px",
+          }}
+        >
+          Received
+        </Button>
+        <Progress
+        style={{position:"relative",right:"0 10px 5px 0"}}
+          type="circle"
+          percent={(current+1)*25}
+          strokeColor={{ "0%": "#108ee9", "100%": "#87d068" }}
+          size={50}
+        />
+      </Space>
     </div>
   );
 }

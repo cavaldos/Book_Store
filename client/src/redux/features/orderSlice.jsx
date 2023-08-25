@@ -6,7 +6,7 @@ export const orderSlice = createSlice({
 
   reducers: {
     addToCart: (state, action) => {
-      const { id, image, title, author, rate, price, description } =
+      const { id, image, title, author, rate, price, description, _id } =
         action.payload;
       const newOrder = {
         id,
@@ -17,6 +17,7 @@ export const orderSlice = createSlice({
         price,
         description,
         quantity: 1,
+        _id,
       };
       state.push(newOrder);
     },

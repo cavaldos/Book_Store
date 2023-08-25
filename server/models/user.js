@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Notification = require("./notification");
+const uuid = require("uuid");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
@@ -48,7 +49,6 @@ const userSchema = new mongoose.Schema({
     minlength: 1,
     maxlength: 20,
     default: "84+",
-    //   unique: true,
   },
   role: {
     type: String,
@@ -63,21 +63,20 @@ const userSchema = new mongoose.Schema({
   id_card: {
     type: String,
     required: false,
-    unique: true,
     minlength: 9,
-    maxlength: 12,
+    maxlength: 100,
     default: null,
+    unique: true,
   },
   account_balance: {
     type: Number,
     required: false,
     default: 0,
   },
-  id_oder: {
-    type: [String], 
+  list_id_oder: {
+    type: [String],
     required: false,
-    default: ["..."],
-    unique: true,
+    default: [],
   },
 });
 

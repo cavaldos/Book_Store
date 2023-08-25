@@ -2,13 +2,12 @@ import "./home.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Book from "./book/book";
-import { Spin } from "antd";
-import { Select } from "antd";
-import Fillter from "./fillter/fillter";
-import Product from "../Cart/Product";
-import { Carousel } from "antd";
+import { Spin, Pagination, Carousel } from "antd";
+//import { Select } from "antd";
+//import Fillter from "./fillter/fillter";
+//import { Col, Row } from "antd";
+import Poster from "./poster";
 
-// import PayPalCheckoutButton from "../../util/payment/payment";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -23,7 +22,7 @@ function Home() {
   }, [currentPage, pageSize]);
 
   const fetchProducts = () => {
-    const url = `http://localhost:8001/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
+    const url = `${process.env.REACT_APP_API_PORT}/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
     axios
       .get(url)
       .then((response) => {
@@ -39,14 +38,13 @@ function Home() {
   //get top book
   useEffect(() => {
     axios
-      .get("http://localhost:8001/gettopbooks")
+      .get(`${process.env.REACT_APP_API_PORT}/gettopbooks`)
       .then((response) => {
         setProducts(response.data);
         setTopRatedProducts(response.data);
       })
       .catch((error) => console.log(error));
   }, []);
-  console.log(topRatedProducts);
 
   // Add the pagination controls
   const handlePageChange = (pageNumber) => {
@@ -58,35 +56,31 @@ function Home() {
   return (
     <>
       <div className="home">
-        <div className="home-container_2 con">
-          <Carousel className="carousel" autoplay>
-            {topRatedProducts.map(({ ID, Image, Tittle }) => (
-              <div key={ID} className="car-contens">
-                Top Book
-                <img className="pic" src={Image} alt={Tittle} />
-              </div>
-            ))}
-          </Carousel>
-        </div>
-        <div className="home-container_1 con">
-          <Carousel className="carousel" autoplay>
-            {topRatedProducts.map(({ ID, Image, Tittle }) => (
-              <div key={ID} className="car-contens">
-                Daily recommended book
-                <img className="pic" src={Image} alt={Tittle} />
-              </div>
-            ))}
-          </Carousel>
-        </div>
-        <div className="home-container_3 con">
-          fillter
-          {/* <PayPalCheckoutButton /> */}
-        </div>
-        <div className="home-container_6 con">Sort</div>
-        <div className="home-container_4 con"></div>
-        <div className="home-container_5 con">
+        <Carousel id="carousels" autoplay>
+          <div>
+            <Poster src={"./img/poster1.png"} />
+          </div>
+          <div>
+            <Poster src={"./img/poster2.png"} />
+          </div>
+          <div>
+            <Poster src={"./img/poster3.png"} />
+          </div>
+        </Carousel>
+        <div className="horizontal-line"></div>
+
+        <div className="home-container_5 con">  
           {products.map(
-            ({ ID, Image, Tittle, Author, Rating, Price, Description }) => (
+            ({
+              ID,
+              Image,
+              Tittle,
+              Author,
+              Rating,
+              Price,
+              Description,
+              _id,
+            }) => (
               <Book
                 key={ID}
                 id={ID}
@@ -96,36 +90,17 @@ function Home() {
                 price={Price}
                 rate={Rating}
                 description={Description}
+                _id={_id}
               />
             )
           )}
           <div className="pagination-container">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="control"
-            >
-              {"<"}
-            </button>
-            <div className="page-number-container">
-              {pageNumbers.map((pageNumber) => (
-                <button
-                  key={pageNumber}
-                  onClick={() => handlePageChange(pageNumber)}
-                  disabled={currentPage === pageNumber}
-                  className={currentPage === pageNumber ? "active" : ""}
-                >
-                  {pageNumber}
-                </button>
-              ))}
-            </div>
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="control"
-            >
-              {">"}
-            </button>
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={totalPages * pageSize}
+              onChange={handlePageChange}
+            />
           </div>
         </div>
       </div>
@@ -134,3 +109,35 @@ function Home() {
 }
 
 export default Home;
+
+/*
+        <div className="home-container_5 con">
+          {products.map(
+            ({ ID, Image, Tittle, Author, Rating, Price, Description,_id }) => (
+              <Book
+                key={ID}
+                id={ID}
+                image={Image}
+                title={Tittle}
+                author={Author}
+                price={Price}
+         
+                rate={Rating}
+                description={Description}
+                _id={_id}
+              />
+            )
+          )}
+          <div className="pagination-container">
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={totalPages * pageSize}
+              onChange={handlePageChange}
+            />
+          </div>
+        </div>
+</div>
+
+
+*/

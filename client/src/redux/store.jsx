@@ -1,5 +1,5 @@
 import bookSlice from "./features/bookSlice";
-import userSlice from "./features/userSilce";
+import userSlice from "./features/userSlice";
 import roleSlice from "./features/roleSlice";
 import notifySlice from "./features/notifySlice";
 import paymentSlice from "./features/paymentSlice";
@@ -20,7 +20,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["role", "order" ],
+  whitelist: ["user", "role", "order"],
 };
 const rootReducer = combineReducers({
   role: roleSlice,

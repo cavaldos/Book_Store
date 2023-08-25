@@ -1,7 +1,7 @@
-import './infor.scss'
+import "./infor.scss";
 
 function InforOrder() {
-  return <>dfgdfgfdg</>;
+  return <></>;
 }
 
 export default InforOrder;

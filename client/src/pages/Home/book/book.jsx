@@ -9,34 +9,31 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Book(props) {
-  const { id, image, title, author, rate, price, description } = props;
-
   const navigate = useNavigate();
-  const role = useSelector((state) => state.role.role);
+  const dispatch = useDispatch();
+  const { id, image, title, author, rate, price, description, _id } = props;
+
+  const role = useSelector((state) => state.role);
+  const orders = useSelector((state) => state.order);
 
   const handleAddToCart = () => {
-    const product = {
-      id,
-      image,
-      title,
-      author,
-      rate,
-      price,
-      description,
-    };
-
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const isProductInCart = cart.some((item) => item.title === title);
-
-    if (isProductInCart) {
-      message.warning("Product already in cart!");
+    const existingOrder = orders.find((order) => order.id === id);
+    if (existingOrder) {
+      message.warning("Product already exists");
+      return;
     } else {
-      cart.push(product);
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      message.success("Added to cart!");
+      let newOrder = {
+        id,
+        image,
+        title,
+        author,
+        rate,
+        price,
+        description,
+        _id,
+      };
+      dispatch(addToCart(newOrder));
+      message.success("Product added to cart successfully");
     }
   };
 
@@ -45,16 +42,14 @@ function Book(props) {
       <div className="product-container">
         <div className="image">
           <img className="imag" src={image} alt="" />
-          <InfoBook />
+          <InfoBook id={_id} />
         </div>
         <h3 className="title">{title}</h3>
         <p className="author">Author: {author}</p>
         <h4 className="price">Price :$ {price}</h4>
         <Rate className="rating" disabled defaultValue={rate} />
-        {/* <button className="btn" onClick={handleAddToCart}>
-          <ShoppingCartOutlined />
-        </button> */}
-        {role === "user" ? (
+
+        {role.role === "user" ? (
           <button className="btn" onClick={handleAddToCart}>
             <ShoppingCartOutlined />
           </button>
