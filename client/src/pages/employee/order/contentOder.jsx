@@ -20,12 +20,13 @@ function OrderDetail(props) {
       key: "quantity",
     },
   ];
-  // http://localhost:8001/findorder
+ 
   const [getAllOrder, setGetAllOrder] = useState([]);
  
   useEffect(() => {
     axios
-      .post("http://localhost:8001/findorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
+   
         order_code: orderid,
       })
       .then((res) => {
@@ -41,12 +42,13 @@ function OrderDetail(props) {
         console.log(error);
       });
   }, [orderid]);
-  console.log("getAllOrdesdfsdfsdr", getAllOrder);
+ 
 
   return (
     <>
       <div>
         <Copytext text={`${orderid}`} />
+        
         <Table
           columns={columns}
           dataSource={getAllOrder}
@@ -58,6 +60,8 @@ function OrderDetail(props) {
   );
 }
 
+
+
 function ConfirmOrder(props) {
   const { orderid, email } = props;
   //   http:localhost:8001/setstateorder
@@ -66,7 +70,7 @@ function ConfirmOrder(props) {
   const dispatch = useDispatch();
   const handleConfirm = () => {
     axios
-      .post("http://localhost:8001/setstateorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/setstateorder`, {
         order_code: orderid,
         state: 3,
       })
@@ -81,9 +85,8 @@ function ConfirmOrder(props) {
   };
 
   const handleCancel = () => {
-    //http://localhost:8001/removeorder
     axios
-      .post("http://localhost:8001/removeorder", {
+      .post(`${process.env.REACT_APP_API_PORT}/removeorder`, {
         order_code: orderid,
       })
       .then((res) => {
@@ -105,9 +108,9 @@ function ConfirmOrder(props) {
         <Button type="primary" onClick={handleConfirm}>
           Confirm Oder
         </Button>
-        <Button type="dashed" danger onClick={handleCancel}>
+        {/* <Button type="dashed" danger onClick={handleCancel}>
           Cancel Oder
-        </Button>
+        </Button> */}
       </Space>
     </>
   );
