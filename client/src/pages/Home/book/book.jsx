@@ -5,9 +5,9 @@ import InfoBook from "./infobook";
 import { message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { addToCart } from "../../../redux/features/orderSlice";
 function Book(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ function Book(props) {
             <ShoppingCartOutlined />
           </button>
         ) : (
-          <button style={{display:"none"}}></button>
+          <button style={{ display: "none" }}></button>
         )}
       </div>
     </>

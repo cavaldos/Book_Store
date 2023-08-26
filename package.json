@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "apexcharts": "^3.41.1",
-    "react-apexcharts": "^1.4.1"
+    "react-apexcharts": "^1.4.1",
+    "react-hook-form": "^7.45.4"
   }
 }

@@ -140,20 +140,27 @@ const bookController = {
   },
   getAllBooks: async (req, res) => {
     try {
-      const { page = 1, pageSize = 12 } = req.query;
+      const { page = 1, pageSize = 12, genre = 'All' } = req.query;
       const pageNumber = parseInt(page);
       const pageSizeNumber = parseInt(pageSize);
-      // Calculate the number of documents to skip based on the page number and page size.
+      
+      let query = {};
+  
+      if (genre !== 'All') {
+        query.Genre = genre;
+      }
+  
       const skipDocuments = pageSizeNumber * (pageNumber - 1);
-      // Fetch books with pagination from the database.
-      const totalBooks = await Book.countDocuments();
+      const totalBooks = await Book.countDocuments(query);
       const totalPages = Math.ceil(totalBooks / pageSizeNumber);
-      const books = await Book.find().skip(skipDocuments).limit(pageSizeNumber);
-      // Generate an array of page numbers [1, 2, 3, ...]
+      
+      const books = await Book.find(query).skip(skipDocuments).limit(pageSizeNumber);
+      
       const pageNumbersArray = Array.from(
         { length: totalPages },
         (_, i) => i + 1
       );
+      console.log(books);
       res.status(200).json({
         books,
         totalPages,
@@ -166,6 +173,7 @@ const bookController = {
       });
     }
   },
+  
   getTopBooks: async (req, res) => {
     try {
       const users = await Book.find({ Rating: { $gte: 4.5 } }).limit(10);
