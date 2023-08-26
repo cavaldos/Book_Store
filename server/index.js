@@ -1,12 +1,14 @@
 const express = require("express");
-
+//thêm thư viện này vào-------
+const fs = require("fs");
+const https = require("https");
+//-----------------------------
 const app = express();
 const dotenv = require("dotenv");
 const MongoDB = require("./config/connectdb");
 const cors = require("cors");
 const morgan = require("morgan");
 const allRouter = require("./routes");
-const expressfileupload = require("express-fileupload")
 const startWebSocketServer = require("./util/socket");
 
 const bodyParser = require("body-parser");
@@ -16,12 +18,24 @@ app.use(express.json());
 dotenv.config();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use(expressfileupload());
 MongoDB.connect();
 app.use(morgan("tiny"));
 
 //ROUTES
 app.use(allRouter);
+
+//tạo mã xác nhận cho https
+const privateKey = fs.readFileSync("./SSL/key.pem");
+const certificate = fs.readFileSync("./SSL/cert.pem");
+//----------------------------------------------------------------
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+};
+
+//gắn https------------------------------
+const server = https.createServer(credentials, app);
 
 
 //listen
@@ -29,10 +43,9 @@ app.use(allRouter);
 // app.listen(process.env.PORT, () => {
 //   console.log("Server is running on port", process.env.PORT);
 // });
-const server = app.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, () => {
   console.log("Server is running on port", process.env.PORT);
 });
-
 startWebSocketServer(server);
 
 

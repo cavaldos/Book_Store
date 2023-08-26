@@ -37,7 +37,7 @@ function Home() {
   }, [currentPage, pageSize]);
 
   const fetchProducts = () => {
-    const url = `http://localhost:8000/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
+    const url = `https://localhost:8000/getallbooks?page=${currentPage}&pageSize=${pageSize}`;
     axios
       .get(url)
       .then((response) => {
