@@ -25,38 +25,21 @@ import * as XLSX from "xlsx";
 // import { PreviewInfo } from "./previewBook";
 import { Preview } from "@mui/icons-material";
 
+// const PreviewInfo = ({form, handleOk, disabled}) => {
+//   const [isPreviewVisible, setPreviewVisible] = useState(false)
+//   const [data, setData] = useState(null)
 
-export const PreviewInfo = ({ data, handleOk }) => {
-  const [isPreviewVisible, setPreviewVisible] = useState(false)
-  const handleCancel = () => {
-      setPreviewVisible(false)
-  }
-  return (
-      <>
-      <Button type="primary" onClick={setPreviewVisible}>
-          Submit
-      </Button>
-      <Modal
-      title="Preview"
-      open={isPreviewVisible}
-      onOk={handleOk}
-      onCancel={handleCancel}
-      >
-          <img src={data?.Image}/>
-          <p>Title: {data?.Tittle || ""}</p>
-          <p>Author: {data?.Author || ""}</p>
-          <p>Price: {data?.Price || ""}</p>
-          {/* <p>Image: {data?.Image || ""}</p> */}
-          <p>ISBN: {data?.ISBN || ""}</p>
-          <p>Genre: {data?.Genre || ""}</p>
-          <p>Publisher: {data?.Publisher || ""}</p>
-          <p>Publish_Year: {data?.Publish_Year?.slice(0, 4) || ""}</p>
-          <p>Description: {data?.Description || ""}</p>
-          <p>Rating: {data?.Rating || ""}</p>
-      </Modal>
-      </>
-  );
-}
+  
+//   const useEffect = async () => {
+//     var buffer = await form.getFieldValue();
+//     setData(buffer)
+//   }
+//   return (
+//       <>
+      
+//       </>
+//   );
+// }
 
 const AddBookForm = () => {
   const [form] = Form.useForm();
@@ -64,7 +47,9 @@ const AddBookForm = () => {
   const [imageFile, setImageFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState("");
   const [bookOptions, setBookOptions] = useState([]);
-  const [uploadPermission, setUploadPermission] = useState(false)
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [isPreviewVisible, setPreviewVisible] = useState(false)
+  const [data, setData] = useState(null)
 
   function isLocalFile(imageSource) {
     if (imageSource){
@@ -77,7 +62,6 @@ const AddBookForm = () => {
       }
     }
   }
-
   const fetchBookSuggestions = async (value) => {
     try {
       const response = await axios.get(
@@ -118,14 +102,15 @@ const AddBookForm = () => {
       rating: bookData.averageRating,
     });
   };
-  const onFinish = async (values) => {
-    if (values) {
-      if (isLocalFile(values.Image)){
-        values.Image = await handleFileUpload(imageFile).imageUrl;
+  const onFinish = async () => {
+    if (data) {
+      if (isLocalFile(data.Image)){
+        data.Image = await handleFileUpload(imageFile).imageUrl;
       }
+      console.log(data)
       setLoading(true);
       axios
-        .post(`${process.env.REACT_APP_API_PORT}/addbook`, values, {
+        .post(`${process.env.REACT_APP_API_PORT}/addbook`, JSON.stringify(data), {
           headers: {
             "Content-Type": "application/json",
           },
@@ -174,10 +159,22 @@ const AddBookForm = () => {
     const data = await res.json()
     return data
   }
+  const handleValuesChange = () => {
+    form.validateFields().then(values => {
+      setIsSubmitDisabled(false);
+      setData(values)
+    }).catch(() => {
+      setIsSubmitDisabled(true);
+    });
+  };
+  const handleCancel = () => {
+    setPreviewVisible(false)
+  }
+
   return (
     <div>
       <h1>Add Book</h1>
-      <Form form={form} layout="vertical" onFinish={onFinish}>
+      <Form form={form} layout="vertical" onFinish={onFinish} onChange={handleValuesChange}>
         <Form.Item
           label="Image"
           valuePropName="fileList"
@@ -278,18 +275,27 @@ const AddBookForm = () => {
         >
           <Input />
         </Form.Item>
-        <PreviewInfo
-          data={form?.getFieldValue()}
-          handleOk={form.submit()}
-        />
-        <Form.Item>
-        {/* <Button type="primary" htmlType="submit" loading={loading}>
-            Add Book
-          </Button> */}
-          {/* <Button type="primary" htmlType="submit" loading={loading}>
-            Add Book
-          </Button> */}
-        </Form.Item>
+        <Button type="primary" onClick={setPreviewVisible} disabled={isSubmitDisabled}>
+          Submit
+        </Button>
+        <Modal
+        title="Preview"
+        open={isPreviewVisible}
+        onOk={onFinish}
+        onCancel={handleCancel}
+        >
+          <img src={data?.Image}/>
+          <p>Title: {data?.Tittle || ""}</p>
+          <p>Author: {data?.Author || ""}</p>
+          <p>Price: {data?.Price || ""}</p>
+          {/* <p>Image: {data?.Image || ""}</p> */}
+          <p>ISBN: {data?.ISBN || ""}</p>
+          <p>Genre: {data?.Genre || ""}</p>
+          <p>Publisher: {data?.Publisher || ""}</p>
+          <p>Publish_Year: {data?.Publish_Year?.slice(0, 4) || ""}</p>
+          <p>Description: {data?.Description || ""}</p>
+          <p>Rating: {data?.Rating || ""}</p>
+        </Modal>
       </Form>
     </div>
   );

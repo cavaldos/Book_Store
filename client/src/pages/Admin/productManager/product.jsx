@@ -22,7 +22,6 @@ import {
 import { useRef } from "react";
 import { Modal } from "antd";
 import * as XLSX from "xlsx";
-import { editBook } from "..//..//..//api/book_api";
 import { AddBookForm, ImportBooks } from "./addBook"
 
 function ManagerProduct() {
@@ -30,7 +29,6 @@ function ManagerProduct() {
   const [data, setData] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [state, setState] = useState(0);
-
   
   useEffect(() => {
     axios
@@ -39,7 +37,7 @@ function ManagerProduct() {
         setBook(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        message.error(error);
       });
   }, []);
   const bookInfos = book.map((book) => {
@@ -54,7 +52,6 @@ function ManagerProduct() {
       genre: book.Genre,
     };
   });
-
   const searchInputRef = useRef(null);
   const getColumnSearchProps = (dataIndex, placeholder) => {
     return {

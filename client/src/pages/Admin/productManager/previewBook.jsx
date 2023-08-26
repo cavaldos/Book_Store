@@ -21,38 +21,6 @@ import {
   PlusOutlined,
 } from "@ant-design/icons";
 
-export const PreviewInfo = (data, handleOk) => {
-    const [isPreviewVisible, setPreviewVisible] = useState(false)
-    const handleCancel = () => {
-        setPreviewVisible(false)
-    }
-    data = data.data
-    return (
-        <>
-        <Button type="primary" onClick={setPreviewVisible}>
-            Submit
-        </Button>
-        <Modal
-        title="Preview"
-        visible={isPreviewVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        >
-            <img src={data?.Image}/>
-            <p>Title: {data?.Tittle || ""}</p>
-            <p>Author: {data?.Author || ""}</p>
-            <p>Price: {data?.Price || ""}</p>
-            {/* <p>Image: {data?.Image || ""}</p> */}
-            <p>ISBN: {data?.ISBN || ""}</p>
-            <p>Genre: {data?.Genre || ""}</p>
-            <p>Publisher: {data?.Publisher || ""}</p>
-            <p>Publish_Year: {data?.Publish_Year?.slice(0, 4) || ""}</p>
-            <p>Description: {data?.Description || ""}</p>
-            <p>Rating: {data?.Rating || ""}</p>
-        </Modal>
-        </>
-    );
-}
 
 // export const PreviewInfo = (form) => {
 // var data = {}
