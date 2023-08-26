@@ -1,7 +1,7 @@
 import "./home.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Book from "./book/book";
+import {Book} from "./book/book";
 import { Spin, Pagination, Carousel, Select } from "antd";
 
 import Poster from "./poster";
@@ -86,7 +86,13 @@ function Home() {
         <Select
           mode="single"
           placeholder="Select a genre"
-          style={{ width: "300px", margin: "0 auto", display: "block" }}
+          style={{
+            width: "300px",
+            margin: "0 auto",
+            display: "block",
+            borderRadius: "4px",
+            border:"2px solid #1890ff"
+          }}
           options={[
             //{ value: "all", label: "All" }, // Thêm một tùy chọn "All"
             ...[...new Set(genre)].map((item) => ({
@@ -138,4 +144,3 @@ function Home() {
 }
 
 export default Home;
-

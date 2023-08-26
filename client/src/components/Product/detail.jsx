@@ -8,11 +8,12 @@ import "./detail.scss";
 import { message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { addToCart } from "..//..//redux//features//orderSlice";
+import ListCardProduct from "./listcard";
 const { Text, Title, H } = Typography;
 
 function Detailbook(props) {
-  const [idp, setIdp] =  useState(useParams().id);
-  console.log("sf",props);
+  const [idp, setIdp] = useState(useParams().id);
+  console.log("sf", props);
   const [data, setData] = useState([]);
   const orders = useSelector((state) => state.order);
   const role = useSelector((state) => state.role);
@@ -29,7 +30,7 @@ function Detailbook(props) {
         console.log(err);
       });
   }, [idp]);
-  console.log("safdasf",data);
+  console.log("safdasf", data);
   const handleAddToCart = (event) => {
     event.preventDefault(); // Empêche le rechargement de la page
     const existingOrder = orders.find((order) => order.id === data.ID);
@@ -38,14 +39,14 @@ function Detailbook(props) {
       return;
     } else {
       let newOrder = {
-        id:data.ID,
-        image:data.Image,
-        title:data.Tittle,
-        author:data.Author,
-        rate:data.Rating,
-        price:data.Price,
-        description:data.Description,
-        _id:data._id,
+        id: data.ID,
+        image: data.Image,
+        title: data.Tittle,
+        author: data.Author,
+        rate: data.Rating,
+        price: data.Price,
+        description: data.Description,
+        _id: data._id,
       };
       dispatch(addToCart(newOrder));
       message.success("Product added to cart successfully");
@@ -53,10 +54,10 @@ function Detailbook(props) {
   };
   return (
     <>
-      <div className="grid-container">
+      <div class="grid-container">
         <form id="f1">
           <div>
-            <img src={data.Image} alt={data.Tittle} />
+            <img src={data.Image} alt="" />
           </div>
         </form>
         <form id="f2">
@@ -102,9 +103,12 @@ function Detailbook(props) {
           </div>
         </form>
         <div>
-        sadfsdfsadfasd
+          <div>
+            <h1>Related Product</h1>
+          </div>
         </div>
       </div>
+      <ListCardProduct genre={data.Genre} />
     </>
   );
 }
