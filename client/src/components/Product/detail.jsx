@@ -53,7 +53,7 @@ function Detailbook(props) {
   };
   return (
     <>
-      <div class="grid-container">
+      <div className="grid-container">
         <form id="f1">
           <div>
             <img src={data.Image} alt={data.Tittle} />
@@ -101,6 +101,9 @@ function Detailbook(props) {
             <hr id="line_add" />
           </div>
         </form>
+        <div>
+        sadfsdfsadfasd
+        </div>
       </div>
     </>
   );

@@ -1,0 +1,222 @@
+.header_client {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+  transition-duration: all 0.35s;
+  position: fixed;
+  min-width: 100vw;
+  height: 70px;
+  padding: 10px;
+  background-color: var(--dbb);
+  #logo_client {
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    bottom: 1px;
+    display: flex;
+    min-width: 200px;
+    min-height: 96%;
+    border: none;
+    border-radius: 5px;
+    h2 {
+      color: var(--white-grey);
+    }
+  }
+  #search_client {
+    position: absolute;
+    top: 1px;
+    left: 180px;
+    bottom: 1px;
+    display: flex;
+    min-width: 300px;
+    min-height: 100%;
+    border: none;
+    border-radius: 5px;
+  }
+  #menu_client {
+    position: absolute;
+    top: 1px;
+    right: 180px;
+    bottom: 1px;
+    display: flex;
+    min-width: 200px;
+    min-height: 100%;
+    border: none;
+    border-radius: 5px;
+    // background-color: red;
+  }
+  #drawer {
+    position: absolute;
+    top: 1px;
+    right: 180px;
+    bottom: 1px;
+    min-width: 200px;
+    min-height: 100%;
+    border: none;
+    border-radius: 5px;
+    display: none;
+  }
+}
+.menu-item {
+  color: var(--white-grey);
+  background-color: var(--dbb);
+}
+#avatar_client {
+  position: absolute;
+  top: 1px;
+  right: 50px;
+  bottom: 1px;
+  display: flex;
+  min-width: 80px;
+  min-height: 100%;
+  border: none;
+  justify-content: center;
+}
+
+.main_client {
+  position: relative;
+  right: 15px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 90px 20px 20px 15px;
+  background-color: var(--white-grey);
+  transition: all 0.35s;
+  .containers_client {
+    position: relative;
+    top: 0px;
+    right: 10px;
+    left: 10px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    margin: 0 0 5px 0;
+    padding: 10px 10px 10px 10px;
+    background-color: var(--light-bg);
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0.5px rgba(99, 88, 88, 0.35);
+  }
+  .footer {
+    border-radius: 5px;
+  }
+}
+
+//ihone 5/SE
+@media only screen and (min-device-width: 100px) and (max-device-width: 850px) {
+  .main_online {
+    right: -10px;
+    left: -10px;
+    z-index: 1;
+    flex-direction: column;
+    padding: 90px 12px 10px 15px;
+  }
+
+  .header_client {
+    #logo_client {
+      h2 {
+        display: none;
+      }
+    }
+    #search_client {
+      position: absolute;
+      top: 1px;
+      left: 30px;
+      bottom: 1px;
+      display: flex;
+      min-width: 20px;
+      min-height: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+    #avatar_client {
+      right: 5px;
+      display: flex;
+      border: none;
+      justify-content: center;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 100px) and (max-device-width: 1120px) {
+  .header_client {
+    #menu_client {
+      display: none;
+    }
+    #drawer {
+      display: flex;
+      right: 80px;
+    }
+    #avatar_client {
+      right: 5px;
+      display: flex;
+      border: none;
+      justify-content: center;
+    }
+  }
+}
+
+// <Layout>
+
+//         <Header>
+//           <div
+//             className="menu-container"
+//             style={{
+//               display: "flex",
+//               justifyContent: "flex-end",
+//               zIndex: "1",
+//               backgroundColor: "red",
+//               maxWidth: "800px",
+//               float: "right",
+//             }}
+//           >
+//             <Menu
+//               theme="dark"
+//               mode="horizontal"
+//               defaultSelectedKeys={["home"]}
+//               className="desktop-menu"
+//             >
+//               <Menu.Item key="home" className="menu-item">
+//                 Home
+//               </Menu.Item>
+//               <Menu.Item key="about" className="menu-item">
+//                 About
+//               </Menu.Item>
+//               <Menu.Item key="services" className="menu-item">
+//                 Services
+//               </Menu.Item>
+//               <Menu.Item key="contact" className="menu-item">
+//                 Contact
+//               </Menu.Item>
+//             </Menu>
+//             {/* <div className="right-menu">
+//               <Button type="primary" className="signin-button">
+//                 Sign In
+//               </Button>
+//               <Button
+//                 type="primary"
+//                 className="menu-icon-button"
+//                 onClick={showDrawer}
+//                 icon={<DownCircleOutlined />}
+//               />
+//             </div> */}
+//           </div>
+//         </Header>
+
+//       <Content>{children}</Content>
+//       <Drawer
+//         title="Menu"
+//         placement="right"
+//         closable={false}
+//         onClose={closeDrawer}
+//         open={drawerVisible}
+//       >
+//         <Menu mode="vertical" defaultSelectedKeys={["home"]}>
+//           <Menu.Item key="home">Home</Menu.Item>
+//           <Menu.Item key="about">About</Menu.Item>
+//           <Menu.Item key="services">Services</Menu.Item>
+//           <Menu.Item key="contact">Contact</Menu.Item>
+//         </Menu>
+//       </Drawer>
+//     </Layout>

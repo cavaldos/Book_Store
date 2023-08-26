@@ -9,7 +9,9 @@ import {
   Outlet,
 } from "react-router-dom";
 import DefaultLayout from "./components/main";
+
 import { publicRoutes, userRoutes, employeeRoutes } from "./Routes";
+import ClientLayout from "./components/ClientPage";
 import adminRoutes from "./Routes/adminRoutes";
 import { useSelector } from "react-redux";
 import LoadingError from "./components/layout/error/loading";
@@ -32,7 +34,7 @@ const App = () => {
     <Router>
       <Routes>
         {VerifyRoure().map((route, index) => {
-          const Layout = route.layout === null ? Fragment : DefaultLayout;
+          const Layout = route.layout === null ? Fragment : route.DefaultLayout;
           const Page = route.component;
           return (
             <Route
