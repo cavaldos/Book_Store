@@ -58,7 +58,6 @@ const bookController = {
       });
     }
   },
-
   searchBook: async (req, res) => {
     const query = req.params.query;
 
@@ -172,7 +171,6 @@ const bookController = {
       });
     }
   },
-  
   getTopBooks: async (req, res) => {
     try {
       const users = await Book.find({ Rating: { $gte: 4.5 } }).limit(10);
@@ -189,6 +187,17 @@ const bookController = {
       const data = req.body;
       const maso = data.ID;
       const users = await Book.deleteOne({ ID: maso });
+      res.status(200).json(users);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  deleteAllBooksWith: async (req, res) => {
+    try {
+      const data = req.body;
+      const users = await Book.deleteMany({ data });
       res.status(200).json(users);
     } catch (err) {
       res.status(500).json({
