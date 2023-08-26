@@ -72,8 +72,7 @@ function Home() {
         <div className="horizontal-line"></div>
         <div className="filter">
           <Select
-            defaultValue="all"
-            style={{ width: 200 }}
+            defaultValue="All"
             onChange={handleFilterChange}
             options={[
               { value: 'All', label: 'All' },

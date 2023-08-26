@@ -32,8 +32,9 @@
   .filter {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-top: 20px;
+    margin-left: 20px;
   
     .ant-select {
       margin-right: 10px;
@@ -44,7 +45,6 @@
     position: relative;
     grid-area: 4/1/4/span 4;
     min-height: 600px;
-    display: gird;
     padding: 10px 0px 10px 0px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;

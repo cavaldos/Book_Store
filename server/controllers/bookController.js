@@ -160,7 +160,6 @@ const bookController = {
         { length: totalPages },
         (_, i) => i + 1
       );
-      console.log(books);
       res.status(200).json({
         books,
         totalPages,
