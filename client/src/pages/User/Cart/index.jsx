@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import "./styles.scss";
 import Product from "./Product";
 import { useSelector, useDispatch } from "react-redux";
-import { createPayment } from "../../redux/features/paymentSlice";
+import { createPayment } from "../../../redux/features/paymentSlice";
 import { message } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+
 function Cart() {
   const [cart, setCart] = useState([]);
   const orders = useSelector((state) => state.order);
@@ -32,8 +33,8 @@ function Cart() {
     }
     const orderDetails = cart.map((item) => {
       return {
-        id_book: item.id,
         _id: item._id,
+        id_book: item.id,
         title: item.title,
         price: item.price,
         image: item.image,
@@ -43,7 +44,7 @@ function Cart() {
     });
     const payload = {
       orderDetails,
-      email_user: user.email,
+      email: "khanh",
       currentStep: 0,
       id_payment: orderCode,
       total: totalPrice,
@@ -62,10 +63,9 @@ function Cart() {
           <h5 className="price mar">Price</h5>
           <h5 className="remove mar">Remove</h5>
         </div>
-        {cart.map(({ id, image, title, author, rate, price, description }) => (
+        {cart.map(({ image, title, author, rate, price,description }) => (
           <Product
-            key={id}
-            id={id}
+            key={title}
             image={image}
             title={title}
             author={author}
@@ -76,7 +76,7 @@ function Cart() {
         ))}
       </div>
       <div className="pay" style={{ minHeight: "100px" }}>
-        <h3>Total: ${totalPrice.toFixed(2)}</h3>
+        <h3>Total: $40</h3>
         <button
           style={{
             position: "absolute",
@@ -86,7 +86,7 @@ function Cart() {
           }}
           onClick={handlePay}
         >
-          Pay
+          pay
         </button>
       </div>
     </>

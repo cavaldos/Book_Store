@@ -1,9 +1,9 @@
 import bookSlice from "./features/bookSlice";
-import userSlice from "./features/userSilce";
+import userSlice from "./features/userSlice";
 import roleSlice from "./features/roleSlice";
 import notifySlice from "./features/notifySlice";
 import paymentSlice from "./features/paymentSlice";
-import orderSlice from "./features/orderSlice";
+import oderSlice from "./features/oderSlice";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -20,7 +20,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["role", "order" ],
+  whitelist: ["user", "role", "order"],
 };
 const rootReducer = combineReducers({
   role: roleSlice,
@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
   payment: paymentSlice,
   book: bookSlice,
   user: userSlice,
-  order: orderSlice,
+  oder: oderSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

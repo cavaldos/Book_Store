@@ -1,6 +1,6 @@
 import SignIn from "../components/authentication/signin";
 import SignUp from "../components/authentication/signup";
-import Cart from "../pages/Cart";
+import Cart from "../pages/User/Cart";
 import Home from "../pages/Home";
 import ResetPassword from "../components/authentication/resetpassword";
 import OnlineLayout from "../components/onlineLayout";
@@ -8,10 +8,11 @@ import ChatBot from "../utils/chat";
 import Profile from "../pages/Profile/profile";
 import Payment from "../pages/User/payment";
 import MyOder from "../pages/User/myorder/myorder";
-import ConfirmOrder from "../pages/employee/confirmOrder";
+import ConfirmOrder from "../pages/Employee/confirmOrder";
 import Paypal from "../components/paypal";
 import Detailbook from "../components/Product/detail";
-
+import Chat from "../utils/chat";
+import BookPay from "../pages/BookPay";
 // public routes
 const publicRoutes = [
   {
@@ -38,7 +39,6 @@ const publicRoutes = [
     path: "/profile",
     component: Profile,
   },
-
   {
     path: "/reset-password",
     component: ResetPassword,
@@ -47,6 +47,11 @@ const publicRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
+  },
+  {
+    path: `/signup-account-payment`,
+    component: BookPay,
+    layout: null,
   },
 ];
 
@@ -74,7 +79,7 @@ const userRoutes = [
     component: Payment,
   },
   {
-    path: "/user/myorder",
+    path: "/user/mylistorder",
     component: MyOder,
   },
   {
@@ -84,6 +89,15 @@ const userRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
+  },
+  // {
+  //   path: "/chat",
+  //   component: Chat,
+  // },
+  {
+    path: `/create-account-payment`,
+    component: BookPay,
+      layout: null,
   },
 ];
 
@@ -107,6 +121,10 @@ const employeeRoutes = [
   {
     path: `/detail-book/:id`,
     component: Detailbook,
+  },
+  {
+    path: "/chat",
+    component: Chat,
   },
 ];
 

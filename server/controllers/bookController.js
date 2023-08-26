@@ -1,13 +1,17 @@
 const Book = require("../models/book");
-const mongoose = require("mongoose")
 
 const bookController = {
   addBook: async (req, res) => {
+    nbooks = await Book.countDocuments({}).exec();
+    const maxId = await Book.findOne({}, { ID: 1 })
+      .sort({ ID: -1 })
+      .limit(1)
+      .exec();
+
     try {
       const data = req.body;
-      nbooks = await Book.countDocuments({}).exec();
       const newBook = new Book({
-        ID: nbooks+1,
+        ID: nbooks + 1,
         Image: data.Image,
         Tittle: data.Tittle,
         Author: data.Author,
@@ -27,7 +31,6 @@ const bookController = {
       res.status(201).json(newBook);
     } catch (err) {
       // Handle errors
-      console.log(err)
       res.status(500).json({
         message: err.message,
       });
@@ -56,28 +59,33 @@ const bookController = {
     }
   },
 
-  // searchBook: async (req, res) => {
-  //   try {
-  //     const data = req.body;
-  //     console.log(data);
-  //     const foundBooks = await Book.find(data);
+  searchBook: async (req, res) => {
+    const query = req.params.query;
 
-  //     res.json(foundBooks);
-  //   }
-  //   catch (err) {
-  //     res.status(500).json({
-  //       message: err.message,
-  //     });
-  //   }
-  // },
-
+    try {
+      const regex = new RegExp(query, "i");
+      const books = await Book.find({ Tittle: { $regex: regex } })
+        .sort({ Tittle: -1 })
+        .limit(10);
+      res.status(200).json(books);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
   editBook: async (req, res) => {
     try {
       const data = req.body;
+      const maxId = await User.findOne({}, { ID: 1 })
+        .sort({ ID: -1 })
+        .limit(1)
+        .exec();
       const result = await Book.updateOne(
-        { ID: data.ID },
+        { ID: maxId.ID },
         {
           $set: {
+            ID: data.ID,
             Image: data.Image,
             Tittle: data.Tittle,
             Author: data.Author,
@@ -130,19 +138,24 @@ const bookController = {
       });
     }
   },
-
   getAllBooks: async (req, res) => {
     try {
-      const { page = 1, pageSize = 12 } = req.query;
+      const { page = 1, pageSize = 12, genre = 'All' } = req.query;
       const pageNumber = parseInt(page);
       const pageSizeNumber = parseInt(pageSize);
-      // Calculate the number of documents to skip based on the page number and page size.
+      
+      let query = {};
+  
+      if (genre !== 'All') {
+        query.Genre = genre;
+      }
+  
       const skipDocuments = pageSizeNumber * (pageNumber - 1);
-      // Fetch books with pagination from the database.
-      const totalBooks = await Book.countDocuments();
+      const totalBooks = await Book.countDocuments(query);
       const totalPages = Math.ceil(totalBooks / pageSizeNumber);
-      const books = await Book.find().skip(skipDocuments).limit(pageSizeNumber);
-      // Generate an array of page numbers [1, 2, 3, ...]
+      
+      const books = await Book.find(query).skip(skipDocuments).limit(pageSizeNumber);
+      
       const pageNumbersArray = Array.from(
         { length: totalPages },
         (_, i) => i + 1
@@ -159,6 +172,7 @@ const bookController = {
       });
     }
   },
+  
   getTopBooks: async (req, res) => {
     try {
       const users = await Book.find({ Rating: { $gte: 4.5 } }).limit(10);

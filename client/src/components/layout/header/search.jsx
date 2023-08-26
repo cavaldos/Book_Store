@@ -1,201 +1,106 @@
 import "./header.scss";
-import React from "react";
-import { useState } from "react";
-import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
+import axios from "axios";
+import { Input, Spin } from "antd";
+import { useNavigate, useParams } from "react-router-dom";
+const { Search } = Input;
 
-function Search() {
+function Searchs() {
+  const navigate = useNavigate();
+  const params = useParams();
+
   const [value, setValue] = useState("");
+  const [tooltipContent, setTooltipContent] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [idSearch, setIdSearch] = useState("");
+  const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // New state variable for loading
+
+  let typingTimeout = null;
+
   const handleChange = (event) => {
-    setValue(event.target.value);
+    const searchValue = event.target.value;
+    setValue(searchValue);
+    setIsSearchClicked(false);
+    clearTimeout(typingTimeout);
+
+    typingTimeout = setTimeout(() => {
+      fetchTooltipContent(searchValue);
+    }, 1000);
   };
 
-  const handleClear = () => {
+  function handleSearch() {
     setValue("");
+    setSuggestions([]);
+
+    navigate(`/detail-book/${idSearch}`);
+  }
+
+  const fetchTooltipContent = (searchValue) => {
+    const apiUrl = `${process.env.REACT_APP_API_PORT}/search/${searchValue}`;
+    setIsLoading(true); // Set loading to true before making the API call
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        const titles = response.data.map((item) => item.Tittle);
+        const id = response.data.map((item) => item._id);
+        setTooltipContent(titles.join(", "));
+        setSuggestions(titles);
+        setIdSearch(id);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setIsLoading(false); // Set loading to false after the API call is completed
+      });
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setValue(suggestion);
+    setSuggestions([]);
+    fetchTooltipContent(suggestion);
+  };
+
+  const handleSearchClick = () => {
+    setIsSearchClicked(true);
+    handleSearch(value);
   };
 
   return (
-    // <Tippy
-    //   visible={value.length > 0}
-    //   interactive={true}
-    //   render={(attrs) => <div className="search-result">{value}</div>}
-    //   placement="bottom"
-    // >
-    //   <div className="search-wrapper">
-    //     <input
-    //       className="search-input"
-    //       type="text"
-    //       placeholder="search-input"
-    //       value={value}
-    //       onChange={handleChange}
-    //     />
-    //     {value.length > 0 && (
-    //       <button>
-    //         <CloseCircleOutlined
-    //           className="search-icon-close"
-    //           onClick={handleClear}
-    //         />
-    //       </button>
-    //     )}
-    //     <Tippy content="Search" placement="right">
-    //       <SearchOutlined className="search-icon-search" />
-    //     </Tippy>
-    //   </div>
-    // </Tippy>
-    <></>
-  );
-}
-
-export default Search;
-
-/*
-import "./header.scss";
-import React, { useState } from "react";
-import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
-import Tippy from "@tippyjs/react/headless";
-import "tippy.js/dist/tippy.css";
-
-function Search() {
-  const [value, setValue] = useState("");
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const handleClear = () => {
-    setValue("");
-  };
-
-  const getSearchResults = async () => {
-    try {
-      const response = await fetch(`https://example-api.com/search?q=${value}`);
-      const data = await response.json();
-      const searchResults = data.results;
-      const filteredResults = searchResults.filter((result) =>
-        result.title.toLowerCase().includes(value.toLowerCase())
-      );
-      if (filteredResults.length > 0) {
-        return (
+    <>
+      <Tippy
+        visible={value.length > 0}
+        interactive={true}
+        render={() => (
           <div className="search-result">
-            {filteredResults.map((result) => (
-              <div key={result.id}>{result.title}</div>
+            {suggestions.map((suggestion, index) => (
+              <div
+                key={index}
+                className="suggestion-item"
+                onClick={() => handleSuggestionClick(suggestion)}
+              >
+                {suggestion}
+              </div>
             ))}
           </div>
-        );
-      } else {
-        return <div className="search-result">No results found</div>;
-      }
-    } catch (error) {
-      console.error(error);
-      return <div className="search-result">Error fetching search results</div>;
-    }
-  };
-
-  return (
-    <Tippy
-      interactive={true}
-      visible={value.length > 0}
-      render={(attrs) => getSearchResults()}
-    >
-      <div className="search-wrapper">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="search-input"
-          value={value}
-          onChange={handleChange}
-        />
-        {value.length > 0 && (
-          <button>
-            <CloseCircleOutlined
-              className="search-icon-close"
-              onClick={handleClear}
-            />
-          </button>
         )}
-        <Tippy content="Search" placement="right">
-          <SearchOutlined className="search-icon-search" />
-        </Tippy>
-      </div>
-    </Tippy>
-  );
-}
-
-export default Search;
-
-
-*/
-/*
-import "./header.scss";
-import React, { useState } from "react";
-import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
-import Tippy from "@tippyjs/react/headless";
-import "tippy.js/dist/tippy.css";
-
-function Search() {
-  const [value, setValue] = useState("");
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const handleClear = () => {
-    setValue("");
-  };
-
-  const getSearchResults = () => {
-    // Replace this example code with your own data source and search logic
-    const searchResults = [
-      "Search result 1",
-      "Search result 2",
-      "Search result 3",
-      "Search result 4",
-      "Search result 5",
-    ];
-    const filteredResults = searchResults.filter((result) =>
-      result.toLowerCase().includes(value.toLowerCase())
-    );
-    if (filteredResults.length > 0) {
-      return (
-        <div className="search-result">
-          {filteredResults.map((result) => (
-            <div key={result}>{result}</div>
-          ))}
-        </div>
-      );
-    } else {
-      return <div className="search-result">No results found</div>;
-    }
-  };
-
-  return (
-    <Tippy
-      interactive={true}
-      visible={value.length > 0}
-      render={(attrs) => getSearchResults()}
-    >
-      <div className="search-wrapper">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="search-input"
-          value={value}
-          onChange={handleChange}
-        />
-        {value.length > 0 && (
-          <CloseCircleOutlined
-            className="search-icon-close"
-            onClick={handleClear}
+        placement="bottom"
+      >
+        <div>
+          <Search
+            className="search-input"
+            type="text"
+            placeholder="search-input"
+            value={value}
+            onChange={handleChange}
+            onSearch={handleSearchClick}
+            loading={isLoading} // Pass the loading state to the loading prop of Search
           />
-        )}
-        <Tippy content="Search" placement="right">
-          <SearchOutlined className="search-icon-search" />
-        </Tippy>
-      </div>
-    </Tippy>
+        </div>
+      </Tippy>
+    </>
   );
 }
 
-export default Search;
-
-
-*/
+export default Searchs;
