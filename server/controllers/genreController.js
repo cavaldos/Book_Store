@@ -1,5 +1,7 @@
 const Genre = require("../models/genre");
-const mongoose = require("mongoose")
+const Book = require("../controllers/bookController")
+const mongoose = require("mongoose");
+const bookController = require("../controllers/bookController");
 
 const genreController = {
   addGenre: async (req, res) => {
@@ -22,8 +24,11 @@ const genreController = {
   },
   getGenre: async (req, res) => {
     try {
-      const users = await Genre.find();
-      const data = users.map((item) => item.Genre);
+      const genreName = req.params.name;
+      const genreInfo = Genre.find( {name: genreName} );
+      const books = Book.findBook( {genre: genreName} );
+      data.genre = genreInfo;
+      data.books = books;
       res.status(200).json(data);
     } catch (err) {
       res.status(500).json({
@@ -33,19 +38,18 @@ const genreController = {
   },
   editGenre: async (req, res) => {
     try {
+      const name = req.params.name;
       const data = req.body;
       const updateFields = {};
 
-      if (data.newname) {
-        updateFields.name = data.newname;
+      if (data.name) {
+        updateFields.name = data.name;
       }
-
       if (data.description) {
         updateFields.description = data.description
       }
-
       const result = await Genre.updateOne(
-        { name: data.name },
+        { name: name },
         {
           $set: {
             updateFields
@@ -59,7 +63,6 @@ const genreController = {
       });
     }
   },
-
   getAllGenres: async (req, res) => {
     try {
       const { page = 1, pageSize = 12 } = req.query;
@@ -90,10 +93,10 @@ const genreController = {
   },
   deleteGenre: async (req, res) => {
     try {
-      const data = req.body;
-      const genreName = data.name;
+      const genreName = data.params.name;
       const deletedGenre = await Genre.deleteOne({ name: genreName });
-      res.status(200).json(deletedGenre);
+      const deletedBooks = await bookController.deleteAllBooksWith({ genre: genreName});
+      res.status(200).json({deletedGenre, deletedBooks});
     } catch (err) {
       res.status(500).json({
         message: err.message,

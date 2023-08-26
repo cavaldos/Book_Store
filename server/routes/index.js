@@ -4,6 +4,7 @@ const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
 const orderController = require("../controllers/orderController");
 const revenueController = require("../controllers/revenueController");
+const genreController = require("../controllers/genreController");
 const middlewareAuth = require("../middleware/authMiddleware");
 const cloudinaryMiddleware = require("../middleware/cloudinary.middleware");
 
@@ -54,5 +55,12 @@ router.post("/findrevenue", revenueController.findRevenue); //
 router.post("/findrevenuebydate", revenueController.findRevenue); //
 router.get("/findyear/:year", revenueController.findByYear); //
 router.post("/upload-image", cloudinaryMiddleware.uploadImage);
+
+//revenue
+router.get("/getgenre/:name", genreController.getGenre); //
+router.post("/addgenre/", genreController.addGenre); //
+router.put("/editgenre/:name", genreController.editGenre); //
+router.get("/deletegenre/:name", genreController.deleteGenre); //
+router.post("/getallgenres", genreController.getAllGenres);
 
 module.exports = router;
