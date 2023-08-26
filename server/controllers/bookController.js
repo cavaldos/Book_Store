@@ -205,5 +205,18 @@ const bookController = {
       });
     }
   },
+ searchBookByGenre: async (req, res) => {
+  const genre = req.body.genre; // genre là một chuỗi thể loại
+
+  try {
+    const regexGenre = new RegExp(genre, "i");
+    const books = await Book.find({ Genre: regexGenre });
+    res.status(200).json(books);
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+},
 };
 module.exports = bookController;
