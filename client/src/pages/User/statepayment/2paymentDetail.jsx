@@ -64,11 +64,10 @@ const PaymentDetails = () => {
   };
   console.log("data", data);
   async function handlePayment() {
-
     console.log("data", data);
     console.log("paymentasdfafsd", payment.orderDetails);
     await axios
-      .post(`${process.env.REACT_APP_API_PORT}/actions`, data)
+      .post(`${process.env.REACT_APP_API_PORT_PAYMENT}/actions`, data)
       .then((res) => {
         console.log("res", res);
         const check = res.data.message;
@@ -88,7 +87,6 @@ const PaymentDetails = () => {
         console.log("err", err);
       });
     await axios
-
       .post(`${process.env.REACT_APP_API_PORT}/createorder`, {
         id_order: payment.id_payment,
         order_volume: payment.orderDetails,
@@ -173,15 +171,26 @@ const PaymentDetails = () => {
           </div>
         </Space>
 
+        {/* <Button variant="contained" onClick={handlePayment}>
+          Payment confirmation
+        </Button> */}
+        <div
+          style={{
+            margin: "5px auto",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            textAlign: "center",
+          }}
+        >
+          <PayPalButton />
+        </div>
         <Button
           variant="outlined"
-          style={{ margin: "0 8px" }}
+          style={{ margin: " 8px 0 0 0" }}
           onClick={handlePrev}
         >
           Previous
-        </Button>
-        <Button variant="contained" onClick={handlePayment}>
-          Payment confirmation
         </Button>
       </form>
     </div>

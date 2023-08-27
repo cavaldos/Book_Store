@@ -19,19 +19,19 @@ export default function ListCardProduct(props) {
         console.log(err);
       });
   }, [genre]);
-  console.log("genre", products);
+  // console.log("genre", products);
   return (
     <>
       <div className="productcontainer"
         style={{
-          margin: "0 auto",
+          margin: "0 5px",
           justifyContent: "center",
           alignItems: "center",
           display: "flex",
           textAlign: "center",
           height: "350px",
           overflowX: "auto",
-          padding: "0 20px",
+          padding: "0 240px",
         }}
       >
         {products.map(

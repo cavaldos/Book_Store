@@ -2,32 +2,41 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import axios from "axios";
 import { message } from "antd";
+import { useSelector } from "react-redux";
 
 const DeleteUser = (user) => {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { email } = user.user;
+  const token = useSelector((state) => state.role.token);
 
   const showModal = () => {
     setIsModalOpen(true);
   };
   async function handleOk(e) {
+    console.log("token", token);
     if (!email) {
       message.warning("Please fill in all the information");
       return;
     }
+    console.log("email", email);
     try {
       await axios
-        .post(`${process.env.REACT_APP_API_PORT}/deleteuser`, {
-          email,
+        .delete(`${process.env.REACT_APP_API_PORT}/deleteuser`, {
+          data: {
+            email,
+          },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
         .then((res) => {
+          console.log("res", res.data);
           if (res.data === "deleted") {
             message.success("Delete success");
             setIsModalOpen(false);
             setTimeout(() => {
               window.location.reload();
-            }, 2000);
+            }, 1500);
           } else if (res.data === "deletedfail") {
             message.warning("User have not sign up or wrong password");
           }

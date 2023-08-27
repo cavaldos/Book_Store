@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "argon2": "^0.30.3",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",

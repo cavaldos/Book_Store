@@ -1,13 +1,14 @@
 import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import axios from "axios";
 
-const PayPalButton = () => {
+const PayPalButton = (props) => {
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value: 100,
+            value: 9,
           },
         },
       ],
@@ -16,17 +17,20 @@ const PayPalButton = () => {
 
   const onApprove = (data, actions) => {
     return actions.order.capture().then((details) => {
-      // Gửi details lên server backend để xác nhận thanh toán
-      fetch(`${process.env.REACT_APP_API_PORT}/paypal/capture`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      // Send details to the server backend to confirm the payment
+      axios
+        .post(`${process.env.REACT_APP_API_PORT}/paypal/capture`, {
           orderID: data.orderID,
           details,
-        }),
-      });
+        })
+        .then((response) => {
+          // Handle the response from the server if needed
+          console.log("Payment captured:", response.data);
+        })
+        .catch((error) => {
+          // Handle any error that occurred during the request
+          console.error("Error capturing payment:", error);
+        });
     });
   };
 

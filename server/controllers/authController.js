@@ -15,7 +15,7 @@ const authController = {
       },
       process.env.SECRET_KEY,
       {
-        expiresIn: "2h",
+        expiresIn: "365d",
       }
     );
     return accessToken;
@@ -29,7 +29,7 @@ const authController = {
       },
       process.env.REFRESH_KEY,
       {
-        expiresIn: "7d",
+        expiresIn: "365d",
       }
     );
     return refreshToken;

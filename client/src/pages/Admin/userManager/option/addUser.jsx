@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Input, Button } from "antd";
+import { Modal, Input, Button, Select } from "antd";
 import axios from "axios";
 import { message } from "antd";
 import {
@@ -10,6 +10,8 @@ import {
   ContactsOutlined,
   IdcardOutlined,
 } from "@ant-design/icons";
+import { useSelector } from "react-redux";
+const { Option } = Select;
 
 const style = { margin: "10px 8px" };
 
@@ -23,6 +25,7 @@ const AddUser = (props) => {
     role: "",
     id_card: "",
   });
+  const token = useSelector((state) => state.role.token);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -39,6 +42,10 @@ const AddUser = (props) => {
 
   const handleChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const handleRoleChange = (value) => {
+    setUser({ ...user, role: value });
   };
 
   async function handleSubmit() {
@@ -64,6 +71,11 @@ const AddUser = (props) => {
           phonenumber: user.phonenumber,
           role: user.role,
           id_card: user.id_card,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
       console.log("response", response);
@@ -136,15 +148,7 @@ const AddUser = (props) => {
               onChange={handleChange}
             />
           </div>
-          <div style={style}>
-            <Input
-              placeholder="Role"
-              prefix={<ContactsOutlined />}
-              name="role"
-              value={user.role}
-              onChange={handleChange}
-            />
-          </div>
+
           <div style={style}>
             <Input
               placeholder="ID Card"
@@ -153,6 +157,20 @@ const AddUser = (props) => {
               value={user.id_card}
               onChange={handleChange}
             />
+          </div>
+          <div style={style}>
+            <Select
+              style={{ width: "100%" }}
+              placeholder="Role"
+              prefix={<ContactsOutlined />}
+              name="role"
+              value={user.role}
+              onChange={handleRoleChange}
+            >
+              <Option value="employee">Employee</Option>
+              <Option value="admin">Admin</Option>
+              <Option value="user">User</Option>
+            </Select>
           </div>
           <Button type="primary" htmlType="submit" onClick={handleSubmit}>
             Submit

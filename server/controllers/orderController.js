@@ -1,4 +1,3 @@
-
 const Order = require("../models/order");
 const orderController = {
   getAllOrder: async (req, res) => {
@@ -12,8 +11,7 @@ const orderController = {
 
   createOrder: async (req, res) => {
     try {
-      const { id_order, address, price_total, state, order_volume } =
-        req.body;
+      const { id_order, address, price_total, state, order_volume } = req.body;
       const order = new Order({
         id_order: id_order,
         address: address,
