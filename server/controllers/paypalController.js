@@ -3,11 +3,12 @@ const User = require("../models/user");
 const Order = require("../models/order");
 const paypal = require("@paypal/checkout-server-sdk");
 const { use } = require("../routes");
-const clientId =
-  "ARF0pHipAONXG7QsSM6RJ-nOr58xelyRzLltsZMjJzc-bj-9CPPMiJvdCN9TygequiImpNATqBKL6JTj";
-const clientSecret =
-  "EEQBn0hyJEudmHIDcK2SicQdQ8j0EDuw7W8qjzy5ehj1BgP4WUqirx0j0vh8A8RgkJCvms4HIzO9qC6M";
-
+const dotenv = require("dotenv");
+dotenv.config();
+const clientId = process.env.CLIENT_ID_PAYPAL;
+const clientSecret = process.env.CLIENT_ID_SECRET_PAYPAL;
+console.log("clientId", clientId);
+console.log("clientSecret", clientSecret);
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 
@@ -39,7 +40,7 @@ const paypalController = {
       const user = await User.findOne({ email: email });
       user.list_id_oder.push(id_order);
       await user.save();
-      
+
       await order.save();
       const getRequest = new paypal.orders.OrdersGetRequest(orderID);
       const getResponse = await client.execute(getRequest);

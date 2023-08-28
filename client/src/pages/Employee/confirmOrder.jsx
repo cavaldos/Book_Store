@@ -26,12 +26,12 @@ function ConfirmOrderEmployee() {
     };
   }, []);
 
-  async function onMessageReceived  (message)  {
-     await setReceivedMessages((prevMessages) => [...prevMessages, message]);
-     await setTimeout(() => {
+  async function onMessageReceived(message) {
+    await setReceivedMessages((prevMessages) => [...prevMessages, message]);
+    await setTimeout(() => {
       window.location.reload();
     }, 2000);
-  };
+  }
 
   const [getAllOrder, setGetAllOrder] = useState([]);
   useEffect(() => {
@@ -48,7 +48,16 @@ function ConfirmOrderEmployee() {
 
   return (
     <>
-      <h1>All Order Request </h1>
+      <div style={{ margin: "10px 50px" }}>
+        <h2
+          style={{
+            backgroundColor: "#f0f2f5",
+            textAlign: "center",
+          }}
+        >
+          All Order Request
+        </h2>
+      </div>
       <Space
         style={{
           display: "flex",
@@ -57,6 +66,7 @@ function ConfirmOrderEmployee() {
           flexDirection: "column",
         }}
       >
+       
         {getAllOrder.length === 0 ? (
           <p>No orders requested</p>
         ) : (

@@ -160,6 +160,7 @@ const PaymentDetails = () => {
           }}
         >
           <PayPalButton props={data} />
+          
         </div>
         <Button
           variant="outlined"

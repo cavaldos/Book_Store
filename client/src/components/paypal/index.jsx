@@ -4,8 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 
 const PayPalButton = (props) => {
-  console.log("propskhanh", props);
-
+  console.log("propskhanh", process.env.REACT_APP_API_CLIENT_ID_PAYPAL);
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
@@ -44,8 +43,7 @@ const PayPalButton = (props) => {
   return (
     <PayPalScriptProvider
       options={{
-        "client-id":
-          "ARF0pHipAONXG7QsSM6RJ-nOr58xelyRzLltsZMjJzc-bj-9CPPMiJvdCN9TygequiImpNATqBKL6JTj",
+        "client-id": process.env.REACT_APP_API_CLIENT_ID_PAYPAL,
       }}
     >
       <PayPalButtons createOrder={createOrder} onApprove={onApprove} />

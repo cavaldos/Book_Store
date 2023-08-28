@@ -1,4 +1,5 @@
 const Order = require("../models/order");
+const User = require("../models/user");
 const orderController = {
   getAllOrder: async (req, res) => {
     try {
@@ -38,6 +39,8 @@ const orderController = {
   setStateOrder: async (req, res) => {
     try {
       const { id_order, state } = req.body;
+      console.log("id_order", id_order);
+      console.log("state", state);
       const updatedOrder = await Order.findOneAndUpdate(
         { id_order: id_order },
         { state: state }
@@ -56,7 +59,7 @@ const orderController = {
       const { id_order } = req.body;
       console.log("id_order", id_order);
       const orders = await Order.find({ id_order: { $in: id_order } });
-      console.log("orders", orders);
+
       if (orders.length > 0) {
         res.json(orders);
       } else {
@@ -69,8 +72,9 @@ const orderController = {
   removeOrder: async (req, res) => {
     try {
       const { id_order } = req.body;
-      console.log("id_order", id_order);
+      // console.log("id_order", id_order);
       const resultat = await Order.findOneAndDelete({ id_order: id_order });
+
       if (resultat) {
         res.json("success");
       } else {
