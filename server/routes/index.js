@@ -30,6 +30,7 @@ router.post("/getuserbyemail", userController.getUserByemail); //
 //BOOK
 router.post("/addbook", middlewareAuth.verifyToken, bookController.addBook); //
 router.post("/editbook", bookController.editBook); //
+router.post("/importbook", bookController.importBook); //
 router.get("/getallbooks", bookController.getAllBooks); //
 router.get("/gettopbooks", bookController.getTopBooks); //
 router.delete("/deletebook", bookController.deleteBook); //

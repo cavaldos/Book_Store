@@ -118,6 +118,25 @@ const bookController = {
       });
     }
   },
+  importBook: async (req, res) => {
+    try {
+      const data = req.body;
+      const exbook = await User.findOne({data})
+      const result = await Book.updateOne(
+        { Tittle: exbook.title },
+        {
+          $set: {
+            quantity: exbook.quantity + data.quantity,
+          },
+        }
+      );
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
   getBookById: async (req, res) => {
     try {
       const bookId = req.params.id;
