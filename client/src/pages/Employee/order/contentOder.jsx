@@ -70,7 +70,7 @@ function ConfirmOrder(props) {
   const dispatch = useDispatch();
   const handleConfirm = () => {
     axios
-      .post(`${process.env.REACT_APP_API_PORT}/setstateorder`, {
+      .put(`${process.env.REACT_APP_API_PORT}/setstateorder`, {
         id_order: orderid,
         state: 3,
       })

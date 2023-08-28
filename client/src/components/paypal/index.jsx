@@ -2,15 +2,16 @@ import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { message } from "antd";
+import { useSelector } from "react-redux";
 
 const PayPalButton = (props) => {
-  console.log("propskhanh", process.env.REACT_APP_API_CLIENT_ID_PAYPAL);
+  const total = useSelector((state) => state.payment.total);
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value: 9,
+            value: total,
           },
         },
       ],
