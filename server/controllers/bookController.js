@@ -7,8 +7,14 @@ const bookController = {
       .sort({ ID: -1 })
       .limit(1)
       .exec();
-
+    
     try {
+      const findDup = await Book.findOne({}, { Tittle: req.body.Tittle })
+      if (findDup.length >= 1){
+        return res.status(409).json({
+          message: "Book already exists"
+        })
+      }
       const data = req.body;
       const newBook = new Book({
         ID: nbooks + 1,
@@ -66,7 +72,13 @@ const bookController = {
       const books = await Book.find({ Tittle: { $regex: regex } })
         .sort({ Tittle: -1 })
         .limit(10);
-      res.status(200).json(books);
+      if (books.length === 0) {
+        res.status(404).json({
+          message: "No books found",
+        })
+      } else {
+        res.status(200).json(books);
+      }
     } catch (err) {
       res.status(500).json({
         message: err.message,
