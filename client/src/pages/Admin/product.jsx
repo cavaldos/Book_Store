@@ -185,9 +185,10 @@ function ManagerProduct() {
       <div style={styleBox}>
         <Row gutter={16}>
           <Col>
-          <Upload name="Stock" action={ImportBooks}>
+          <ImportBooks/>
+          {/* <Upload name="Stock" action={ImportBooks}>
             <Button icon={<UploadOutlined />}>Upload stocks</Button>
-          </Upload>
+          </Upload> */}
           </Col>
           <Col>
             <Button type="primary" onClick={() => handleButtonClick(1)}>

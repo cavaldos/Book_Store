@@ -348,7 +348,7 @@ const ImportBooks = () => {
       const workbook = XLSX.read(await file.arrayBuffer(), { type: "array" });
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
       const data = await XLSX.utils.sheet_to_json(sheet);
-      await setJsonData(data);
+      setJsonData(data);
       handlePreview();
     }
     catch (error) {
@@ -364,19 +364,14 @@ const ImportBooks = () => {
   const onImport = async (data) => {
     try {
       const resultbook = XLSX.utils.book_new();
-      const array = []
-      
-      data.forEach((book) => {
-        try{
-          var results = importBook(book);
-          array.push(results);
-        }
-        catch(error){
-          var results = error
-          array.push(`Importing book with ID ${book.ID} error: ${error}`);
-        }
-      });
-      const resultsheet = XLSX.utils.aoa_to_sheet([array]);
+      var array = [["Result"]]
+      for (const book of data) {
+        const response = await importBook(book);
+        array.push(response);
+      }
+      const csva = array.map((x) => [x]);
+      console.log(csva.length)
+      const resultsheet = XLSX.utils.aoa_to_sheet(csva);
       XLSX.utils.book_append_sheet(resultbook, resultsheet, 'Result');
       const excelBuffer = XLSX.write(resultbook, { type: 'buffer', bookType: 'xlsx' });
       const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
@@ -386,6 +381,7 @@ const ImportBooks = () => {
       link.download = 'result.xlsx';
       link.click();
       window.URL.revokeObjectURL(url);
+      
     }
     catch(error){
       console.log('Error while importing book: ', error)
@@ -396,12 +392,12 @@ const ImportBooks = () => {
   const columns = [
     {
       title: 'Title',
-      dataIndex: 'title',
+      dataIndex: 'Tittle',
       key: 'title'
     },
     {
       title: 'Quantity',
-      dataIndex: 'quantity',
+      dataIndex: 'Quantity',
       key: 'quantity'
     }
   ];
