@@ -3,7 +3,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 const middlewareAuth = {
   verifyToken: (req, res, next) => {
-    const token = req.headers.token;
+    const token = req.headers.authorization;
+
+    console.log("token", token);
     if (token) {
       const accessToken = token.split(" ")[1];
       jwt.verify(accessToken, process.env.SECRET_KEY, (err, user) => {
@@ -19,9 +21,9 @@ const middlewareAuth = {
   },
   verifyTokenAndAdminAuth: (req, res, next) => {
     middlewareAuth.verifyToken(req, res, () => {
-        if (req.user.isAdmin) {
-          next();
-        }
+      if (req.user.isAdmin) {
+        next();
+      }
     });
   },
 };

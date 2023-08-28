@@ -31,6 +31,7 @@ const userController = {
     try {
       console.log("body:", req.body, "\n");
       const { email } = req.body;
+      console.log("email", email);
       const check = await User.findOneAndDelete({
         email: email,
       });
@@ -47,8 +48,7 @@ const userController = {
   },
   addUser: async (req, res) => {
     try {
-      const { email, password, firstname, lastname, phonenumber, role } =
-        req.body;
+      const { email, password, username, phonenumber, role } = req.body;
       console.log(req.body);
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
@@ -64,9 +64,9 @@ const userController = {
         id: newId,
         email,
         password: hashedPassword,
-        username: `${firstname} ${lastname}`,
-        firstname,
-        lastname,
+        username: username,
+        firstname: "not active",
+        lastname: "not active",
         role,
         id_card: `${email} not active id_card`,
         phonenumber,
@@ -94,9 +94,9 @@ const userController = {
   editUser: async (req, res) => {
     try {
       const { _id } = req.body;
-      const update = req.body; 
+      const update = req.body;
       console.log("update", update);
-    
+
       const check = await User.findByIdAndUpdate(_id, update, { new: true });
       if (check) {
         res.json("updatedsuccess");
@@ -119,9 +119,6 @@ const userController = {
       });
     }
   },
-
-
-  
 };
 
 module.exports = userController;

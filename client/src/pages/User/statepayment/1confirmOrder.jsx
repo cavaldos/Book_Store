@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const ConfirmOrder = () => {
+  window.scrollTo(0, 0);
   const columns = [
     {
       title: "Title",
@@ -34,6 +35,7 @@ const ConfirmOrder = () => {
 
   // console.log("orderk", order);
   const { title, price, quantity } = order;
+    const total = payment.total.toFixed(2);
   return (
     <>
       <div style={{ overflowX: "auto" }}>
@@ -59,7 +61,7 @@ const ConfirmOrder = () => {
               lineHeight: "60px",
             }}
           >
-            Total: $ {payment.total}
+            Total: $ {total}
           </h2>
 
           <Button

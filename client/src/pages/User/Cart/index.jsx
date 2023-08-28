@@ -3,7 +3,7 @@ import "./styles.scss";
 import Product from "./Product";
 import { useSelector, useDispatch } from "react-redux";
 import { createPayment } from "../../../redux/features/paymentSlice";
-import { message } from "antd";
+import { message, Space, Card, Button } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
@@ -44,7 +44,7 @@ function Cart() {
     });
     const payload = {
       orderDetails,
-      email: "khanh",
+      email: user.email,
       currentStep: 0,
       id_payment: orderCode,
       total: totalPrice,
@@ -76,20 +76,52 @@ function Cart() {
           />
         ))}
       </div>
-      <div className="pay" style={{ minHeight: "100px" }}>
-        <h3>Total: ${totalPrice.toFixed(2)}</h3>
-        <button
+
+      <Space
+        style={{
+          backgroundColor: "#f0f2f5",
+          minHeight: "100px",
+          maxWidth: "500px",
+          margin: "0 auto",
+          minWidth: "500px",
+          borderRadius: "5px",
+          border: "1px solid #d9d9d9",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          padding: "0 0 10px 0",
+        }}
+        align="center"
+      >
+        <Space
           style={{
-            position: "absolute",
-            bottom: "0px",
-            height: "50px",
-            width: "100%",
+            display: "flex",
+            minHeight: "100px",
+            minWidth: "500px",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
           }}
-          onClick={handlePay}
         >
-          Pay
-        </button>
-      </div>
+          <Card
+            style={{
+              width: 300,
+              margin: "10px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <h3>Total: ${totalPrice.toFixed(2)}</h3>
+          </Card>
+        </Space>
+        <Button style={{ float: "right" }} type="primary" onClick={handlePay}>
+          PAY
+        </Button>
+      </Space>
     </>
   );
 }

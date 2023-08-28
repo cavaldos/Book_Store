@@ -45,7 +45,7 @@ export const userSlice = createSlice({
       state.lastname = action.payload.lastname;
       state.phonenumber = action.payload.phonenumber;
       state.role = action.payload.role;
-      state.list_id_order = action.payload.list_id_order;
+      state.list_id_order = action.payload.list_id_oder;
       state.id_card = action.payload.id_card;
       state.account_balance = action.payload.account_balance;
     },
@@ -81,7 +81,7 @@ export const userSlice = createSlice({
         state.lastname = action.payload.user.lastname;
         state.phonenumber = action.payload.user.phonenumber;
         state.role = action.payload.user.role;
-        state.list_id_order = action.payload.user.list_id_order;
+        state.list_id_order = action.payload.user.list_id_oder;
         state.id_card = action.payload.user.id_card;
         state.account_balance = action.payload.user.account_balance;
       })

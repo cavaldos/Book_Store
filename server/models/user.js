@@ -63,7 +63,7 @@ const userSchema = new mongoose.Schema({
   id_card: {
     type: String,
     required: false,
-    minlength: 9,
+    minlength: 1,
     maxlength: 100,
     default: null,
     unique: true,

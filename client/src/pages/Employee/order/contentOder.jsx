@@ -4,10 +4,12 @@ import Copytext from "../../User/myorder/copytext";
 import { Space, Spin, message } from "antd";
 import axios from "axios";
 import { resetPayment } from "../../../redux/features/paymentSlice";
-import {resetOrder} from "../../../redux/features/orderSlice";
+import { resetOrder } from "../../../redux/features/orderSlice";
 import { useDispatch } from "react-redux";
 function OrderDetail(props) {
   const { orderid } = props;
+  const [order_volumes, setOrder_volume] = useState([]);
+  console.log("orderid", orderid);
   const columns = [
     {
       title: "ID Book",
@@ -20,38 +22,38 @@ function OrderDetail(props) {
       key: "quantity",
     },
   ];
- 
+
   const [getAllOrder, setGetAllOrder] = useState([]);
- 
+
   useEffect(() => {
     axios
       .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
-   
-        order_code: orderid,
+        id_order: orderid,
       })
       .then((res) => {
-        const { order_volume } = res.data;
+        const {order_volume} = res.data;
+        setOrder_volume(res.data);
         const mappedData = order_volume.map((item, index) => ({
           index,
           id: item.id_book,
           quantity: item.quantity,
         }));
+       
         setGetAllOrder(mappedData);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [orderid]);
- 
 
   return (
     <>
       <div>
         <Copytext text={`${orderid}`} />
-        
+
         <Table
           columns={columns}
-          dataSource={getAllOrder}
+          dataSource={order_volumes}
           rowKey={(record) => record.id} // add a unique key prop to each row
           pagination={{ pageSize: 10 }}
         />
@@ -59,8 +61,6 @@ function OrderDetail(props) {
     </>
   );
 }
-
-
 
 function ConfirmOrder(props) {
   const { orderid, email } = props;
@@ -70,8 +70,8 @@ function ConfirmOrder(props) {
   const dispatch = useDispatch();
   const handleConfirm = () => {
     axios
-      .post(`${process.env.REACT_APP_API_PORT}/setstateorder`, {
-        order_code: orderid,
+      .put(`${process.env.REACT_APP_API_PORT}/setstateorder`, {
+        id_order: orderid,
         state: 3,
       })
       .then((res) => {
@@ -97,7 +97,6 @@ function ConfirmOrder(props) {
     dispatch(resetPayment());
     dispatch(resetOrder());
     window.location.reload();
-
   };
   return (
     <>

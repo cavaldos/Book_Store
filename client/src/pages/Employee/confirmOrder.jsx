@@ -5,6 +5,8 @@ import CardOrder from "./order/Confirm";
 import { LoadingOutlined, SolutionOutlined } from "@ant-design/icons";
 import { Steps, Button, message, Space } from "antd";
 import { connectWebSocket, sendMessage } from "../../utils/websocket";
+
+
 function ConfirmOrderEmployee() {
   const YOUR_CLIENT_ID = "employee";
   const RECEIVER_ID = "user";
@@ -26,12 +28,12 @@ function ConfirmOrderEmployee() {
     };
   }, []);
 
-  async function onMessageReceived  (message)  {
-     await setReceivedMessages((prevMessages) => [...prevMessages, message]);
-     await setTimeout(() => {
+  async function onMessageReceived(message) {
+    await setReceivedMessages((prevMessages) => [...prevMessages, message]);
+    await setTimeout(() => {
       window.location.reload();
     }, 2000);
-  };
+  }
 
   const [getAllOrder, setGetAllOrder] = useState([]);
   useEffect(() => {
@@ -45,10 +47,19 @@ function ConfirmOrderEmployee() {
         console.log(err);
       });
   }, []);
-
+  console.log(getAllOrder);
   return (
     <>
-      <h1>All Order Request </h1>
+      <div style={{ margin: "10px 50px" }}>
+        <h2
+          style={{
+            backgroundColor: "#f0f2f5",
+            textAlign: "center",
+          }}
+        >
+          All Order Request
+        </h2>
+      </div>
       <Space
         style={{
           display: "flex",
@@ -57,11 +68,12 @@ function ConfirmOrderEmployee() {
           flexDirection: "column",
         }}
       >
+       
         {getAllOrder.length === 0 ? (
           <p>No orders requested</p>
         ) : (
-          getAllOrder.map((order) => (
-            <CardOrder key={order.order_code} orderid={order.order_code} />
+          getAllOrder.map((order, index) => (
+            <CardOrder key={index} orderid={order.id_order} />
           ))
         )}
       </Space>

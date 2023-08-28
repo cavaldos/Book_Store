@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Button, Input, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../../redux/features/userSlice";
+import PayPalButton from "..//..//..//components//paypal";
 import "./infor.scss";
 import axios from "axios";
 

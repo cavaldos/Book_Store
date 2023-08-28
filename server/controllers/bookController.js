@@ -205,5 +205,47 @@ const bookController = {
       });
     }
   },
+  searchBookByGenre: async (req, res) => {
+    const genre = req.body.genre; // genre là một chuỗi thể loại
+
+    try {
+      const regexGenre = new RegExp(genre, "i");
+      const books = await Book.find({ Genre: regexGenre });
+      res.status(200).json(books);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  importBook: async (req, res) => {
+    try {
+      const data = req.body.Tittle;
+      const number = req.body.Quantity;
+      const exbook = await Book.findOne({ Tittle: data }).exec();
+      const result = await Book.findOneAndUpdate(
+        { Tittle: data },
+        {
+          quantity: exbook.quantity + number,
+        }
+      );
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
+  deleteAllBooksWith: async (req, res) => {
+    try {
+      const data = req.body;
+      const users = await Book.deleteMany({ data });
+      res.status(200).json(users);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
 };
 module.exports = bookController;

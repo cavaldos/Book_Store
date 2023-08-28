@@ -8,11 +8,3 @@
 
 ### `yarn eject`
 
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
-  }
-}

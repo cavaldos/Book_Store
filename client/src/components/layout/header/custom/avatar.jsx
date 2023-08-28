@@ -20,7 +20,7 @@ const items = [
     danger: true,
   },
 ];
-const App = () => {
+const Avatars = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleMenuClick = (key) => {
@@ -71,4 +71,4 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default Avatars;

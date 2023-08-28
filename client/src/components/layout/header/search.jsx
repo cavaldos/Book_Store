@@ -28,14 +28,15 @@ function Searchs() {
 
     typingTimeout = setTimeout(() => {
       fetchTooltipContent(searchValue);
-    }, 1000);
+    }, 800);
   };
 
-  function handleSearch() {
+  async function handleSearch() {
     setValue("");
     setSuggestions([]);
+    await navigate(`/`);
 
-    navigate(`/detail-book/${idSearch}`);
+    await navigate(`/detail-book/${idSearch}`);
   }
 
   const fetchTooltipContent = (searchValue) => {

@@ -9,10 +9,11 @@ const InfoBook = (props) => {
   const { id } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigator = useNavigate();
-  const showModal = () => {
+  async function showModal() {
     setIsModalOpen(true);
-    navigator(`/detail-book/${id}`);
-  };
+    await navigator(`/`);
+    await navigator(`/detail-book/${id}`);
+  }
 
   return (
     <>

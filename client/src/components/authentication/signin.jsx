@@ -1,7 +1,9 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./auth.scss";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
 import axios from "axios";
 
 import Button from "@mui/material/Button";
@@ -30,6 +32,20 @@ import LoadingCustom from "./custom/loading";
 import { updateRole } from "../../redux/features/roleSlice";
 import { updateUser } from "../../redux/features/userSlice";
 function SignIn() {
+  //kich hoat api google cloud
+  const googleClientId =
+    "663009026233-04a1ja16hr8ik1qbu6d2rjef25h4vrlv.apps.googleusercontent.com";
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        googleClientId: googleClientId,
+        scope: "",
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
@@ -98,6 +114,63 @@ function SignIn() {
       console.log(err);
     }
   }
+
+  const responseGoogle = async (response) => {
+    try {
+      const { profileObj, tokenId } = response;
+      if (profileObj && profileObj.email) {
+        const googleEmail = profileObj.email;
+        const googleRole = "user"; // You can set the role here, e.g., "user"
+
+        // Dispatch actions here to update role, email, and password
+
+        try {
+          const backendResponse = await axios.post(
+            `${process.env.REACT_APP_API_PORT}/googleSignIn`,
+            {
+              email: googleEmail,
+              role: googleRole,
+            }
+          );
+
+          if (backendResponse.status === 200) {
+            message.success(`Sign in success with ${googleRole} role`);
+            console.log(profileObj);
+            //console.log(tokenId);
+            const verifyToken = backendResponse.data.accessToken;
+            console.log(verifyToken);
+            dispatch(
+              updateRole({
+                role: googleRole,
+                token: verifyToken,
+                email: googleEmail,
+              })
+            );
+            dispatch(
+              updateUser({
+                email: googleEmail,
+              })
+            );
+            // Navigate to the desired page
+            navigate("/", { replace: true });
+          } else {
+            //console.log("Sign in failed:", backendResponse.status);
+            message.error(`User not found`);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        console.log("Google profileObj or email is missing.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onFailure = (res) => {
+    console.log("LOGIN FAILED! res:", res);
+  };
 
   return (
     <>
@@ -191,6 +264,22 @@ function SignIn() {
                 >
                   Sign In
                 </Button>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: "0 auto",
+                  }}
+                >
+                  <GoogleLogin
+                    clientId={googleClientId}
+                    buttonText="Sign In with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={onFailure}
+                    cookiePolicy={"single_host_origin"}
+                  />
+                </div>
                 <Grid container>
                   <Grid item xs>
                     <Link href="/reset-password" variant="body2">

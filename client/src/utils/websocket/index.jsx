@@ -1,7 +1,8 @@
 import { w3cwebsocket as WebSocket } from "websocket";
 
 function connectWebSocket(YOUR_CLIENT_ID, RECEIVER_ID, onMessageReceived) {
-  const socket = new WebSocket("ws://localhost:8001/");
+  const socket = new WebSocket(`ws:${process.env.REACT_APP_API_SOCKET}/`);
+  // const socket = new WebSocket(`ws://localhost:8001/`);
 
   socket.onopen = () => {
     console.log("Connected to server");
