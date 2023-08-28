@@ -26,20 +26,11 @@ function Profile() {
       key: "profile_user",
       label: "Profile User",
     },
-    {
-      key: "information_wallet",
-      label: "Information Wallet",
-    },
-    {
-      key: "information_order",
-      label: "Information Order",
-    },
+  
   ];
 
   const contentListNoTitle = {
     profile_user: <ProfileUser />,
-    information_wallet: <InforWallet />,
-    information_order: <InforOrder />,
   };
 
   useEffect(() => {
