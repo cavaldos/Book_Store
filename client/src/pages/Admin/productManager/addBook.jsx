@@ -13,33 +13,17 @@ import {
   Rate,
   message,
   AutoComplete,
-  Modal
+  Modal,
 } from "antd";
 import {
   SearchOutlined,
   UploadOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
-import { editBook } from "..//..//..//api/book_api";
+import { addBook, importBook } from "..//..//..//api/book_api";
 import * as XLSX from "xlsx";
 // import { PreviewInfo } from "./previewBook";
 import { Preview } from "@mui/icons-material";
-
-// const PreviewInfo = ({form, handleOk, disabled}) => {
-//   const [isPreviewVisible, setPreviewVisible] = useState(false)
-//   const [data, setData] = useState(null)
-
-  
-//   const useEffect = async () => {
-//     var buffer = await form.getFieldValue();
-//     setData(buffer)
-//   }
-//   return (
-//       <>
-      
-//       </>
-//   );
-// }
 
 const AddBookForm = () => {
   const [form] = Form.useForm();
@@ -109,20 +93,26 @@ const AddBookForm = () => {
       }
       console.log(data)
       setLoading(true);
-      axios
-        .post(`${process.env.REACT_APP_API_PORT}/addbook`, JSON.stringify(data), {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+      try{
+        addBook(data)
         .then((response) => {
-          console.log("Adding book successful:", response.data);
-          message.success("Adding book successful");
+          message.success(response);
         })
-        .catch((error) => {
-          console.log(`An error occurred while importing books: ${error}`);
-          message.error(`An error occurred while importing books`);
-        });
+      }
+      catch(error) {
+        console.log(`An error occurred while importing books: ${error}`);
+        message.error(`An error occurred while importing books`);
+      }
+      // axios
+      //   .post(`${process.env.REACT_APP_API_PORT}/addbook`, JSON.stringify(data), {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   })
+      //   .then((response) => {  
+      //   })
+      //   .catch((error) => {
+      //   });
         setTimeout(() => {
           setLoading(false);
           form.resetFields();
@@ -170,7 +160,6 @@ const AddBookForm = () => {
   const handleCancel = () => {
     setPreviewVisible(false)
   }
-
   return (
     <div>
       <h1>Add Book</h1>
@@ -301,20 +290,184 @@ const AddBookForm = () => {
   );
 };
 
-const ImportBooks = async (file) => {
+const DisplayDataModal = ({ jsonData }) => {
+  const [visible, setVisible] = useState(false);
+
+  const showModal = () => {
+    setVisible(true);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const columns = [
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title'
+    },
+    {
+      title: 'Quantity',
+      dataIndex: 'quantity',
+      key: 'quantity'
+    }
+  ];
+
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+      <Modal
+        title="Data Table"
+        open={visible}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <Table dataSource={jsonData} columns={columns} />
+      </Modal>
+    </>
+  );
+};
+
+const ImportBooks = () => {
+  const [jsonData, setJsonData] = useState([]);
+  const [previewVisible, setPreviewVisible] = useState(false);
+
+  const handlePreview = () => {
+    setPreviewVisible(true);
+  };
+
+  const handlePreviewCancel = () => {
+    setPreviewVisible(false);
+  };
+
+  const handleImport = async (file) => {
+    try {
+      const workbook = XLSX.read(await file.arrayBuffer(), { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const data = await XLSX.utils.sheet_to_json(sheet);
+      await setJsonData(data);
+      handlePreview();
+    }
+    catch (error) {
+      message.error(error)
+    }
+  }
+
+  const handleContinue = () => {
+    onImport(jsonData);
+    setPreviewVisible(false);
+  };
+
+  const onImport = async (data) => {
+    try {
+      const resultbook = XLSX.utils.book_new();
+      const array = []
+      
+      data.forEach((book) => {
+        try{
+          var results = importBook(book);
+          array.push(results);
+        }
+        catch(error){
+          var results = error
+          array.push(`Importing book with ID ${book.ID} error: ${error}`);
+        }
+      });
+      const resultsheet = XLSX.utils.aoa_to_sheet([array]);
+      XLSX.utils.book_append_sheet(resultbook, resultsheet, 'Result');
+      const excelBuffer = XLSX.write(resultbook, { type: 'buffer', bookType: 'xlsx' });
+      const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'result.xlsx';
+      link.click();
+      window.URL.revokeObjectURL(url);
+    }
+    catch(error){
+      console.log('Error while importing book: ', error)
+      message.error('Error while importing book: ', error)
+    }
+  }
+
+  const columns = [
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title'
+    },
+    {
+      title: 'Quantity',
+      dataIndex: 'quantity',
+      key: 'quantity'
+    }
+  ];
+
+  return (
+    <>
+      <Upload beforeUpload={handleImport} showUploadList={false} name="Stock">
+        <Button icon={<UploadOutlined />}>Upload stocks</Button>
+      </Upload>
+      {jsonData.length > 0 && (
+        <Modal
+          title="Data Preview"
+          open={previewVisible}
+          onCancel={handlePreviewCancel}
+          footer={[
+            <Button key="cancel" onClick={handlePreviewCancel}>
+              Cancel
+            </Button>,
+            <Button
+              key="continue"
+              type="primary"
+              onClick={handleContinue}
+            >
+              Continue
+            </Button>
+          ]}
+        >
+          <Table dataSource={jsonData} columns={columns} />
+        </Modal>
+      )}
+    </>
+  );
+
+}
+const ImportBooksFunction = async (file) => {
   try {
     const workbook = XLSX.read(await file.arrayBuffer(), { type: "array" });
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const data = XLSX.utils.sheet_to_json(sheet);
-
+    const resultbook = XLSX.utils.book_new();
+    const array = []
+    
     data.forEach((book) => {
-      editBook(book);
+      try{
+        var results = importBook(book);
+        array.push(results);
+      }
+      catch(error){
+        var results = error
+        array.push(`Importing book with ID ${book.ID} error: ${error}`);
+      }
     });
-
-    message.success("Book import successful. Please refresh page.");
-  } catch (error) {
-    console.error("Error importing books:", error);
-    message.error("An error occurred while importing books");
+    const resultsheet = XLSX.utils.aoa_to_sheet([array]);
+    XLSX.utils.book_append_sheet(resultbook, resultsheet, 'Result');
+    const excelBuffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
+    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'result.xlsx';
+    link.click();
+    window.URL.revokeObjectURL(url);
+  }
+  catch(error){
+    console.log('Error while importing book: ', error)
+    message.error('Error while importing book: ', error)
   }
 };
 export {
