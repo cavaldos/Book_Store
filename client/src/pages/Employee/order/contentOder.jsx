@@ -8,6 +8,7 @@ import {resetOrder} from "../../../redux/features/orderSlice";
 import { useDispatch } from "react-redux";
 function OrderDetail(props) {
   const { orderid } = props;
+  console.log("orderid", orderid);
   const columns = [
     {
       title: "ID Book",
@@ -27,7 +28,7 @@ function OrderDetail(props) {
     axios
       .post(`${process.env.REACT_APP_API_PORT}/findorder`, {
    
-        order_code: orderid,
+        id_order: orderid,
       })
       .then((res) => {
         const { order_volume } = res.data;

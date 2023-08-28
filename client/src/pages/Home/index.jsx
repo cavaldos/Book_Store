@@ -1,7 +1,7 @@
 import "./home.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Book} from "./book/book";
+import { Book } from "./book/book";
 import { Spin, Pagination, Carousel, Select } from "antd";
 
 import Poster from "./poster";
@@ -54,6 +54,7 @@ function Home() {
       .then((response) => {
         setProducts(response.data.books);
         setTotalPages(response.data.totalPages);
+
         // Generate an array of page numbers [1, 2, 3, ..., totalPages]
         setPageNumbers(
           Array.from({ length: response.data.totalPages }, (_, i) => i + 1)
@@ -91,7 +92,7 @@ function Home() {
             margin: "0 auto",
             display: "block",
             borderRadius: "4px",
-            border:"2px solid #1890ff"
+            border: "2px solid #1890ff",
           }}
           options={[
             //{ value: "all", label: "All" }, // Thêm một tùy chọn "All"

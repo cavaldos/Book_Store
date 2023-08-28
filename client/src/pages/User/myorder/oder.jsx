@@ -1,5 +1,6 @@
-import { Button, Steps, Space, Progress } from "antd";
+import { Button, Steps, Space, Progress, message } from "antd";
 import Copy from "./copytext";
+import axios from "axios";
 import {
   LoadingOutlined,
   SmileOutlined,
@@ -10,6 +11,7 @@ const { Step } = Steps;
 
 function Order(props) {
   const { current, id_order } = props;
+  console.log("id_order", id_order);
   const steps = [
     {
       title: "Confirm Order",
@@ -43,9 +45,32 @@ function Order(props) {
     description: item.description,
     icon: item.icon,
   }));
-  const handleReceived = () => {
-    // goi api remove san pham theo id
-  };
+  async function handleReceived() {
+    axios
+      .delete(`${process.env.REACT_APP_API_PORT}/removeorder`, {
+        data: { id_order: id_order },
+      })
+      .then((res) => {
+        console.log("res", res);
+        if (res.data === "success") {
+          message.success("Received success");
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
+          return;
+        } else if (res.data === "fail") {
+          message.error("Received fail");
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
+          return;
+        }
+      })
+      .catch((err) => {
+        message.error("Received fail");
+        console.log("err", err);
+      });
+  }
   return (
     <div
       style={{ margin: "10px", border: "1px solid black", borderRadius: "3px" }}
@@ -76,13 +101,14 @@ function Order(props) {
             position: "relative",
             borderRadius: "2px",
           }}
+          onClick={handleReceived}
         >
           Received
         </Button>
         <Progress
-        style={{position:"relative",right:"0 10px 5px 0"}}
+          style={{ position: "relative", right: "0 10px 5px 0" }}
           type="circle"
-          percent={(current+1)*25}
+          percent={(current + 1) * 25}
           strokeColor={{ "0%": "#108ee9", "100%": "#87d068" }}
           size={50}
         />

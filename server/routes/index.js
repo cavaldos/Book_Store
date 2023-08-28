@@ -68,4 +68,5 @@ router.post("/getallgenres", genreController.getAllGenres);
 //PAYPAL
 router.post("/paypal/capture", paypalController.capturePayment);
 
+
 module.exports = router;

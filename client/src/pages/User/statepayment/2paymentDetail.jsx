@@ -31,7 +31,7 @@ const PaymentDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const payment = useSelector((state) => state.payment);
-
+  const [datas, setDatas] = useState([]);
   useEffect(() => {
     const newSocket = connectWebSocket(
       YOUR_CLIENT_ID,
@@ -58,34 +58,16 @@ const PaymentDetails = () => {
   const currentStep = payment.currentStep;
 
   const data = {
-    price: payment.total,
-    id_card: Number(user.id_card),
     id_order: payment.id_payment,
+    order_volume: payment.orderDetails,
+    email: user.email,
+    price_total: payment.total,
+    state: 2,
   };
-  console.log("data", data);
+
   async function handlePayment() {
-    console.log("data", data);
     console.log("paymentasdfafsd", payment.orderDetails);
-    await axios
-      .post(`${process.env.REACT_APP_API_PORT_PAYMENT}/actions`, data)
-      .then((res) => {
-        console.log("res", res);
-        const check = res.data.message;
-        if (res.status === 400) {
-          message.error("Not enough money");
-          return;
-        } else if (res.status === 500) {
-          message.error("Account balance does not exist");
-          return;
-        } else {
-          message.success("Payment success");
-          return;
-        }
-      })
-      .catch((err) => {
-        message.error("Account balance does not exist");
-        console.log("err", err);
-      });
+
     await axios
       .post(`${process.env.REACT_APP_API_PORT}/createorder`, {
         id_order: payment.id_payment,
@@ -112,8 +94,6 @@ const PaymentDetails = () => {
         console.log("err", err);
       });
 
-    // navigate("/user");
-
     handleSendMessage();
   }
   const handlePrev = () => {
@@ -121,7 +101,7 @@ const PaymentDetails = () => {
   };
   return (
     <div>
-      <form onSubmit={handlePayment}>
+      <div>
         <Space
           style={{
             minHeight: "200px",
@@ -155,25 +135,21 @@ const PaymentDetails = () => {
             <br />
             <h3 className="h3">Order price: ${payment.total}</h3>
             <br />
-            <h3 className="h3">Address:{4325}</h3>
+            <h3
+              styles={{
+                display: "flex",
+                float: "left",
+                position: "relative",
+                left: "0",
+                padding: "100%",
+                backgroundColor: "red",
+                color: "red",
+              }}
+              className="h3"
+            ></h3>
           </Card>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {/* <TextField
-            style={{ margin: "0 0 10px 0" }}
-            label="CVV"
-            onChange={(e) => setCvv(e.target.value)}
-          /> */}
-            <TextField
-              style={{ margin: "10px 0" }}
-              label="Address"
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}></div>
         </Space>
-
-        {/* <Button variant="contained" onClick={handlePayment}>
-          Payment confirmation
-        </Button> */}
         <div
           style={{
             margin: "5px auto",
@@ -183,7 +159,7 @@ const PaymentDetails = () => {
             textAlign: "center",
           }}
         >
-          <PayPalButton />
+          <PayPalButton props={data} />
         </div>
         <Button
           variant="outlined"
@@ -192,7 +168,7 @@ const PaymentDetails = () => {
         >
           Previous
         </Button>
-      </form>
+      </div>
     </div>
   );
 };

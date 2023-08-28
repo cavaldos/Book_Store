@@ -44,7 +44,7 @@ function Cart() {
     });
     const payload = {
       orderDetails,
-      email: "khanh",
+      email: user.email,
       currentStep: 0,
       id_payment: orderCode,
       total: totalPrice,

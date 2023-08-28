@@ -61,7 +61,7 @@ function ConfirmOrderEmployee() {
           <p>No orders requested</p>
         ) : (
           getAllOrder.map((order) => (
-            <CardOrder key={order.order_code} orderid={order.order_code} />
+            <CardOrder key={order.id_order} orderid={order.id_order} />
           ))
         )}
       </Space>
