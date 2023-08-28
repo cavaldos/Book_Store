@@ -120,16 +120,16 @@ const bookController = {
   },
   importBook: async (req, res) => {
     try {
-      const data = req.body;
-      const exbook = await User.findOne({data})
-      const result = await Book.updateOne(
-        { Tittle: exbook.title },
+      const data = req.body.Tittle;
+      const number = req.body.Quantity;
+      const exbook = await Book.findOne({Tittle: data})
+      .exec()
+      const result = await Book.findOneAndUpdate(
+        { Tittle: data },
         {
-          $set: {
-            quantity: exbook.quantity + data.quantity,
-          },
+          quantity: exbook.quantity + number,
         }
-      );
+      )
       res.status(200).json(result);
     } catch (err) {
       res.status(500).json({
