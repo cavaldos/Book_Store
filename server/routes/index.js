@@ -15,6 +15,7 @@ router.post("/logout", authController.logout); //
 router.post("/resetpassword", authController.resetpassword); //
 router.post("/verify", authController.sendConfirmationCode); //
 router.post("/verifyemailsignup", authController.verifyEmailSignUp); //
+router.post("/googleSignIn", authController.googleSignIn); //
 //user
 router.delete(
   "/deleteuser",
@@ -40,6 +41,7 @@ router.get("/getgenre", bookController.getGenreBook); //
 router.get("/:id", bookController.getBookById); //
 router.get("/search/:query", bookController.searchBook); //
 router.post("/getbookbygenre", bookController.searchBookByGenre); //
+router.put("/importbook", bookController.importBook); //
 
 //order
 router.post("/getallorder", orderController.getAllOrder); //

@@ -76,13 +76,23 @@ function Cart() {
           />
         ))}
       </div>
-      <div className="pay" style={{ minHeight: "100px" }}>
+      <div
+        className="pay"
+        style={{
+          minHeight: "100px",
+          justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          margin: "0 40px 0 40px",
+        }}
+      >
         <h3>Total: ${totalPrice.toFixed(2)}</h3>
         <button
           style={{
-            position: "absolute",
+            position: "relative",
             bottom: "0px",
-            height: "50px",
+            maxHeight: "50px",
             width: "100%",
           }}
           onClick={handlePay}

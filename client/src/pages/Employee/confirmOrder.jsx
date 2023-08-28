@@ -5,6 +5,8 @@ import CardOrder from "./order/Confirm";
 import { LoadingOutlined, SolutionOutlined } from "@ant-design/icons";
 import { Steps, Button, message, Space } from "antd";
 import { connectWebSocket, sendMessage } from "../../utils/websocket";
+
+
 function ConfirmOrderEmployee() {
   const YOUR_CLIENT_ID = "employee";
   const RECEIVER_ID = "user";
@@ -45,7 +47,7 @@ function ConfirmOrderEmployee() {
         console.log(err);
       });
   }, []);
-
+  console.log(getAllOrder);
   return (
     <>
       <div style={{ margin: "10px 50px" }}>
@@ -70,8 +72,8 @@ function ConfirmOrderEmployee() {
         {getAllOrder.length === 0 ? (
           <p>No orders requested</p>
         ) : (
-          getAllOrder.map((order) => (
-            <CardOrder key={order.id_order} orderid={order.id_order} />
+          getAllOrder.map((order, index) => (
+            <CardOrder key={index} orderid={order.id_order} />
           ))
         )}
       </Space>

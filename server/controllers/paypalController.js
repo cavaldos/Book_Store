@@ -13,17 +13,7 @@ const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 
 const paypalController = {
-  test: async (req, res) => {
-    try {
-      const user = await User.findOne({ email: "user@gmail.com" });
-      user.list_id_oder.push("123", "dsfs");
-      const check = await user.save();
-      console.log("check", check);
-      res.json("success");
-    } catch (error) {
-      res.json({ message: "fail", error: error.message });
-    }
-  },
+  
   capturePayment: async (req, res) => {
     const orderID = req.body.orderID;
     const { id_order, email, price_total, state, order_volume } =

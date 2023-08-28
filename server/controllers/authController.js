@@ -72,7 +72,25 @@ const authController = {
       });
     }
   },
+  googleSignIn: async (req, res) => {
+    try {
+      const { email, role } = req.body;
+      const user = await User.findOne({ email: email, role: role });
 
+      if (user) {
+        const accessToken = authController.getgenreAccesstoken(user);
+        const refreshToken = authController.getgenreRefreshtoken(user);
+        const { password, ...info } = user._doc;
+        res.status(200).json({ ...info, accessToken, refreshToken });
+      } else {
+        res.status(401).json("signinfail");
+      }
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  },
   verifyEmailSignUp: async (req, res) => {
     try {
       const { email } = req.body;

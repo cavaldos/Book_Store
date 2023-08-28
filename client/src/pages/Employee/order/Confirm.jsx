@@ -1,42 +1,47 @@
 import React, { useState } from "react";
-import { Card } from "antd";
-
-import { OrderDetail, ConfirmOrder } from "./contentOder";
-const tabList = [
-  {
-    key: "oderdetail",
-    tab: "Oder Detail Request",
-  },
-  {
-    key: "confirmorder",
-    tab: "Confirm Order",
-  },
-];
+import { Card, Space, Button } from "antd";
+import Copytext from "../../User/myorder/copytext";
+import { Spa } from "@mui/icons-material";
 
 const CardConfirmOrder = (props) => {
-  const { orderid, email } = props;
-  const [activeTabKey1, setActiveTabKey1] = useState("tab1");
-  const onTab1Change = (key) => {
-    setActiveTabKey1(key);
-  };
-  const contentList = {
-    oderdetail: <OrderDetail orderid={orderid} />,
-    confirmorder: <ConfirmOrder orderid={orderid} email={email} />,
-  };
+  console.log(props);
 
   return (
     <>
-      <Card
+      <Space
         style={{
-          width: "100%",
+          backgroundColor: "#f0f2f5",
+          minHeight: "100px",
+          minWidth: "500px",
+          borderRadius: "10px",
+          border: "1px solid #d9d9d9",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          padding: "0 0 10px 0",
         }}
-        title="Card title"
-        tabList={tabList}
-        activeTabKey={activeTabKey1}
-        onTabChange={onTab1Change}
+        align="center"
       >
-        {contentList[activeTabKey1]}
-      </Card>
+        <Copytext text={`${props.orderid}`} />
+        <Space
+          style={{
+            display: "flex",
+            minHeight: "100px",
+            minWidth: "500px",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          contern
+        </Space>
+        <Button style={{ float: "right" }} type="primary">
+          Primary Button
+        </Button>
+      </Space>
+
       <br />
     </>
   );
