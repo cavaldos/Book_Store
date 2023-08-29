@@ -22,7 +22,7 @@ import { useRef } from "react";
 import { Modal } from "antd";
 import * as XLSX from "xlsx";
 import { AddBookForm, ImportBooks } from "./addBook";
-
+import DeleteBook from "./deletebook";
 function ManagerProduct() {
   const [book, setBook] = useState([]);
   const [data, setData] = useState([]);
@@ -175,7 +175,7 @@ function ManagerProduct() {
     // {
     //   title: "Action",
     //   key: "action",
-    //   render: (text, record) => <EditUser record={record} />,
+    //   render: (text, record) => <DeleteBook id={record} />,
     // },
   ];
   const handleSearch = (selectedKeys, confirm, dataIndex) => {

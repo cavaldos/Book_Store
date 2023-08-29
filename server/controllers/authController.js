@@ -199,9 +199,11 @@ const authController = {
   },
   resetpassword: async (req, res) => {
     try {
-      res.json({ message: "fogotpassword loadding" });
+      //res.json({ message: "fogotpassword loadding" });
+      const salt = await bcrypt.genSalt(10);
       const { email, password, confirmationCode } = req.body;
       console.log(req.body);
+      const hashPassword = await bcrypt.hash(req.body.password, salt);
       const check = await User.findOne({
         email: email,
       });
@@ -210,6 +212,10 @@ const authController = {
       });
 
       if (check && check2) {
+        await User.findOneAndUpdate(
+          { email: email },
+          { password: hashPassword } // Cập nhật mật khẩu mới đã được hash
+        );
         res.json("resetpasswordsuccess");
       } else {
         res.json("resetpasswordfail");
@@ -220,7 +226,6 @@ const authController = {
       });
     }
   },
-
   sendConfirmationCode: async (req, res) => {
     try {
       const { email } = req.body;
