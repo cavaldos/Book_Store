@@ -182,7 +182,9 @@ const bookController = {
     try {
       const data = req.body;
       const maso = data.ID;
+      console.log(maso)
       const users = await Book.deleteOne({ ID: maso });
+      console.log(users)
       res.status(200).json(users);
     } catch (err) {
       res.status(500).json({

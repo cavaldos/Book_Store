@@ -177,6 +177,7 @@ function ManagerProduct() {
     //   key: "action",
     //   render: (text, record) => <DeleteBook id={record} />,
     // },
+    
   ];
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
